@@ -23,7 +23,8 @@ directly to the folder they need to be in.
 [X] - reminiscence.sh - Tested and works well.  
 
 -- Testing --  
-[ ] - abuse.sh - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
+[ ] - abuse.sh - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.
+[ ] - alephone-community.sh - Some instability with Alephone on Raspberry Pi. Working on it.
 [ ] - lr-craft.sh - New libretro core for a Minecraft clone, does not work on Pi due to missing OpenGLES2 support. X86 only, untested.  
 
 
