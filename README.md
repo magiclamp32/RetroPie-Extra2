@@ -16,13 +16,14 @@ This script assumes that you are running it on a Raspberry Pi with the RetroPie-
 directly to the folder they need to be in.
 
 
--- Master Branch --
-crispy-doom.sh - Tested and works well.
-freeciv.sh - Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.
-reminiscence.sh - Tested and works well.
+-- Master Branch --  
+[X] - chocolate-doom.sh - Tested and works well.    
+[X] - crispy-doom.sh - Tested and works well.  
+[X] - freeciv.sh - Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.  
+[X] - reminiscence.sh - Tested and works well.  
 
--- Testing --
-abuse.sh - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.
-lr-craft.sh - New libretro core for a Minecraft clone, does not work on Pi due to missing OpenGLES2 support. X86 only, untested.
+-- Testing --  
+[ ] - abuse.sh - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
+[ ] - lr-craft.sh - New libretro core for a Minecraft clone, does not work on Pi due to missing OpenGLES2 support. X86 only, untested.  
 
 
