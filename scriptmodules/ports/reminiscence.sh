@@ -35,5 +35,5 @@ function configure_reminiscence() {
     mkRomDir "ports/$md_id"
 
     addPort "$md_id" "reminiscence" "REminiscence" "$md_inst/rs --datapath=$romdir/ports/$md_id --savepath=$configdir/$md_id"
-    
+    __INFMSGS+=("Please copy your Flashback data files to $romdir/ports/$md_id before running REminiscence.")
 }
