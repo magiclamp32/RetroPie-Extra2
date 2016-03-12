@@ -15,7 +15,7 @@ rp_module_menus="4+"
 rp_module_flags="!x86 !mali"
 
 function depends_easyrpg() {
-    getDepends libsdl2-dev libsdl2-mixer-dev libpng12-dev libfreetype6-dev libboost-dev libpixman-1-dev zlib1g-dev autoconf automake
+    getDepends libsdl2-dev libsdl2-mixer-dev libpng12-dev libfreetype6-dev libboost-dev libpixman-1-dev zlib1g-dev autoconf automake libicu-dev
 }
 
 function sources_easyrpg() {
