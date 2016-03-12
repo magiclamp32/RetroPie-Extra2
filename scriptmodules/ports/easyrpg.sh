@@ -10,7 +10,7 @@
 #
 
 rp_module_id="easyrpg"
-rp_module_desc="EasyRPG - An Open Source RPG Maker 2000/2003 Interpreter"
+rp_module_desc="EasyRPG - RPG Maker 2000 and 2003 Interpreter"
 rp_module_menus="4+"
 rp_module_flags="!x86 !mali"
 
@@ -28,13 +28,17 @@ function build_easyrpg() {
     autoreconf -i
     ./configure --prefix "$md_inst"
     make
-
+    # Temporary, to allow build to link properly before installation.
+    ln -s "$md_build/liblcf/.libs/liblcf.so" "/usr/local/lib/liblcf.so"
+    ln -s "$md_build/liblcf/.libs/liblcf.la" "/usr/local/lib/liblcf.la"
     cd ../player
     autoreconf -i
-    LD_FLAGS="-L "$md_build/liblcf/" ./configure --prefix "$md_inst"
+    LD_FLAGS="-L$md_build/liblcf/.libs" ./configure --prefix "$md_inst"
     make
     cd ..
-    
+    # No longer needed.
+    rm /usr/local/lib/liblcf.so
+    rm /usr/local/lib/liblcf.la
     md_ret_require="$md_build/player/easyrpg-player"
 }
 
@@ -49,22 +53,12 @@ function install_easyrpg() {
 function configure_easyrpg() {
     mkRomDir "ports"
     mkRomDir "ports/$md_id"
-    mkUserDir "$configdir/$md_id"
+    mkRomDir "ports/$md_id/data/"
+    mkRomDir "ports/$md_id/data/rtp2000"
+    mkRomDir "ports/$md_id/data/rtp2003"
+    mkRomDir "ports/$md_id/games/"
 
-    moveConfigFile "config.xml" "$configdir/$md_id/config.xml"
-    moveConfigFile "hiscores.xml" "$configdir/$md_id/hiscores.xml"
+    addPort "$md_id" "easyrpg" "EasyRPG - RPG Maker 2000 and 2003 Interpreter" "cd $romdir/ports/$md_id/games/; RPG2K_RTP_PATH=$romdir/ports/$md_id/data/rtp2000/ RPG2K3_RTP_PATH=$romdir/ports/$md_id/data/rtp2003/ $md_inst/bin/easyrpg-player"
 
-    if [[ ! -f "$configdir/$md_id/config.xml" ]]; then
-        cp -v "$md_inst/config.xml.def" "$configdir/$md_id/config.xml"
-    fi
-
-    cp -v roms.txt "$romdir/ports/$md_id/"
-
-    chown -R $user:$user "$romdir/ports/$md_id" "$configdir/$md_id"
-
-    ln -snf "$romdir/ports/$md_id" "$md_inst/roms"
-
-    addPort "$md_id" "cannonball" "Cannonball - OutRun Engine" "pushd $md_inst; $md_inst/cannonball; popd"
-
-    __INFMSGS+=("You need to unzip your OutRun set B from latest MAME (outrun.zip) to $romdir/ports/$md_id. They should match the file names listed in the roms.txt file found in the roms folder. You will also need to rename the epr-10381a.132 file to epr-10381b.132 before it will work.")
+    __INFMSGS+=("You need to unzip your RPG Maker games into subdirectories in $romdir/ports/$md_id/games. Obtain the translated RPG Maker 2000 RTP by Don Miguel and extract it to $romdir/ports/$md_id/data/rtp2000. Obtain the translated RPG Maker 2003 RTP by Advocate and extract it to $romdir/ports/$md_id/data/rtp2003/.")
 }
