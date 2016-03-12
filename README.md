@@ -17,15 +17,16 @@ directly to the folder they need to be in.
 
 
 -- Master Branch --  
-[X] - chocolate-doom.sh - Tested and works well.    
-[X] - crispy-doom.sh - Tested and works well.  
-[X] - easyrpg.sh - Tested and works well.  
-[X] - freeciv.sh - Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.  
-[X] - reminiscence.sh - Tested and works well.  
+[X] - chocolate-doom.sh - DOOM source port - Tested and works well.  
+[X] - corsixth.sh - Theme Hospital engine clone - Tested and works well.  
+[X] - crispy-doom.sh - DOOM source port - Tested and works well.  
+[X] - easyrpg.sh - RPG Maker 2000/2003 interpreter - Tested and works well.  
+[X] - freeciv.sh - Civilization online clone - Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.  
+[X] - reminiscence.sh - Flashback engine clone - Tested and works well.  
 
 -- Testing --  
-[ ] - abuse.sh - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
-[ ] - alephone-community.sh - Some instability with Alephone on Raspberry Pi. Working on it.  
-[ ] - lr-craft.sh - New libretro core for a Minecraft clone, does not work on Pi due to missing OpenGLES2 support. X86 only, untested.  
+[ ] - abuse.sh - Classic action game - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
+[ ] - alephone-community.sh - Additional scenarios for AlephOne - Some instability with Alephone on Raspberry Pi. Working on it.  
+[ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. X86 only, untested.  
 
 
