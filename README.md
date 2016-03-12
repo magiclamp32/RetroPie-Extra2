@@ -17,7 +17,7 @@ directly to the folder they need to be in.
 
 
 -- Master Branch --  
-[X] - chocolate-doom.sh - DOOM source port - Tested and works well.
+[X] - chocolate-doom.sh - DOOM source port - Tested and works well.  
 [X] - corsixth.sh - Theme Hospital engine clone - Tested and works well.  
 [X] - crispy-doom.sh - DOOM source port - Tested and works well.  
 [X] - easyrpg.sh - RPG Maker 2000/2003 interpreter - Tested and works well.  
