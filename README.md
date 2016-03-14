@@ -32,7 +32,7 @@ directly to the folder they need to be in.
 -- Testing --  
 [ ] - abuse.sh - Classic action game - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
 [ ] - alephone-community.sh - Additional scenarios for AlephOne - Some instability with Alephone on Raspberry Pi. Working on it.  
-[ ] - f2bgl,sh - Fade To Black engine - Currently untested.  
+[ ] - f2bgl.sh - Fade To Black engine - Currently untested.  
 [ ] - kweb.sh - Minimal kiosk web browser - In progress, untested.  
 [ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. X86 only, untested.  
 [ ] - manaplus.sh - 2D MMORPG client - Does not appear to run properly.  
