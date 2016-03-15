@@ -15,32 +15,48 @@ rp_module_menus="4+"
 rp_module_flags="!mali !x86"
 
 function depends_rott() {
-    getDepends libsdl1.2-dev libsdl-mixer1.2-dev automake autoconf subversion
+    getDepends libsdl1.2-dev libsdl-mixer1.2-dev automake autoconf subversion unzip
 }
 
 function sources_rott() {
-    svn checkout svn://svn.icculus.org/rott/trunk/
+    svn checkout svn://svn.icculus.org/rott/trunk/ standard
+    svn checkout svn://svn.icculus.org/rott/trunk/ shareware
 }
 
 function build_rott() {
-    cd trunk
+    cd standard/
     autoreconf -fiv
-    ./configure --prefix="$md_inst" --enable-datadir="$romdir/ports/$md_id/"
+    ./configure --prefix="$md_inst" --enable-datadir="$romdir/ports/$md_id/standard"
     make
-    md_ret_require="$md_build/trunk/rott"
+    
+    cd ../shareware/trunk
+    autoreconf -fiv
+    ./configure--prefix="$md_inst" --enable-datadir="$romdir/ports/$md_id/shareware" --enable-shareware --enable-suffix="shareware"
+    md_ret_require=(
+        "$md_build/standard/rott"
+        "$md_build/shareware/rott-shareware"
+    )
 }
 
 function install_rott() {
-    cd trunk
+    cd standard
+    make install
+    cd ../shareware
     make install
 }
 
 function configure_rott() {
     mkRomDir "ports"
     mkRomDir "ports/$md_id"
+    mkRomDir "ports/$md_id/standard"
+    mkRomDir "ports/$md_id/shareware"
+    
+    wget "http://icculus.org/rott/share/1rott13.zip"
+    unzip -o 1rott13.zip "$romdir/ports/$md_id/shareware"
 
     moveConfigDir "$home/.rott" "$configdir/rott"
 
     addPort "$md_id" "rott" "rott - Rise of the Triad port" "$md_inst/bin/rott"
+    addPort "$md_id" "rott-shareware" "rott - Rise of the Triad port Shareware" "$md_inst/bin/rott-shareware"
     __INFMSGS+=("Please add your ROTT files to $romdir/ports/$md_id/ to play.")
 }
