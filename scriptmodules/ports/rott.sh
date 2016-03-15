@@ -19,7 +19,7 @@ function depends_rott() {
 }
 
 function sources_rott() {
-    svn export svn://svn.icculus.org/rott/trunk/
+    svn checkout svn://svn.icculus.org/rott/trunk/
 }
 
 function build_rott() {
