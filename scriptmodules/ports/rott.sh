@@ -29,12 +29,13 @@ function build_rott() {
     ./configure --prefix="$md_inst" --enable-datadir="$romdir/ports/$md_id/standard"
     make
     
-    cd ../shareware/trunk
+    cd ../shareware/
     autoreconf -fiv
-    ./configure--prefix="$md_inst" --enable-datadir="$romdir/ports/$md_id/shareware" --enable-shareware --enable-suffix="shareware"
+    ./configure --prefix="$md_inst" --enable-datadir="$romdir/ports/$md_id/shareware" --enable-shareware --enable-suffix="shareware"
+    make
     md_ret_require=(
-        "$md_build/standard/rott"
-        "$md_build/shareware/rott-shareware"
+        "$md_build/standard/rott/rott"
+        "$md_build/shareware/rott/rott-shareware"
     )
 }
 
@@ -51,12 +52,13 @@ function configure_rott() {
     mkRomDir "ports/$md_id/standard"
     mkRomDir "ports/$md_id/shareware"
     
-    wget "http://icculus.org/rott/share/1rott13.zip"
-    unzip -o 1rott13.zip "$romdir/ports/$md_id/shareware"
-
+    wget "http://icculus.org/rott/share/1rott13.zip" -O 1rott13.zip
+    unzip -L -o 1rott13.zip rottsw13.shr
+    unzip -L -o rottsw13.shr -d "$md_inst/shareware" huntbgin.wad huntbgin.rtc huntbgin.rtl remote1.rts
+    
     moveConfigDir "$home/.rott" "$configdir/rott"
 
     addPort "$md_id" "rott" "rott - Rise of the Triad port" "$md_inst/bin/rott"
     addPort "$md_id" "rott-shareware" "rott - Rise of the Triad port Shareware" "$md_inst/bin/rott-shareware"
-    __INFMSGS+=("Please add your ROTT files to $romdir/ports/$md_id/ to play.")
+    __INFMSGS+=("Please add your full version ROTT files to $romdir/ports/$md_id/ to play.")
 }
