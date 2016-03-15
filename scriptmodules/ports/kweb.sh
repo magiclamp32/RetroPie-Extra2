@@ -19,12 +19,21 @@ function depends_kweb() {
 }
 
 function sources_kweb() {
-    wget -O- -q http://steinerdatenbank.de/software/kweb-1.6.9.tar.gz | tar -zxv
+    if [[ "$__raspbian_ver" -lt 8 ]]; then
+        wget -O- -q http://steinerdatenbank.de/software/kweb-1.6.8.tar.gz | tar -zxv
+    else
+        wget -O- -q http://steinerdatenbank.de/software/kweb-1.6.9.tar.gz | tar -zxv
+    fi
     git clone git://github.com/rg3/youtube-dl youtube-dl
 }
 
 function install_kweb() {
-    cd kweb-1.6.9
+    if [[ "$__raspbian_ver" -lt 8 ]]; then
+        cd kweb-1.6.8
+    else
+        cd kweb-1.6.9
+    fi
+    
     ./debinstall
     cd ..
     cp -R youtube-dl/ "$md_inst"
