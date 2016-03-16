@@ -27,21 +27,12 @@ function build_crispy-doom() {
     ./configure --prefix="$md_inst"
     make
     md_ret_require="$md_build/src/crispy-doom"
-    md_ret_require="$md_build/src/crispy-hexen"
-    md_ret_require="$md_build/src/crispy-heretic"
-    md_ret_require="$md_build/src/crispy-strife"
 }
 
 function install_crispy-doom() {
     md_ret_files=(
         'src/crispy-doom'
-        'src/crispy-hexen'
-        'src/crispy-heretic'
-        'src/crispy-strife'
         'src/crispy-doom-setup'
-        'src/crispy-hexen-setup'
-        'src/crispy-heretic-setup'
-        'src/crispy-strife-setup'
         'src/crispy-setup'
         'src/crispy-server'
     )
@@ -106,26 +97,6 @@ function configure_crispy-doom() {
     if [[ -f "$romdir/ports/doom/plutonia.wad" ]]; then
        chown $user:$user "$romdir/ports/doom/plutonia.wad"
        addPort "$md_id" "crispy-doomplutonia" "Crispy Final Doom - The Plutonia Experiment" "$md_inst/crispy-doom -iwad $romdir/ports/doom/plutonia.wad"
-    fi
-
-    if [[ -f "$romdir/ports/doom/heretic1.wad" ]]; then
-       chown $user:$user "$romdir/ports/doom/heretic1.wad"
-       addPort "$md_id" "crispy-heretic1" "Crispy Heretic Shareware" "$md_inst/crispy-heretic -iwad $romdir/ports/doom/heretic1.wad"
-    fi
-
-    if [[ -f "$romdir/ports/doom/heretic.wad" ]]; then
-       chown $user:$user "$romdir/ports/doom/heretic.wad"
-       addPort "$md_id" "crispy-heretic" "Crispy Heretic Registered" "$md_inst/crispy-heretic -iwad $romdir/ports/doom/heretic.wad"
-    fi
-    
-    if [[ -f "$romdir/ports/doom/hexen.wad" ]]; then
-       chown $user:$user "$romdir/ports/doom/hexen.wad"
-       addPort "$md_id" "crispy-hexen" "Crispy Hexen" "$md_inst/crispy-hexen -iwad $romdir/ports/doom/hexen.wad"
-    fi
-
-    if [[ -f "$romdir/ports/doom/strife1.wad" ]]; then
-       chown $user:$user "$romdir/ports/doom/strife1.wad"
-       addPort "$md_id" "crispy-strife1" "Crispy Strife" "$md_inst/crispy-strife -iwad $romdir/ports/doom/strife1.wad"
     fi
 
     __INFMSGS+=("Please add your iWAD files to $romdir/ports/doom/ and reinstall $md_id to create entries for each game to EmulationStation. Run 'crispy-setup' to configure your controls and options.")
