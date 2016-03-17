@@ -25,6 +25,7 @@ directly to the folder they need to be in.
 [X] - freeciv.sh - Civilization online clone - Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.  
 [X] - freesynd.sh - Syndicate clone - Tested and has occasional crash issues. Save between levels to avoid losing progress.  
 [X] - kweb.sh - Minimal kiosk web browser - Tested and working well generally. Media may not be working well, I need to understand it better first to say.  
+[X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 [X] - pingus.sh - Lemmings clone - Tested and works well, requires mouse.  
 [X] - rawgl.sh - Another World source port - Tested, occasionally crashes when button held when switching scenes?  
 [X] - reminiscence.sh - Flashback engine clone - Tested and works well.   
@@ -33,9 +34,13 @@ directly to the folder they need to be in.
 -- Testing --  
 [ ] - abuse.sh - Classic action game - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
 [ ] - alephone-community.sh - Additional scenarios for AlephOne - Some instability with Alephone on Raspberry Pi. Working on it.  
+[ ] - beebem.sh - BBC Micro emulator - Currently untested.  
 [ ] - f2bgl.sh - Fade To Black engine - Currently untested.  
-[ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. X86 only, untested.  
-[ ] - manaplus.sh - 2D MMORPG client - Does not appear to run properly.  
+[ ] - kodi.sh - Media Player - Installs v16 for Raspbian Jessie ONLY. Currently untested.  
+[ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. X86 only, untested.   
+[ ] - mehstation.sh - Emulator frontend - Currently untested, unfinished script. Not able to replace emulationstation yet.  
+[ ] - moonlight.sh - Open Source nVidia GameStreaming - Currently untested.  
+[ ] - openfodder.sh - Open source Cannon Fodder engine - Instable, crashes during second mission.  
 
 
 
