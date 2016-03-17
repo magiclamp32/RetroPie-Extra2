@@ -15,7 +15,7 @@ rp_module_menus="4+"
 rp_module_flags="!x86 !mali"
 
 function depends_manaplus() {
-    getDepends libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libsdl-net1.2-dev libcurl4-gnutls-dev libpng12-dev libxml2-dev cmake libguichan-dev patch autoconf libtool libsdl-ttf2.0-dev libsdl-gfx1.2-dev gettext libgl1-mesa-dev libenet-dev libphysfs-dev libxml2-dev zlib1g-dev
+    getDepends libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libsdl-net1.2-dev libcurl4-gnutls-dev libpng12-dev libxml2-dev cmake libguichan-dev patch autoconf libtool libsdl-ttf2.0-dev libsdl-gfx1.2-dev gettext libgl1-mesa-dev libenet-dev libphysfs-dev libxml2-dev zlib1g-dev xorg
 }
 
 function sources_manaplus() {
@@ -34,7 +34,7 @@ function install_manaplus() {
 function configure_manaplus() {
     mkRomDir "ports"
     mkRomDir "ports/manaplus"
-    moveConfigDir "$home/.manaplus" "$configdir/manaplus"
+    moveConfigDir "$home/.config/mana" "$configdir/manaplus"
 
-    addPort "$md_id" "manaplus" "manaplus - 2D MMORPG Client" "$md_inst/bin/manaplus" 
+    addPort "$md_id" "manaplus" "manaplus - 2D MMORPG Client" "xinit $md_inst/bin/manaplus" 
 }
