@@ -24,6 +24,7 @@ directly to the folder they need to be in.
 - [X] - easyrpgplayer.sh - RPG Maker 2000/2003 interpreter - Tested and works well.  
 - [X] - freeciv.sh - Civilization online clone - Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.  
 - [X] - freesynd.sh - Syndicate clone - Tested and has occasional crash issues. Save between levels to avoid losing progress.  
+- [X] - gearboy.sh - Gameboy and Gameboy Color emulator - Tested and works well.
 - [X] - kweb.sh - Minimal kiosk web browser - Tested and working well generally. Media may not be working well, I need to understand it better first to say.  
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 - [X] - pingus.sh - Lemmings clone - Tested and works well, requires mouse.  
@@ -37,7 +38,7 @@ directly to the folder they need to be in.
 - [ ] - beebem.sh - BBC Micro emulator - Currently untested.  
 - [ ] - f2bgl.sh - Fade To Black engine - Segfaults on launch.  
 - [ ] - kodi.sh - Media Player - Installs v16 for Raspbian Jessie ONLY. Currently untested.  
-- [ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. X86 only, untested.   
+- [ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. Would require a version of RetroArch compiled against OpenGL. Not happening.  
 - [ ] - mehstation.sh - Emulator frontend - Currently untested, unfinished script. Not able to replace emulationstation yet.  
 - [ ] - moonlight.sh - Open Source nVidia GameStreaming - Currently untested.  
 - [ ] - openfodder.sh - Open source Cannon Fodder engine - Instable, crashes during second mission.  
@@ -45,8 +46,9 @@ directly to the folder they need to be in.
 
 --- Future To-Do List (not ordered by priority) ---
 
-- [ ] - glshim/glshim script by Hiradur.
-- [ ] - SDLash/Xash Half-Life engine.
-- [ ] - Beatfever Mania.
-- [ ] - Stepmania/Frets on Fire through glshim
-- [ ] - Mupen64Plus videocore plugin
+- [ ] - glshim/glshim script by Hiradur.  
+- [ ] - SDLash/Xash Half-Life engine through glshim.  
+- [ ] - Beatfever Mania.  
+- [ ] - Stepmania/Frets on Fire through glshim/new OpenGL driver.  
+- [ ] - Mupen64Plus videocore plugin - Awaiting fixed code (gizmo98?)  
+- [ ] - Chromium web browser.  
