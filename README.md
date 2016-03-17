@@ -43,8 +43,10 @@ directly to the folder they need to be in.
 - [ ] - openfodder.sh - Open source Cannon Fodder engine - Instable, crashes during second mission.  
 
 
---- Future To-Do List ---
+--- Future To-Do List (not ordered by priority) ---
 
 - [ ] - glshim/glshim script by Hiradur.
 - [ ] - SDLash/Xash Half-Life engine.
 - [ ] - Beatfever Mania.
+- [ ] - Stepmania/Frets on Fire through glshim
+- [ ] - Mupen64Plus videocore plugin
