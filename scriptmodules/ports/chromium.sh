@@ -20,7 +20,7 @@ function depends_chromium() {
 
 function sources_chromium() {
     if [[ "$__raspbian_ver" -lt 8 ]]; then
-        sleep 1
+        apt-get install chromium-browser
     else
         git clone https://github.com/rg3/youtube-dl.git "youtube-dl"
         git clone https://github.com/kusti8/Rpi-youtube.git "rpi-youtube"
