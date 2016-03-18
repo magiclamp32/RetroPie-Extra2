@@ -19,6 +19,7 @@ directly to the folder they need to be in.
 -- Master Branch --  
 - [X] - bermudasyndrome.sh - Bermuda Syndrome engine - Tested, runs, possibly instable.  
 - [X] - chocolate-doom.sh - DOOM source port - Tested and works well.  
+- [X] - chromium.sh - Open Source Web Browser - Tested and works well.
 - [X] - corsixth.sh - Theme Hospital engine clone - Tested and works well.  
 - [X] - crispy-doom.sh - DOOM source port - Tested and works well.  
 - [X] - easyrpgplayer.sh - RPG Maker 2000/2003 interpreter - Tested and works well.  
@@ -35,7 +36,7 @@ directly to the folder they need to be in.
 -- Testing --  
 - [ ] - abuse.sh - Classic action game - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
 - [ ] - alephone-community.sh - Additional scenarios for AlephOne - Some instability with Alephone on Raspberry Pi. Working on it.  
-- [ ] - beebem.sh - BBC Micro emulator - Currently untested.  
+- [ ] - beebem.sh - BBC Micro emulator - Working, won't run game from command line. Disk load issue fixed.  
 - [ ] - f2bgl.sh - Fade To Black engine - Segfaults on launch.  
 - [ ] - kodi.sh - Media Player - Installs v16 for Raspbian Jessie ONLY. Currently untested.  
 - [ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. Would require a version of RetroArch compiled against OpenGL. Not happening.  
@@ -51,4 +52,3 @@ directly to the folder they need to be in.
 - [ ] - Beatfever Mania.  
 - [ ] - Stepmania/Frets on Fire through glshim/new OpenGL driver.  
 - [ ] - Mupen64Plus videocore plugin - Awaiting fixed code (gizmo98?)  
-- [ ] - Chromium web browser.  
