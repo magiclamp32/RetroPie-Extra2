@@ -52,3 +52,4 @@ directly to the folder they need to be in.
 - [ ] - Beatfever Mania.  
 - [ ] - Stepmania/Frets on Fire through glshim/new OpenGL driver.  
 - [ ] - Mupen64Plus videocore plugin - Awaiting fixed code (gizmo98?)  
+- [ ] - John's Shadow Warrior Port (jswp)
