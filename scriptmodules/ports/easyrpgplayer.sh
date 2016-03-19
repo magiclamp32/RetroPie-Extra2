@@ -15,7 +15,7 @@ rp_module_menus="4+"
 rp_module_flags="!x86 !mali"
 
 function depends_easyrpgplayer() {
-    getDepends libsdl2-dev libsdl2-mixer-dev libpng12-dev libfreetype6-dev libboost-dev libpixman-1-dev zlib1g-dev autoconf automake libicu-dev
+    getDepends libsdl2-dev libsdl2-mixer-dev libpng12-dev libfreetype6-dev libboost-dev libpixman-1-dev zlib1g-dev autoconf automake libicu-dev libtool
 }
 
 function sources_easyrpgplayer() {
@@ -28,25 +28,18 @@ function build_easyrpgplayer() {
     autoreconf -i
     ./configure --prefix "$md_inst"
     make
-    # Temporary, to allow build to link properly before installation.
-    ln -s "$md_build/liblcf/.libs/liblcf.so" "/usr/local/lib/liblcf.so"
-    ln -s "$md_build/liblcf/.libs/liblcf.la" "/usr/local/lib/liblcf.la"
+    make install
     cd ../player
     autoreconf -i
-    LD_FLAGS="-L$md_build/liblcf/.libs" ./configure --prefix "$md_inst"
+    PKG_CONFIG_PATH=$md_inst/lib/pkgconfig ./configure --prefix "$md_inst"
     make
     cd ..
     # No longer needed.
-    rm /usr/local/lib/liblcf.so
-    rm /usr/local/lib/liblcf.la
     md_ret_require="$md_build/player/easyrpg-player"
 }
 
 function install_easyrpgplayer() {
-    cd liblcf/
-    make install
-
-    cd ../player
+    cd "$md_build/player"
     make install
 }
 
