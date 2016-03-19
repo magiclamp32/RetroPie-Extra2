@@ -58,4 +58,5 @@ _EOF_
     chmod +x "$md_inst/chromium.sh"
 
     addPort "$md_id" "chromium" "Chromium - Open Source Web Browser" "xinit $md_inst/chromium.sh"
+    INFMSGS+=("If Chromium crashes back to emulationstation, it may be because the user you are running as does not have permission to launch X on its own. You can fix this by running 'dpkg-reconfigure x11-common' as root and then selecting $user or 'Anybody'.")
 }
