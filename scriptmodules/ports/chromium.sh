@@ -22,9 +22,12 @@ function sources_chromium() {
     if [[ "$__raspbian_ver" -lt 8 ]]; then
         apt-get install chromium-browser
     else
-        git clone https://github.com/rg3/youtube-dl.git "youtube-dl"
-        git clone https://github.com/kusti8/Rpi-youtube.git "rpi-youtube"
-        git clone https://github.com/kusti8/Rpi-chromium.git "chromium"
+        #git clone https://github.com/rg3/youtube-dl.git "youtube-dl"
+        #git clone https://github.com/kusti8/Rpi-youtube.git "rpi-youtube"
+        #git clone https://github.com/kusti8/Rpi-chromium.git "chromium"
+        wget https://dl.dropboxusercontent.com/u/87113035/chromium-browser-l10n_48.0.2564.82-0ubuntu0.15.04.1.1193_all.deb
+        wget https://dl.dropboxusercontent.com/u/87113035/chromium-browser_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb
+        wget https://dl.dropboxusercontent.com/u/87113035/chromium-codecs-ffmpeg-extra_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb
     fi
 }
 
@@ -32,8 +35,8 @@ function install_chromium() {
     if [[ "$__raspbian_ver" -lt 8 ]]; then
         sleep 1
     else
-        dpkg -i "$md_build/chromium/chromium/chromium-codecs-ffmpeg-extra_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb"
-        dpkg -i "$md_build/chromium/chromium/chromium-browser-l10n_48.0.2564.82-0ubuntu0.15.04.1.1193_all.deb" "$md_build/chromium/chromium/chromium-browser_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb"
+        dpkg -i "$md_build/chromium-codecs-ffmpeg-extra_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb"
+        dpkg -i "$md_build/chromium-browser-l10n_48.0.2564.82-0ubuntu0.15.04.1.1193_all.deb" "$md_build/chromium-browser_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb"
     fi
     
     #./debinstall
