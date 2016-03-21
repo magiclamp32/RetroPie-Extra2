@@ -34,6 +34,6 @@ function configure_rawgl() {
     mkRomDir "ports"
     mkRomDir "ports/$md_id"
 
-    addPort "$md_id" "rawgl" "rawgl - Another World Engine" "$md_inst/rawgl --datapath=$romdir/ports/$md_id --render=original --aspect=true --full=true"
+    addPort "$md_id" "rawgl" "rawgl - Another World Engine" "$md_inst/rawgl --datapath=$romdir/ports/$md_id --language=us --render=original --aspect=true --full=true"
     __INFMSGS+=("Please copy your Another World data files to $romdir/ports/$md_id before running the game.")
 }
