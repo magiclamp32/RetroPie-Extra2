@@ -49,7 +49,8 @@ function install_chromium() {
 function configure_chromium() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
-    cat >"$md_inst/chromium.sh" << _EOF_
+    moveConfigDir "$home/.config/$md_id" "$configdir/$md_id"
+    cat >"$md_inst/chromium.sh" << _EOF_    
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no &
