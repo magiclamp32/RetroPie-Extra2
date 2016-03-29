@@ -49,7 +49,7 @@ function install_chromium() {
 function configure_chromium() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
-    moveConfigDir "$home/.config/$md_id" "$configdir/$md_id"
+    moveConfigDir "$home/.config/$md_id" "$md_conf_root/$md_id"
     cat >"$md_inst/chromium.sh" << _EOF_    
 #!/bin/bash
 xset -dpms s off s noblank
