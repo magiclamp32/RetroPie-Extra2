@@ -37,7 +37,7 @@ function install_deadbeef() {
 function configure_deadbeef() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
-    moveConfigDir "$home/.config/$md_id" "$configdir/$md_id"
+    moveConfigDir "$home/.config/$md_id" "$md_conf_root/$md_id"
 
     cat >"$md_inst/deadbeef.sh" << _EOF_
 #!/bin/bash

@@ -40,10 +40,10 @@ function install_freesynd() {
 function configure_freesynd() {
     mkRomDir "ports"
     mkRomDir "ports/freesynd"
-    moveConfigDir "$home/.freesynd" "$configdir/freesynd"
-    cp "$md_build/freesynd-code/freesynd/tags/release-0.7.1/freesynd.ini" "$configdir/$md_id"
-    sed -i "s/fullscreen = false/fullscreen = true/" "$configdir/$md_id/freesynd.ini"
-    sed -i "s/#freesynd_data_dir = \/usr\/share\/freesynd\/data/freesynd_data_dir = \/opt\/retropie\/ports\/freesynd\/data/" "$configdir/$md_id/freesynd.ini"
-    sed -i "s/#data_dir = \/home\/username\/dosbox\/synd\/DATA/data_dir = \/home\/pi\/RetroPie\/roms\/ports\/freesynd/" "$configdir/$md_id/freesynd.ini"
+    moveConfigDir "$home/.freesynd" "$md_conf_root/freesynd"
+    cp "$md_build/freesynd-code/freesynd/tags/release-0.7.1/freesynd.ini" "$md_conf_root/$md_id"
+    sed -i "s/fullscreen = false/fullscreen = true/" "$md_conf_root/$md_id/freesynd.ini"
+    sed -i "s/#freesynd_data_dir = \/usr\/share\/freesynd\/data/freesynd_data_dir = \/opt\/retropie\/ports\/freesynd\/data/" "$md_conf_root/$md_id/freesynd.ini"
+    sed -i "s/#data_dir = \/home\/username\/dosbox\/synd\/DATA/data_dir = \/home\/pi\/RetroPie\/roms\/ports\/freesynd/" "$md_conf_root/$md_id/freesynd.ini"
     addPort "$md_id" "freesynd" "FreeSynd - Syndicate Engine" "$md_inst/freesynd" 
 }

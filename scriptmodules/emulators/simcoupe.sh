@@ -41,7 +41,7 @@ function install_simcoupe() {
 
 function configure_simcoupe() {
     mkRomDir "samcoupe"
-    moveConfigDir "$home/.simcoupe" "$configdir/$md_id/"
+    moveConfigDir "$home/.simcoupe" "$md_conf_root/$md_id/"
 
     addSystem 1 "$md_id" "samcoupe" "pushd $md_inst; $md_inst/simcoupe autoboot -disk1 %ROM% -fullscreen; popd" "SAM Coupe" ".dsk .mgt .sbt .sad .DSK .MGT .SBT .SAD"
 }
