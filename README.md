@@ -33,7 +33,6 @@ directly to the folder they need to be in.
 - [X] - kaiten-patissier-cs.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier-ura.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
-- [X] - gearboy.sh - Gameboy and Gameboy Color emulator - Tested and works well.
 - [X] - kweb.sh - Minimal kiosk web browser - Tested and working well generally. Media may not be working well, I need to understand it better first to say.  
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 - [X] - pingus.sh - Lemmings clone - Tested and works well, requires mouse.  
@@ -52,7 +51,7 @@ directly to the folder they need to be in.
 - [ ] - beebem.sh - BBC Micro emulator - Working, won't run game from command line. Disk load issue fixed.  
 - [ ] - caveexpress.sh - Cave Express game - Not working, some major compilation issues.
 - [ ] - f2bgl.sh - Fade To Black engine - Segfaults on launch.  
-- [ ] - freegish - Gish clone - Requires OpenGL, crashes.  
+- [ ] - freegish.sh - Gish clone - Requires OpenGL, crashes.  
 - [ ] - kodi.sh - Media Player - Installs v16 for Raspbian Jessie ONLY. Currently untested.  
 - [ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. Would require a version of RetroArch compiled against OpenGL. Not happening.  
 - [ ] - mehstation.sh - Emulator frontend - Currently untested, unfinished script. Not able to replace emulationstation yet.  
