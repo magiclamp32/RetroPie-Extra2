@@ -26,7 +26,7 @@ function install_freeciv() {
 
 function configure_freeciv() {
     mkRomDir "ports"
-    moveConfigDir "$home/.freeciv" "$configdir/freeciv"
-    moveConfigFile "$home/.freeciv-client-rc-2.4" "$configdir/freeciv"
+    moveConfigDir "$home/.freeciv" "$md_conf_root/freeciv"
+    moveConfigFile "$home/.freeciv-client-rc-2.4" "$md_conf_root/freeciv"
     addPort "$md_id" "freeciv" "Freeciv" "xinit freeciv"
 }
