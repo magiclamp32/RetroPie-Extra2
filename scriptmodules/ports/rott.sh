@@ -56,7 +56,7 @@ function configure_rott() {
     unzip -L -o 1rott13.zip rottsw13.shr
     unzip -L -o rottsw13.shr -d "$md_inst/shareware" huntbgin.wad huntbgin.rtc huntbgin.rtl remote1.rts
     
-    moveConfigDir "$home/.rott" "$configdir/rott"
+    moveConfigDir "$home/.rott" "$md_conf_root/rott"
 
     addPort "$md_id" "rott" "rott - Rise of the Triad port" "$md_inst/bin/rott"
     addPort "$md_id" "rott-shareware" "rott - Rise of the Triad port Shareware" "$md_inst/bin/rott-shareware"
