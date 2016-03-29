@@ -54,6 +54,6 @@ function install_gearboy() {
 
 function configure_gearboy() {
     mkRomDir "gameboy"
-    moveConfigFile "$home/gearboy.cfg" "$configdir/gearboy/gearboy.cfg"
+    moveConfigFile "$home/gearboy.cfg" "$md_conf_root/gearboy/gearboy.cfg"
     addSystem 0 "$md_id" "gearboy" "$md_inst/gearboy %ROM%"
 }
