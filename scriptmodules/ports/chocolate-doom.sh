@@ -52,7 +52,7 @@ function configure_chocolate-doom() {
     mkRomDir "ports/doom"
 
     mkUserDir "$home/.config"
-    moveConfigDir "$home/.chocolate-doom" "$configdir/chocolate-doom"
+    moveConfigDir "$home/.chocolate-doom" "$md_conf_root/chocolate-doom"
 
     # download doom 1 shareware
     if [[ ! -f "$romdir/ports/doom/doom1.wad" ]]; then
