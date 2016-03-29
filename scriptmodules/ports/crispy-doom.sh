@@ -43,7 +43,7 @@ function configure_crispy-doom() {
     mkRomDir "ports/doom"
 
     mkUserDir "$home/.config"
-    moveConfigDir "$home/.crispy-doom" "$configdir/crispy-doom"
+    moveConfigDir "$home/.crispy-doom" "$md_conf_root/crispy-doom"
 
     # download doom 1 shareware
     if [[ ! -f "$romdir/ports/doom/doom1.wad" ]]; then
