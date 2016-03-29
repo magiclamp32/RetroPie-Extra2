@@ -43,7 +43,7 @@ function install_kaiten-patissier() {
 
 function configure_kaiten-patissier() {
     mkRomDir "ports"
-    moveConfigDir "$md_inst/save" "$configdir/$md_id"
+    moveConfigDir "$md_inst/save" "$md_conf_root/$md_id"
     chown -R $user:$user "$md_inst/save"
 
     addPort "$md_id" "kaiten-patissier" "Kaiten Patissier - RotateGear" "pushd $md_inst; $md_inst/RotateGear; popd"
