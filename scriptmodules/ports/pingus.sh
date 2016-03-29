@@ -21,6 +21,6 @@ function install_pingus() {
 function configure_pingus() {
     mkRomDir "ports"
 
-    moveConfigDir "$home/.pingus" "$configdir/$md_id"
+    moveConfigDir "$home/.pingus" "$md_conf_root/$md_id"
     addPort "$md_id" "pingus" "Pingus" "pingus"
 }
