@@ -43,7 +43,7 @@ function install_ganbare() {
 
 function configure_ganbare() {
     mkRomDir "ports"
-    moveConfigDir "$md_inst/save" "$configdir/$md_id"
+    moveConfigDir "$md_inst/save" "$md_conf_root/$md_id"
     chown -R $user:$user "$md_inst/save"
 
     addPort "$md_id" "ganbare" "Ganbare! Natsuke-San - 2D Platformer" "pushd $md_inst; $md_inst/gnp; popd"
