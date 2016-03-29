@@ -33,7 +33,8 @@ function install_bermudasyndrome() {
 function configure_bermudasyndrome() {
     mkRomDir "ports"
     mkRomDir "ports/$md_id"
+# Might be missing config dir, FIX ME.
 
-    addPort "$md_id" "bermudasyndrome" "Bermuda Syndrome - Open Source Engine" "$md_inst/bs --datapath=$romdir/ports/$md_id --savepath=$configdir/$md_id"
+    addPort "$md_id" "bermudasyndrome" "Bermuda Syndrome - Open Source Engine" "$md_inst/bs --datapath=$romdir/ports/$md_id --savepath=$md_conf_root/$md_id"
     __INFMSGS+=("Please copy your Bermuda Syndrome data files to $romdir/ports/$md_id before running the game.")
 }
