@@ -39,7 +39,7 @@ function install_wizznic() {
 function configure_wizznic() {
     mkRomDir "ports"
     touch "$md_inst/settings.ini"
-    moveConfigFile "$md_inst/settings.ini" "$configdir/$md_id/settings.ini"
-    chown -R $user:$user "$configdir/$md_id"
+    moveConfigFile "$md_inst/settings.ini" "$md_conf_root/$md_id/settings.ini"
+    chown -R $user:$user "$md_conf_root/$md_id"
     addPort "$md_id" "wizznic" "Wizznic - Puzznic clone" "pushd $md_inst; $md_inst/wizznic -sw; popd"
 }
