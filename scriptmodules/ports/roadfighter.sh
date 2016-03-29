@@ -41,6 +41,6 @@ function install_roadfighter() {
 
 function configure_roadfighter() {
     mkRomDir "ports"
-    moveConfigDir "$home/.roadfighter" "$configdir/$md_id"
+    moveConfigDir "$home/.roadfighter" "$md_conf_root/$md_id"
     addPort "$md_id" "roadfighter" "Roadfighter - Retro Remake" "pushd $md_inst; roadfighter; popd" 
 }
