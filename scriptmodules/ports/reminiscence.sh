@@ -33,7 +33,8 @@ function install_reminiscence() {
 function configure_reminiscence() {
     mkRomDir "ports"
     mkRomDir "ports/$md_id"
+    #fixme: Missing configuration dir.
 
-    addPort "$md_id" "reminiscence" "REminiscence" "$md_inst/rs --datapath=$romdir/ports/$md_id --savepath=$configdir/$md_id"
+    addPort "$md_id" "reminiscence" "REminiscence" "$md_inst/rs --datapath=$romdir/ports/$md_id --savepath=$md_conf_root/$md_id"
     __INFMSGS+=("Please copy your Flashback data files to $romdir/ports/$md_id before running REminiscence.")
 }
