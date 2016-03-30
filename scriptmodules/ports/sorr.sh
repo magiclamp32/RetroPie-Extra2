@@ -15,10 +15,10 @@ rp_module_menus="4+"
 rp_module_flags="!x86 !x11 !mali"
 
 function sources_sorr() {
-    gitCloneOrPull "$md_build" https://github.com/zerojay/bennugd.git
+    gitPullOrClone "$md_build" https://github.com/zerojay/bennugd.git
 }
 
-function install_sorr() {    
+function install_sorr() {
     md_ret_files=(
     'bgdi-330'
     )
@@ -26,8 +26,8 @@ function install_sorr() {
 
 function configure_sorr() {
     mkRomDir "ports"
-
+    chmod 755 "$md_inst/bgdi-330"
     moveConfigFile "$md_inst/savegame" "$md_conf_root/$md_id/"
-    addPort "$md_id" "sorr" "Streets of Rage Remake" "$md_inst/bgdi-330 ./SorR.dat"
+    addPort "$md_id" "sorr" "Streets of Rage Remake" "pushd $md_inst; ./bgdi-330 ./SorR.dat; popd"
     __INFMSGS+=("Please copy your Streets of Rage Remake installation files into $md_inst.")
 }
