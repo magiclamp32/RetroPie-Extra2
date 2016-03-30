@@ -39,7 +39,8 @@ directly to the folder they need to be in.
 - [X] - rawgl.sh - Another World source port - Tested, occasionally crashes when button held when switching scenes?  
 - [X] - reminiscence.sh - Flashback engine clone - Tested and works well.   
 - [X] - roadfighter.sh - RoadFighter clone - Tested and works well.  
-- [X] - rott.sh - Rise of the Triad source port - Tested and works well.  
+- [X] - rott.sh - Rise of the Triad source port - Tested and works well. 
+- [X] - sorr.sh - Streets of Rage Remake port - Tested and works well. Use fullscreen fast video mode.  
 - [X] - tinyfugue.sh - MUD client - Tested and works well.  
 - [X] - wizznic.sh - Puzznic clone - Tested and works well.  
 - [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
