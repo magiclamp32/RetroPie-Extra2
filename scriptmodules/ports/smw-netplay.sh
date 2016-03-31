@@ -27,7 +27,7 @@ function build_smw-netplay() {
     cd "$md_build"
     unzip data.zip
     mkdir Build && cd Build
-    cmake .. -DUSE_SDL2_LIBS=1
+    cmake .. -DUSE_SDL2_LIBS=1 -DSDL2_FORCE_GLES=1
     make -j 4 smw && make -j 4 smw-server
     sed -i -e '$i \export LD_LIBRARY_PATH=/usr/local/lib' $home/.bashrc
 
@@ -43,7 +43,7 @@ function install_smw-netplay() {
 }
 
 function configure_smw-netplay() {
-    mkRomDir "ports"
+    setConfigRoot "ports"
 
     addPort "$md_id" "smw-netplay" "Super Mario War Netplay" "$md_inst/smw $md_inst/data"
 }
