@@ -40,4 +40,5 @@ function configure_ti99sim() {
     moveConfigDir "$home/.ti99sim" "$md_conf_root/$md_id/"
 
     addSystem 1 "$md_id" "ti99" "pushd $romdir/ti99; $md_inst/ti99sim-sdl -f %ROM%; popd" "TI99" ".ctg .CTG"
+    __INFMSGS+=("You will need to place your BIOS ROMs/carts into $romdir/ti99. Make sure that your TI-994A.ctg file is cased as shown here as the emulator is case-sensitive.")
 }
