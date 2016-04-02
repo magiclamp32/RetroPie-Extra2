@@ -9,14 +9,29 @@ Scripts included in their own branches are either actively being worked upon or 
 Pull requests and issue reports are accepted and encouraged as well as requests. Feel free to use the issue tracker to send me any personal requests for new scripts
 that you may have.
 
---- Installation ---
+### Installation 
 
-You can clone the repo to your Pi and then run the install-scripts.sh script to install the scripts in the master branch directly to the proper directories in RetroPie-Setup.
-This script assumes that you are running it on a Raspberry Pi with the RetroPie-Setup being stored in /home/pi/RetroPie-Setup. If your setup differs, just copy the scripts
-directly to the folder they need to be in.
+Install the extra scripts
+
+The following clones the repo to your Pi and then the install-scripts.sh installs the scripts in the master branch directly to the proper directories in RetroPie-Setup.
+
+```
+git clone https://github.com/zerojay/RetroPie-Extra.git
+cd RetroPie-Extra/
+./install-extras.sh
+```
+Run the RetroPie Setup Script (the extra scripts will be in the experimental section)
+```
+cd
+cd RetroPie-Setup
+sudo ./retropie_setup.sh
+```
+
+This script assumes that you are running it on a Raspberry Pi with the RetroPie-Setup being stored in /home/pi/RetroPie-Setup. If your setup differs, just copy the scripts directly to the folder they need to be in.
 
 
--- Master Branch --  
+### Master Branch
+
 - [X] - bermudasyndrome.sh - Bermuda Syndrome engine - Tested, runs, possibly instable.  
 - [X] - breaker.sh - Arkanoid clone - Tested and works well.  
 - [X] - burgerspace.sh - BurgerTime clone - Tested and works well.  
@@ -46,7 +61,8 @@ directly to the folder they need to be in.
 - [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
 - [X] - simcoupe.sh - Sam Coupe emulator - Tested and works well.  
 
--- Testing --  
+### Testing
+
 - [ ] - abuse.sh - Classic action game - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
 - [ ] - alephone-community.sh - Additional scenarios for AlephOne - Some instability with Alephone on Raspberry Pi. Working on it.  
 - [ ] - beebem.sh - BBC Micro emulator - Working, won't run game from command line. Disk load issue fixed.  
@@ -61,7 +77,7 @@ directly to the folder they need to be in.
 - [ ] - smw-netplay.sh - Super Mario War with netplay - Untested, runs too slowly with SDL2?  
 
 
---- Future To-Do List (not ordered by priority) ---
+### Future To-Do List (not ordered by priority)
 
 - [ ] - glshim/glshim script by Hiradur.  
 - [ ] - SDLash/Xash Half-Life engine through glshim.  
