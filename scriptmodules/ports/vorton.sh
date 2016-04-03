@@ -15,7 +15,7 @@ rp_module_menus="4+"
 rp_module_flags="!x11 !mali"
 
 function depends_vorton() {
-    getDepends libsdl1.2-dev libsdl-gfx1.2-dev libsdl-mixer1.2-dev unzip
+    getDepends libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev unzip
 }
 
 function sources_vorton() {
