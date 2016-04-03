@@ -59,6 +59,7 @@ This script assumes that you are running it on a Raspberry Pi with the RetroPie-
 - [X] - smw-netplay.sh - Super Mario War with netplay - Tested and works well, netplay untested?  
 - [X] - sorr.sh - Streets of Rage Remake port - Tested and works well. Use fullscreen fast video mode.  
 - [X] - tinyfugue.sh - MUD client - Tested and works well.  
+- [X] - vorton.sh - Highway Encounter Remake in Spanish - Tested and works well.
 - [X] - wizznic.sh - Puzznic clone - Tested and works well.  
 - [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
 - [X] - simcoupe.sh - Sam Coupe emulator - Tested and works well.  
