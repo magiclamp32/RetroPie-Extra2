@@ -49,12 +49,14 @@ This script assumes that you are running it on a Raspberry Pi with the RetroPie-
 - [X] - kaiten-patissier-ura.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kweb.sh - Minimal kiosk web browser - Tested and working well generally. Media may not be working well, I need to understand it better first to say.  
+- [X] - lxde.sh - LXDE desktop - Default Raspbian desktop, tested and working well.
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 - [X] - pingus.sh - Lemmings clone - Tested and works well, requires mouse.  
 - [X] - rawgl.sh - Another World source port - Tested, occasionally crashes when button held when switching scenes?  
 - [X] - reminiscence.sh - Flashback engine clone - Tested and works well.   
 - [X] - roadfighter.sh - RoadFighter clone - Tested and works well.  
-- [X] - rott.sh - Rise of the Triad source port - Tested and works well. 
+- [X] - rott.sh - Rise of the Triad source port - Tested and works well.  
+- [X] - smw-netplay.sh - Super Mario War with netplay - Tested and works well, netplay untested?  
 - [X] - sorr.sh - Streets of Rage Remake port - Tested and works well. Use fullscreen fast video mode.  
 - [X] - tinyfugue.sh - MUD client - Tested and works well.  
 - [X] - wizznic.sh - Puzznic clone - Tested and works well.  
@@ -74,7 +76,7 @@ This script assumes that you are running it on a Raspberry Pi with the RetroPie-
 - [ ] - mehstation.sh - Emulator frontend - Currently untested, unfinished script. Not able to replace emulationstation yet.  
 - [ ] - moonlight.sh - Open Source nVidia GameStreaming - Needs to be built from source for latest versions to work properly.   
 - [ ] - openfodder.sh - Open source Cannon Fodder engine - Instable, crashes during second mission.  
-- [ ] - smw-netplay.sh - Super Mario War with netplay - Untested, runs too slowly with SDL2?  
+ 
 
 
 ### Future To-Do List (not ordered by priority)
