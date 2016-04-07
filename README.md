@@ -66,7 +66,6 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - kaiten-patissier-ura.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kweb.sh - Minimal kiosk web browser - Tested and working well generally. Media may not be working well, I need to understand it better first to say.  
-- [X] - lxde.sh - LXDE desktop - Default Raspbian desktop, tested and working well.
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 - [X] - pingus.sh - Lemmings clone - Tested and works well, requires mouse.  
 - [X] - rawgl.sh - Another World source port - Tested, occasionally crashes when button held when switching scenes?  
