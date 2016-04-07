@@ -23,6 +23,7 @@ function sources_rawgl() {
 }
 
 function build_rawgl() {
+    make clean
     make
     md_ret_require="$md_build/rawgl"
 }
