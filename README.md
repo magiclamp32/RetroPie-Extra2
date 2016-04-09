@@ -65,6 +65,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - kaiten-patissier-cs.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier-ura.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
+- [X] - kodi.sh - Kodi Media Player 16 with controller support as a separate system - Tested and works well.  
 - [X] - kweb.sh - Minimal kiosk web browser - Tested and working well generally. Media may not be working well, I need to understand it better first to say.  
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 - [X] - pingus.sh - Lemmings clone - Tested and works well, requires mouse.  
@@ -78,7 +79,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - vorton.sh - Highway Encounter Remake in Spanish - Tested and works well.
 - [X] - wizznic.sh - Puzznic clone - Tested and works well.  
 - [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
-- [X] - simcoupe.sh - Sam Coupe emulator - Tested and works well.  
+- [X] - ti99sim.sh - Texas Instruments 99A emulator - Tested and works well.  
 
 #### Testing
 
