@@ -48,7 +48,11 @@ In the dialog box that comes up, you can select which users are allowed to use t
 
 ### Included Software
 #### Master Branch
+##### Emulators
+- [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
+- [X] - ti99sim.sh - Texas Instruments 99A emulator - Tested and works well.  
 
+##### Ports
 - [X] - bermudasyndrome.sh - Bermuda Syndrome engine - Tested, runs, possibly instable.  
 - [X] - breaker.sh - Arkanoid clone - Tested and works well.  
 - [X] - burgerspace.sh - BurgerTime clone - Tested and works well.  
@@ -66,7 +70,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - kaiten-patissier-cs.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier-ura.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
-- [X] - kodi.sh - Kodi Media Player 16 with controller support as a separate system - Tested and works well.  
+- [X] - kodi-extra.sh - Kodi Media Player 16 with controller support as a separate system - Tested and works well.  
 - [X] - kweb.sh - Minimal kiosk web browser - Tested and working well generally. Media may not be working well, I need to understand it better first to say.  
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 - [X] - maelstrom.sh - Classic Mac Asteroids Remake - Tested and works well, button configuration screen may crash.
@@ -75,29 +79,35 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - reminiscence.sh - Flashback engine clone - Tested and works well.   
 - [X] - roadfighter.sh - RoadFighter clone - Tested and works well.  
 - [X] - rott.sh - Rise of the Triad source port - Tested and works well.  
+- [X] - sdl-bomber.sh - Simple Bomberman clone - Tested and works well, turn down the volume perhaps.  
 - [X] - smw-netplay.sh - Super Mario War with netplay - Tested and works well, netplay untested?  
 - [X] - sorr.sh - Streets of Rage Remake port - Tested and works well. Use fullscreen fast video mode.  
 - [X] - tinyfugue.sh - MUD client - Tested and works well.  
 - [X] - vorton.sh - Highway Encounter Remake in Spanish - Tested and works well.
 - [X] - wizznic.sh - Puzznic clone - Tested and works well.  
-- [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
-- [X] - ti99sim.sh - Texas Instruments 99A emulator - Tested and works well.  
+
+##### Supplementary
+- [X] - screenshot.sh - Take screenshots remotely through SSH - Tested and works well.  
+- [X] - splashscreen-extra.sh - Install additional user-created splashscreens for RetroPie - Tested and works well.  
 
 #### Testing
-
+##### Ports
 - [ ] - abuse.sh - Classic action game - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
 - [ ] - alephone-community.sh - Additional scenarios for AlephOne - Some instability with Alephone on Raspberry Pi. Working on it.  
 - [ ] - beebem.sh - BBC Micro emulator - Working, won't run game from command line. Disk load issue fixed.  
 - [ ] - caveexpress.sh - Cave Express game - Not working, some major compilation issues.
+- [ ] - chocolate-wolf3d.sh - Wolfenstein 3d Engine for Libretro - Untested.  
 - [ ] - f2bgl.sh - Fade To Black engine - Segfaults on launch.  
+- [ ] - freedink.sh - Dink Smallwood engine - Lots of flicker on sprites and text, currently unsolved. Works well otherwise.  
 - [ ] - freegish.sh - Gish clone - Requires OpenGL, crashes.  
 - [ ] - kodi.sh - Media Player - Installs v16 for Raspbian Jessie ONLY. Currently untested.  
 - [ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. Would require a version of RetroArch compiled against OpenGL. Not happening.  
 - [ ] - mehstation.sh - Emulator frontend - Currently untested, unfinished script. Not able to replace emulationstation yet.  
-- [ ] - moonlight.sh - Open Source nVidia GameStreaming - Needs to be built from source for latest versions to work properly.   
+- [ ] - moonlight.sh - Open Source nVidia GameStreaming - A newer package is available, currently untested.  
 - [ ] - openfodder.sh - Open source Cannon Fodder engine - Instable, crashes during second mission.  
  
-
+##### Supplementary
+- [ ] - exodos-setup.sh - Setup script for adding working eXoDOS collection to EmulationStation - Not completed yet. See https://github.com/zerojay/RetroPie-Extra/issues/76
 
 #### Future To-Do List (not ordered by priority)
 
