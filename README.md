@@ -91,6 +91,10 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - splashscreen-extra.sh - Install additional user-created splashscreens for RetroPie - Tested and works well.  
 
 #### Testing
+##### libretrocores
+- [ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. Would require a version of RetroArch compiled against OpenGL. Not happening.  
+- [ ] - lr-wolfenstein.sh - libretro-based Wolfenstein 3D engine - Working quite well, just needs to have some fixups regarding its save game directories.  
+
 ##### Ports
 - [ ] - abuse.sh - Classic action game - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
 - [ ] - alephone-community.sh - Additional scenarios for AlephOne - Some instability with Alephone on Raspberry Pi. Working on it.  
@@ -101,11 +105,11 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [ ] - freedink.sh - Dink Smallwood engine - Lots of flicker on sprites and text, currently unsolved. Works well otherwise.  
 - [ ] - freegish.sh - Gish clone - Requires OpenGL, crashes.  
 - [ ] - kodi.sh - Media Player - Installs v16 for Raspbian Jessie ONLY. Currently untested.  
-- [ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. Would require a version of RetroArch compiled against OpenGL. Not happening.  
+ 
 - [ ] - mehstation.sh - Emulator frontend - Currently untested, unfinished script. Not able to replace emulationstation yet.  
 - [ ] - moonlight.sh - Open Source nVidia GameStreaming - A newer package is available, currently untested.  
 - [ ] - openfodder.sh - Open source Cannon Fodder engine - Instable, crashes during second mission.  
- 
+
 ##### Supplementary
 - [ ] - exodos-setup.sh - Setup script for adding working eXoDOS collection to EmulationStation - Not completed yet. See https://github.com/zerojay/RetroPie-Extra/issues/76
 
