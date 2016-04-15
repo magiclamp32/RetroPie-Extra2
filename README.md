@@ -121,4 +121,9 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [ ] - Beatfever Mania.  
 - [ ] - Stepmania/Frets on Fire through glshim/new OpenGL driver.  
 - [ ] - Mupen64Plus videocore plugin - Awaiting fixed code (gizmo98?)  
-- [ ] - John's Shadow Warrior Port (jswp)
+- [ ] - John's Shadow Warrior Port (jswp)  
+
+#### Hall of Fame - Scripts accepted into RetroPie-Setup
+- [X] - LXDE - LXDE Desktop
+- [X] - SimCoupe - Sam Coupe Emulator
+
