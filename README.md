@@ -74,6 +74,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - kweb.sh - Minimal kiosk web browser - Tested and working well generally. Media may not be working well, I need to understand it better first to say.  
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 - [X] - maelstrom.sh - Classic Mac Asteroids Remake - Tested and works well, button configuration screen may crash.
+- [X] - mayhem.sh - Remake of the Amiga game - Tested and works well.
 - [X] - pingus.sh - Lemmings clone - Tested and works well, requires mouse.  
 - [X] - rawgl.sh - Another World source port - Tested, occasionally crashes when button held when switching scenes?  
 - [X] - reminiscence.sh - Flashback engine clone - Tested and works well.   
@@ -100,8 +101,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [ ] - abuse.sh - Classic action game - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
 - [ ] - alephone-community.sh - Additional scenarios for AlephOne - Some instability with Alephone on Raspberry Pi. Working on it.  
 - [ ] - beebem.sh - BBC Micro emulator - Working, won't run game from command line. Disk load issue fixed.  
-- [ ] - caveexpress.sh - Cave Express game - Not working, some major compilation issues.
-- [ ] - chocolate-wolf3d.sh - Wolfenstein 3d Engine for Libretro - Untested.  
+- [ ] - caveexpress.sh - Cave Express game - Not working, some major compilation issues.  
 - [ ] - f2bgl.sh - Fade To Black engine - Segfaults on launch.  
 - [ ] - freedink.sh - Dink Smallwood engine - Lots of flicker on sprites and text, currently unsolved. Works well otherwise.  
 - [ ] - freegish.sh - Gish clone - Requires OpenGL, crashes.  
