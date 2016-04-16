@@ -18,7 +18,7 @@ function depends_attract-mode() {
         cmake libx11-dev libx11-xcb-dev libflac-dev libogg-dev libvorbis-dev libopenal-dev libjpeg62-turbo-dev 
         libfreetype6-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev 
         libxcb-icccm4-dev libudev-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev libswscale-dev 
-        libavresample-dev libfontconfig1-dev libxrandr2 libxrandr-dev libgles2-mesa-dev xinit
+        libavresample-dev libfontconfig1-dev libxrandr2 libxrandr-dev libgles2-mesa-dev xinit xorg
         )
     getDepends "${depends[@]}"
 }
