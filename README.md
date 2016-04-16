@@ -105,7 +105,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [ ] - caveexpress.sh - Cave Express game - Not working, some major compilation issues.  
 - [ ] - f2bgl.sh - Fade To Black engine - Segfaults on launch.  
 - [ ] - freedink.sh - Dink Smallwood engine - Lots of flicker on sprites and text, currently unsolved. Works well otherwise.  
-- [ ] - freegish.sh - Gish clone - Requires OpenGL, crashes.  
+- [ ] - freegish.sh - Gish clone - Runs with glshim however very, very slowly. Might need some additional glshim options.  
 - [ ] - kodi.sh - Media Player - Installs v16 for Raspbian Jessie ONLY. Currently untested.  
  
 - [ ] - mehstation.sh - Emulator frontend - Currently untested, unfinished script. Not able to replace emulationstation yet.  
@@ -118,7 +118,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 
 #### Future To-Do List (not ordered by priority)
 
-- [ ] - glshim/glshim script by Hiradur.  
+- [X] - glshim/glshim  
 - [ ] - SDLash/Xash Half-Life engine through glshim.  
 - [ ] - Beatfever Mania.  
 - [ ] - Stepmania/Frets on Fire through glshim/new OpenGL driver.  
