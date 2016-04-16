@@ -58,8 +58,9 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - breaker.sh - Arkanoid clone - Tested and works well.  
 - [X] - burgerspace.sh - BurgerTime clone - Tested and works well.  
 - [X] - chocolate-doom.sh - DOOM source port - Tested and works well.  
-- [X] - chromium.sh - Open Source Web Browser - Tested and works well.
+- [X] - chromium.sh - Open Source Web Browser - Tested and works well.  
 - [X] - corsixth.sh - Theme Hospital engine clone - Tested and works well.  
+- [X] - crack-attack.sh - Tetris Attack clone - Tested and works well. Minor color issue needs to be fixed with glshim.
 - [X] - crispy-doom.sh - DOOM source port - Tested and works well.  
 - [X] - deadbeef.sh - Music and ripped game music player - Tested and works well.
 - [X] - easyrpgplayer.sh - RPG Maker 2000/2003 interpreter - Tested and works well.  
