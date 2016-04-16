@@ -54,6 +54,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 
 ##### Ports
 - [X] - bermudasyndrome.sh - Bermuda Syndrome engine - Tested, runs, possibly instable.  
+- [X] - bloboats.sh - Fun physics game - Tested and works well, OpenGL game running through glshim.
 - [X] - breaker.sh - Arkanoid clone - Tested and works well.  
 - [X] - burgerspace.sh - BurgerTime clone - Tested and works well.  
 - [X] - chocolate-doom.sh - DOOM source port - Tested and works well.  
