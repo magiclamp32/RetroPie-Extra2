@@ -19,7 +19,7 @@ function depends_oricutron() {
 }
 
 function sources_oricutron() {
-    gitPullOrClone "$md_build" https://github.com/HerbFargus/oricutron.git
+    gitPullOrClone "$md_build" https://github.com/HerbFargus/oricutron-rpi.git
 }
 
 function build_oricutron() {
@@ -41,14 +41,16 @@ function configure_oricutron() {
     mkRomDir "oric"
 
     #copy demo disks
+    if [[ ! -f "$romdir/oric/disks/barbitoric.dsk" ]]; then
     mv -v $md_inst/disks/* "$romdir/oric/"
     rm -R $md_inst/disks/
+    fi
 
-    addSystem 1 "$md_id-atmos" "oric" "pushd; $md_inst/oricutron; --machine "atmos" %ROM% --fullscreen; popd" "Oric 1" ".dsk .tap"
-    addSystem 0 "$md_id-oric1" "oric" "$md_inst/oricutron --machine "oric1" %ROM% --fullscreen" "Oric 1" ".dsk .tap"
-    addSystem 0 "$md_id-o16k" "oric" "$md_inst/oricutron --machine "o16k" %ROM% --fullscreen" "Oric 1" ".dsk .tap"
-    addSystem 0 "$md_id-telestrat" "oric" "$md_inst/oricutron --machine "telestrat" %ROM% --fullscreen" "Oric 1" ".dsk .tap"
-    addSystem 0 "$md_id-pravetz" "oric" "$md_inst/oricutron --machine "pravetz" %ROM% --fullscreen" "Oric 1" ".dsk .tap"
+    addSystem 1 "$md_id-atmos" "oric" "pushd $md_inst; $md_inst/oricutron --machine "atmos" %ROM% --fullscreen; popd" "Oric 1" ".dsk .tap"
+    addSystem 0 "$md_id-oric1" "oric" "pushd $md_inst; $md_inst/oricutron --machine "oric1" %ROM% --fullscreen; popd" "Oric 1" ".dsk .tap"
+    addSystem 0 "$md_id-o16k" "oric" "pushd $md_inst; $md_inst/oricutron --machine "o16k" %ROM% --fullscreen; popd" "Oric 1" ".dsk .tap"
+    addSystem 0 "$md_id-telestrat" "oric" "pushd $md_inst; $md_inst/oricutron --machine "telestrat" %ROM% --fullscreen; popd" "Oric 1" ".dsk .tap"
+    addSystem 0 "$md_id-pravetz" "oric" "pushd $md_inst; $md_inst/oricutron --machine "pravetz" %ROM% --fullscreen; popd" "Oric 1" ".dsk .tap"
 
     chown -R $user:$user "$romdir/oric"
 }
