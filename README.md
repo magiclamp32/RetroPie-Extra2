@@ -87,6 +87,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - sorr.sh - Streets of Rage Remake port - Tested and works well. Use fullscreen fast video mode.  
 - [X] - tinyfugue.sh - MUD client - Tested and works well.  
 - [X] - vorton.sh - Highway Encounter Remake in Spanish - Tested and works well.
+- [X] - weechat.sh - Console IRC Client - Tested and works well.
 - [X] - wizznic.sh - Puzznic clone - Tested and works well.  
 
 ##### Supplementary
