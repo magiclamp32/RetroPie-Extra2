@@ -50,6 +50,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 #### Master Branch
 ##### Emulators
 - [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
+- [X] - oricutron.sh - Oricutron Oric 1/Oric Atmos emulator - Tested and works well.
 - [X] - ti99sim.sh - Texas Instruments 99A emulator - Tested and works well.  
 
 ##### Ports
@@ -119,15 +120,19 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [ ] - exodos-setup.sh - Setup script for adding working eXoDOS collection to EmulationStation - Not completed yet. See https://github.com/zerojay/RetroPie-Extra/issues/76
 
 #### Future To-Do List (not ordered by priority)
-
-- [X] - glshim/glshim  
+- [X] - glshim  
 - [ ] - SDLash/Xash Half-Life engine through glshim.  
 - [ ] - Beatfever Mania.  
 - [ ] - Stepmania/Frets on Fire through glshim/new OpenGL driver.  
 - [ ] - Mupen64Plus videocore plugin - Awaiting fixed code (gizmo98?)  
 - [ ] - John's Shadow Warrior Port (jswp)  
 
-#### Hall of Fame - Scripts accepted into RetroPie-Setup
+### Hall of Fame - Scripts accepted into RetroPie-Setup
 - [X] - LXDE - LXDE Desktop
 - [X] - SimCoupe - Sam Coupe Emulator
 
+### Contact Info/Additional Information
+Twitter: @zerojay - often posting new information and additions from the repository to the #retropie hashtag.  
+IRC: zerojay on irc.freenode.net, #retropie/#retropie-extra.
+
+If you wish to be up-to-date about all the changes happening to the repository as they happen, feel free to join the #retropie-extra channel on Freenode.
