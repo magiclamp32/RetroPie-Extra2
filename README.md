@@ -132,7 +132,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - SimCoupe - Sam Coupe Emulator
 
 ### Contact Info/Additional Information
-Twitter: @zerojay - often posting new information and additions from the repository to the #retropie hashtag.
+Twitter: @zerojay - often posting new information and additions from the repository to the #retropie hashtag.  
 IRC: zerojay on irc.freenode.net, #retropie/#retropie-extra.
 
 If you wish to be up-to-date about all the changes happening to the repository as they happen, feel free to join the #retropie-extra channel on Freenode.
