@@ -19,20 +19,22 @@ function depends_crack-attack() {
 }
 
 function sources_crack-attack() {
-    if [ ! -a "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
+    if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
         gitPullOrClone "$md_build/glshim" https://github.com/ptitseb/glshim.git
     fi
 }
  
 function build_crack-attack() {
-    cd "$md_build/glshim"
-    cmake . -DBCMHOST=1
-    make GL
+    if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
+        cd "$md_build/glshim"
+        cmake . -DBCMHOST=1
+        make GL
+    fi
 }
 
 function install_crack-attack() {
     aptInstall crack-attack
-    if [ ! -a "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
+    if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
        mkdir -p /opt/retropie/supplementary/glshim/
        cp "$md_build/glshim/lib/libGL.so.1" /opt/retropie/supplementary/glshim/
     fi
