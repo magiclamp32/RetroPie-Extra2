@@ -41,16 +41,16 @@ function configure_sdltrs() {
     mkRomDir "trs-80"
 
     local rom
-    for rom in level2.rom level3.rom level4.rom; do
+    for rom in level2.rom level3.rom level4.rom level4p.rom; do
         ln -sf "$biosdir/$rom" "$md_inst/$rom"
     done
 
 
-    addSystem 1 "$md_id-sdltrs-model1" "trs-80" "xinit $md_inst/sdltrs -model 1 -romfile $biosdir/level1.rom  -showled -diskdir \"$romdir/trs-80\" -disk0 %ROM%" "trs-80" ".dsk"
+    addSystem 1 "$md_id-sdltrs-model1" "trs-80" "xinit $md_inst/sdltrs -model 1 -romfile $biosdir/level2.rom  -showled -diskdir \"$romdir/trs-80\" -disk0 %ROM%" "trs-80" ".dsk"
    addSystem 0 "$md_id-sdltrs-model3" "trs-80" "xinit $md_inst/sdltrs -model 3 -romfile3 $biosdir/level3.rom  -showled -diskdir \"$romdir/trs-80\" -disk0 %ROM%" "trs-80" ".dsk"
     addSystem 0 "$md_id-sdltrs-model4" "trs-80" "xinit $md_inst/sdltrs -model 4 -romfile3 $biosdir/level4.rom  -showled -diskdir \"$romdir/trs-80\" -disk0 %ROM%" "trs-80" ".dsk"
     addSystem 0 "$md_id-sdltrs-model4" "trs-80" "xinit $md_inst/sdltrs -model 4p -romfile4p $biosdir/level4p.rom  -showled -diskdir \"$romdir/trs-80\" -disk0 %ROM%" "trs-80" ".dsk"
     
-    __INFMSGS+=("You need to copy your requires TRS-80 bios files called level2.rom, level3.rom or level4.rom to $biosdir")
+    __INFMSGS+=("You need to copy your requires TRS-80 bios files called level2.rom, level3.rom or level4.rom or level4p.rom to $biosdir")
 }
 
