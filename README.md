@@ -50,7 +50,8 @@ In the dialog box that comes up, you can select which users are allowed to use t
 #### Master Branch
 ##### Emulators
 - [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
-- [X] - oricutron.sh - Oricutron Oric 1/Oric Atmos emulator - Tested and works well.
+- [X] - oricutron.sh - Oricutron Oric 1/Oric Atmos emulator - Tested and works well.  
+- [X] - sdltrs.sh - Radio Shack TRS-80 Model I/III/4/4P emulator - Tested and works well.  
 - [X] - ti99sim.sh - Texas Instruments 99A emulator - Tested and works well.  
 
 ##### Ports
