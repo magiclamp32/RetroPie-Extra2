@@ -70,6 +70,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - freesynd.sh - Syndicate clone - Tested and has occasional crash issues. Save between levels to avoid losing progress.  
 - [X] - gamemaker.sh - Install the 3 gamemaker games - Tested and works well.  
 - [X] - ganbare.sh - Japanese 2D Platformer - Tested and works well, does not require Japanese to play.  
+- [X] - heboris.sh - Tetris The Grand Master clone - Tested and works well, does not include audio, user needs to provide their own soundpack.  
 - [X] - iceweasel.sh - Rebranded Firefox Web Browser - Tested and works well.  
 - [X] - kaiten-patissier-cs.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier-ura.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
