@@ -4,7 +4,7 @@ This is a collection of unofficial installation scripts for RetroPie allowing yo
 included in RetroPie for one reason or another. These scripts can be considered experimental at best. 
 
 Those in the master branch have been tested reasonably and should work well but may have some flaws as they haven't gone through the RetroPie's watchful eyes yet. 
-Scripts included in their own branches are either actively being worked upon or have various issues that have not been worked out yet.
+Scripts that are unfinished, untested, unpolished will not be located in this repository and instead have been moved to https://github.com/zerojay/RetroPie-Extra-unstable.
 
 Pull requests and issue reports are accepted and encouraged as well as requests. Feel free to use the issue tracker to send me any personal requests for new scripts
 that you may have.
@@ -96,29 +96,6 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - attract-mode.sh - Emulator Frontend - Tested and works well, not intended to completely replace EmulationStation.
 - [X] - screenshot.sh - Take screenshots remotely through SSH - Tested and works well.  
 - [X] - splashscreen-extra.sh - Install additional user-created splashscreens for RetroPie - Tested and works well.  
-
-#### Testing
-##### libretrocores
-- [ ] - lr-craft.sh - libretro-based Minecraft clone - Does not work on Pi due to missing OpenGLES2 support. Would require a version of RetroArch compiled against OpenGL. Not happening.  
-- [ ] - lr-wolfenstein.sh - libretro-based Wolfenstein 3D engine - Working quite well, just needs to have some fixups regarding its save game directories.  
-
-##### Ports
-- [ ] - abuse.sh - Classic action game - Appears to have some stability issues as well as problems with sound/audio dropping out. Does not full screen properly yet.  
-- [ ] - alephone-community.sh - Additional scenarios for AlephOne - Some instability with Alephone on Raspberry Pi. Working on it.  
-- [ ] - beebem.sh - BBC Micro emulator - Working, won't run game from command line. Disk load issue fixed.  
-- [ ] - caveexpress.sh - Cave Express game - Not working, some major compilation issues.  
-- [ ] - f2bgl.sh - Fade To Black engine - Segfaults on launch.  
-- [ ] - freedink.sh - Dink Smallwood engine - Lots of flicker on sprites and text, currently unsolved. Works well otherwise.  
-- [ ] - freegish.sh - Gish clone - Runs with glshim however very, very slowly. Might need some additional glshim options.  
-- [ ] - kodi.sh - Media Player - Installs v16 for Raspbian Jessie ONLY. Currently untested.  
- 
-- [ ] - mehstation.sh - Emulator frontend - Currently untested, unfinished script. Not able to replace emulationstation yet.  
-- [ ] - moonlight.sh - Open Source nVidia GameStreaming - A newer package is available, currently untested.  
-- [ ] - openfodder.sh - Open source Cannon Fodder engine - Instable, crashes during second mission.  
-- [ ] - umario.sh - Super Mario Bros. Remake - Runs but doesn't scale properly. Fix incoming soon.
-
-##### Supplementary
-- [ ] - exodos-setup.sh - Setup script for adding working eXoDOS collection to EmulationStation - Not completed yet. See https://github.com/zerojay/RetroPie-Extra/issues/76
 
 #### Future To-Do List (not ordered by priority)
 - [X] - glshim  
