@@ -78,7 +78,7 @@ function configure_pydance() {
         wget https://icculus.org/pyddr/pydance-cdtitle.png
         mv pydance-cdtitle.png pydance.png
     fi
-    chown -R pi:pi /opt/retropie/ports/pydance
+    chown -R $user:$user /opt/retropie/ports/pydance
     addPort "$md_id" "pydance" "pydance - Open Source Dancing Game" "pushd $md_inst/pydance-1.1.0/; python pydance.py; popd"
     __INFMSGS+=("Be sure to add your songs to $md_conf_root/$md_id/songs. For more information about adding songs from other games to pydance, please take a look at the pydance homepage: https://icculus.org/pyddr/")
 }
