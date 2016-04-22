@@ -27,6 +27,6 @@ function install_ulmos-adventure() {
 }
 
 function configure_ulmos-adventure() {
-    chown -R pi:pi "$md_inst"
+    chown -R $user:$user "$md_inst"
     addPort "$md_id" "ulmos-adventure" "Ulmo's Adventure - Simple Adventure Game" "pushd $md_inst/src/; python play.py; popd"
 }
