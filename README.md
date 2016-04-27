@@ -87,7 +87,8 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - rott.sh - Rise of the Triad source port - Tested and works well.  
 - [X] - sdl-bomber.sh - Simple Bomberman clone - Tested and works well, turn down the volume perhaps.  
 - [X] - smw-netplay.sh - Super Mario War with netplay - Tested and works well, netplay untested?  
-- [X] - sorr.sh - Streets of Rage Remake port - Tested and works well. Use fullscreen fast video mode.  
+- [X] - sorr.sh - Streets of Rage Remake port - Tested and works well. Use fullscreen fast video mode.
+- [X] - supertuxkart.sh - Linux-themed racing game - Tested and works well, OpenGL game running through glshim.
 - [X] - tinyfugue.sh - MUD client - Tested and works well.  
 - [X] - ulmos-adventure.sh - Simple Adventure Game - Tested and works well.  
 - [X] - vorton.sh - Highway Encounter Remake in Spanish - Tested and works well.
