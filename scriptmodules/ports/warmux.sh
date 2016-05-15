@@ -19,5 +19,5 @@ function install_warmux() {
 }
  
 function configure_warmux() {
-    addPort "$md_id" "warmux" "warmux" "warmux"
+    addPort "$md_id" "warmux" "warmux" "/usr/games/warmux"
 }
