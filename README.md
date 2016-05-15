@@ -92,6 +92,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - tinyfugue.sh - MUD client - Tested and works well.  
 - [X] - ulmos-adventure.sh - Simple Adventure Game - Tested and works well.  
 - [X] - vorton.sh - Highway Encounter Remake in Spanish - Tested and works well.
+- [X] - warmux.sh - Worms Clone - Tested and works well. Possible issues with config files in wrong places?
 - [X] - weechat.sh - Console IRC Client - Tested and works well.
 - [X] - wizznic.sh - Puzznic clone - Tested and works well.  
 
