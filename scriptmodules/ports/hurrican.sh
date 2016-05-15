@@ -45,21 +45,21 @@ function build_hurrican() {
 function install_hurrican() {
     if isPlatform "rpi"; then
         md_ret_files=(
-            '/Hurrican/hurrican'
-            '/Hurrican/data'
-            '/Hurrican/lang'
-            '/Hurrican/splashscreen.bmp'
-            '/Editor/maps'
-            '/Editor/Gfx'
+            'Hurrican/hurrican'
+            'Hurrican/data'
+            'Hurrican/lang'
+            'Hurrican/splashscreen.bmp'
+            'Editor/maps'
+            'Editor/Gfx'
         )
     else
         md_ret_files=( 
-            '/Hurrican/hurricanlinux' 
-            '/Hurrican/data'
-            '/Hurrican/lang'
-            '/Hurrican/splashscreen.bmp'
-            '/Editor/maps' 
-            '/Editor/Gfx'     
+            'Hurrican/hurricanlinux' 
+            'Hurrican/data'
+            'Hurrican/lang'
+            'Hurrican/splashscreen.bmp'
+            'Editor/maps' 
+            'Editor/Gfx'     
         )
     fi
 }
