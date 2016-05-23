@@ -71,6 +71,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - gamemaker.sh - Install the 3 gamemaker games - Tested and works well.  
 - [X] - ganbare.sh - Japanese 2D Platformer - Tested and works well, does not require Japanese to play.  
 - [X] - heboris.sh - Tetris The Grand Master clone - Tested and works well, does not include audio, user needs to provide their own soundpack.  
+- [X] - hurrican.sh - Turrican clone. - Tested and works well, minor graphics issues.  
 - [X] - iceweasel.sh - Rebranded Firefox Web Browser - Tested and works well.  
 - [X] - kaiten-patissier-cs.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier-ura.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
@@ -83,6 +84,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - pingus.sh - Lemmings clone - Tested and works well, requires mouse.  
 - [X] - rawgl.sh - Another World source port - Tested, occasionally crashes when button held when switching scenes?  
 - [X] - reminiscence.sh - Flashback engine clone - Tested and works well.   
+- [X] - retrobattle.sh - Fun retro style platform game - Tested and works well.
 - [X] - roadfighter.sh - RoadFighter clone - Tested and works well.  
 - [X] - rott.sh - Rise of the Triad source port - Tested and works well.  
 - [X] - sdl-bomber.sh - Simple Bomberman clone - Tested and works well, turn down the volume perhaps.  
