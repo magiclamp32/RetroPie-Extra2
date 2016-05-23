@@ -15,16 +15,15 @@ rp_module_menus="4+"
 
 function depends_attract-mode() {
     local depends=(
-        cmake libx11-dev libx11-xcb-dev libflac-dev libogg-dev libvorbis-dev libopenal-dev libjpeg62-turbo-dev 
-        libfreetype6-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev 
-        libxcb-icccm4-dev libudev-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev libswscale-dev 
-        libavresample-dev libfontconfig1-dev libxrandr2 libxrandr-dev libgles2-mesa-dev xinit xorg
+        cmake libflac-dev libogg-dev libvorbis-dev libopenal-dev libjpeg62-turbo-dev 
+        libudev-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev libswscale-dev 
+        libavresample-dev libfontconfig1-dev
         )
     getDepends "${depends[@]}"
 }
 
 function sources_attract-mode() {
-    gitPullOrClone "$md_build/sfml-pi" "https://github.com/mickelson/SFML" "rpi"
+    gitPullOrClone "$md_build/sfml-pi" "https://github.com/mickelson/sfml-pi"
     gitPullOrClone "$md_build/attract" "https://github.com/mickelson/attract"
 #    sed -i 's/CFLAGS += -I\/opt\/vc\/include -L\/opt\/vc\/lib/CFLAGS += -I\/opt\/vc\/include -I\/opt\/retropie\/supplementary\/attract-mode\/include -L\/opt\/vc\/lib\/ -L\/opt\/retropie\/supplementary\/attract-mode\/lib/' "$md_build/attract/Makefile"
 }
@@ -33,7 +32,7 @@ function build_attract-mode() {
     cd "$md_build/sfml-pi"
     mkdir build
     cd build
-    cmake -DEGL_INCLUDE_DIR=/opt/vc/include -DEGL_LIBRARY=/opt/vc/lib/libEGL.so -DFREETYPE_INCLUDE_DIR_freetype2=/usr/include -DFREETYPE_INCLUDE_DIR_ft2build=/usr/include/freetype2 -DGLES_INCLUDE_DIR=/opt/vc/include -DGLES_LIBRARY=/opt/vc/lib/libGLESv1_CM.so -DSFML_BCMHOST=1 -DSFML_OPENGL_ES=1 .. 
+    cmake .. -DSFML_RPI=1 -DEGL_INCLUDE_DIR=/opt/vc/include -DEGL_LIBRARY=/opt/vc/lib/libEGL.so -DGLES_INCLUDE_DIR=/opt/vc/include -DGLES_LIBRARY=/opt/vc/lib/libGLESv1_CM.so 
     make install
     ldconfig
     cd ../../attract
@@ -61,7 +60,7 @@ fi
 
 clear
 pushd "$md_inst" >/dev/null
-xinit /opt/retropie/supplementary/attract-mode/attract
+/opt/retropie/supplementary/attract-mode/attract
 popd >/dev/null
 
 _EOF_
