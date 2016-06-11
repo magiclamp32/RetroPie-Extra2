@@ -50,9 +50,6 @@ In the dialog box that comes up, you can select which users are allowed to use t
 #### Master Branch
 ##### Emulators
 - [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
-- [X] - oricutron.sh - Oricutron Oric 1/Oric Atmos emulator - Tested and works well.  
-- [X] - sdltrs.sh - Radio Shack TRS-80 Model I/III/4/4P emulator - Tested and works well.  
-- [X] - ti99sim.sh - Texas Instruments 99A emulator - Tested and works well.  
 
 ##### Ports
 - [X] - bermudasyndrome.sh - Bermuda Syndrome engine - Tested, runs, possibly instable.  
@@ -113,6 +110,9 @@ In the dialog box that comes up, you can select which users are allowed to use t
 ### Hall of Fame - Scripts accepted into RetroPie-Setup
 - [X] - LXDE - LXDE Desktop
 - [X] - SimCoupe - Sam Coupe Emulator
+- [X] - Oricutron - Oric 1/Oric Atmos emulator
+- [X] - sdltrs - Radio Shack TRS-80 Model I/III/4/4P emulator
+- [X] - ti99sim - Texas Instruments 99A emulator
 
 ### Contact Info/Additional Information
 Twitter: @zerojay - often posting new information and additions from the repository to the #retropie hashtag.  
