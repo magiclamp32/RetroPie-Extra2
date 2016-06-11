@@ -11,7 +11,7 @@
 
 rp_module_id="retrobattle"
 rp_module_desc="retrobattle - Fun Retro Style Game"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_retrobattle() {
@@ -51,5 +51,5 @@ _EOF_
     chmod +x "$md_inst/retrobattle.sh"
 
     addPort "$md_id" "retrobattle" "retrobattle" "xinit $md_inst/retrobattle.sh"
-    __INFMSGS+=("If $md_id crashes back to emulationstation, it may be because the user you are running as does not have permission to launch X on its own. You can fix this by running 'dpkg-reconfigure x11-common' as root and then selecting $user or 'Anybody'.")
+    rp_module_help="If $md_id crashes back to emulationstation, it may be because the user you are running as does not have permission to launch X on its own. You can fix this by running 'dpkg-reconfigure x11-common' as root and then selecting $user or 'Anybody'."
 }

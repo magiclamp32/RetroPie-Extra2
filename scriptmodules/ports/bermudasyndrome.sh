@@ -11,7 +11,7 @@
 
 rp_module_id="bermudasyndrome"
 rp_module_desc="Bermuda Syndrome - Open Source Engine"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_bermudasyndrome() {
@@ -36,5 +36,5 @@ function configure_bermudasyndrome() {
 # Might be missing config dir, FIX ME.
 
     addPort "$md_id" "bermudasyndrome" "Bermuda Syndrome - Open Source Engine" "$md_inst/bs --datapath=$romdir/ports/$md_id --savepath=$md_conf_root/$md_id"
-    __INFMSGS+=("Please copy your Bermuda Syndrome data files to $romdir/ports/$md_id before running the game.")
+    rp_module_help="Please copy your Bermuda Syndrome data files to $romdir/ports/$md_id before running the game."
 }

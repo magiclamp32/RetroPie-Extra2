@@ -11,7 +11,7 @@
  
 rp_module_id="wizznic"
 rp_module_desc="Wizznic - Puzznic clone"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_wizznic() {

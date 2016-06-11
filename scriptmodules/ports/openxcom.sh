@@ -11,7 +11,7 @@
  
 rp_module_id="openxcom"
 rp_module_desc="OpenXCOM - Open Source X-COM Engine"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!mali !x86"
  
 function depends_openxcom() {
@@ -52,6 +52,5 @@ function configure_openxcom() {
     mkdir "ports"
     moveConfigDir "$home/.config/openxcom" "$md_conf_root/openxcom"
     addPort "$md_id" "openxcom" "OpenXCOM - Open Source X-COM Engine" "LD_LIBRARY_PATH=/opt/retropie/supplementary/glshim LIBGL_FB=1 xinit $md_inst/bin/openxcom"
-    __INFMSGS+=("Be sure to install your original data files to the proper folders in $md_inst/share/openxcom.")
-
+    rp_module_help="Be sure to install your original data files to the proper folders in $md_inst/share/openxcom."
 }

@@ -11,7 +11,7 @@
 
 rp_module_id="kweb"
 rp_module_desc="kweb - Minimal Kiosk Web Browser"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_kweb() {

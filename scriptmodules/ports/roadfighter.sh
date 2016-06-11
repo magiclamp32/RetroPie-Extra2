@@ -11,7 +11,7 @@
 
 rp_module_id="roadfighter"
 rp_module_desc="Roadfighter - Retro Remake"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_roadfighter() {

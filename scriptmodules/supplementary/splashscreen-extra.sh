@@ -11,7 +11,7 @@
  
 rp_module_id="splashscreen-extra"
 rp_module_desc="Extra splashscreens for RetroPie"
-rp_module_menus="4+"
+rp_module_section="exp"
  
 function sources_splashscreen-extra() {
     gitPullOrClone "$md_build" https://github.com/sur0x/retropiesplashscreen.git

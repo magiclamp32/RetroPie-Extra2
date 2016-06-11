@@ -11,8 +11,8 @@
 
 rp_module_id="kodi-extra"
 rp_module_desc="Kodi - Open source home theatre software"
-rp_module_menus="4+"
-rp_module_flags="nobin !mali"
+rp_module_section="exp"
+rp_module_flags="!mali"
 
 function depends_kodi-extra() {
     if isPlatform "rpi"; then
@@ -28,7 +28,7 @@ function depends_kodi-extra() {
     fi
 }
 
-function install_kodi-extra() {
+function install_bin_kodi-extra() {
     aptInstall kodi
 }
 

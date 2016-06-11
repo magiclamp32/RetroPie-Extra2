@@ -11,7 +11,7 @@
 
 rp_module_id="kaiten-patissier-ura"
 rp_module_desc="Kaiten Patissier URA - RotateGear"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!x11 !mali"
 
 function depends_kaiten-patissier-ura() {

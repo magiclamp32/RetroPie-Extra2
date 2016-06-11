@@ -11,7 +11,7 @@
 
 rp_module_id="ganbare"
 rp_module_desc="Ganbare! Natsuke-San - 2D Platformer"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!x11 !mali"
 
 function depends_ganbare() {

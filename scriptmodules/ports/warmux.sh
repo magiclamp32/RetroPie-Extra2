@@ -11,10 +11,10 @@
  
 rp_module_id="warmux"
 rp_module_desc="Warmux - Worms Clone"
-rp_module_menus="4+"
-rp_module_flags="nobin !mali"
+rp_module_section="exp"
+rp_module_flags="!mali"
  
-function install_warmux() {
+function install_bin_warmux() {
     aptInstall warmux
 }
  

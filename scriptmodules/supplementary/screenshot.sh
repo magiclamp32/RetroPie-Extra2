@@ -11,7 +11,7 @@
  
 rp_module_id="screenshot"
 rp_module_desc="Universal Screenshot with Raspi2PNG"
-rp_module_menus="4+"
+rp_module_section="exp"
  
 function depends_screenshot() {
     getDepends libpng12-dev

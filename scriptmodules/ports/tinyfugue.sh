@@ -11,14 +11,14 @@
 
 rp_module_id="tinyfugue"
 rp_module_desc="TinyFugue - Console MUD Client"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_tinyfugue() {
     	getDepends xdg-utils matchbox xorg
 }
 
-function sources_tinyfugue() {
+function install_bin_tinyfugue() {
         aptInstall tf
 }
 
@@ -34,5 +34,5 @@ _EOF_
     chmod +x "$romdir/ports/tinyfugue.sh"
 
     addPort "$md_id" "tinyfugue" "TinyFugue - Console MUD Client" "xinit $romdir/ports/tinyfugue.sh"
-    __INFMSGS+=("If $md_id crashes back to emulationstation, it may be because the user you are running as does not have permission to launch X on its own. You can fix this by running 'dpkg-reconfigure x11-common' as root and then selecting $user or 'Anybody'.")
+    rp_module_help="If $md_id crashes back to emulationstation, it may be because the user you are running as does not have permission to launch X on its own. You can fix this by running 'dpkg-reconfigure x11-common' as root and then selecting $user or 'Anybody'."
 }
