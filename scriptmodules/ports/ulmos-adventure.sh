@@ -11,7 +11,7 @@
 
 rp_module_id="ulmos-adventure"
 rp_module_desc="Ulmo's Adventure - Simple Adventure Game"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!mali"
 
 function depends_ulmos-adventure() {

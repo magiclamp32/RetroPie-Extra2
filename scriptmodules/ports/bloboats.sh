@@ -11,8 +11,8 @@
  
 rp_module_id="bloboats"
 rp_module_desc="Bloboats"
-rp_module_menus="4+"
-rp_module_flags="nobin !mali !x86"
+rp_module_section="exp"
+rp_module_flags="!mali !x86"
  
 function depends_bloboats() {
     getDepends cmake xorg
@@ -32,7 +32,7 @@ function build_bloboats() {
     fi
 }
 
-function install_bloboats() {
+function install_bin_bloboats() {
     aptInstall bloboats
     if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
        mkdir -p /opt/retropie/supplementary/glshim/

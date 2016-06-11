@@ -11,8 +11,8 @@
  
 rp_module_id="fofix"
 rp_module_desc="FoFix - Guitar Hero and Rock Band clone"
-rp_module_menus="4+"
-rp_module_flags="nobin !mali !x86"
+rp_module_section="exp"
+rp_module_flags="!mali !x86"
  
 function depends_fofix() {
     getDepends cmake xorg
@@ -32,7 +32,7 @@ function build_fofix() {
     fi
 }
 
-function install_fofix() {
+function install_bin_fofix() {
     aptInstall fofix
     if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
        mkdir -p /opt/retropie/supplementary/glshim/

@@ -11,7 +11,7 @@
 
 rp_module_id="chromium"
 rp_module_desc="chromium - Open Source Web Browser"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_chromium() {
@@ -59,5 +59,5 @@ _EOF_
     chmod +x "$md_inst/chromium.sh"
 
     addPort "$md_id" "chromium" "Chromium - Open Source Web Browser" "xinit $md_inst/chromium.sh"
-    __INFMSGS+=("If Chromium crashes back to emulationstation, it may be because the user you are running as does not have permission to launch X on its own. You can fix this by running 'dpkg-reconfigure x11-common' as root and then selecting $user or 'Anybody'.")
+    rp_module_help="If Chromium crashes back to emulationstation, it may be because the user you are running as does not have permission to launch X on its own. You can fix this by running 'dpkg-reconfigure x11-common' as root and then selecting $user or 'Anybody'."
 }

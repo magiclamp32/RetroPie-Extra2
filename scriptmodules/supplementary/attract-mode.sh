@@ -11,7 +11,7 @@
 
 rp_module_id="attract-mode"
 rp_module_desc="Attract Mode - Emulator Frontend"
-rp_module_menus="4+"
+rp_module_section="exp"
 
 function depends_attract-mode() {
     local depends=(

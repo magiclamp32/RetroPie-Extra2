@@ -11,8 +11,8 @@
  
 rp_module_id="supertuxkart"
 rp_module_desc="SuperTuxKart"
-rp_module_menus="4+"
-rp_module_flags="nobin !mali !x86"
+rp_module_section="exp"
+rp_module_flags="!mali !x86"
  
 function depends_supertuxkart() {
     getDepends cmake xorg
@@ -32,7 +32,7 @@ function build_supertuxkart() {
     fi
 }
 
-function install_supertuxkart() {
+function install_bin_supertuxkart() {
     aptInstall supertuxkart
     if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
        mkdir -p /opt/retropie/supplementary/glshim/

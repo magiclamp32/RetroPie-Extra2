@@ -11,10 +11,10 @@
 
 rp_module_id="pingus"
 rp_module_desc="Pingus - Open source Lemmings clone"
-rp_module_menus="4+"
-rp_module_flags="nobin !mali !x86"
+rp_module_section="exp"
+rp_module_flags="!mali !x86"
 
-function install_pingus() {
+function install_bin_pingus() {
     aptInstall pingus pingus-data
 }
 

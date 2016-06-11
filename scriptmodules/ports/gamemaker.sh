@@ -11,8 +11,8 @@
 
 rp_module_id="gamemaker"
 rp_module_desc="GameMaker - Games for the Raspberry Pi"
-rp_module_menus="4+"
-rp_module_flags="nobin !mali !x86"
+rp_module_section="exp"
+rp_module_flags="!mali !x86"
 
 function install_gamemaker() {
 # Install They Need To Be Fed Game

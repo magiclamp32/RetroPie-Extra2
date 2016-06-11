@@ -11,10 +11,10 @@
 
 rp_module_id="burgerspace"
 rp_module_desc="BurgerSpace - BurgerTime clone"
-rp_module_menus="4+"
-rp_module_flags="nobin !mali !x86"
+rp_module_section="exp"
+rp_module_flags="!mali !x86"
 
-function install_burgerspace() {
+function install_bin_burgerspace() {
     aptInstall burgerspace
 }
 

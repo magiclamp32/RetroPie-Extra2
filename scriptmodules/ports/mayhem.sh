@@ -11,7 +11,7 @@
 
 rp_module_id="mayhem"
 rp_module_desc="Mayhem - Remake of Amiga Game"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_mayhem() {

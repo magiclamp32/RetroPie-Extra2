@@ -11,7 +11,7 @@
 
 rp_module_id="chocolate-doom"
 rp_module_desc="Chocolate Doom - Enhanced port of the official DOOM source"
-rp_module_menus="4+"
+rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_chocolate-doom() {
@@ -133,5 +133,6 @@ function configure_chocolate-doom() {
        addPort "$md_id" "chocolate-strife1" "Chocolate Strife" "$md_inst/chocolate-strife -iwad $romdir/ports/doom/strife1.wad"
     fi
 
-    __INFMSGS+=("Please add your iWAD files to $romdir/ports/doom/ and reinstall $md_id to create entries for each game to EmulationStation. Run 'chocolate-setup' to configure your controls and options.")
+    rp_module_help="Please add your iWAD files to $romdir/ports/doom/ and reinstall $md_id to create entries for each game to EmulationStation. Run 'chocolate-setup' to configure your controls and options."
+
 }
