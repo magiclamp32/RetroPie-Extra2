@@ -11,6 +11,7 @@
 
 rp_module_id="reminiscence"
 rp_module_desc="REminiscence - Flashback Engine"
+rp_module_help="Please copy your Flashback data files to $romdir/ports/$md_id before running REminiscence."
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
@@ -36,5 +37,4 @@ function configure_reminiscence() {
     #fixme: Missing configuration dir.
 
     addPort "$md_id" "reminiscence" "REminiscence" "$md_inst/rs --datapath=$romdir/ports/$md_id --savepath=$md_conf_root/$md_id"
-    rp_module_help="Please copy your Flashback data files to $romdir/ports/$md_id before running REminiscence."
 }
