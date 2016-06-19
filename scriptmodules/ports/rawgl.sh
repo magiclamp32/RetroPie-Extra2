@@ -11,6 +11,7 @@
 
 rp_module_id="rawgl"
 rp_module_desc="rawgl - Another World Engine"
+rp_module_help="Please copy your Another World data files to $romdir/ports/$md_id before running the game."
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
@@ -37,5 +38,4 @@ function configure_rawgl() {
     mkRomDir "ports/$md_id"
 
     addPort "$md_id" "rawgl" "rawgl - Another World Engine" "$md_inst/rawgl --datapath=$romdir/ports/$md_id --language=us --render=original --fullscreen-ar"
-    rp_module_help="Please copy your Another World data files to $romdir/ports/$md_id before running the game."
 }

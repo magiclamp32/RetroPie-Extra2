@@ -11,6 +11,7 @@
  
 rp_module_id="screenshot"
 rp_module_desc="Universal Screenshot with Raspi2PNG"
+rp_module_help="To take a screenshot use $datadir/screenshots/screenshot.sh over SSH."
 rp_module_section="exp"
  
 function depends_screenshot() {
@@ -47,6 +48,4 @@ _EOF_
  
     chown $user:$user "$datadir/screenshots/screenshot.sh"
     chmod +x "$datadir/screenshots/screenshot.sh"
- 
-    printMsgs "dialog" "To take a screenshot use $datadir/screenshots/screenshot.sh over SSH."
 }

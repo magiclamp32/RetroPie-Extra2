@@ -11,6 +11,7 @@
 
 rp_module_id="corsixth"
 rp_module_desc="CorsixTH - Theme Hospital Engine"
+rp_module_help="You need to copy your Theme Hospital game data into $romdir/ports/$md_id/ and when starting up the game for the first time, select the directory."
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
@@ -45,6 +46,4 @@ function configure_corsixth() {
     moveConfigDir "$home/.config/CorsixTH" "$md_conf_root/$md_id"
 
     addPort "$md_id" "corsixth" "CorsixTH - Theme Hospital Engine" "$md_inst/CorsixTH/CorsixTH"
-
-    rp_module_help="You need to copy your Theme Hospital game data into $romdir/ports/$md_id/ and when starting up the game for the first time, select the directory."
 }

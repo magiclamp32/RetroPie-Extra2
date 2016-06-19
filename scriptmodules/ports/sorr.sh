@@ -11,6 +11,7 @@
 
 rp_module_id="sorr"
 rp_module_desc="Streets of Rage Remake"
+rp_module_help="Please copy your Streets of Rage Remake installation files into $md_inst."
 rp_module_section="exp"
 rp_module_flags="!x86 !x11 !mali"
 
@@ -29,5 +30,4 @@ function configure_sorr() {
     chmod 755 "$md_inst/bgdi-330"
     moveConfigFile "$md_inst/savegame" "$md_conf_root/$md_id/"
     addPort "$md_id" "sorr" "Streets of Rage Remake" "pushd $md_inst; ./bgdi-330 ./SorR.dat; popd"
-    rp_module_help="Please copy your Streets of Rage Remake installation files into $md_inst."
 }
