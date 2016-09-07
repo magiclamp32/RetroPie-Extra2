@@ -17,6 +17,7 @@ rp_module_flags="!x86 !x11 !mali"
 
 function sources_sorr() {
     gitPullOrClone "$md_build" https://github.com/zerojay/bennugd.git
+    getDepends libsdl-mixer1.2
 }
 
 function install_sorr() {
