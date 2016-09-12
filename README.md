@@ -64,6 +64,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - deadbeef.sh - Music and ripped game music player - Tested and works well.
 - [X] - easyrpgplayer.sh - RPG Maker 2000/2003 interpreter - Tested and works well.  
 - [X] - freeciv.sh - Civilization online clone - Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.  
+- [X] - freedink.sh - Dink Smallwood engine - Tested and works well.  
 - [X] - freesynd.sh - Syndicate clone - Tested and has occasional crash issues. Save between levels to avoid losing progress.  
 - [X] - gamemaker.sh - Install the 3 gamemaker games - Tested and works well.  
 - [X] - ganbare.sh - Japanese 2D Platformer - Tested and works well, does not require Japanese to play.  
