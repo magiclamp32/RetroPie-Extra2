@@ -11,7 +11,7 @@
 
 rp_module_id="chocolate-doom"
 rp_module_desc="Chocolate Doom - Enhanced port of the official DOOM source"
-rp_module_help="Please add your iWAD files to $romdir/ports/doom/ and reinstall $md_id to create entries for each game to EmulationStation. Run 'chocolate-setup' to configure your controls and options."
+rp_module_help="Please add your iWAD files to $romdir/ports/doom/ and reinstall $md_id to create entries for each game to EmulationStation. Run 'chocolate-doom-setup' to configure your controls and options."
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
