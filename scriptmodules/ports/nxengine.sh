@@ -11,7 +11,7 @@
 
 rp_module_id="nxengine"
 rp_module_desc="Cave Story engine clone - NXEngine"
-rp_module_help="Copy the original Cave Story game files to /opt/retropie/ports/nxengine so you have the file /opt/retropie/ports/nxengine/Doukutsu.exe and folder /opt/retropie/ports/nxengine/data present."
+rp_module_help="Copy the original Cave Story game files to $romdir/ports/CaveStory so you have $romdir/ports/CaveStory/Doukutsu.exe and $romdir/ports/CaveStory/data present."
 rp_module_section="opt"
 
 function depends_nxengine() {
@@ -39,6 +39,9 @@ function install_nxengine() {
 
 function configure_nxengine() {
     addPort "$md_id" "cavestory" "Cave Story" "$md_inst/NXEngine.sh"
+    
+    ln -sf "$romdir/ports/CaveStory/data" "$md_inst/data"
+    ln -sf "$romdir/ports/CaveStory/Doukutsu.exe" "$md_inst/Doukutsu.exe"
 
     cat >"$md_inst/NXEngine.sh" << _EOF_
 #!/bin/bash
