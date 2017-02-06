@@ -47,7 +47,7 @@ function configure_nxengine() {
     cat >"$md_inst/NXEngine.sh" << _EOF_
 #!/bin/bash
 cd "$md_inst"
-./nx
+sudo ./nx
 _EOF_
     chmod +x "$md_inst/NXEngine.sh"
 
