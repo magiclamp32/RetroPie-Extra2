@@ -13,6 +13,7 @@ rp_module_id="nxengine"
 rp_module_desc="Cave Story engine clone - NXEngine"
 rp_module_help="Copy the original Cave Story game files to $romdir/ports/CaveStory so you have $romdir/ports/CaveStory/Doukutsu.exe and $romdir/ports/CaveStory/data present."
 rp_module_section="opt"
+rp_module_flags="!armv6 !mali"
 
 function depends_nxengine() {
     getDepends libsdl1.2-dev libsdl-ttf2.0-dev
