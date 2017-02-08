@@ -43,8 +43,8 @@ function configure_nxengine() {
     
     ln -sf "$romdir/ports/CaveStory/data" "$md_inst/data"
     ln -sf "$romdir/ports/CaveStory/Doukutsu.exe" "$md_inst/Doukutsu.exe"
-    chown -R $user:$user "$md_inst/data"
-    chown -R $user:$user "$md_inst/Doukutsu.exe"
+    chown $user:$user "$md_inst/data"
+    chown $user:$user "$md_inst/Doukutsu.exe"
 
     cat >"$md_inst/NXEngine.sh" << _EOF_
 #!/bin/bash
