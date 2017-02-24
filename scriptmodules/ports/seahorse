@@ -14,10 +14,6 @@ rp_module_desc="Seahorse Adventure: a side scrolling platform game with a bubble
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
-function depends_seahorse() {
-    getDepends xorg
-}
-
 function install_bin_seahorse() {
     aptInstall seahorse-adventure
 }
