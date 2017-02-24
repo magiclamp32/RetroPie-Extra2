@@ -22,5 +22,5 @@ function configure_seahorse() {
     mkRomDir "ports"
     moveConfigDir "$home/.seahorse" "$md_conf_root/$md_id"
 
-    addPort "$md_id" "seahorse" "Seahorse Adventure" "xinit seahorse-adventure"
+    addPort "$md_id" "seahorse" "Seahorse Adventure" "seahorse-adventure"
 }
