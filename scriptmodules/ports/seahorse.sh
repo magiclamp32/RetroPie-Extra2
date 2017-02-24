@@ -10,17 +10,17 @@
 #
 
 rp_module_id="seahorse"
-rp_module_desc="Seahorse Adventure: a side scrolling platform game with a bubble shooting seahorse (Bubble Bobble meets Blaster Master)"
+rp_module_desc="Seahorse Adventures: a side scrolling platform game with a bubble shooting seahorse (Bubble Bobble meets Blaster Master)"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function install_bin_seahorse() {
-    aptInstall seahorse-adventure
+    aptInstall seahorse-adventures
 }
 
 function configure_seahorse() {
     mkRomDir "ports"
     moveConfigDir "$home/.seahorse" "$md_conf_root/$md_id"
 
-    addPort "$md_id" "seahorse" "Seahorse Adventure" "seahorse-adventure"
+    addPort "$md_id" "seahorse" "Seahorse Adventures" "seahorse-adventures"
 }
