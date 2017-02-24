@@ -87,6 +87,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - roadfighter.sh - RoadFighter clone - Tested and works well.  
 - [X] - rott.sh - Rise of the Triad source port - Tested and works well.  
 - [X] - sdl-bomber.sh - Simple Bomberman clone - Tested and works well, turn down the volume perhaps.  
+- [X] - seahorse.sh - Seahorse Adventure: Retro style platformer with bubble shooting seahorse - Tested and works well.  
 - [X] - smw-netplay.sh - Super Mario War with netplay - Tested and works well, netplay untested?  
 - [X] - sorr.sh - Streets of Rage Remake port - Tested and works well. Use fullscreen fast video mode.
 - [X] - supertuxkart.sh - Linux-themed racing game - Tested and works well, OpenGL game running through glshim.
