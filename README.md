@@ -16,7 +16,7 @@ Install the extra scripts
 The following clones the repo to your Pi and then the install-scripts.sh installs the scripts in the master branch directly to the proper directories in RetroPie-Setup.
 
 ```
-git clone https://github.com/punkbass/RetroPie-Extra.git
+git clone https://github.com/zerojay/RetroPie-Extra.git
 cd RetroPie-Extra/
 ./install-extras.sh
 ```
