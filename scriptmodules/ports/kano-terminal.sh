@@ -10,12 +10,12 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="kanoterminal"
+rp_module_id="kano-terminal"
 rp_module_desc="Kano terminal games."
 rp_module_section="exp"
 rp_module_flags="!mali"
 
-function install_bin_kanoterminal() {
+function install_bin_kano-terminal() {
     # Add Kano repo
     echo "deb http://dev.kano.me/archive/ release main" > /etc/apt/sources.list.d/kano.list
     wget http://dev.kano.me/archive/repo.gpg.key
@@ -26,7 +26,7 @@ function install_bin_kanoterminal() {
     aptInstall linux-story
 }
 
-function configure_funnyboat() {
+function configure_kano-terminal() {
     mkRomDir "ports"
     addPort "$md_id" "termquest" "Terminal Quest" "linux-story-gui"
     addPort "$md_id" "makesnake" "Make Snake" "make-snake"
