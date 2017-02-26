@@ -14,7 +14,7 @@ rp_module_desc="Funny Boat. A side scrolling boat shooter with waves."
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
-function install_bin_seahorse() {
+function install_bin_funnyboat() {
     aptInstall funnyboat
 }
 
