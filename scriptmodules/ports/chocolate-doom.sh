@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_chocolate-doom() {
-    getDepends libsdl1.2-dev libsdl-net1.2-dev libsdl-mixer1.2-dev python-imaging automake autoconf
+    getDepends libsdl2-dev libsdl2-net-dev libsdl2-mixer-dev libsamplerate0-dev libpng-dev python-imaging automake autoconf
 }
 
 function sources_chocolate-doom() {
