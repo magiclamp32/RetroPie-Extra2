@@ -40,7 +40,7 @@ function install_nxengine() {
 }
 
 function configure_nxengine() {
-    addPort "$md_id" "cavestory" "Cave Story" "pushd $md_inst; $md_inst/nx; popd"
+    addPort "$md_id" "cavestory" "Cave Story" "pushd $md_inst; ./nx; popd"
     
     ln -sf "$romdir/ports/CaveStory/data" "$md_inst/data"
     ln -sf "$romdir/ports/CaveStory/Doukutsu.exe" "$md_inst/Doukutsu.exe"
