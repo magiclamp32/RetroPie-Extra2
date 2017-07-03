@@ -11,6 +11,7 @@
 
 rp_module_id="pingus"
 rp_module_desc="Pingus - Open source Lemmings clone"
+rp_module_licence="GPL3 https://raw.githubusercontent.com/Pingus/pingus/master/COPYING"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 

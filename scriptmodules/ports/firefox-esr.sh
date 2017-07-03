@@ -9,30 +9,31 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="iceweasel"
-rp_module_desc="IceWeasel - Rebranded Firefox Web Browser"
+rp_module_id="firefox-esr"
+rp_module_desc="FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser"
+rp_module_licence="MPL2 https://www.mozilla.org/media/MPL/2.0/index.815ca599c9df.txt"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
-function depends_iceweasel() {
+function depends_firefox-esr() {
     getDepends xorg matchbox
 }
 
-function install_bin_iceweasel() {
-    aptInstall iceweasel
+function install_bin_firefox-esr() {
+    aptInstall firefox-esr
 }
 
-function configure_iceweasel() {
+function configure_firefox-esr() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
     moveConfigDir "$home/.mozilla" "$md_conf_root/$md_id"
-    cat >"$md_inst/iceweasel.sh" << _EOF_
+    cat >"$md_inst/firefox-esr.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no &
-/usr/bin/iceweasel
+/usr/bin/firefox-esr
 _EOF_
-    chmod +x "$md_inst/iceweasel.sh"
+    chmod +x "$md_inst/firefox-esr.sh"
     
-     addPort "$md_id" "iceweasel" "IceWeasel - Rebranded Firefox Web Browser" "xinit $md_inst/iceweasel.sh"
+     addPort "$md_id" "firefox-esr" "FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser" "xinit $md_inst/firefox-esr.sh"
 }

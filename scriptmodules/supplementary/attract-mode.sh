@@ -11,6 +11,7 @@
 
 rp_module_id="attract-mode"
 rp_module_desc="Attract Mode - Emulator Frontend"
+rp_module_licence="GPL3 https://raw.githubusercontent.com/mickelson/attract/master/License.txt"
 rp_module_section="exp"
 
 function depends_attract-mode() {

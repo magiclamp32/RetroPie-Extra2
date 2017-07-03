@@ -11,6 +11,7 @@
 
 rp_module_id="seahorse"
 rp_module_desc="Seahorse Adventures: a side scrolling platform game with a bubble shooting seahorse (Bubble Bobble meets Blaster Master)"
+rp_module_licence="GPL2 https://raw.githubusercontent.com/Nebuleon/barbie-seahorse-adventures/master/LICENSE.txt"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 

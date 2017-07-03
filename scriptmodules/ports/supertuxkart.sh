@@ -11,6 +11,7 @@
  
 rp_module_id="supertuxkart"
 rp_module_desc="SuperTuxKart"
+rp_module_licence="GPL3 https://sourceforge.net/p/supertuxkart/code/HEAD/tree/main/trunk/COPYING?format=raw"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
  

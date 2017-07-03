@@ -11,6 +11,7 @@
 
 rp_module_id="nxengine"
 rp_module_desc="Cave Story engine clone - NXEngine"
+rp_module_licence="GPL3 http://nxengine.sourceforge.net/LICENSE"
 rp_module_help="Copy the original Cave Story game files to $romdir/ports/CaveStory so you have $romdir/ports/CaveStory/Doukutsu.exe and $romdir/ports/CaveStory/data present."
 rp_module_section="opt"
 rp_module_flags="!armv6 !mali"
@@ -39,18 +40,11 @@ function install_nxengine() {
 }
 
 function configure_nxengine() {
-    addPort "$md_id" "cavestory" "Cave Story" "$md_inst/NXEngine.sh"
+    addPort "$md_id" "cavestory" "Cave Story" "pushd $md_inst; $md_inst/nx; popd"
     
     ln -sf "$romdir/ports/CaveStory/data" "$md_inst/data"
     ln -sf "$romdir/ports/CaveStory/Doukutsu.exe" "$md_inst/Doukutsu.exe"
     chown $user:$user "$md_inst/data"
     chown $user:$user "$md_inst/Doukutsu.exe"
-
-    cat >"$md_inst/NXEngine.sh" << _EOF_
-#!/bin/bash
-cd "$md_inst"
-./nx
-_EOF_
-    chmod +x "$md_inst/NXEngine.sh"
 
 }

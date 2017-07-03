@@ -11,6 +11,7 @@
 
 rp_module_id="rott"
 rp_module_desc="rott - Rise of the Triad port"
+rp_module_licence="GPL2 http://svn.icculus.org/*checkout*/rott/trunk/COPYING?revision=234"
 rp_module_help="Please add your full version ROTT files to $romdir/ports/$md_id/ to play."
 rp_module_section="exp"
 rp_module_flags="!mali !x86"

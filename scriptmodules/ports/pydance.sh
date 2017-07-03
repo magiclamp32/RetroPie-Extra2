@@ -11,6 +11,7 @@
 
 rp_module_id="pydance"
 rp_module_desc="pydance - Open Source Dancing Game"
+rp_module_licence="MIT https://raw.githubusercontent.com/asb/pydance/master/LICENSE"
 rp_module_help="Be sure to add your songs to $md_conf_root/$md_id/songs. For more information about adding songs from other games to pydance, please take a look at the pydance homepage: https://icculus.org/pyddr/"
 rp_module_section="exp"
 rp_module_flags="!mali"

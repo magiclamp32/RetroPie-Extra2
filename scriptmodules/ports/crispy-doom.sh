@@ -11,6 +11,7 @@
 
 rp_module_id="crispy-doom"
 rp_module_desc="Crispy Doom - Enhanced port of the official DOOM source"
+rp_module_licence="GPL2 https://raw.githubusercontent.com/fabiangreffrath/crispy-doom/master/COPYING"
 rp_module_help="Please add your iWAD files to $romdir/ports/doom/ and reinstall $md_id to create entries for each game to EmulationStation. Run 'crispy-setup' to configure your controls and options."
 rp_module_section="exp"
 rp_module_flags="!mali !x86"

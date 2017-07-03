@@ -11,6 +11,7 @@
 
 rp_module_id="freesynd"
 rp_module_desc="freesynd - Syndicate Engine"
+rp_module_licence="GPL2 https://sourceforge.net/p/freesynd/code/HEAD/tree/freesynd/trunk/COPYING?format=raw"
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 

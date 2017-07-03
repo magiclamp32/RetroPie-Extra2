@@ -11,6 +11,7 @@
 
 rp_module_id="easyrpgplayer"
 rp_module_desc="EasyRPG Player - RPG Maker 2000 and 2003 Interpreter"
+rp_module_licence="GPL3 https://raw.githubusercontent.com/EasyRPG/Player/master/COPYING"
 rp_module_help="You need to unzip your RPG Maker games into subdirectories in $romdir/ports/$md_id/games. Obtain the translated RPG Maker 2000 RTP by Don Miguel and extract it to $romdir/ports/$md_id/data/rtp2000. Obtain the translated RPG Maker 2003 RTP by Advocate and extract it to $romdir/ports/$md_id/data/rtp2003/."
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
