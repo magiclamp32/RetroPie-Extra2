@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_easyrpgplayer() {
-    getDepends libsdl2-dev libsdl2-mixer-dev libpng12-dev libfreetype6-dev libboost-dev libpixman-1-dev zlib1g-dev autoconf automake libicu-dev libtool
+    getDepends libsdl2-dev libsdl2-mixer-dev libpng12-dev libfreetype6-dev libboost-dev libpixman-1-dev libexpat1-dev zlib1g-dev autoconf automake libicu-dev libtool
 }
 
 function sources_easyrpgplayer() {
@@ -28,12 +28,12 @@ function sources_easyrpgplayer() {
 function build_easyrpgplayer() {
     cd liblcf
     autoreconf -i
-    ./configure --prefix "$md_inst"
+    ./configure --prefix=/usr
     make
     make install
     cd ../player
     autoreconf -i
-    PKG_CONFIG_PATH=$md_inst/lib/pkgconfig ./configure --prefix "$md_inst"
+    ./configure --prefix "$md_inst"
     make
     cd ..
     # No longer needed.
