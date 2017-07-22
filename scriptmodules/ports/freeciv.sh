@@ -11,6 +11,7 @@
 
 rp_module_id="freeciv"
 rp_module_desc="freeciv - Open Source Civilization game"
+rp_module_licence="GPL2 https://raw.githubusercontent.com/freeciv/freeciv/master/COPYING"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 

@@ -11,6 +11,7 @@
  
 rp_module_id="crack-attack"
 rp_module_desc="Crack-Attack - Tetris Attack clone"
+rp_module_licence="GPL2 http://cvs.savannah.nongnu.org/viewvc/*checkout*/crack-attack/crack-attack/COPYING?revision=1.2"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
  

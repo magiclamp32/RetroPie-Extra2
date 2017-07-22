@@ -11,6 +11,7 @@
 
 rp_module_id="maelstrom"
 rp_module_desc="Maelstrom - Classic Mac Asteroids Remake"
+rp_module_licence="GPL2 https://www.gnu.org/licenses/gpl-2.0.txt"
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 

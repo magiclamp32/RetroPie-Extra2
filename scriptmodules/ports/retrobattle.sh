@@ -11,6 +11,7 @@
 
 rp_module_id="retrobattle"
 rp_module_desc="retrobattle - Fun Retro Style Game"
+rp_module_licence="GPL2 https://www.gnu.org/licenses/gpl-2.0.txt"
 rp_module_help="If $md_id crashes back to emulationstation, it may be because the user you are running as does not have permission to launch X on its own. You can fix this by running 'dpkg-reconfigure x11-common' as root and then selecting $user or 'Anybody'."
 rp_module_section="exp"
 rp_module_flags="!mali !x86"

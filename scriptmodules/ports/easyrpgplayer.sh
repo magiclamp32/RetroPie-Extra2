@@ -11,12 +11,13 @@
 
 rp_module_id="easyrpgplayer"
 rp_module_desc="EasyRPG Player - RPG Maker 2000 and 2003 Interpreter"
+rp_module_licence="GPL3 https://raw.githubusercontent.com/EasyRPG/Player/master/COPYING"
 rp_module_help="You need to unzip your RPG Maker games into subdirectories in $romdir/ports/$md_id/games. Obtain the translated RPG Maker 2000 RTP by Don Miguel and extract it to $romdir/ports/$md_id/data/rtp2000. Obtain the translated RPG Maker 2003 RTP by Advocate and extract it to $romdir/ports/$md_id/data/rtp2003/."
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_easyrpgplayer() {
-    getDepends libsdl2-dev libsdl2-mixer-dev libpng12-dev libfreetype6-dev libboost-dev libpixman-1-dev zlib1g-dev autoconf automake libicu-dev libtool
+    getDepends libsdl2-dev libsdl2-mixer-dev libpng12-dev libfreetype6-dev libboost-dev libpixman-1-dev libexpat1-dev zlib1g-dev autoconf automake libicu-dev libtool
 }
 
 function sources_easyrpgplayer() {
@@ -27,12 +28,12 @@ function sources_easyrpgplayer() {
 function build_easyrpgplayer() {
     cd liblcf
     autoreconf -i
-    ./configure --prefix "$md_inst"
+    ./configure --prefix=/usr
     make
     make install
     cd ../player
     autoreconf -i
-    PKG_CONFIG_PATH=$md_inst/lib/pkgconfig ./configure --prefix "$md_inst"
+    ./configure --prefix "$md_inst"
     make
     cd ..
     # No longer needed.

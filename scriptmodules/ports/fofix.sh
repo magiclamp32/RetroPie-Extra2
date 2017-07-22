@@ -11,6 +11,7 @@
  
 rp_module_id="fofix"
 rp_module_desc="FoFix - Guitar Hero and Rock Band clone"
+rp_module_licence="GPL2 https://raw.githubusercontent.com/fofix/fofix/master/COPYING"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
  

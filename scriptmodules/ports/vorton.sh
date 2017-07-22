@@ -11,6 +11,7 @@
 
 rp_module_id="vorton"
 rp_module_desc="Vorton - Highway Encounter Remake"
+rp_module_licence="GPL2 https://raw.githubusercontent.com/zerojay/vorton/master/LICENSE"
 rp_module_section="exp"
 rp_module_flags="!x11 !mali"
 

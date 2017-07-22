@@ -11,6 +11,7 @@
  
 rp_module_id="screenshot"
 rp_module_desc="Universal Screenshot with Raspi2PNG"
+rp_module_licence="MIT https://raw.githubusercontent.com/AndrewFromMelbourne/raspi2png/master/LICENSE"
 rp_module_help="To take a screenshot use $datadir/screenshots/screenshot.sh over SSH."
 rp_module_section="exp"
  

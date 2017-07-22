@@ -11,6 +11,7 @@
 
 rp_module_id="mayhem"
 rp_module_desc="Mayhem - Remake of Amiga Game"
+rp_module_licence="BSD3 https://raw.githubusercontent.com/martinohanlon/mayhem-pi/master/LICENSE"
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
@@ -19,7 +20,7 @@ function depends_mayhem() {
 }
 
 function sources_mayhem() {
-    gitPullOrClone "$md_build" https://github.com/martinohanlon/mayhem-pi
+    gitPullOrClone "$md_build" https://github.com/martinohanlon/mayhem-pi.git
 }
 
 function build_mayhem() {

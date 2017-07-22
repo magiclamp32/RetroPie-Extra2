@@ -11,6 +11,7 @@
 
 rp_module_id="funnyboat"
 rp_module_desc="Funny Boat. A side scrolling boat shooter with waves."
+rp_module_licence="GPL2 https://sourceforge.net/p/funnyboat/code/HEAD/tree/trunk/LICENSE-CODE.txt?format=raw"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 

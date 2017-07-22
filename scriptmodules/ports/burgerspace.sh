@@ -11,6 +11,7 @@
 
 rp_module_id="burgerspace"
 rp_module_desc="BurgerSpace - BurgerTime clone"
+rp_module_licence="GPL2 https://www.gnu.org/licenses/gpl-2.0.txt"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 

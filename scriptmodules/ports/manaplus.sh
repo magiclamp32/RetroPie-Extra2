@@ -11,6 +11,7 @@
 
 rp_module_id="manaplus"
 rp_module_desc="manaplus - 2D MMORPG Client"
+rp_module_licence="GPL2 https://gitlab.com/manaplus/manaplus/raw/master/COPYING"
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
