@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
  
 function depends_crack-attack() {
-    getDepends cmake xorg
+    getDepends cmake xorg xserver-xorg-legacy
 }
 
 function sources_crack-attack() {

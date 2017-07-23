@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_tinyfugue() {
-    	getDepends xdg-utils matchbox xorg
+    	getDepends xdg-utils matchbox xorg xserver-xorg-legacy
 }
 
 function install_bin_tinyfugue() {

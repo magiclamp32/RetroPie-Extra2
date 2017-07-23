@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_retrobattle() {
-    	getDepends libsdl1.2-dev libsdl-mixer1.2-dev xdg-utils matchbox xorg
+    	getDepends libsdl1.2-dev libsdl-mixer1.2-dev xdg-utils matchbox xorg xserver-xorg-legacy
 }
 
 function sources_retrobattle() {

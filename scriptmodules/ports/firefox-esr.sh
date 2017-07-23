@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_firefox-esr() {
-    getDepends xorg matchbox
+    getDepends xorg matchbox xserver-xorg-legacy
 }
 
 function install_bin_firefox-esr() {

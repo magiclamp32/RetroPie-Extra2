@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_freedink() {
-    getDepends xorg
+    getDepends xorg xserver-xorg-legacy
 }
 
 function install_bin_freedink() {
