@@ -53,5 +53,6 @@ function install_openxcom() {
 function configure_openxcom() {
     mkdir "ports"
     moveConfigDir "$home/.config/openxcom" "$md_conf_root/openxcom"
+    mkdir -p "$md_inst/share/openxcom"
     addPort "$md_id" "openxcom" "OpenXCOM - Open Source X-COM Engine" "LD_LIBRARY_PATH=/opt/retropie/supplementary/glshim LIBGL_FB=1 sudo xinit $md_inst/bin/openxcom"
 }
