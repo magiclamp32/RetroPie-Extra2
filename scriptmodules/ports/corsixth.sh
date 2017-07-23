@@ -12,7 +12,7 @@
 rp_module_id="corsixth"
 rp_module_desc="CorsixTH - Theme Hospital Engine"
 rp_module_licence="MIT https://raw.githubusercontent.com/CorsixTH/CorsixTH/master/LICENSE.txt"
-rp_module_help="You need to copy your Theme Hospital game data into $romdir/ports/$md_id/ and when starting up the game for the first time, select the directory."
+rp_module_help="Mouse or mouse emulation through xboxdrv is required. You need to copy your Theme Hospital game data into $romdir/ports/$md_id/ and when starting up the game for the first time, select the directory. The colors and fonts could have bad colors here making it difficult, so alternatively you can edit /opt/retropie/configs/ports/corsixth/config.txt to change the path the data files are at and then restart the game."
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
