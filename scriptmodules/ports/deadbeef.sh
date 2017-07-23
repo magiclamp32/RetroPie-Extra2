@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_deadbeef() {
-    	getDepends git autopoint libtool intltool libgtk-3-dev libjansson-dev automake autoconf xdg-utils matchbox xorg
+    	getDepends git autopoint libtool intltool libgtk-3-dev libjansson-dev automake autoconf xdg-utils matchbox xorg xserver-xorg-legacy
 }
 
 function sources_deadbeef() {
