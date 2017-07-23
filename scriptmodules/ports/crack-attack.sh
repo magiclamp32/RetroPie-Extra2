@@ -12,6 +12,7 @@
 rp_module_id="crack-attack"
 rp_module_desc="Crack-Attack - Tetris Attack clone"
 rp_module_licence="GPL2 http://cvs.savannah.nongnu.org/viewvc/*checkout*/crack-attack/crack-attack/COPYING?revision=1.2"
+rp_module_help="Because this uses X, you may find that you are unable to control the game and the game appears in a small window in the top left. Use the Runcommand option to set the resolution to CEA-4 or similarly smaller sizes. This will allow you to control the game as the window will have focus and also fill up more of the screen. If you just get a black screen or you return to EmulationStation, please run dpkg-reconfigure xserver-xorg-legacy as root and set it so Anybody can use X. See the troubleshooting section of the RetroPie-Extras readme for more info. There is still an issue with a console window being visible that needs to be fixed."
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
  
