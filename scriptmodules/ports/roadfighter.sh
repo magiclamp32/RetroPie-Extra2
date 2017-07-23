@@ -20,7 +20,7 @@ function depends_roadfighter() {
 
 function sources_roadfighter() {
     gitPullOrClone "$md_build" https://github.com/ptitSeb/roadfighter.git
-    sed -i "s/-mcpu=cortex-a8 -mfpu=neon -mfloat-abi=softfp -fsingle-precision-constant -g -Ofast/-g3 -O3/" "$md_build/build/linux/Makefile"
+    sed -i "s/-mcpu=cortex-a8 -mfpu=neon -mfloat-abi=softfp -ftree-vectorize -fsingle-precision-constant -g -Ofast/-mfloat-abi=hard -g3 -O3/" "$md_build/Makefile"
 }
 
 function build_roadfighter() {
@@ -42,5 +42,5 @@ function install_roadfighter() {
 function configure_roadfighter() {
     mkRomDir "ports"
     moveConfigDir "$home/.roadfighter" "$md_conf_root/$md_id"
-    addPort "$md_id" "roadfighter" "Roadfighter - Retro Remake" "pushd $md_inst; roadfighter; popd" 
+    addPort "$md_id" "roadfighter" "Roadfighter - Retro Remake" "pushd $md_inst; ./roadfighter; popd" 
 }
