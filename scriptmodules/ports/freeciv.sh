@@ -17,7 +17,7 @@ rp_module_flags="!mali !x86"
 
 function depends_freeciv() {
     # Using xorg/xinit fixes issue where game couldn't get past opening menu screen.
-    getDepends xorg
+    getDepends xorg xserver-xorg-legacy
 }
 
 function install_bin_freeciv() {
