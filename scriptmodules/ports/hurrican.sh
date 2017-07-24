@@ -74,4 +74,12 @@ function configure_hurrican() {
 
     mkRomDir "ports"
     moveConfigDir "$home/.hurrican" "$md_conf_root/hurrican"
+    touch "$md_inst/Hurrican.cfg"
+    touch "$md_inst/Hurrican.hsl"
+    touch "$md_inst/Game_Log.txt"
+    touch "$md_inst/Savegame0.sav"
+    chown pi:pi "$md_inst/Hurrican.cfg"
+    chown pi:pi "$md_inst/Hurrican.hsl"
+    chown pi:pi "$md_inst/Game_Log.txt"
+    chown pi:pi "$md_inst/Savegame0.sav"
 }
