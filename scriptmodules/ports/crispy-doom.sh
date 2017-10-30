@@ -53,11 +53,11 @@ function configure_crispy-doom() {
     fi
 
     if [[ ! -f "$romdir/ports/doom/freedoom1.wad" ]]; then
-        wget "https://github.com/freedoom/freedoom/releases/download/v0.10.1/freedoom-0.10.1.zip"
-        unzip freedoom-0.10.1.zip 
-        mv freedoom-0.10.1/*.wad "$romdir/ports/doom"
-        rm -rf freedoom-0.10.1
-        rm freedoom-0.10.1.zip
+        wget "https://github.com/freedoom/freedoom/releases/download/v0.10.1/freedoom-0.11.3.zip"
+        unzip freedoom-0.11.3.zip 
+        mv freedoom-0.11.3/*.wad "$romdir/ports/doom"
+        rm -rf freedoom-0.11.3
+        rm freedoom-0.11.3.zip
     fi
 
     # Temporary until the official RetroPie WAD selector is complete.
