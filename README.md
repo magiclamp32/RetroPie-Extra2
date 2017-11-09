@@ -49,6 +49,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 ### Included Software
 #### Master Branch
 ##### Emulators
+- [X] - atari800.sh - Atari 800/5200 emulator with additional joystick support - 5200 is tested, 800 is not.
 - [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
 
 ##### Ports
