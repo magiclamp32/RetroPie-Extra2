@@ -11,7 +11,7 @@
 
 rp_module_id="sorr"
 rp_module_desc="Streets of Rage Remake"
-rp_module_help="Please copy your Streets of Rage Remake installation files into $md_inst."
+rp_module_help="Please copy your SorR.dat file along with the mod and palettes folders into $md_inst."
 rp_module_section="exp"
 rp_module_flags="!x86 !x11 !mali"
 
