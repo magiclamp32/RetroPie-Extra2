@@ -81,6 +81,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 - [X] - maelstrom.sh - Classic Mac Asteroids Remake - Tested and works well, button configuration screen may crash.
 - [X] - mayhem.sh - Remake of the Amiga game - Tested and works well.
+- [X] - netsurf.sh - Lightweight web browser - Tested and works well.
 - [X] - nxengine.sh - The standalone version of the open-source clone/rewrite of Cave Story - Tested and works well.
 - [X] - pingus.sh - Lemmings clone - Tested and works well, requires mouse.  
 - [X] - prboom-plus.sh - Enhanced DOOM source port - lightly tested, seems to work.
@@ -102,7 +103,6 @@ In the dialog box that comes up, you can select which users are allowed to use t
 
 ##### Supplementary
 - [X] - screenshot.sh - Take screenshots remotely through SSH - Tested and works well.  
-- [X] - splashscreen-extra.sh - Install additional user-created splashscreens for RetroPie - Tested and works well.  
 
 #### Future To-Do List (not ordered by priority)
 - [X] - glshim  
