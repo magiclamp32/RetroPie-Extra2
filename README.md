@@ -54,6 +54,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - kat5200.sh - Atari 8-bit/5200 emulator - Only set up for 5200 at the moment.
 
 ##### Ports
+- [X] - amphetamine.sh - 2D Platforming Game - Tested, runs well. Requires keyboard.
 - [X] - bermudasyndrome.sh - Bermuda Syndrome engine - Tested, runs, possibly instable.  
 - [X] - bloboats.sh - Fun physics game - Tested and works well, OpenGL game running through glshim.
 - [X] - breaker.sh - Arkanoid clone - Tested and works well.  
