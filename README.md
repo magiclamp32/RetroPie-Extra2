@@ -53,6 +53,9 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
 - [X] - kat5200.sh - Atari 8-bit/5200 emulator - Only set up for 5200 at the moment.
 
+##### Libretrocores
+- [X] - lr-mame2003_midway.sh - MAME 0.78 core with Midway games optimizations.
+
 ##### Ports
 - [X] - amphetamine.sh - 2D Platforming Game - Tested, runs well. Requires keyboard.
 - [X] - bermudasyndrome.sh - Bermuda Syndrome engine - Tested, runs, possibly instable.  
