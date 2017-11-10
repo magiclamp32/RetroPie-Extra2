@@ -51,6 +51,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 ##### Emulators
 - [X] - atari800.sh - Atari 800/5200 emulator with additional joystick support - 5200 is tested, 800 is not.
 - [X] - gearboy.sh - Gameboy emulator - Tested and works well.  
+- [X] - kat5200.sh - Atari 8-bit/5200 emulator - Only set up for 5200 at the moment, missing config setup still.
 
 ##### Ports
 - [X] - bermudasyndrome.sh - Bermuda Syndrome engine - Tested, runs, possibly instable.  
