@@ -101,7 +101,6 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - wizznic.sh - Puzznic clone - Tested and works well.  
 
 ##### Supplementary
-- [X] - attract-mode.sh - Emulator Frontend - Tested and works well, not intended to completely replace EmulationStation.
 - [X] - screenshot.sh - Take screenshots remotely through SSH - Tested and works well.  
 - [X] - splashscreen-extra.sh - Install additional user-created splashscreens for RetroPie - Tested and works well.  
 
