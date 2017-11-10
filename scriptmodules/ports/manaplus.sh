@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_manaplus() {
-    getDepends libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libsdl-net1.2-dev libcurl4-gnutls-dev libpng12-dev libxml2-dev cmake libguichan-dev patch autoconf libtool libsdl-ttf2.0-dev libsdl-gfx1.2-dev gettext libgl1-mesa-dev libenet-dev libphysfs-dev libxml2-dev zlib1g-dev xorg xserver-xorg-legacy
+    getDepends libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libsdl-net1.2-dev libcurl4-gnutls-dev libpng12-dev libxml2-dev automake libguichan-dev patch autoconf libtool libsdl-ttf2.0-dev libsdl-gfx1.2-dev gettext libgl1-mesa-dev libenet-dev libphysfs-dev libxml2-dev zlib1g-dev xorg xserver-xorg-legacy
 }
 
 function sources_manaplus() {
@@ -24,7 +24,8 @@ function sources_manaplus() {
 }
 
 function build_manaplus() {
-    cmake . -DCMAKE_INSTALL_PREFIX:PATH="$md_inst"
+    autoreconf -i
+    ./configure --prefix="$md_inst"
     make
 }
 
