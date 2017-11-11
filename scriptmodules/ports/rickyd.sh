@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !kms"
 
 function depends_rickyd() {
-    getDepends libsdl2-dev libsdl2-mixer-dev libsdl2-image-dev libsdl2-ttf-dev
+    getDepends libsdl2-dev libsdl2-mixer-dev libsdl2-image-dev libsdl2-ttf-dev automake autoconf
 }
 
 function sources_rickyd() {
