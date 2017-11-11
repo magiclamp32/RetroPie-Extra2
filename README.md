@@ -107,6 +107,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - wizznic.sh - Puzznic clone - Tested and works well.  
 
 ##### Supplementary
+- [X] - joystick-selection.sh - Set controllers for RetroArch players 1-4.
 - [X] - screenshot.sh - Take screenshots remotely through SSH - Tested and works well.  
 
 #### Future To-Do List (not ordered by priority)
