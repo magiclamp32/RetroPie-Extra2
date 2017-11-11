@@ -73,6 +73,7 @@ function configure_prboom-plus() {
     setConfigRoot "ports"
 
     mkRomDir "ports/doom"
+    moveConfigDir "$home/.prboom-plus" "$md_conf_root/prboom-plus"
 
     [[ "$md_mode" == "install" ]] && game_data_prboom-plus
 
