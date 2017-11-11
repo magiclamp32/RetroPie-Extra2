@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_texmaster2009() {
-    getDepends wiringpi libsdl1.2-dev
+    getDepends wiringpi libsdl1.2-dev p7zip
 }
 
 function sources_texmaster2009() {
