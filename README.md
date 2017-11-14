@@ -106,6 +106,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - warmux.sh - Worms Clone - Tested and works well. Possible issues with config files in wrong places?
 - [X] - weechat.sh - Console IRC Client - Tested and works well.
 - [X] - wizznic.sh - Puzznic clone - Tested and works well.  
+- [X] - zeldansq.sh - Zelda: Navi's Quest fan game - Tested and works well.
 
 ##### Supplementary
 - [X] - joystick-selection.sh - Set controllers for RetroArch players 1-4.
