@@ -86,6 +86,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - maelstrom.sh - Classic Mac Asteroids Remake - Tested and works well, button configuration screen may crash.
 - [X] - mayhem.sh - Remake of the Amiga game - Tested and works well.
 - [X] - netsurf.sh - Lightweight web browser - Tested and works well.
+- [X] - nkaruga.sh - Ikaruga demake. Tested and works well, requires keyboard.
 - [X] - nxengine.sh - The standalone version of the open-source clone/rewrite of Cave Story - Tested and works well.
 - [X] - pingus.sh - Lemmings clone - Tested and works well, requires mouse.  
 - [X] - prboom-plus.sh - Enhanced DOOM source port - lightly tested, seems to work.
