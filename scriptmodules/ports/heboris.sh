@@ -39,5 +39,6 @@ function install_heboris() {
 }
 
 function configure_heboris() {
+    chown pi:pi "$md_inst/heboris"
     addPort "$md_id" "heboris" "HeborisC7EX - Tetris The Grand Master Clone" "pushd $md_inst; ./heboris; popd"
 }
