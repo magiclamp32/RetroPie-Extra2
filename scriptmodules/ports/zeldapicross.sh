@@ -12,7 +12,7 @@
 rp_module_id="zeldapicross"
 rp_module_desc="zeldapicross - Zelda themed Picross fangame"
 rp_module_licence="Unknown"
-rp_module_help=""
+rp_module_help="You may need to disable the number pad on your keyboard if you are having trouble getting past the initial game screen when launched."
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
