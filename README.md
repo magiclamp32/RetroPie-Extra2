@@ -96,6 +96,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - retrobattle.sh - Fun retro style platform game - Tested and works well.
 - [X] - rickyd.sh - Rick Dangerous clone - Tested and works well, requires keyboard.
 - [X] - roadfighter.sh - RoadFighter clone - Tested and works well.  
+- [X] - rockbot.sh - Mega Man clone. Tested and screen flickers like crazy until proper settings are applied. Check package help for more info.
 - [X] - rott.sh - Rise of the Triad source port - Tested and works well.  
 - [X] - sdl-bomber.sh - Simple Bomberman clone - Tested and works well, turn down the volume perhaps. 
 - [X] - sorr.sh - Streets of Rage Remake port - Tested and works well. Use fullscreen fast video mode.
