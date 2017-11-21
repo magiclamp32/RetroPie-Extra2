@@ -83,6 +83,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - kaiten-patissier.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kodi-extra.sh - Kodi Media Player 16 with controller support as a separate system - Tested and works well.  
 - [X] - kweb.sh - Minimal kiosk web browser - Tested and working well generally. Media may not be working well, I need to understand it better first to say.  
+- [X] - lbreakout2.sh - Open Source Breakout game - Tested and working well, requires mouse.
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 - [X] - maelstrom.sh - Classic Mac Asteroids Remake - Tested and works well, button configuration screen may crash.
 - [X] - mayhem.sh - Remake of the Amiga game - Tested and works well.
