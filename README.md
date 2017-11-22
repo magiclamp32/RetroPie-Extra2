@@ -59,6 +59,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 
 ##### Ports
 - [X] - amphetamine.sh - 2D Platforming Game - Tested, runs well. Requires keyboard.
+- [X] - barrage.sh - Shooting Gallery action game - Tested and works well, requires mouse.
 - [X] - bermudasyndrome.sh - Bermuda Syndrome engine - Tested, runs, possibly instable.  
 - [X] - bloboats.sh - Fun physics game - Tested and works well, OpenGL game running through glshim.
 - [X] - breaker.sh - Arkanoid clone - Tested and works well.  
