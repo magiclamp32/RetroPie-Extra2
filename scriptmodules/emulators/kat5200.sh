@@ -45,6 +45,7 @@ function install_kat5200() {
 
 function configure_kat5200() {
     mkRomDir "atari5200"
+    rm /etc/kat5200/kat5200.db3
 
     mkUserDir "$home/.kat5200"
     moveConfigDir "$home/.kat5200" "$md_conf_root/kat5200"
