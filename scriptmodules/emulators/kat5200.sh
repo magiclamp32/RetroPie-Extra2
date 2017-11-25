@@ -45,8 +45,9 @@ function install_kat5200() {
 
 function configure_kat5200() {
     mkRomDir "atari5200"
-
     mkUserDir "$home/.kat5200"
+    mv "/etc/kat5200/kat5200.db3" "$home/.kat5200/"
+    chown $user:$user "$home/.kat5200/kat5200.db3"
     moveConfigDir "$home/.kat5200" "$md_conf_root/kat5200"
 
     addEmulator 1 "kat5200" "atari5200" "$md_inst/bin/kat5200 %ROM%"
