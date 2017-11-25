@@ -85,6 +85,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - kodi-extra.sh - Kodi Media Player 16 with controller support as a separate system - Tested and works well.  
 - [X] - kweb.sh - Minimal kiosk web browser - Tested and working well generally. Media may not be working well, I need to understand it better first to say.  
 - [X] - lbreakout2.sh - Open Source Breakout game - Tested and working well, requires mouse.
+- [X] - lgeneral.sh - Open Source strategy game - Tested and working well, requires mouse.
 - [X] - lmarbles.sh - Open Source Atomix game - Tested and working well, requires mouse.
 - [X] - ltris.sh - Open Source Tetris game - Tested and working well, requires keyboard.
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
