@@ -1,33 +1,43 @@
 # RetroPie-Extra
 
-This is a collection of unofficial installation scripts for RetroPie allowing you to quickly and easily install emulators, ports and libretrocores that haven't been 
-included in RetroPie for one reason or another. These scripts can be considered experimental at best. 
+This is a collection of unofficial installation scripts for RetroPie allowing you to quickly and easily install emulators, ports and libretrocores that haven't been included in RetroPie for one reason or another. These scripts can be considered experimental at best. 
 
-Those in the master branch have been tested reasonably and should work well but may have some flaws as they haven't gone through the RetroPie's watchful eyes yet. 
-Scripts that are unfinished, untested, unpolished will not be located in this repository and instead have been moved to https://github.com/zerojay/RetroPie-Extra-unstable.
+Those in the master branch have been tested reasonably and should work well but may have some flaws as they haven't gone through the RetroPie's watchful eyes yet. Scripts that are unfinished, untested, unpolished will not be located in this repository and instead have been moved to https://github.com/zerojay/RetroPie-Extra-unstable.
 
-Pull requests and issue reports are accepted and encouraged as well as requests. Feel free to use the issue tracker to send me any personal requests for new scripts
-that you may have.
+Pull requests and issue reports are accepted and encouraged as well as requests. Feel free to use the issue tracker to send me any personal requests for new scripts that you may have.
 
 ### Installation 
 
-Install the extra scripts
-
-The following clones the repo to your Pi and then the install-scripts.sh installs the scripts in the master branch directly to the proper directories in RetroPie-Setup.
+The following commands clone the repo to your Pi and then runs install-scripts.sh to install the scripts in the master branch directly to the proper directories in RetroPie-Setup.
 
 ```
+cd ~
 git clone https://github.com/zerojay/RetroPie-Extra.git
 cd RetroPie-Extra/
 ./install-extras.sh
 ```
-Run the RetroPie Setup Script (the extra scripts will be in the experimental section)
+The installation script assumes that you are running it on a Raspberry Pi with the RetroPie-Setup being stored in /home/pi/RetroPie-Setup. If your setup differs, just copy the scripts directly to the folder they need to be in.
+
+### Usage
+
+After installing RetroPie Extras, the extra scripts will be installed directly in the RetroPie Setup script (generally in the experimental section), which you can run from either the command line or from the menu within Emulation Station.
 ```
-cd
+cd ~
 cd RetroPie-Setup
 sudo ./retropie_setup.sh
 ```
 
-This script assumes that you are running it on a Raspberry Pi with the RetroPie-Setup being stored in /home/pi/RetroPie-Setup. If your setup differs, just copy the scripts directly to the folder they need to be in.
+### Updating
+
+The following commands update your Pi to the latest repo and then runs install-scripts.sh to install the scripts in the master branch directly to the proper directories in RetroPie-Setup.
+
+```
+cd ~
+cd RetroPie-Extra/
+git pull origin
+./install-extras.sh
+```
+The installation script assumes that you are running it on a Raspberry Pi with the RetroPie-Setup being stored in /home/pi/RetroPie-Setup. If your setup differs, just copy the scripts directly to the folder they need to be in.
 
 ### Troubleshooting
 
@@ -76,7 +86,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - freesynd.sh - Syndicate clone - Tested and has occasional crash issues. Save between levels to avoid losing progress.  
 - [X] - gamemaker.sh - Install the 3 gamemaker games - Tested and works well.  
 - [X] - ganbare.sh - Japanese 2D Platformer - Tested and works well, does not require Japanese to play.  
-- [X] - heboris.sh - Tetris The Grand Master clone - Tested and works well, does not include audio, user needs to provide their own soundpack.  
+- [X] - heboris.sh - Tetris The Grand Master clone - Tested and works well.  To fix sound, change settings from MIDI to MP3.
 - [X] - hurrican.sh - Turrican clone. - Tested and works well, minor graphics issues.  
 - [X] - iceweasel.sh - Rebranded Firefox Web Browser - Tested and works well.  
 - [X] - kaiten-patissier-cs.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
