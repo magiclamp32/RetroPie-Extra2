@@ -131,12 +131,8 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - joystick-selection.sh - Set controllers for RetroArch players 1-4.
 - [X] - screenshot.sh - Take screenshots remotely through SSH - Tested and works well.  
 
-#### Future To-Do List (not ordered by priority)
-- [X] - glshim  
-- [ ] - SDLash/Xash Half-Life engine through glshim.  
-- [ ] - Beatfever Mania.  
-- [ ] - Stepmania/Frets on Fire through glshim/new OpenGL driver.  
-- [ ] - John's Shadow Warrior Port (jswp)  
+#### Future To-Do List 
+I've moved this over to the TODO.md file.
 
 ### Hall of Fame - Scripts accepted into RetroPie-Setup
 - [X] - LXDE - LXDE Desktop
