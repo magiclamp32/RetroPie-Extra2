@@ -41,4 +41,5 @@ More Zelda Fangames (issue #252)
 
 Random/Others:
 - [X] vgmplay - b0b23afcd1790a39d8d60113114126ae593505a8
-- [ ] upse123
+- [ ] upse123 - https://github.com/kaniini/upse
+- [ ] zxtune123 - https://github.com/vitamin-caig/zxtune
