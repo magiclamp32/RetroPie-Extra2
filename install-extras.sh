@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cp -R scriptmodules/ports/* "/home/pi/RetroPie-Setup/scriptmodules/ports/"
-cp -R scriptmodules/emulators/* "/home/pi/RetroPie-Setup/scriptmodules/emulators"
-cp -R scriptmodules/supplementary/* "/home/pi/RetroPie-Setup/scriptmodules/supplementary"
-cp -R scriptmodules/libretrocores/* "/home/pi/RetroPie-Setup/scriptmodules/libretrocores"
+RPS_HOME='/home/pi/RetroPie-Setup/'
+if [ ! -z "$1" ];then
+    echo $1
+fi
+cp -R scriptmodules/* $RP_HOME
