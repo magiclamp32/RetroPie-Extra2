@@ -12,17 +12,12 @@
 rp_module_id="chromium"
 rp_module_desc="chromium - Open Source Web Browser"
 rp_module_licence="MIT https://raw.githubusercontent.com/chromium/chromium/trunk/LICENSE"
-rp_module_help="If Chromium crashes back to emulationstation, it may be because the user you are running as does not have permission to launch X on its own. You can fix this by running 'dpkg-reconfigure x11-common' as root and then selecting $user or 'Anybody'."
+rp_module_help="If Chromium crashes back to emulationstation, it may be because the user you are running as does not have permission to launch X on its own. You can fix this by running 'dpkg-reconfigure dpkg-reconfigure xserver-xorg-legacy' as root and then selecting $user or 'Anybody'."
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_chromium() {
-    if [[ "$__raspbian_ver" -lt 8 ]]; then
         getDepends git omxplayer libgnome-keyring-common libgnome-keyring0 libnspr4 libnss3 xdg-utils matchbox xserver-xorg-legacy xorg gconf-service libgconf-2-4
-    else
-        getDepends git omxplayer libgnome-keyring-common libgnome-keyring0 libnspr4 libnss3 xdg-utils matchbox xserver-xorg-legacy xorg gconf-service libgconf-2-4 rpi-chromium-mods
-    fi
-    
 }
 
 function sources_chromium() {
@@ -32,6 +27,7 @@ function sources_chromium() {
         wget http://ports.ubuntu.com/pool/universe/c/chromium-browser/chromium-browser-l10n_48.0.2564.82-0ubuntu0.15.04.1.1193_all.deb
         wget http://ports.ubuntu.com/pool/universe/c/chromium-browser/chromium-browser_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb
         wget http://ports.ubuntu.com/pool/universe/c/chromium-browser/chromium-codecs-ffmpeg-extra_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb
+        apt-get install rpi-chromium-mods
     fi
 }
 
