@@ -128,6 +128,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - zeldapicross.sh - Zelda themed Picross fangame - Tested and works well, may require keyboard.
 
 ##### Supplementary
+- [X] - fun-facts-splashscreens.sh - Set up some loading splashscreens with fun facts.
 - [X] - joystick-selection.sh - Set controllers for RetroArch players 1-4.
 - [X] - screenshot.sh - Take screenshots remotely through SSH - Tested and works well.  
 
