@@ -21,12 +21,13 @@ function depends_kat5200() {
 }
 
 function sources_kat5200() {
-    wget -N -q -O- "http://kat5200.jillybunch.com/downloads/kat5200-0.7.1.tar.gz" | tar -xvz --strip-components=1
+    wget -N -q -O- "http://kat5200.jillybunch.com/downloads/kat5200-0.8.0.tar.gz" | tar -xvz --strip-components=1
     # Disable F1 key debugger
-    sed -i -e '230d' src/interface/ui.c
+    sed -i -e '251d' src/interface/ui.c
     # Allow Select and Start together to quit the program.
-    sed -i '1221 a\
-        if ((SDL_JoystickGetButton(g_pc_joy[0].joy_ptr,8) == SDL_PRESSED) && (SDL_JoystickGetButton(g_pc_joy[0].joy_ptr,9) == SDL_PRESSED)) return -1;' src/interface/sdl_if.c
+    # Update: v0.8.0. supports combo key's this is no longer needed.
+    # sed -i '1727 a\
+    #     if ((SDL_JoystickGetButton(g_pc_joy[0].joy_ptr,8) == SDL_PRESSED) && (SDL_JoystickGetButton(g_pc_joy[0].joy_ptr,9) == SDL_PRESSED)) return -1;' src/interface/sdl_if.c
 }
 
 function build_kat5200() {
