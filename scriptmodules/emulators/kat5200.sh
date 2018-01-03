@@ -21,9 +21,9 @@ function depends_kat5200() {
 }
 
 function sources_kat5200() {
-    wget -N -q -O- "http://kat5200.jillybunch.com/downloads/kat5200-0.8.0.tar.gz" | tar -xvz --strip-components=1
+    wget -N -q -O- "http://kat5200.jillybunch.com/downloads/kat5200-0.8.1.tar.gz" | tar -xvz --strip-components=1
     # Disable F1 key debugger
-    sed -i -e '251d' src/interface/ui.c
+    sed -i -e '250d' src/interface/ui.c
     # Allow Select and Start together to quit the program.
     # Update: v0.8.0. supports combo key's this is no longer needed.
     # sed -i '1727 a\
