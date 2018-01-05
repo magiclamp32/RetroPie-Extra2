@@ -13,7 +13,7 @@ rp_module_id="vgmplay"
 rp_module_desc="vgmplay - Music Player"
 rp_module_help="This application must be run from the command line. Add your .vgm and .vgz files to $home/vgm."
 rp_module_section="exp"
-rp_module_flags="!mali !x86"
+rp_module_flags="!x86"
 
 function depends_vgmplay() {
     	getDepends make gcc zlib1g-dev libao-dev
