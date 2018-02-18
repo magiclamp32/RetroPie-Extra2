@@ -86,6 +86,7 @@ In the dialog box that comes up, you can select which users are allowed to use t
 - [X] - freesynd.sh - Syndicate clone - Tested and has occasional crash issues. Save between levels to avoid losing progress.  
 - [X] - gamemaker.sh - Install the 3 gamemaker games - Tested and works well.  
 - [X] - ganbare.sh - Japanese 2D Platformer - Tested and works well, does not require Japanese to play.  
+- [X] - hcl.sh - Hydra Castle Labrinth - Tested and works well.
 - [X] - heboris.sh - Tetris The Grand Master clone - Tested and works well.  To fix sound, change settings from MIDI to MP3.
 - [X] - hurrican.sh - Turrican clone. - Tested and works well, minor graphics issues.  
 - [X] - iceweasel.sh - Rebranded Firefox Web Browser - Tested and works well.  
