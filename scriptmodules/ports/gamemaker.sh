@@ -33,4 +33,8 @@ function configure_gamemaker() {
     addPort "$md_id" "TheyNeedToBeFed" "TheyNeedToBeFed" "$md_inst/TheyNeedToBeFed/TheyNeedToBeFed"
     addPort "$md_id" "SuperCrateBox" "SuperCrateBox" "$md_inst/SuperCrateBox/SuperCrateBox"
     addPort "$md_id" "MalditaCastilla" "MalditaCastilla" "$md_inst/MalditaCastilla/MalditaCastilla"
+
+    patchVendorGraphics "$md_inst/TheyNeedToBeFed/TheyNeedToBeFed"
+    patchVendorGraphics "$md_inst/SuperCrateBox/SuperCrateBox"
+    patchVendorGraphics "$md_inst/MalditaCastilla/MalditaCastilla"
 }
