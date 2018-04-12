@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_chromium() {
-        getDepends git omxplayer libgnome-keyring-common libgnome-keyring0 libnspr4 libnss3 xdg-utils matchbox xserver-xorg-legacy xorg gconf-service libgconf-2-4
+        getDepends git omxplayer libgnome-keyring-common libgnome-keyring0 libnspr4 libnss3 xdg-utils matchbox xserver-xorg-legacy xorg gconf-service libgconf-2-4 chromium-codecs-ffmpeg-extra rpi-chromium-mods
 }
 
 function sources_chromium() {
