@@ -30,11 +30,11 @@ function depends_kodi-extra() {
 }
 
 function install_bin_kodi-extra() {
-    aptInstall kodi
+    aptInstall kodi kodi-peripheral-joystick
 }
 
 function remove_kodi-extra() {
-    aptRemove kodi
+    aptRemove kodi kodi-peripheral-joystick
 }
 
 function configure_kodi-extra() {
@@ -50,10 +50,4 @@ _EOF_
     chmod +x "$romdir/kodi/Kodi.sh"
 
     setESSystem 'Kodi' 'kodi' '~/RetroPie/roms/kodi' '.sh .SH' '%ROM%' 'pc' 'kodi'
-
-    # Install some predefined joypad configurations
-    gitPullOrClone "keymaps" https://github.com/HerbFargus/kodi-joypads.git
-    cp -a keymaps/keymaps/ $home/.kodi/userdata/
-    rm -R keymaps
-    chown $user:$user -R $home/.kodi/userdata/keymaps 
 }
