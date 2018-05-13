@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_mayhem() {
-    getDepends liballegro5.0 liballegro5-dev liballegro-audio5-dev liballegro-acodec5-dev liballegro-image5-dev liballegro-ttf5-dev libdumb1 pulseaudio xinit
+    getDepends liballegro5.2 liballegro5-dev liballegro-audio5-dev liballegro-acodec5-dev liballegro-image5-dev liballegro-ttf5-dev libdumb1 pulseaudio xinit
 }
 
 function sources_mayhem() {
