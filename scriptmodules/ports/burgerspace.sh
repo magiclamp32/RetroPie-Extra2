@@ -11,13 +11,13 @@
 
 rp_module_id="burgerspace"
 rp_module_desc="BurgerSpace - BurgerTime clone"
-rp_module_help="Because this uses X, you may find that you are unable to control the game and the game appears in a small window in the top left. Use the Runcommand option to set the resolution to CEA-4 or similarly smaller sizes. This will allow you to control the game as the window will have focus and also fill up more of the screen. If you just get a black screen or you return to EmulationStation, please run dpkg-reconfigure xserver-xorg-legacy as root and set it so Anybody can use X. See the troubleshooting section of the RetroPie-Extras readme for more info."
+rp_module_help="Because this uses X, you may find that you are unable to control the game and the game appears in a small window in the top left. Use the Runcommand option to set the resolution to CEA-4 or similarly smaller sizes. This will allow you to control the game as the window will have focus and also fill up more of the screen."
 rp_module_licence="GPL2 https://www.gnu.org/licenses/gpl-2.0.txt"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function install_bin_burgerspace() {
-    aptInstall burgerspace xserver-xorg-legacy
+    aptInstall burgerspace
 }
 
 function configure_burgerspace() {

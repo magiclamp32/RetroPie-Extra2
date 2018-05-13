@@ -47,14 +47,6 @@ Here are some helpful hints for getting around some possible issues that you may
 
 In most cases, this is likely because the port requires external data files, especially in the case of game engines. In cases where shareware datafiles are available, the port will install them where possible. Otherwise, you will need to provide your own. The warning dialog box at the end of installation should usually tell you what files will be needed and where to place them. If you somehow don't see a dialog box after installation, you can open the script itself and look towards the bottom for the warning.
 
-Another possible case is the port uses the X11 windowing system. In some cases, I've included the X11 window system because of issues such as the game not going fullscreen, or just not functioning at all without it. In these cases, you will need to tell the system that it is okay for users other than root to use X11. You can do this by running the following command:
-
-```
-dpkg-reconfigure xserver-xorg-legacy
-```
-
-In the dialog box that comes up, you can select which users are allowed to use the X11 system. I would suggest you allow the pi user or anyone to run X11. This only needs to be done one time to fix the issue for all ports and programs that use the X11 window system. I would even suggest doing it now even if you have no intention yet of installing a port that uses X11 yet so that you do not need to deal with this issue in the future.
-
 
 ### Included Software
 #### Master Branch

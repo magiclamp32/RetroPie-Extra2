@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
  
 function depends_fofix() {
-    getDepends cmake xorg xserver-xorg-legacy
+    getDepends cmake xorg
 }
 
 function sources_fofix() {

@@ -11,13 +11,12 @@
 
 rp_module_id="netsurf"
 rp_module_desc="netsurf - Lightweight web browser"
-rp_module_help="Because this uses X, if you just get a black screen or you return to EmulationStation, please run dpkg-reconfigure xserver-xorg-legacy as root and set it so Anybody can use X. See the troubleshooting section of the RetroPie-Extras readme for more info."
 rp_module_licence="GPL2 https://www.gnu.org/licenses/gpl-2.0.txt"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function install_bin_netsurf() {
-    aptInstall netsurf xserver-xorg-legacy xdg-utils matchbox
+    aptInstall netsurf xdg-utils matchbox
 }
 
 function configure_netsurf() {
