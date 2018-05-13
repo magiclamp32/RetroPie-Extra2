@@ -17,27 +17,11 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_chromium() {
-        getDepends git omxplayer libgnome-keyring-common libgnome-keyring0 libnspr4 libnss3 xdg-utils matchbox xserver-xorg-legacy xorg gconf-service libgconf-2-4 chromium-codecs-ffmpeg-extra rpi-chromium-mods
+        getDepends git omxplayer libgnome-keyring-common libgnome-keyring0 libnspr4 libnss3 xdg-utils matchbox xorg gconf-service libgconf-2-4 rpi-chromium-mods
 }
 
 function sources_chromium() {
-    if [[ "$__raspbian_ver" -lt 8 ]]; then
-        apt-get install chromium-browser
-    else
-        wget http://ports.ubuntu.com/pool/universe/c/chromium-browser/chromium-browser-l10n_48.0.2564.82-0ubuntu0.15.04.1.1193_all.deb
-        wget http://ports.ubuntu.com/pool/universe/c/chromium-browser/chromium-browser_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb
-        wget http://ports.ubuntu.com/pool/universe/c/chromium-browser/chromium-codecs-ffmpeg-extra_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb
-        apt-get install rpi-chromium-mods
-    fi
-}
-
-function install_chromium() {
-    if [[ "$__raspbian_ver" -lt 8 ]]; then
-        sleep 1
-    else
-        dpkg -i "$md_build/chromium-codecs-ffmpeg-extra_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb"
-        dpkg -i "$md_build/chromium-browser-l10n_48.0.2564.82-0ubuntu0.15.04.1.1193_all.deb" "$md_build/chromium-browser_48.0.2564.82-0ubuntu0.15.04.1.1193_armhf.deb"
-    fi
+    apt-get install chromium-browser
 }
 
 function configure_chromium() {
