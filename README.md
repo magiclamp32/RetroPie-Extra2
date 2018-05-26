@@ -103,7 +103,6 @@ In most cases, this is likely because the port requires external data files, esp
 - [X] - reminiscence.sh - Flashback engine clone - Tested and works well.   
 - [X] - retrobattle.sh - Fun retro style platform game - Tested and works well.
 - [X] - rickyd.sh - Rick Dangerous clone - Tested and works well, requires keyboard.
-- [X] - roadfighter.sh - RoadFighter clone - Tested and works well.  
 - [X] - rockbot.sh - Mega Man clone. Tested and screen flickers like crazy until proper settings are applied. Check package help for more info.
 - [X] - rott.sh - Rise of the Triad source port - Tested and works well.  
 - [X] - sdl-bomber.sh - Simple Bomberman clone - Tested and works well, turn down the volume perhaps. 
