@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!mali"
 
 function depends_hurrican() {
-    local depends=(subversion libsdl-image1.2-dev libmodplug-dev bc)
+    local depends=(subversion libsdl-image1.2-dev libmodplug-dev bc libgles2-mesa-dev)
     if [[ "$__raspbian_ver" -lt 8 ]]; then
         depends+=(libsdl1.2-dev libsdl-mixer1.2-dev)
     else
