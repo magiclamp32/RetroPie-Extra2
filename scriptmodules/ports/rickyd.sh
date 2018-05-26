@@ -20,7 +20,7 @@ function depends_rickyd() {
 }
 
 function sources_rickyd() {
-    gitPullOrClone "$md_build" https://git.code.sf.net/p/rickyd/code
+    gitPullOrClone "$md_build" git://git.code.sf.net/p/rickyd/code
 }
 
 function build_rickyd() {
