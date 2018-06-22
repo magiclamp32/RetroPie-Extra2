@@ -30,26 +30,26 @@ function sources_gearboy() {
 
 function build_gearboy() {
     if [[ "$__raspbian_ver" -lt "8" ]]; then
-        cd "$md_build/platforms/raspberrypi/Gearboy"
+        cd "$md_build/platforms/raspberrypi"
     else
-        cd "$md_build/platforms/raspberrypi2/Gearboy"
+        cd "$md_build/platforms/raspberrypi2"
     fi
 
     make clean
     make
-    strip "gearboy.bin"
+    strip "gearboy"
     if [[ "$__raspbian_ver" -lt "8" ]]; then
-        md_ret_require="$md_build/platforms/raspberrypi/Gearboy/gearboy.bin"
+        md_ret_require="$md_build/platforms/raspberrypi/gearboy"
     else
-        md_ret_require="$md_build/platforms/raspberrypi2/Gearboy/gearboy.bin"
+        md_ret_require="$md_build/platforms/raspberrypi2/gearboy"
     fi
 }
 
 function install_gearboy() {
     if [[ "$__raspbian_ver" -lt "8" ]]; then
-        cp "$md_build/platforms/raspberrypi/Gearboy/gearboy.bin" "$md_inst/gearboy"
+        cp "$md_build/platforms/raspberrypi/Gearboy/gearboy" "$md_inst/gearboy"
     else
-        cp "$md_build/platforms/raspberrypi2/Gearboy/gearboy.bin" "$md_inst/gearboy"
+        cp "$md_build/platforms/raspberrypi2/Gearboy/gearboy" "$md_inst/gearboy"
     fi
 }
 
