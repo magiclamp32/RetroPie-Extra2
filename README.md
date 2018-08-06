@@ -73,15 +73,17 @@ In most cases, this is likely because the port requires external data files, esp
 - [X] - crispy-doom.sh - DOOM source port - Tested and works well.  
 - [X] - deadbeef.sh - Music and ripped game music player - Tested and works well.
 - [X] - easyrpgplayer.sh - RPG Maker 2000/2003 interpreter - Tested and works well.  
+- [X] - fofix.sh - FoFix - Guitar Hero and Rock Band clone - Tested and works well.
+- [X] - firefox-esr.sh - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser.
 - [X] - freeciv.sh - Civilization online clone - Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.  
 - [X] - freedink.sh - Dink Smallwood engine - Tested and works well.  
 - [X] - freesynd.sh - Syndicate clone - Tested and has occasional crash issues. Save between levels to avoid losing progress.  
+- [X] - funnyboat.sh - Sidescrolling action game - Tested and works well.
 - [X] - gamemaker.sh - Install the 3 gamemaker games - Tested and works well.  
 - [X] - ganbare.sh - Japanese 2D Platformer - Tested and works well, does not require Japanese to play.  
 - [X] - hcl.sh - Hydra Castle Labrinth - Tested and works well.
 - [X] - heboris.sh - Tetris The Grand Master clone - Tested and works well.  To fix sound, change settings from MIDI to MP3.
-- [X] - hurrican.sh - Turrican clone. - Tested and works well, minor graphics issues.  
-- [X] - iceweasel.sh - Rebranded Firefox Web Browser - Tested and works well.  
+- [X] - hurrican.sh - Turrican clone. - Tested and works well, minor graphics issues.    
 - [X] - kaiten-patissier-cs.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier-ura.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
 - [X] - kaiten-patissier.sh - Japanese 2D Platformer - Tested and works well, has English mode.  
@@ -93,7 +95,6 @@ In most cases, this is likely because the port requires external data files, esp
 - [X] - ltris.sh - Open Source Tetris game - Tested and working well, requires keyboard.
 - [X] - manaplus.sh - 2D MMORPG client - Tested and works well, requires mouse.  
 - [X] - maelstrom.sh - Classic Mac Asteroids Remake - Tested and works well, button configuration screen may crash.
-- [X] - mayhem.sh - Remake of the Amiga game - Tested and works well.
 - [X] - netsurf.sh - Lightweight web browser - Tested and works well.
 - [X] - nkaruga.sh - Ikaruga demake. Tested and works well, requires keyboard.
 - [X] - nxengine.sh - The standalone version of the open-source clone/rewrite of Cave Story - Tested and works well.
@@ -101,9 +102,7 @@ In most cases, this is likely because the port requires external data files, esp
 - [X] - prboom-plus.sh - Enhanced DOOM source port - lightly tested, seems to work.
 - [X] - rawgl.sh - Another World source port - Tested, occasionally crashes when button held when switching scenes?  
 - [X] - reminiscence.sh - Flashback engine clone - Tested and works well.   
-- [X] - retrobattle.sh - Fun retro style platform game - Tested and works well.
 - [X] - rickyd.sh - Rick Dangerous clone - Tested and works well, requires keyboard.
-- [X] - rockbot.sh - Mega Man clone. Tested and screen flickers like crazy until proper settings are applied. Check package help for more info.
 - [X] - rott.sh - Rise of the Triad source port - Tested and works well.  
 - [X] - sdl-bomber.sh - Simple Bomberman clone - Tested and works well, turn down the volume perhaps. 
 - [X] - sorr.sh - Streets of Rage Remake port - Tested and works well. Use fullscreen fast video mode.
