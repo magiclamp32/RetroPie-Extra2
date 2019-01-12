@@ -44,7 +44,11 @@ function build_solarus() {
     make -j3
     cd ../zelda-xd2-mercuris-chess-v1.0.6
     cmake . -DCMAKE_INSTALL_PREFIX="$md_inst"
+<<<<<<< HEAD
     make -j3
+=======
+    make
+>>>>>>> e3f0eba... New Solarus 1.5.3 game: Zelda Book of Mudora
     cd ../zbom
     cmake . -DCMAKE_INSTALL_PREFIX="$md_inst"
     make -j3
