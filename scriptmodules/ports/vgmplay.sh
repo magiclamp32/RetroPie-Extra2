@@ -20,7 +20,7 @@ function depends_vgmplay() {
 }
 
 function sources_vgmplay() {
-        git clone https://github.com/vgmrips/vgmplay.git
+        git clone https://github.com/it-s/vgmplay.git
 }
 
 function build_vgmplay() {
