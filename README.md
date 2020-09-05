@@ -1,4 +1,4 @@
-**Note** - This repository is no longer maintained. Please feel free to fork it and take it over for the Retropie community as I am no longer using it and no longer have time to do any work with it. To those of you who have made an effort and contributed, you have my endless thanks and respect.
+Hi. We're back.
 
 # RetroPie-Extra
 
