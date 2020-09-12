@@ -56,8 +56,11 @@ function configure_rott() {
     
     wget "http://icculus.org/rott/share/1rott13.zip" -O 1rott13.zip
     unzip -L -o 1rott13.zip rottsw13.shr
-    unzip -L -o rottsw13.shr -d "$md_inst/shareware" huntbgin.wad huntbgin.rtc huntbgin.rtl remote1.rts
-    
+    unzip -L -o rottsw13.shr -d "$romdir/ports/$md_id/shareware" huntbgin.wad huntbgin.rtc huntbgin.rtl remote1.rts
+    mv  "$romdir/ports/$md_id/shareware/remote1.rts" "$romdir/ports/$md_id/shareware/REMOTE1.RTS"
+    mv  "$romdir/ports/$md_id/shareware/huntbgin.wad" "$romdir/ports/$md_id/shareware/HUNTBGIN.WAD"
+    mv  "$romdir/ports/$md_id/shareware/huntbgin.rtc" "$romdir/ports/$md_id/shareware/HUNTBGIN.RTC"
+    mv  "$romdir/ports/$md_id/shareware/huntbgin.rtl" "$romdir/ports/$md_id/shareware/HUNTBGIN.RTL"
     moveConfigDir "$home/.rott" "$md_conf_root/rott"
 
     addPort "$md_id" "rott" "rott - Rise of the Triad port" "$md_inst/bin/rott"
