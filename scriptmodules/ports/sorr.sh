@@ -33,5 +33,5 @@ function configure_sorr() {
     mkRomDir "ports"
     chmod 755 "$md_inst/bgdi-333"
     moveConfigFile "$md_inst/savegame" "$md_conf_root/$md_id/"
-    addPort "$md_id" "sorr" "Streets of Rage Remake" "pushd $md_inst; ./bgdi-330 ./SorR.dat; popd"
+    addPort "$md_id" "sorr" "Streets of Rage Remake" "pushd $md_inst; ./bgdi-333 ./SorR.dat; popd"
 }
