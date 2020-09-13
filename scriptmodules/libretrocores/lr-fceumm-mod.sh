@@ -13,7 +13,7 @@ rp_module_id="lr-fceumm-mod"
 rp_module_desc="NES emu - FCEUmm port for libretro"
 rp_module_help="ROM Extensions: .nes .zip\n\nCopy your NES roms to $romdir/nes\n\nFor the Famicom Disk System copy your roms to $romdir/fds\n\nFor the Famicom Disk System copy the required BIOS file disksys.rom to $biosdir"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/libretro-fceumm/master/Copying"
-rp_module_section="main"
+rp_module_section="exp"
 
 function sources_lr-fceumm-mod() {
     gitPullOrClone "$md_build" https://github.com/zerojay/libretro-fceumm-mod.git
