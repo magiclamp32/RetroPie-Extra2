@@ -71,7 +71,6 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `lr-daphne.sh` - Daphne port to libretro - laserdisk arcade games.
 - [X] - `lr-mame2003_midway.sh` - MAME 0.78 core with Midway games optimizations.
 - [X] - `lr-pocketcdg.sh` - A MP3 karaoke music player.
-- [X] - `lr-mess-neocdz.sh` - Play NEO GEO CD games through libretro's lr-mess.
 
 #### Ports
 
