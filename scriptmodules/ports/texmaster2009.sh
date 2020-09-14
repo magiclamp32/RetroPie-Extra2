@@ -20,7 +20,7 @@ function depends_texmaster2009() {
 }
 
 function sources_texmaster2009() {
-    wget -q http://zerojay.com/Texmaster2009-5.7z
+    wget -q http://blackwingsovertheworld.com/files/Texmaster2009-5.7z
     7zr x Texmaster2009-5.7z 
     #tar xvfz Texmaster2009.rpi1-ARMv6.tar.gz
     cd Texmaster2009
