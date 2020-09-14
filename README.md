@@ -120,6 +120,7 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `rockbot.sh` - Mega Man clone. **Tested and screen flickers like crazy until proper settings are applied. Check package help for more info.**
 - [X] - `rott.sh` - Rise of the Triad source port - **Tested and works well.**
 - [X] - `sdl-bomber.sh` - Simple Bomberman clone - **Tested and works well, turn down the volume perhaps. **
+- [X] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Tested and works well. Use fullscreen fast video mode.**
 - [X] - `supertuxkart.sh` - Linux-themed racing game - **Tested and works well, OpenGL game running through glshim.**
 - [X] - `texmaster2009.sh` - Tetris TGM clone - **Tested and works well. Works on Pi4.**
