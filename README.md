@@ -73,6 +73,7 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack.
 - [X] - `lr-mame2003_midway.sh` - MAME 0.78 core with Midway games optimizations.
 - [X] - `lr-pocketcdg.sh` - A MP3 karaoke music player.
+- [X] - `lr-vecx.sh` - A Vectrex emulator with much nicer vector lines.
 
 #### Ports
 
