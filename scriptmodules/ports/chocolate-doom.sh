@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_chocolate-doom() {
-    getDepends libsdl2-dev libsdl2-net-dev libsdl2-mixer-dev libsamplerate0-dev libpng12-dev python-imaging automake autoconf
+    getDepends libsdl2-dev libsdl2-net-dev libsdl2-mixer-dev libsamplerate0-dev libpng-dev python-pil automake autoconf
 }
 
 function sources_chocolate-doom() {
@@ -62,11 +62,11 @@ function configure_chocolate-doom() {
     fi
 
     if [[ ! -f "$romdir/ports/doom/freedoom1.wad" ]]; then
-        wget "https://github.com/freedoom/freedoom/releases/download/v0.10.1/freedoom-0.10.1.zip"
-        unzip freedoom-0.10.1.zip 
-        mv freedoom-0.10.1/*.wad "$romdir/ports/doom"
-        rm -rf freedoom-0.10.1
-        rm freedoom-0.10.1.zip
+        wget "https://github.com/freedoom/freedoom/releases/download/v0.10.1/freedoom-0.12.1.zip"
+        unzip freedoom-0.12.1.zip 
+        mv freedoom-0.12.1/*.wad "$romdir/ports/doom"
+        rm -rf freedoom-0.12.1
+        rm freedoom-0.12.1.zip
     fi
 
     # Temporary until the official RetroPie WAD selector is complete.
