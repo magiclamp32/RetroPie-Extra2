@@ -60,7 +60,6 @@ I haven't worked that out yet. If you have, drop me a line.
 
 #### Emulators
 
-- [X] - `atari800.sh` - Atari 800/5200 emulator with additional joystick support - **5200 is tested, 800 is not.**
 - [X] - `gearboy.sh` - Gameboy emulator - **Tested and works well.**
 - [X] - `kat5200.sh` - Atari 8-bit/5200 emulator - **Only set up for 5200 at the moment.**
 - [X} - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.
