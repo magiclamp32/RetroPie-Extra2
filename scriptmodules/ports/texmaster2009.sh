@@ -43,5 +43,5 @@ function install_bin_texmaster2009() {
 function configure_texmaster2009() {
     sudo chmod -R 777 "$md_inst/data/"
     sudo chmod 777 "$md_inst"/Texmaster2009.*
-    addPort "$md_id" "texmaster" "Texmaster - Tetris TGM Clone" "pushd $md_inst; $md_inst/Texmaster2009; popd"
+    addPort "$md_id" "texmaster" "Texmaster - Tetris TGM Clone" "pushd $md_inst; sudo xinit $md_inst/Texmaster2009; popd"
 }
