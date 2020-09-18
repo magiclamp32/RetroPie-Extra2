@@ -17,42 +17,31 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
  
 function depends_openxcom() {
-    getDepends cmake xorg libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libsdl-gfx1.2-dev libyaml-cpp-dev
+     getDepends cmake xorg libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libsdl-gfx1.2-dev libyaml-cpp-dev
 }
 
 function sources_openxcom() {
-    if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
-        gitPullOrClone "$md_build/glshim" https://github.com/ptitseb/glshim.git
-    fi
-    gitPullOrClone "$md_build/$md_id" https://github.com/SupSuper/OpenXCOM.git
+    gitPullOrClone "$md_build" https://github.com/SupSuper/OpenXCOM.git
 }
  
 function build_openxcom() {
-    if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
-        cd "$md_build/glshim"
-        cmake . -DBCMHOST=1
-        make GL
-    fi
-    cd "$md_build/$md_id"
-    mkdir build
-    cd build
-    cmake -DCMAKE_INSTALL_PREFIX:PATH="$md_inst" ..
-    make
-    md_ret_require="$md_build/$md_id/build/bin/openxcom"
+    cd "$md_build/src"
+    CXXFLAGS="" make -f Makefile.simple
+    md_ret_require="$md_build/bin/openxcom"
 }
 
 function install_openxcom() {
-    if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
-       mkdir -p /opt/retropie/supplementary/glshim/
-       cp "$md_build/glshim/lib/libGL.so.1" /opt/retropie/supplementary/glshim/
-    fi
-    cd "$md_build/$md_id/build/"
-    make install
+    md_ret_files=(
+          'bin/openxcom'
+          'bin/common'
+          'bin/UFO'
+          'bin/TFTD'
+          'bin/standard'
+    )
 }
  
 function configure_openxcom() {
     mkdir "ports"
     moveConfigDir "$home/.config/openxcom" "$md_conf_root/openxcom"
-    mkdir -p "$md_inst/share/openxcom"
-    addPort "$md_id" "openxcom" "OpenXCOM - Open Source X-COM Engine" "LD_LIBRARY_PATH=/opt/retropie/supplementary/glshim LIBGL_FB=1 sudo xinit $md_inst/bin/openxcom"
+    addPort "$md_id" "openxcom" "OpenXCOM - Open Source X-COM Engine" "pushd $md_inst; sudo xinit $md_inst/openxcom; popd"
 }
