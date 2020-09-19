@@ -62,8 +62,9 @@ I haven't worked that out yet. If you have, drop me a line.
 
 - [X] - `gearboy.sh` - Gameboy emulator - **Tested and works well.**
 - [X] - `kat5200.sh` - Atari 8-bit/5200 emulator - **Only set up for 5200 at the moment.**
-- [X} - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.
+- [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.
 - [X] - `openbor.sh` - Beat 'em Up Game Engine (newest version) - **Tested only on Pi4 so far, installs as a system instead of as a port, direct launching of games from emulationstation supported!**
+- [X] - `pico8.sh` - Fantasy Game Emulator - Adds as a new system in RetroPie so you can directly launch carts.
 - [X] - `pokemini.sh` - Pokemon Mini emulator - **Tested and works well.**
 
 #### Libretrocores
