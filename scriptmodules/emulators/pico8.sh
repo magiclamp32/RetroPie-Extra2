@@ -53,6 +53,6 @@ _EOF_
     chown $user:$user "$romdir/pico8/+Start PICO8.sh"
     chmod u+x "$romdir/pico8/+Start PICO8.sh"
 
-    addEmulator 0 "$md_id" "pico8" "$md_inst/pico8_dyn -root_path $home/RetroPie/roms/$md_id %ROM%"
+    addEmulator 0 "$md_id" "pico8" "$md_inst/pico8_dyn -root_path $home/RetroPie/roms/$md_id -run %ROM%"
     addSystem "pico8" "pico8 - The Fantasy Game Console" ".sh .p8 .png .SH .P8 .PNG"
 }
