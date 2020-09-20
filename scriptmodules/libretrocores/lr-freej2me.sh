@@ -12,7 +12,7 @@
 rp_module_id="lr-freej2me"
 rp_module_desc="lr-freej2me - J2ME Game Player"
 rp_module_help="ROM Extension: .jar\n\nCopy your J2ME games to $romdir/j2me"
-rp_module_licence="ZLIB https://raw.githubusercontent.com/libretro/gw-libretro/master/LICENSE"
+rp_module_licence="GPL3 https://raw.githubusercontent.com/hex007/freej2me/master/LICENSE"
 rp_module_section="exp"
 
 function depends_lr-freej2me() {
