@@ -29,7 +29,6 @@ function sources_texmaster2009() {
 
 function install_bin_texmaster2009() {
     md_ret_files=(
-      'Texmaster2009/data'
       'Texmaster2009/Texmaster2009'
       'Texmaster2009/Texmaster2009.ini'
       'Texmaster2009/Texmaster2009.nv'
@@ -41,7 +40,14 @@ function install_bin_texmaster2009() {
 }
 
 function configure_texmaster2009() {
-    sudo chmod -R 777 "$md_inst/data/"
-    sudo chmod 777 "$md_inst"/Texmaster2009.*
-    addPort "$md_id" "texmaster" "Texmaster - Tetris TGM Clone" "pushd $md_inst; sudo xinit $md_inst/Texmaster2009; popd"
+    mkRomDir "ports"
+    mkRomDir "ports/$md_id/data"
+    sudo chmod -R 777 "$md_build/Texmaster2009/"
+    sudo cp -R "$md_build/Texmaster2009/data" "$romdir/ports/$md_id/"
+    sudo ln -s "$romdir/ports/$md_id/data" "$md_inst"
+    moveConfigFile "$md_inst/Texmaster2009.nv" "$md_conf_root/$md_id/Texmaster2009.nv"
+    moveConfigFile "$md_inst/Texmaster2009.ini" "$md_conf_root/$md_id/Texmaster2009.ini"
+    moveConfigFile "$md_inst/Texmaster2009.sav" "$md_conf_root/$md_id/Texmaster2009.sav"
+
+    addPort "$md_id" "texmaster2009" "Texmaster2009 - Tetris TGM Clone" "pushd $romdir/ports/$md_id; $md_inst/Texmaster2009; popd"
 }
