@@ -120,7 +120,8 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `retrobattle.sh` - Fun retro style platform game - **Tested and works well.**
 - [X] - `rickyd.sh` - Rick Dangerous clone - **Tested and works well, requires keyboard.**
 - [X] - `rockbot.sh` - Mega Man clone. **Tested and screen flickers like crazy until proper settings are applied. Check package help for more info.**
-- [X] - `rott.sh` - Rise of the Triad source port - **Tested and works well.**
+- [X] - `rott-darkwar.sh` - Rise of the Triad source port with joystick support - **Tested and works well.**
+- [X] - `rott-huntbgin.sh` - Rise of the Triad (shareware version) source port with joystick support.
 - [X] - `sdl-bomber.sh` - Simple Bomberman clone - **Tested and works well, turn down the volume perhaps. **
 - [X] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Tested and works well. Use fullscreen fast video mode.**
