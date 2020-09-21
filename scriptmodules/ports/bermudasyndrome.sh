@@ -16,11 +16,11 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_bermudasyndrome() {
-    getDepends libsdl1.2-dev
+    getDepends libsdl2-dev libsdl2-mixer-dev zlib1g-dev libvorbis-dev libvorbisfile3 libogg0
 }
 
 function sources_bermudasyndrome() {
-    wget -O- -q http://cyxdown.free.fr/bs/bs-0.1.4.tar.bz2 | tar -xvj --strip-components=1
+    wget -O- -q http://cyxdown.free.fr/bs/bs-0.1.7.tar.bz2 | tar -xvj --strip-components=1
 }
 
 function build_bermudasyndrome() {
