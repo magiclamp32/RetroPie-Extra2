@@ -113,6 +113,7 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `netsurf.sh` - Lightweight web browser - **Tested and works well.**
 - [X] - `nkaruga.sh` - Ikaruga demake. **Tested and works well, requires keyboard.**
 - [X] - `nxengine.sh` - The standalone version of the open-source clone/rewrite of Cave Story - **Tested and works well.**
+- [X] - `openjazz.sh` - Jazz Jackrabbit source port.
 - [X] - `pingus.sh` - Lemmings clone - **Tested and works well, requires mouse.**
 - [X] - `prboom-plus.sh` - Enhanced DOOM source port - lightly **tested, seems to work.**
 - [X] - `rawgl.sh` - Another World source port - **Tested, occasionally crashes when button held when switching scenes?**

@@ -16,7 +16,7 @@ rp_module_help="For playing the registered version, replace the shareware files 
 rp_module_section="exp"
 
 function depends_openjazz() {
-    getDepends cmake libsdl1.2-dev libsdl-net1.2-dev libsdl-sound1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev timidity freepats unzip
+    getDepends cmake libsdl1.2-dev libsdl-net1.2-dev libsdl-sound1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev timidity freepats unzip libxmp-dev
 }
 
 function sources_openjazz() {
