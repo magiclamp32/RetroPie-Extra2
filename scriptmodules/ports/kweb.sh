@@ -16,21 +16,20 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_kweb() {
-    getDepends evince vlc tint2 lxterminal uget git xterm
+    getDepends evince vlc tint2 lxterminal uget git xterm xserver-xorg-legacy
 }
 
 function sources_kweb() {
-    wget -O- -q http://steinerdatenbank.de/software/kweb-1.6.9.tar.gz | tar -zxv
-    git clone git://github.com/rg3/youtube-dl youtube-dl
+    wget -O- -q http://steinerdatenbank.de/software/kweb-1.7.9.8.tar.gz | tar -zxv
+    wget -O- -q http://steinerdatenbank.de/software/kweb_upgrade_buster_20190823.tar.gz | tar -zxv
 }
 
 function install_kweb() {
-    cd kweb-1.6.9
+    cd kweb-1.7.9.8
     ./debinstall
     cd ..
-    cp -R youtube-dl/ "$md_inst"
-    ln -s "$md_inst/youtube-dl/youtube_dl/__main__.py" /usr/bin/youtube-dl
-    chmod 755 /usr/bin/youtube-dl
+    cd kweb_upgrade_buster_20190823
+    ./install
 }
 
 function configure_kweb() {
