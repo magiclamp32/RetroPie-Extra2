@@ -127,7 +127,6 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Tested and works well. Use fullscreen fast video mode.**
 - [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4.
-- [X] - `supertuxkart.sh` - Linux-themed racing game - **Tested and works well, OpenGL game running through glshim.**
 - [X] - `texmaster2009.sh` - Tetris TGM clone - **Tested and works well. Works on Pi4.**
 - [X] - `tinyfugue.sh` - MUD client - **Tested and works well.**
 - [X] - `ulmos-adventure.sh` - Simple Adventure Game - **Tested and works well.**
