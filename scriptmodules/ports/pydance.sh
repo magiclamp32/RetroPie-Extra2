@@ -17,16 +17,20 @@ rp_module_section="exp"
 rp_module_flags="!mali"
 
 function depends_pydance() {
-    getDepends python-pygame
+    getDepends python python-pygame libsdl-mixer1.2-dev libsdl-mixer1.2 libvorbis-dev libsmpeg-dev
 }
 
 function sources_pydance() {
-    wget https://icculus.org/pyddr/pydance-1.1.0.tar.gz
-    tar zxvf ./pydance-1.1.0.tar.gz
+	gitPullOrClone "$md_build" https://github.com/mbenkmann/pydance.git
+}
+
+function build_pydance() {
+
+    python setup.py
 }
 
 function install_pydance() {
-    cp -Rv "$md_build/pydance-1.1.0/" "$md_inst"
+    su -c 'make PREFIX="/opt/retropie/ports/pydance" install'
 }
 
 function configure_pydance() {
@@ -81,5 +85,5 @@ function configure_pydance() {
         mv pydance-cdtitle.png pydance.png
     fi
     chown -R $user:$user /opt/retropie/ports/pydance
-    addPort "$md_id" "pydance" "pydance - Open Source Dancing Game" "pushd $md_inst/pydance-1.1.0/; python pydance.py; popd"
+    addPort "$md_id" "pydance" "pydance - Open Source Dancing Game" "pushd $md_inst; python games/pydance; popd"
 }
