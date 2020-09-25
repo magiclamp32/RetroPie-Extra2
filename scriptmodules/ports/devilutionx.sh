@@ -41,7 +41,7 @@ function install_devilutionx() {
 function configure_devilutionx() {
     mkRomDir "ports"
     mkRomDir "ports/devilutionx"
-    moveConfigDir "$home/.local/share/diasurgical/devilution" "$md_conf_root/devilutionx"
+    moveConfigDir "$home/.local/share/diasurgical" "$md_conf_root/devilutionx"
 
     addPort "$md_id" "devilutionx" "devilutionx - Diablo Engine" "$md_inst/devilutionx --data-dir $romdir/ports/devilutionx" 
 }
