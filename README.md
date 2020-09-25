@@ -90,6 +90,7 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `crack-attack.sh` - Tetris Attack clone - **Tested and works well. Minor color issue needs to be fixed with glshim.**
 - [X] - `crispy-doom.sh` - DOOM source port - **Tested and works well.**
 - [X] - `deadbeef.sh` - Music and ripped game music player - **Tested and works well.**
+- [X] - `devilutionx.sh` - Diablo source port - **Tested and working well on Pi4.**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Tested and works well.**
 - [X] - `freeciv.sh` - Civilization online clone - **Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.**
 - [X] - `freedink.sh` - Dink Smallwood engine - **Tested and works well.**
