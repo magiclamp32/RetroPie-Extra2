@@ -62,7 +62,7 @@ function configure_chocolate-doom() {
     fi
 
     if [[ ! -f "$romdir/ports/doom/freedoom1.wad" ]]; then
-        wget "https://github.com/freedoom/freedoom/releases/download/v0.10.1/freedoom-0.12.1.zip"
+        wget "https://github.com/freedoom/freedoom/releases/download/v0.12.1/freedoom-0.12.1.zip"
         unzip freedoom-0.12.1.zip 
         mv freedoom-0.12.1/*.wad "$romdir/ports/doom"
         rm -rf freedoom-0.12.1
