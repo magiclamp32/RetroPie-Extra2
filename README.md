@@ -74,6 +74,7 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games.
 - [X] - `lr-mame2003_midway.sh` - MAME 0.78 core with Midway games optimizations.
 - [X] - `lr-pocketcdg.sh` - A MP3 karaoke music player.
+- [X] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port.
 - [X] - `lr-vecx.sh` - A Vectrex emulator with much nicer vector lines.
 
 #### Ports
@@ -85,10 +86,12 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `breaker.sh` - Arkanoid clone - **Tested and works well.**
 - [X] - `burgerspace.sh` - BurgerTime clone - **Tested and works well.**
 - [X] - `chocolate-doom`.sh - DOOM source port - **Tested and works well.**
+- [X] - `chocolate-doom-system`.sh - For setting up DOOM as an emulated system, not port.
 - [X] - `chromium.sh` - Open Source Web Browser - **Tested and works well.**
 - [X] - `corsixth.sh` - Theme Hospital engine clone - **Tested and works well.**
 - [X] - `crack-attack.sh` - Tetris Attack clone - **Tested and works well. Minor color issue needs to be fixed with glshim.**
 - [X] - `crispy-doom.sh` - DOOM source port - **Tested and works well.**
+- [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port.
 - [X] - `deadbeef.sh` - Music and ripped game music player - **Tested and works well.**
 - [X] - `devilutionx.sh` - Diablo source port - **Tested and working well on Pi4.**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Tested and works well.**
