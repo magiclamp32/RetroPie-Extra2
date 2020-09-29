@@ -139,6 +139,7 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `warmux.sh` - Worms Clone - **Tested and works well. Possible issues with config files in wrong places?**
 - [X] - `weechat.sh` - Console IRC Client - **Tested and works well.**
 - [X] - `wizznic.sh` - Puzznic clone - **Tested and works well.**
+- [X] - `xash3d-fwgs.sh` - Half-Life engine source port.
 - [X] - `zeldansq.sh` - Zelda: Navi's Quest fangame - **Tested and works well.**
 - [X] - `zeldapicross.sh` - Zelda themed Picross fangame - **Tested and works well, may require keyboard.**
 
