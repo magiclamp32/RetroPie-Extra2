@@ -19,5 +19,6 @@ function depends_wizznic() {
 }
  
 function configure_wizznic() {
+    moveConfigDir "$home/.wizznic" "$md_conf_root/$md_id"
     addPort "$md_id" "wizznic" "Wizznic - Puzznic clone" "/usr/games/wizznic -z 2 -sw"
 }
