@@ -69,6 +69,7 @@ I haven't worked that out yet. If you have, drop me a line.
 
 #### Libretrocores
 
+- [X] - `lr-bsnes.sh` - bsnes core for libretro with added SGB support.
 - [X] - `lr-daphne.sh` - Daphne port to libretro - laserdisk arcade games.
 - [X] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack.
 - [X] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games.
