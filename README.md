@@ -74,6 +74,7 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack.
 - [X] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games.
 - [X] - `lr-mame2003_midway.sh` - MAME 0.78 core with Midway games optimizations.
+- [X] - `lr-mess-jaguar.sh` - Add support for using lr-mess for Jaguar games, uses atarijaguar system name to match lr-virtualjaguar.
 - [X] - `lr-pocketcdg.sh` - A MP3 karaoke music player.
 - [X] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port.
 - [X] - `lr-vecx.sh` - A Vectrex emulator with much nicer vector lines.
