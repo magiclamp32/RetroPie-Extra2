@@ -77,7 +77,6 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `lr-mess-jaguar.sh` - Add support for using lr-mess for Jaguar games, uses atarijaguar system name to match lr-virtualjaguar.
 - [X] - `lr-pocketcdg.sh` - A MP3 karaoke music player.
 - [X] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port.
-- [X] - `lr-vecx.sh` - A Vectrex emulator with much nicer vector lines.
 
 #### Ports
 
