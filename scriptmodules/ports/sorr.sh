@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !x11 !mali"
 
 function depends_sorr() {
-    getDepends libsdl-mixer1.2 libpng libpng-dev
+    getDepends libsdl-mixer1.2 libpng-dev
 }
 
 function sources_sorr() {
