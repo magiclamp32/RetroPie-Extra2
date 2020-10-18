@@ -35,13 +35,13 @@ function install_devilutionx() {
           'build/devilutionx'
           'build/CharisSILB.ttf'
     )
+    cp "$md_build/CharisSILB.ttf" "/usr/share/fonts/truetype/CharisSILB.ttf"
 
 }
 
 function configure_devilutionx() {
     mkRomDir "ports"
     mkRomDir "ports/devilutionx"
-    moveConfigDir "$home/.local/share/diasurgical" "$md_conf_root/devilutionx"
 
-    addPort "$md_id" "devilutionx" "devilutionx - Diablo Engine" "$md_inst/devilutionx --data-dir $romdir/ports/devilutionx" 
+    addPort "$md_id" "devilutionx" "devilutionx - Diablo Engine" "$md_inst/devilutionx --data-dir $romdir/ports/devilutionx --save-dir $md_conf_root/devilutionx"
 }
