@@ -25,17 +25,18 @@ function sources_prboom-plus() {
 
 function build_prboom-plus() {
     cd prboom2
-    ./bootstrap
-    ./configure
+#    ./bootstrap
+#    ./configure
+    cmake .
     make
-    md_ret_require="$md_build/prboom2/src/prboom-plus"
+    md_ret_require="$md_build/prboom2/prboom-plus"
 
 }
 
 function install_prboom-plus() {
     md_ret_files=(
-        'prboom2/src/prboom-plus'
-        'prboom2/data/prboom-plus.wad'
+        'prboom2/prboom-plus'
+        'prboom2/prboom-plus.wad'
     )
 }
 
