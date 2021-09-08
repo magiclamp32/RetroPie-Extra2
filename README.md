@@ -1,4 +1,6 @@
-Hi. We're back.
+Welcome. I will be adding a bunch of scripts to this as i make them and test them, the best i can. I will also be fixing a few of zerojays scripts that are not working now.
+
+also i will be adding a few scripts that i love from other people. most who are nolonger actvie on the RetroPie forum and i dont want the great work they did to be lost
 
 # RetroPie-Extra
 
