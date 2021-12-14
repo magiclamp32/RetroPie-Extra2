@@ -1,3 +1,5 @@
+**UPDATE.** Im going to do my best to take this over and continue the work. Zerojay is done with this and RetroPie in general. it seems
+
 Welcome. I will be adding a bunch of scripts to this as i make them and test them, the best i can. I will also be fixing a few of zerojays scripts that are not working now.
 
 also i will be adding a few scripts that i love from other people. most who are nolonger actvie on the RetroPie forum and i dont want the great work they did to be lost
@@ -6,7 +8,7 @@ also i will be adding a few scripts that i love from other people. most who are 
 
 This is a **collection of unofficial installation scripts for RetroPie** allowing you to quickly and easily **install emulators, ports and libretrocores** that haven't been included in RetroPie for one reason or another. These scripts can be considered experimental at best. 
 
-Those in the `master` branch have been tested reasonably and should work well but may have some flaws as they haven't gone through the RetroPie's watchful eyes yet. Scripts that are unfinished/untested/unpolished will not be located in this repository and instead have been moved to [RetroPie-Extra-unstable](https://github.com/zerojay/RetroPie-Extra-unstable).
+Those in the `master` branch have been tested reasonably and should work well but may have some flaws as they haven't gone through the RetroPie's watchful eyes yet. Scripts that are unfinished/untested/unpolished will not be located in this repository and instead have been moved to [RetroPie-Extra-unstable](https://github.com/Exarkuniv/RetroPie-Extra-unstable).
 
 Pull requests and issue reports are accepted and encouraged as well as requests. Feel free to use the issue tracker to send me any personal requests for new scripts that you may have.
 
@@ -16,7 +18,7 @@ The following commands clone the repo to your Raspberry Pi and then run `install
 
 ```bash
 cd ~
-git clone https://github.com/zerojay/RetroPie-Extra.git
+git clone https://github.com/Exarkuniv/RetroPie-Extra.git
 cd RetroPie-Extra/
 ./install-extras.sh
 ```
