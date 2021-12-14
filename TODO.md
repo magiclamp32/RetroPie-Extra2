@@ -1,5 +1,11 @@
 This is just meant as a scratchpad for me to keep track of various ideas and requests. These are in random order so there's no importance implied by position here. As you can see, there's always lots to be done so any help would be appreciated by the community.
 
+Since I'm taking this over I will do my best to take a look at everything. 
+
+My own list:
+- [ ] Add all of my scripts to the install script
+- [ ] Clean up and fix all original scripts from ZeroJay
+
 From README.md:
  - [ ] SDLash/Xash Half-Life engine through glshim.
  - [ ] Beatfever Mania.
