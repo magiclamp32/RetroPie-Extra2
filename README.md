@@ -168,7 +168,5 @@ I've moved this over to the [TODO.md](/TODO.md) file.
 
 ## Contact Info / Additional Information
 
-- **Twitter**: [@zerojay](https://twitter.com/zerojay) - Often posting new information and additions from the repository to the #retropie hashtag.  
-- **IRC**: zerojay on irc.freenode.net, #retropie/#retropie-extra.
+- **Twitter**: [@exarkuniv](https://twitter.com/8ab0c711e7c9447 - Often posting new information and additions from the repository to the #retropie hashtag.  
 
-If you wish to be up-to-date about all the changes happening to the repository as they happen, feel free to join the #retropie-extra channel on **Freenode**.
