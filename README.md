@@ -73,7 +73,7 @@ I haven't worked that out yet. If you have, drop me a line.
 
 #### Libretrocores
 
-- [X] - `lr-bsnes.sh` - bsnes core for libretro with added SGB support.
+
 - [X] - `lr-daphne.sh` - Daphne port to libretro - laserdisk arcade games.
 - [X] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack.
 - [X] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games.
@@ -99,19 +99,19 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port.
 - [X] - `deadbeef.sh` - Music and ripped game music player - **Tested and works well.**
 - [X] - `devilutionx.sh` - Diablo source port - **Tested and working well on Pi4.**
-- [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Tested and works well.**
+- [ ] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Tested and works well.**
 - [X] - `freeciv.sh` - Civilization online clone - **Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.**
 - [X] - `freedink.sh` - Dink Smallwood engine - **Tested and works well.**
 - [X] - `freesynd.sh` - Syndicate clone - **Tested and has occasional crash issues. Save between levels to avoid losing progress.**
-- [X] - `gamemaker.sh` - Install the 3 gamemaker games - **Tested and works well.**
-- [X] - `ganbare.sh` - Japanese 2D Platformer - **Tested and works well, does not require Japanese to play.**
+- [ ] - `gamemaker.sh` - Install the 3 gamemaker games - **Tested and works well.**
+- [ ] - `ganbare.sh` - Japanese 2D Platformer - **Tested and works well, does not require Japanese to play.**
 - [X] - `hcl.sh` - Hydra Castle Labrinth - **Tested and works well.**
 - [X] - `heboris.sh` - Tetris The Grand Master clone - **Tested and works well.  To fix sound, change settings from MIDI to MP3.**
-- [X] - `hurrican.sh` - Turrican clone. - **Tested and works well, minor graphics issues.**
+- [ ] - `hurrican.sh` - Turrican clone. - **Tested and works well, minor graphics issues.**
 - [X] - `iceweasel.sh` - Rebranded Firefox Web Browser - **Tested and works well.**
-- [X] - `kaiten-patissier-cs.sh` - Japanese 2D Platformer - **Tested and works well, has English mode.**
-- [X] - `kaiten-patissier-ura.sh` - Japanese 2D Platformer - **Tested and works well, has English mode.**
-- [X] - `kaiten-patissier.sh` - Japanese 2D Platformer - **Tested and works well, has English mode.**
+- [ ] - `kaiten-patissier-cs.sh` - Japanese 2D Platformer - **Tested and works well, has English mode.**
+- [ ] - `kaiten-patissier-ura.sh` - Japanese 2D Platformer - **Tested and works well, has English mode.**
+- [ ] - `kaiten-patissier.sh` - Japanese 2D Platformer - **Tested and works well, has English mode.**
 - [X] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Tested and works well.**
 - [X] - `kweb.sh` - Minimal kiosk web browser - **Tested and working well generally. Media may not be working well, I need to understand it better first to say.**
 - [X] - `lbreakout2.sh` - Open Source Breakout game - **Tested and working well, requires mouse.**
@@ -119,7 +119,7 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `lmarbles.sh` - Open Source Atomix game - **Tested and working well, requires mouse.**
 - [X] - `ltris.sh` - Open Source Tetris game - **Tested and working well, requires keyboard.**
 - [X] - `manaplus.sh` - 2D MMORPG client - **Tested and works well, requires mouse.**
-- [X] - `netsurf.sh` - Lightweight web browser - **Tested and works well.**
+- [ ] - `netsurf.sh` - Lightweight web browser - **Tested and works well.**
 - [X] - `nkaruga.sh` - Ikaruga demake. **Tested and works well, requires keyboard.**
 - [X] - `nxengine.sh` - The standalone version of the open-source clone/rewrite of Cave Story - **Tested and works well.**
 - [X] - `openjazz.sh` - Jazz Jackrabbit source port.
@@ -136,14 +136,14 @@ I haven't worked that out yet. If you have, drop me a line.
 - [X] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Tested and works well. Use fullscreen fast video mode.**
 - [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4.
-- [X] - `texmaster2009.sh` - Tetris TGM clone - **Tested and works well. Works on Pi4.**
+- [ ] - `texmaster2009.sh` - Tetris TGM clone - **Tested and works well. Works on Pi4.**
 - [X] - `tinyfugue.sh` - MUD client - **Tested and works well.**
 - [X] - `ulmos-adventure.sh` - Simple Adventure Game - **Tested and works well.**
 - [X] - `vgmplay.sh` - Music Player - **Tested and works well. Plays .vgm and .vgz game music rips. Command line client only.**
 - [X] - `vorton.sh` - Highway Encounter Remake in Spanish - **Tested and works well.**
 - [X] - `warmux.sh` - Worms Clone - **Tested and works well. Possible issues with config files in wrong places?**
 - [X] - `weechat.sh` - Console IRC Client - **Tested and works well.**
-- [X] - `wizznic.sh` - Puzznic clone - **Tested and works well.**
+- [ ] - `wizznic.sh` - Puzznic clone - **Tested and works well.**
 - [X] - `xash3d-fwgs.sh` - Half-Life engine source port.
 - [X] - `zeldansq.sh` - Zelda: Navi's Quest fangame - **Tested and works well.**
 - [X] - `zeldapicross.sh` - Zelda themed Picross fangame - **Tested and works well, may require keyboard.**
