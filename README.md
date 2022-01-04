@@ -168,5 +168,5 @@ I've moved this over to the [TODO.md](/TODO.md) file.
 
 ## Contact Info / Additional Information
 
-- **Twitter**: [@exarkuniv](https://twitter.com/8ab0c711e7c9447) - Often posting new information and additions from the repository to the #retropie hashtag.  
+- **Twitter**: [@exarkuniv](https://twitter.com/8ab0c711e7c9447) 
 - I'm very active on the RetroPie [forum](https://retropie.org.uk/forum/)
