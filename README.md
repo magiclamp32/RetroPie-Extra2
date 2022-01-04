@@ -1,8 +1,4 @@
-**UPDATE.** Im going to do my best to take this over and continue the work. Zerojay is done with this and RetroPie in general. it seems
-
-Welcome. I will be adding a bunch of scripts to this as i make them and test them, the best i can. I will also be fixing a few of zerojays scripts that are not working now.
-
-also i will be adding a few scripts that i love from other people. most who are nolonger actvie on the RetroPie forum and i dont want the great work they did to be lost
+**UPDATE.** Im going to do my best to take this over and continue the work. Zerojay is done with this and RetroPie in general.
 
 # RetroPie-Extra
 
