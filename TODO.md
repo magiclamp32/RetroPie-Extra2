@@ -7,10 +7,25 @@ My own list:
 - [ ] Clean up and fix all original scripts from ZeroJay
 
 From README.md:
- - [ ] SDLash/Xash Half-Life engine through glshim.
+ - [x] SDLash/Xash Half-Life engine through glshim.
  - [ ] Beatfever Mania.
  - [ ] Stepmania/Frets on Fire through glshim/new OpenGL driver.
- - [ ] John's Shadow Warrior Port (jswp)
+ - [x] John's Shadow Warrior Port (jswp)
+ 
+
+Not working anymore
+
+- [ ] easyrpgplayer.sh
+- [ ] gamemaker.sh
+- [ ] ganbare.sh
+- [ ] hurrican.sh
+- [ ] kaiten-patissier-cs.sh
+- [ ] kaiten-patissier-ura.sh
+- [ ] kaiten-patissier.sh
+- [ ] netsurf.sh
+- [ ] texmaster2009.sh
+- [ ] wizznic.sh
+
 
 From issues #252/#256:
 - [ ] openarena
