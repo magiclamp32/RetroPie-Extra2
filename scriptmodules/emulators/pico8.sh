@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 # This file is part of The RetroPie Project
@@ -32,16 +33,16 @@ function install_pico8() {
     md_ret_files=(
        'pico-8/license.txt'
        'pico-8/pico8.dat'
-       'pico-8/pico-8.txt'
+       'pico-8/pico-8_manual.txt'
        'pico-8/pico8'
        'pico-8/pico8_dyn'
+       'pico-8/lexaloffle-pico8.png'
     )
 }
 
 function configure_pico8() {
     mkRomDir "$md_id"
     cp "$md_build/pico-8/lexaloffle-pico8.png" "$home/RetroPie/roms/$md_id"
-    moveConfigDir "$home/.lexaloffle/" "$md_conf_root/$md_id"
     chmod +x "$md_inst/pico8_dyn"
 
     # Create startup script
@@ -54,5 +55,5 @@ _EOF_
     chmod u+x "$romdir/pico8/+Start PICO8.sh"
 
     addEmulator 0 "$md_id" "pico8" "$md_inst/pico8_dyn -root_path $home/RetroPie/roms/$md_id -run %ROM%"
-    addSystem "pico8" "pico8 - The Fantasy Game Console" ".sh .p8 .png .SH .P8 .PNG"
+    addSystem "pico8" "pico8 - The Fantasy Game Console" ".sh .p8 .png .rom .SH .P8 .PNG .ROM"
 }
