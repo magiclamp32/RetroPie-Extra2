@@ -19,7 +19,7 @@ function depends_ganbare() {
 }
 
 function sources_ganbare() {
-    wget -q http://www.geocities.jp/dij4121/alpha/data/gnp_104.zip
+    wget -q https://dl.openhandhelds.org/gp2x/uploads/Home/gp2x%20-%20Games/Games%20-%20Freeware/Jump%20and%20Run/gnp_104.zip
     unzip gnp_104.zip
 }
 
