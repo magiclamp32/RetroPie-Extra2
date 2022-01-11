@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_freesynd() {
-    getDepends libsdl1.2-dev libsdl-mixer1.2-dev subversion libsdl-image1.2-dev libpng-dev cmake
+    getDepends libsdl1.2-dev libsdl-mixer1.2-dev subversion libsdl-image1.2-dev libpng12-dev cmake
 }
 
 function sources_freesynd() {
