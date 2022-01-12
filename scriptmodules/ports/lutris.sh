@@ -33,3 +33,5 @@ xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no &
 /usr/bin/lutris
 _EOF_
+
+}
