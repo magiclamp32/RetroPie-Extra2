@@ -9,22 +9,22 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="openbor"
+rp_module_id="openbor-v6510"
 rp_module_desc="OpenBOR - Beat 'em Up Game Engine v6510-dev (official!)"
 rp_module_help="Place your .pak files in $romdir/openbor."
 rp_module_licence="BSD https://raw.githubusercontent.com/crcerror/OpenBOR-Raspberry/master/LICENSE"
 rp_module_section="exp"
 rp_module_flags="!mali !x11"
 
-function depends_openbor() {
+function depends_openbor-v6510() {
     getDepends libsdl2-gfx-dev libvorbisidec-dev libvpx-dev libogg-dev libsdl2-gfx-1.0-0 libvorbisidec1
 }
 
-function sources_openbor() {
+function sources_openbor-v6510() {
     gitPullOrClone "$md_build" https://github.com/crcerror/OpenBOR-Raspberry.git
 }
 
-function build_openbor() {
+function build_openbor-v6510() {
     local params=()
     ! isPlatform "x11" && params+=(BUILD_PANDORA=1)
     make clean-all BUILD_PANDORA=1
@@ -48,14 +48,14 @@ function build_openbor() {
     fi
 }
 
-function install_openbor() {
+function install_openbor-v6510() {
     md_ret_files=(
        'OpenBOR'
        'libGL.so.1'
     )
 }
 
-function configure_openbor() {
+function configure_openbor-v6510() {
     mkRomDir "ports/$md_id"
 
     local dir

@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_gearboy() {
-    getDepends build-essential libfreeimage-dev libopenal-dev libpango1.0-dev libsndfile1-dev libudev-dev libasound2-dev libjpeg-dev libtiff5-dev libwebp-dev automake libconfig++-dev
+    getDepends build-essential libfreeimage-dev libopenal-dev libpango1.0-dev libsndfile1-dev libudev-dev libasound2-dev libjpeg-dev libtiff5-dev libwebp-dev automake libconfig++-dev libsdl2-dev libglew-dev
     #if [[ "$__raspbian_ver" -lt "8" ]]; then
     #    getDepends libjpeg8-dev
     #else
@@ -29,27 +29,43 @@ function sources_gearboy() {
 }
 
 function build_gearboy() {
-    if [[ "$__raspbian_ver" -lt "8" ]]; then
+    if isPlatform "rpi1"; then
         cd "$md_build/platforms/raspberrypi"
-    else
+    elif isPlatform "rpi2"; then
         cd "$md_build/platforms/raspberrypi2"
+    elif isPlatform "rpi3"; then
+            cd "$md_build/platforms/raspberrypi3"
+    elif isPlatform "rpi4"; then
+            cd "$md_build/platforms/raspberrypi4"
     fi
 
     make clean
     make
     strip "gearboy"
-    if [[ "$__raspbian_ver" -lt "8" ]]; then
+    if isPlatform "rpi1"; then
+	echo "Installing for Raspberry Pi..."
         md_ret_require="$md_build/platforms/raspberrypi/gearboy"
-    else
+    elif isPlatform "rpi2"; then
+	echo "Installing for Raspberry Pi 2..."
         md_ret_require="$md_build/platforms/raspberrypi2/gearboy"
+    elif isPlatform "rpi3"; then
+    	echo "Installing for Raspberry Pi 3..."
+        md_ret_require="$md_build/platforms/raspberrypi3/gearboy"
+    elif isPlatform "rpi4"; then
+        echo "Installing for Raspberry Pi 4..."
+        md_ret_require="$md_build/platforms/raspberrypi4/gearboy"
     fi
 }
 
 function install_gearboy() {
-    if [[ "$__raspbian_ver" -lt "8" ]]; then
-        cp "$md_build/platforms/raspberrypi/Gearboy/gearboy" "$md_inst/gearboy"
-    else
-        cp "$md_build/platforms/raspberrypi2/Gearboy/gearboy" "$md_inst/gearboy"
+    if isPlatform "rpi1"; then
+        cp "$md_build/platforms/raspberrypi/gearboy" "$md_inst/gearboy"
+    elif isPlatform "rpi2"; then
+        cp "$md_build/platforms/raspberrypi2/gearboy" "$md_inst/gearboy"
+    elif isPlatform "rpi3"; then
+        cp "$md_build/platforms/raspberrypi3/gearboy" "$md_inst/gearboy"
+    elif isPlatform "rpi4"; then
+        cp "$md_build/platforms/raspberrypi4/gearboy" "$md_inst/gearboy"
     fi
 }
 

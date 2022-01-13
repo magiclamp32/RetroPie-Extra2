@@ -15,7 +15,7 @@ rp_module_help="ROM Extensions: .md .bin .smd .zip .7z\n\nCopy the required BIOS
 rp_module_licence="GPL3 https://raw.githubusercontent.com/libretro/blastem/master/COPYING"
 rp_module_repo="git https://github.com/libretro/blastem libretro"
 rp_module_section="opt"
-rp_module_flags=""
+rp_module_flags="!x86"
 
 function sources_lr-blastem() {
     gitPullOrClone
