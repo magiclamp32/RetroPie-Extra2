@@ -10,38 +10,46 @@
 #
 
 rp_module_id="nxengine"
-rp_module_desc="Cave Story engine clone - NXEngine"
+rp_module_desc="Cave Story engine clone - NXEngine-Evo"
 rp_module_licence="GPL3 http://nxengine.sourceforge.net/LICENSE"
-rp_module_help="Copy the original Cave Story game files to $md_inst so you have $md_inst/Doukutsu.exe and $md_inst/data present."
+rp_module_help=""
 rp_module_section="opt"
 rp_module_flags="!armv6 !mali"
 
 function depends_nxengine() {
-    getDepends libsdl1.2-dev libsdl-ttf2.0-dev
+   sudo apt install build-essential libpng-dev libjpeg-dev make cmake cmake-data git libsdl2-dev libsdl2-doc libsdl2-gfx-dev libsdl2-gfx-doc libsdl2-image-dev libsdl2-mixer-dev libsdl2-net-dev libsdl2-ttf-dev 
 }
 
 function sources_nxengine() {
-    wget -O- -q http://nxengine.sourceforge.net/dl/nx-src-1006.tar.bz2 | tar -xvj --strip-components=1
+   git clone https://github.com/nxengine/nxengine-evo.git
 }
 
 function build_nxengine() {
-    make clean
-    make
+     cd nxengine-evo
+     mkdir build 
+     cd build
+     cmake -DCMAKE_BUILD_TYPE=Release -Wno-dev -DCMAKE_INSTALL_PREFIX=/home/pi/RetroPie/roms/ports/CaveStory ..
+     make
+
+     cd ..
+     wget "https://www.cavestory.org/downloads/cavestoryen.zip"
+     unzip cavestoryen.zip
+     cp -r CaveStory/data/ ./
+	cp -r CaveStory/Doukutsu.exe ./
+
+    wget "https://github.com/nxengine/translations/releases/download/v1.14/all.zip"
+    mkdir translations && unzip all.zip -d translations
+    cp -r translations/data ./
+
+	build/nxextract
 }
 
 function install_nxengine() {
-    md_ret_files=('tilekey.dat'
-                  'sprites.sif'
-                  'smalfont.bmp'
-                  'nx'
-                  'font.ttf'
-                  'debug.txt'
-    )
+     cd nxengine-evo/build
+	sudo make install
 }
 
 function configure_nxengine() {
-    addPort "$md_id" "cavestory" "Cave Story" "pushd $md_inst; ./nx; popd"
-    mkdir "$md_inst/data"
-    chown -R $user:$user "$md_inst"
-
+    addPort "$md_id" "cavestory" "Cave Story" "/home/pi/RetroPie/roms/ports/CaveStory/bin/nxengine-evo"
+       chown -R $user:$user "/home/pi/RetroPie/roms/ports/CaveStory"
 }
