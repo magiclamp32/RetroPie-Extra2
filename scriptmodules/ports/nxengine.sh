@@ -32,7 +32,7 @@ function build_nxengine-evo() {
     make
 
     cd ..
-    downloadAndExtract "https://www.cavestory.org/downloads/cavestoryen.zip"
+    downloadAndExtract "https://www.cavestory.org/downloads/cavestoryen.zip" "cavestoryen"
     cp -r cavestoryen/CaveStory/data .
     cp cavestoryen/CaveStory/Doukutsu.exe .
 
