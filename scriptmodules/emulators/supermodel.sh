@@ -93,7 +93,7 @@ function configure_supermodel() {
     addEmulator 0 "$md_id-new3d" "model3" "$md_inst/supermodel.sh -res=$Xaxis,$Yaxis -fullscreen -quad-rendering %ROM%"
     addEmulator 0 "$md_id-nv-optimus" "model3" "optirun $md_inst/supermodel.sh -res=$Xaxis,$Yaxis -fullscreen -quad-rendering %ROM%"
 
-    addSystem "model3"
+    addSystem "model3" "Sega Model 3" ".zip"
 
     local file="$md_inst/supermodel.sh"
     cat >"$file" << _EOF_
