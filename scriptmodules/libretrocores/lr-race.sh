@@ -13,7 +13,7 @@ rp_module_id="lr-race"
 rp_module_desc="Neo Geo Pocket (Color) emulator - RACE! port for libretro."
 rp_module_help="ROM Extensions: .ngp .ngc .ngpc .npc .zip .7z\n\nCopy your Neo Geo Pocket roms to $romdir/ngp\nCopy your Neo Geo Pocket Color roms to $romdir/ngpc"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/RACE/master/license.txt"
-rp_module_section="opt"
+rp_module_section="exp"
 rp_module_repo="git https://github.com/libretro/RACE.git master"
 rp_module_flags="" 
 

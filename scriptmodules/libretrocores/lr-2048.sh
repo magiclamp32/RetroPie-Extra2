@@ -13,7 +13,7 @@ rp_module_id="lr-2048"
 rp_module_desc="2048 engine - 2048 port for libretro"
 rp_module_licence="Unl https://raw.githubusercontent.com/libretro/libretro-2048/master/COPYING"
 rp_module_repo="git https://github.com/libretro/libretro-2048.git master"
-rp_module_section="opt"
+rp_module_section="exp"
 rp_module_flags=""
 
 function sources_lr-2048() {

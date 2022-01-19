@@ -14,7 +14,7 @@ rp_module_desc="ColecoVision emulator - GearColeco port for libretro."
 rp_module_help="ROM Extensions: .col .cv .bin .rom .zip .7z\n\nCopy your ColecoVision roms to $romdir/coleco\n\nCopy the required BIOS files colecovision.rom to $biosdir"
 rp_module_licence="GPL3 https://git.libretro.com/libretro/gearcoleco/blob/main/LICENSE"
 rp_module_repo="git https://git.libretro.com/libretro/gearcoleco.git main"
-rp_module_section="opt"
+rp_module_section="exp"
 rp_module_flags=""
 
 function sources_lr-gearcoleco() {

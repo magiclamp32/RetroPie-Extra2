@@ -14,7 +14,7 @@ rp_module_desc="Sega Genesis emu - BlastEm port for libretro"
 rp_module_help="ROM Extensions: .md .bin .smd .zip .7z\n\nCopy the required BIOS file rom.db to $biosdir"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/libretro/blastem/master/COPYING"
 rp_module_repo="git https://github.com/libretro/blastem libretro"
-rp_module_section="opt"
+rp_module_section="exp"
 rp_module_flags="!x86"
 
 function sources_lr-blastem() {

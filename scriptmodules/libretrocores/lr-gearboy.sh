@@ -14,7 +14,7 @@ rp_module_desc="Game Boy (Color) emulator - Gearboy port for libretro."
 rp_module_help="ROM Extensions: .gb .gbc .dmg .cgb .sgb .zip .7z\n\nCopy your GameBoy roms to $romdir/gb\nCopy your GameBoy Color roms to $romdir/gbc\n\nCopy the optional BIOS files\n\ndmg_boot.bin and\ncgb_boot.bin to\n\n$biosdir"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/libretro/Gearboy/master/LICENSE"
 rp_module_repo="git https://github.com/libretro/Gearboy master"
-rp_module_section="opt"
+rp_module_section="exp"
 rp_module_flags=""
 
 function sources_lr-gearboy() {

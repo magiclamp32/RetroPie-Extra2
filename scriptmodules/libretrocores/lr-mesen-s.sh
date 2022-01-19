@@ -14,7 +14,7 @@ rp_module_desc="Super Nintendo emu - Mesen-S port for libretro"
 rp_module_help="ROM Extension: .sfc .smc .fig .swc .zip .7z\n\nCopy your SNES roms to $romdir/snes"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/SourMesen/Mesen-S/master/LICENSE"
 rp_module_repo="git https://github.com/SourMesen/Mesen-S.git master"
-rp_module_section="opt"
+rp_module_section="exp"
 rp_module_flags=""
 
 function sources_lr-mesen-s() {
