@@ -14,7 +14,7 @@ rp_module_desc="Cave Story engine clone - NXEngine-Evo"
 rp_module_help="NXEngine by Caitlin Shaw, refactoring by isage et al."
 rp_module_licence="GPL3 http://nxengine.sourceforge.net/LICENSE"
 rp_module_repo="git https://github.com/nxengine/nxengine-evo.git"
-rp_module_section="exp"
+rp_module_section="exp" 
 rp_module_flags="!armv6 !mali"
 
 function depends_nxengine-evo() {
