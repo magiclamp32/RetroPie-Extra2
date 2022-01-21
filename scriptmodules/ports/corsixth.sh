@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_corsixth() {
-    getDepends cmake liblua5.2-0 liblua5.2-dev libsdl2-dev libsdl2-mixer-dev timidity libfreetype6-dev lua-filesystem lua-lpeg libavcodec-dev libavformat-dev libavresample-dev libavutil-dev libavdevice-dev libswscale-dev libpostproc-dev libavfilter-dev
+    getDepends cmake liblua5.2-0 liblua5.2-dev libsdl2-dev libsdl2-mixer-dev timidity libfreetype6-dev lua-filesystem lua-lpeg libavcodec-dev libavformat-dev libavresample-dev libavutil-dev libavdevice-dev libswscale-dev libpostproc-dev libavfilter-dev matchbox freepats
 
 }
 
@@ -26,9 +26,6 @@ function sources_corsixth() {
 }
 
 function build_corsixth() {
-    # Fix missing LUA library on Raspberry Pi.
-    sed -i "s/LUA_LIBRARY_NAME lua53 lua52 lua5.1/LUA_LIBRARY_NAME lua53 lua52 lua5.2 lua5.1/" $md_build/CMake/FindLua.cmake
-    sed -i "s/LUA_INCLUDE_DIRS include include\/lua include\/lua5.1 include\/lua51/LUA_INCLUDE_DIRS include include\/lua include\/lua5.1 include\/lua51 include\/lua5.2 include\/lua51/" $md_build/CMake/FindLua.cmake 
     cmake . -DWITH_LIBAV=ON -DCMAKE_INSTALL_PREFIX:PATH="$md_inst"
     cd ./CorsixTH
     make
@@ -44,7 +41,15 @@ function configure_corsixth() {
     mkRomDir "ports"
     mkRomDir "ports/$md_id"
     mkdir "$home/.config/CorsixTH"
-    moveConfigDir "$home/.config/CorsixTH" "$md_conf_root/$md_id"
 
-    addPort "$md_id" "corsixth" "CorsixTH - Theme Hospital Engine" "$md_inst/bin/corsix-th"
+    cat >"$md_inst/bin/corsix.sh" << _EOF_
+    
+#!/bin/bash
+xset -dpms s off s noblank
+matchbox-window-manager & /opt/retropie/ports/corsixth/bin/corsix-th
+_EOF_
+
+     chmod +x "$md_inst/bin/corsix.sh"
+     moveConfigDir "$home/.config/CorsixTH" "$md_conf_root/$md_id"
+     addPort "$md_id" "corsixth" "CorsixTH - Theme Hospital Engine" "$md_inst/bin/corsix.sh"
 }
