@@ -11,7 +11,7 @@
 
 rp_module_id="freeciv"
 rp_module_desc="freeciv - Open Source empire-building strategy game"
-rp_module_help="To get FullScreen Press escape. -> Local Options -> Interface. Change the option "Screen resolution\n\nchange to best fit your screen"
+rp_module_help="To get FullScreen Press escape. -> Local Options -> Interface. Change the option Screen resolution\n\nchange to best fit your screen"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/Aleph-One-Marathon/alephone/master/COPYING"
 rp_module_repo="file http://files.freeciv.org/stable/freeciv-2.6.6.tar.bz2"
 rp_module_section="exp"
