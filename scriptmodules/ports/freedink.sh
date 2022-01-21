@@ -16,16 +16,18 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_freedink() {
-    getDepends xorg
+    getDepends  libvorbis-dev timgm6mb-soundfont
 }
 
 function install_bin_freedink() {
     aptInstall freedink
 }
 
-function configure_freedink() {
-    mkRomDir "ports"
-    moveConfigDir "$home/.dink" "$md_conf_root/$md_id"
+function remove_freedink() {
+    aptRemove freedink
+}
 
-    addPort "$md_id" "freedink" "FreeDink - Dink Smallwood Engine" "xinit freedink"
+function configure_freedink() {
+    moveConfigDir "$home/.dink" "$md_conf_root/$md_id"
+    addPort "$md_id" "freedink" "FreeDink - Dink Smallwood Engine" "freedink -S"
 }
