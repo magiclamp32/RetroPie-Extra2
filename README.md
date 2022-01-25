@@ -47,117 +47,181 @@ Scripts that are unfinished/untested/unpolished will not be located in this repo
 
 The installation script assumes that you are running it on a Raspberry Pi with the `RetroPie-Setup/` folder being stored in `/home/pi/RetroPie-Setup`. If your setup differs, just copy the scripts directly to the folder they need to be in.
 
-## Troubleshooting
-
-Here are some helpful hints for getting around some possible issues that you may encounter.
-
-### The port I installed appears to close immediately upon launching.
-
-In most cases, this is likely because the port requires external data files, especially in the case of game engines. In cases where shareware datafiles are available, the port will install them where possible. Otherwise, you will need to provide your own. The warning dialog box at the end of installation should usually tell you what files will be needed and where to place them. If you somehow don't see a dialog box after installation, you can open the script itself and look towards the bottom for the warning.
-
-### What is the directory structure needed for lr-daphne?
-
-I haven't worked that out yet. If you have, drop me a line.
-
-## Included Software
-
 ### Master Branch
-
+If there is a [X] that means it was tested and installs. 
+I'll have a note at the end with some Info about it. if there is NO note or [X] **PLEASE LET ME KNOW** if it works for you 
 #### Emulators
 
-- [X] - `gearboy.sh` - Gameboy emulator - **Tested and works well.**
-- [X] - `kat5200.sh` - Atari 8-bit/5200 emulator - **Only set up for 5200 at the moment.**
-- [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.
+- [X] - `gearboy.sh` - Gameboy emulator - **Installs**
+- [X] - `kat5200.sh` - Atari 8-bit/5200 emulator - **Installs**
+- [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs**
 - [X] - `openbor.sh` - Beat 'em Up Game Engine (newest version) - **Tested only on Pi4 so far, installs as a system instead of as a port, direct launching of games from emulationstation supported!**
-- [X] - `pico8.sh` - Fantasy Game Emulator - Adds as a new system in RetroPie so you can directly launch carts.
-- [X] - `pokemini.sh` - Pokemon Mini emulator - **Tested and works well.**
+- [ ] - `pico8.sh` - Fantasy Game Emulator - Adds as a new system in RetroPie so you can directly launch carts. **No clue, I dont have the required files to test**
+- [X] - `pokemini.sh` - Pokemon Mini emulator  - **Installs**
+- [X] - `supermodel.sh` - Sega Model 3 Arcade emulator  - **Installs**
 
 #### Libretrocores
 
-
-- [X] - `lr-daphne.sh` - Daphne port to libretro - laserdisk arcade games.
-- [X] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack.
-- [X] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games.
-- [X] - `lr-mame2003_midway.sh` - MAME 0.78 core with Midway games optimizations.
-- [X] - `lr-mess-jaguar.sh` - Add support for using lr-mess for Jaguar games, uses atarijaguar system name to match lr-virtualjaguar.
-- [X] - `lr-pocketcdg.sh` - A MP3 karaoke music player.
-- [X] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port.
+- [X] - `lr-2048.sh` - 2048 engine - 2048 port for libretro - **Installs**
+- [X] - `lr-bk.sh` -  Elektronika БК-0010/0011/Terak 8510a emulator - BK port for libretro - **Installs**
+- [X] - `lr-blastem.sh` - Sega Genesis emu - BlastEm port for libretro - **Installs**
+- [ ] - `lr-boom3.sh` -  Doom 3 port for libretro on x86 systems **Cant test dont have the right system**
+- [ ] - `lr-canary.sh` - Citra Canary for libretro
+- [ ] - `lr-cannonball.sh` - An Enhanced OutRun engine for libretro
+- [ ] - `lr-chailove.sh` - 2D Game Framework with ChaiScript roughly inspired by the LÖVE API to libretro
+- [ ] - `lr-citra.sh` - Citra port for libretro
+- [ ] - `lr-craft.sh` - Minecraft engine - 
+- [ ] - `lr-crocods.sh` - CrocoDS port for libretro
+- [ ] - `lr-daphne.sh` - Daphne port to libretro - laserdisk arcade games.
+- [ ] - `lr-easyrpg.sh` - RPG Maker 2000/2003 engine - EasyRPG Player interpreter port for libretro
+- [ ] - `lr-ecwolf.sh` - Wolfestein 3D engine - ECWolf port based of Wolf4SDL for libretro
+- [ ] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack.
+- [ ] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games.
+- [ ] - `lr-gearboy.sh` - Game Boy (Color) emulator - Gearboy port for libretro.
+- [ ] - `lr-gearcoleco.sh` - ColecoVision emulator - GearColeco port for libretro.
+- [ ] - `lr-lutro.sh` - Lua engine - lua game framework (WIP) for libretro following the LÖVE API
+- [ ] - `lr-mame2003_midway.sh` - MAME 0.78 core with Midway games optimizations.
+- [ ] - `lr-melonds.sh` - NDS emu - MelonDS port for libretro
+- [ ] - `lr-mesen-s.sh` - Super Nintendo emu - Mesen-S port for libretro
+- [ ] - `lr-mess-jaguar.sh` - Add support for using lr-mess for Jaguar games, uses atarijaguar system name to match lr-virtualjaguar.
+- [ ] - `lr-minivmac.sh` -  Macintosh Plus Emulator - Mini vMac port for libretro
+- [ ] - `lr-mu.sh` - Palm OS emu - Mu port for libretro
+- [ ] - `lr-oberon.sh` - Oberon RISC emulator for libretro
+- [ ] - `lr-openlara.sh` - Tomb Raider engine - OpenLara port for libretro
+- [ ] - `lr-play.sh` - PlayStation 2 emulator - Play port for libretro
+- [ ] - `lr-pocketcdg.sh` - A MP3 karaoke music player.
+- [ ] - `lr-potator.sh` -  Watara Supervision emulator based on Normmatt version - Potator port for libretro
+- [ ] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port. 
+- [ ] - `lr-race.sh` - Neo Geo Pocket (Color) emulator - RACE! port for libretro.
+- [ ] - `lr-reminiscence.sh` - Flashback engine - Gregory Montoir’s Flashback emulator port for libretro
+- [ ] - `lr-sameboy.sh` - Game Boy (Color) emulator - SameBoy Port for libretro
+- [ ] - `lr-simcoupe.sh` - SAM Coupe emulator - SimCoupe port for libretro
+- [ ] - `lr-thepowdertoy.sh` - Sandbox physics game for libretro
+- [ ] - `lr-uzem.sh` - Uzebox engine - Uzem port for libretro
+- [ ] - `lr-vemulator.sh` - SEGA VMU emulator - VeMUlator port for libretro
+- [ ] - `lr-vitaquake2.sh` - Quake 2 engine - vitaQuake II port for libretro
+- [ ] - `lr-vitaquake3.sh` - Quake 3 engine - vitaQuake III (ioquake3) port for libretro
+- [ ] - `lr-vitavoyager.sh` - Star Trek Voyager Elite Force Holomatch engine - Lilium Voyager (fork of ioquake3) port for libretro
 
 #### Ports
 
-- [X] - `amphetamine.sh` - 2D Platforming Game - **Tested, runs well. Requires keyboard.**
-- [X] - `barrage.sh` - Shooting Gallery action game - **Tested and works well, requires mouse.**
-- [X] - `bermudasyndrome.sh` - Bermuda Syndrome engine - **Tested, runs, possibly instable.**
-- [X] - `bloboats.sh` - Fun physics game - **Tested and works well, OpenGL game running through glshim.**
-- [X] - `breaker.sh` - Arkanoid clone - **Tested and works well.**
-- [X] - `burgerspace.sh` - BurgerTime clone - **Tested and works well.**
-- [X] - `chocolate-doom`.sh - DOOM source port - **Tested and works well.**
-- [X] - `chocolate-doom-system`.sh - For setting up DOOM as an emulated system, not port.
-- [X] - `chromium.sh` - Open Source Web Browser - **Tested and works well.**
-- [X] - `corsixth.sh` - Theme Hospital engine clone - **Tested and works well.**
-- [X] - `crack-attack.sh` - Tetris Attack clone - **Tested and works well. Minor color issue needs to be fixed with glshim.**
-- [X] - `crispy-doom.sh` - DOOM source port - **Tested and works well.**
-- [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port.
-- [X] - `deadbeef.sh` - Music and ripped game music player - **Tested and works well.**
-- [X] - `devilutionx.sh` - Diablo source port - **Tested and working well on Pi4.**
-- [ ] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Not installing.**
-- [X] - `freeciv.sh` - Civilization online clone - **Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.**
-- [X] - `freedink.sh` - Dink Smallwood engine - **Tested and works well.**
-- [X] - `freesynd.sh` - Syndicate clone - **Tested and has occasional crash issues. Save between levels to avoid losing progress.**
-- [ ] - `gamemaker.sh` - Install the 3 gamemaker games - **Not installing.**
-- [ ] - `ganbare.sh` - Japanese 2D Platformer - **Not installing.**
-- [X] - `hcl.sh` - Hydra Castle Labrinth - **Tested and works well.**
-- [X] - `heboris.sh` - Tetris The Grand Master clone - **Tested and works well.  To fix sound, change settings from MIDI to MP3.**
-- [ ] - `hurrican.sh` - Turrican clone. - **Not installing.**
-- [X] - `iceweasel.sh` - Rebranded Firefox Web Browser - **Tested and works well.**
+- [ ] - `amphetamine.sh` - 2D Platforming Game - 
+- [ ] - `augustus.sh` - Augustus - Enhanced Caesar III source port
+- [ ] - `barrage.sh` - Shooting Gallery action game - 
+- [ ] - `bermudasyndrome.sh` - Bermuda Syndrome engine - 
+- [ ] - `bloboats.sh` - Fun physics game - 
+- [ ] - `breaker.sh` - Arkanoid clone - 
+- [ ] - `burgerspace.sh` - BurgerTime clone - 
+- [ ] - `chocolate-doom`.sh - DOOM source port - 
+- [ ] - `chocolate-doom-system`.sh - For setting up DOOM as an emulated system, not port.
+- [ ] - `chromium.sh` - Open Source Web Browser - 
+- [ ] - `corsixth.sh` - Theme Hospital engine clone - 
+- [ ] - `crack-attack.sh` - Tetris Attack clone - 
+- [ ] - `crispy-doom.sh` - DOOM source port - 
+- [ ] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port.
+- [ ] - `cytadela.sh` - Cytadela project - a conversion of an Amiga first person shooter
+- [ ] - `deadbeef.sh` - Music and ripped game music player - 
+- [ ] - `devilutionx.sh` - Diablo source port - 
+- [ ] - `dhewm3.sh` - dhewm3 - Doom 3 port
+- [ ] - `dunedynasty.sh` - Dune Dynasty - Dune 2 Building of a Dynasty port
+- [ ] - `dunelegacy.sh` - Dune Legacy - Dune 2 Building of a Dynasty port
+- [ ] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter -
+- [ ] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D
+- [ ] - `filezilla.sh` - A cross platform FTP application
+- [ ] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser
+- [ ] - `fofix.sh` - FoFix - Guitar Hero and Rock Band clone
+- [ ] - `freeciv.sh` - Civilization online clone - **Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.**
+- [ ] - `freedink.sh` - Dink Smallwood engine - 
+- [ ] - `freesynd.sh` - Syndicate clone - 
+- [ ] - `funnyboat.sh` - Funny Boat. A side scrolling boat shooter with waves
+- [ ] - `gamemaker.sh` - Install the 3 gamemaker games - 
+- [ ] - `ganbare.sh` - Japanese 2D Platformer - 
+- [ ] - `gmloader.sh` - GMLoader - play GameMaker Studio games for Android on non-Android operating systems
+- [ ] - `gnukem.sh` - Dave Gnukem - Duke Nukem 1 look-a-like
+- [ ] - `hcl.sh` - Hydra Castle Labrinth - 
+- [ ] - `heboris.sh` - Tetris The Grand Master clone - 
+- [ ] - `hexen2.sh` - Hexen II - Hammer of Thyrion source port
+- [ ] - `hheretic.sh` - Heretic GL-port
+- [ ] - `hhexen.sh` - Hexen GL-port
+- [ ] - `hurrican.sh` - Turrican clone. - 
+- [ ] - `julius.sh` - Julius - Caesar III source port
+- [ ] - `iceweasel.sh` - Rebranded Firefox Web Browser - 
 - [ ] - `kaiten-patissier-cs.sh` - Japanese 2D Platformer - **Not installing.**
 - [ ] - `kaiten-patissier-ura.sh` - Japanese 2D Platformer - **Not installing.**
 - [ ] - `kaiten-patissier.sh` - Japanese 2D Platformer - **Not installing.**
-- [X] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Tested and works well.**
-- [X] - `kweb.sh` - Minimal kiosk web browser - **Tested and working well generally. Media may not be working well, I need to understand it better first to say.**
-- [X] - `lbreakout2.sh` - Open Source Breakout game - **Tested and working well, requires mouse.**
-- [X] - `lgeneral.sh` - Open Source strategy game - **Tested and working well, requires mouse.**
-- [X] - `lmarbles.sh` - Open Source Atomix game - **Tested and working well, requires mouse.**
-- [X] - `ltris.sh` - Open Source Tetris game - **Tested and working well, requires keyboard.**
-- [X] - `manaplus.sh` - 2D MMORPG client - **Tested and works well, requires mouse.**
-- [ ] - `netsurf.sh` - Lightweight web browser - **Not installing.**
-- [X] - `nkaruga.sh` - Ikaruga demake. **Tested and works well, requires keyboard.**
-- [X] - `nxengine.sh` - The standalone version of the open-source clone/rewrite of Cave Story - **Tested and works well.**
-- [X] - `openjazz.sh` - Jazz Jackrabbit source port.
-- [X] - `pingus.sh` - Lemmings clone - **Tested and works well, requires mouse.**
-- [X] - `prboom-plus.sh` - Enhanced DOOM source port - lightly **tested, seems to work.**
-- [X] - `rawgl.sh` - Another World source port - **Tested, occasionally crashes when button held when switching scenes?**
-- [X] - `reminiscence.sh` - Flashback engine clone - **Tested and works well. **
-- [X] - `retrobattle.sh` - Fun retro style platform game - **Tested and works well.**
-- [X] - `rickyd.sh` - Rick Dangerous clone - **Tested and works well, requires keyboard.**
-- [X] - `rockbot.sh` - Mega Man clone. **Tested and screen flickers like crazy until proper settings are applied. Check package help for more info.**
-- [X] - `rott-darkwar.sh` - Rise of the Triad source port with joystick support - **Tested and works well.**
-- [X] - `rott-huntbgin.sh` - Rise of the Triad (shareware version) source port with joystick support.
-- [X] - `sdl-bomber.sh` - Simple Bomberman clone - **Tested and works well, turn down the volume perhaps. **
-- [X] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.
-- [X] - `sorr.sh` - Streets of Rage Remake port - **Tested and works well. Use fullscreen fast video mode.**
-- [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4.
-- [ ] - `texmaster2009.sh` - Tetris TGM clone - **Not installing.**
-- [X] - `tinyfugue.sh` - MUD client - **Tested and works well.**
-- [X] - `ulmos-adventure.sh` - Simple Adventure Game - **Tested and works well.**
-- [X] - `vgmplay.sh` - Music Player - **Tested and works well. Plays .vgm and .vgz game music rips. Command line client only.**
-- [X] - `vorton.sh` - Highway Encounter Remake in Spanish - **Tested and works well.**
-- [X] - `warmux.sh` - Worms Clone - **Tested and works well. Possible issues with config files in wrong places?**
-- [X] - `weechat.sh` - Console IRC Client - **Tested and works well.**
-- [ ] - `wizznic.sh` - Puzznic clone - **Not installing.**
-- [X] - `xash3d-fwgs.sh` - Half-Life engine source port.
-- [X] - `zeldansq.sh` - Zelda: Navi's Quest fangame - **Tested and works well.**
-- [X] - `zeldapicross.sh` - Zelda themed Picross fangame - **Tested and works well, may require keyboard.**
+- [ ] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - 
+- [ ] - `kweb.sh` - Minimal kiosk web browser - 
+- [ ] - `lbreakout2.sh` - Open Source Breakout game - 
+- [ ] - `lgeneral.sh` - Open Source strategy game - 
+- [ ] - `lmarbles.sh` - Open Source Atomix game - 
+- [ ] - `ltris.sh` - Open Source Tetris game - 
+- [ ] - `lutris.sh` - lutris - Game engine for linux
+- [ ] - `maelstrom.sh` - Maelstrom - Classic Mac Asteroids Remake
+- [ ] - `manaplus.sh` - 2D MMORPG client - 
+- [ ] - `meritous.sh` - Port of an action-adventure dungeon crawl game
+- [ ] - `nblood.sh` - Blood source port
+- [ ] - `netsurf.sh` - Lightweight web browser - 
+- [ ] - `nkaruga.sh` - Ikaruga demake. 
+- [X] - `nxengine.sh` - The standalone version of the open-source clone/rewrite of Cave Story - **Installs Plays fine on Pi4. Need to bind controller in options**
+- [ ] - `openjazz.sh` - Jazz Jackrabbit source port.
+- [ ] - `omxplayer.sh` - Video Player
+- [ ] - `openjazz.sh` - An enhanced Jazz Jackrabbit source port
+- [ ] - `openjk_ja.sh` - OpenJK: JediAcademy (SP + MP)
+- [ ] - `openjk_jo.sh` - OpenJK: Jedi Outcast (SP)
+- [ ] - `openmw.sh` - Morrowind source port
+- [ ] - `openmwdriver.sh` - The OpenSceneGraph is an open source high performance 3D graphics toolkit.
+- [ ] - `openra.sh` - Real Time Strategy game engine supporting early Westwood classics
+- [ ] - `openrct2.sh` - RollerCoaster Tycoon 2 port
+- [ ] - `openxcom.sh` - Open Source X-COM Engine
+- [ ] - `pingus.sh` - Lemmings clone - 
+- [ ] - `pokerth.sh` - open source online poker
+- [ ] - `prboom-plus.sh` - Enhanced DOOM source port - lightly 
+- [ ] - `rawgl.sh` - Another World source port - 
+- [ ] - `reminiscence.sh` - Flashback engine clone - 
+- [ ] - `pydance.sh` - Open Source Dancing Game
+- [ ] - `quakespasm.sh` - Another enhanced engine for quake
+- [ ] - `rawgl.sh` - Another World Engine
+- [ ] - `refkeen.sh` - port for Keen Dreams, The Catacomb Adventure Series and Wolf3d
+- [ ] - `rickyd.sh` - Rick Dangerous clone - 
+- [ ] - `rigelengine.sh` - RigelEngine - Duke Nukem 2 source port
+- [ ] - `rocksndiamonds.sh` - Rocks'n'Diamonds - Emerald Mine Clone
+- [ ] - `rott-darkwar.sh` - Rise of the Triad source port with joystick support - 
+- [ ] - `rott-huntbgin.sh` - Rise of the Triad (shareware version) source port with joystick support.
+- [ ] - `score.sh` - score - Septerra Core: Legacy of the Creator port 
+- [ ] - `sdl-bomber.sh` - Simple Bomberman clone - 
+- [ ] - `shadowwarrior.sh` - Jfsw - Shadow warrior port
+- [ ] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.
+- [ ] - `sorr.sh` - Streets of Rage Remake port - *
+- [ ] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4.
+- [ ] - `texmaster2009.sh` - Tetris TGM clone - 
+- [ ] - `tinyfugue.sh` - MUD client - 
+- [ ] - `ulmos-adventure.sh` - Simple Adventure Game - 
+- [ ] - `vanillacc.sh` - Vanilla-Command and Conquer
+- [ ] - `vgmplay.sh` - Music Player - 
+- [ ] - `vorton.sh` - Highway Encounter Remake in Spanish - 
+- [ ] - `warmux.sh` - Worms Clone - 
+- [ ] - `weechat.sh` - Console IRC Client - 
+- [ ] - `wizznic.sh` - Puzznic clone -
+- [ ] - `xash3d-fwgs.sh` - Half-Life engine source port.
+- [ ] - `zeldansq.sh` - Zelda: Navi's Quest fangame - 
+- [ ] - `zeldapicross.sh` - Zelda themed Picross fangame - 
 
 #### Supplementary
+- [ ] - `bezelproject.sh` - Easily set up the Bezel Project
+- [ ] - `gparted.sh` - partition editing application
+- [ ] - `fun-facts-splashscreens.sh` - Set up some loading splashscreens with fun facts.
+- [ ] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
+- [ ] - `mame-tools.sh` - Additional tools for MAME/MESS
+- [ ] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
 
-- [X] - `fun-facts-splashscreens.sh` - Set up some loading splashscreens with fun facts.
-- [X] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
-- [X] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
+### My Future To-Do List 
 
-### Future To-Do List 
+I'm useing the Issues tab in GitHub for my To-Do list, just easier to keep it all stright. 
 
-I've moved this over to the [TODO.md](/TODO.md) file.
+### Old Future To-Do List 
+
+[TODO.md](/TODO.md).
+
 
 ## Hall of Fame - Scripts accepted into RetroPie-Setup
 
