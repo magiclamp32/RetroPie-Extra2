@@ -1,14 +1,15 @@
-**UPDATE.** Im going to do my best to take this over and continue the work. Zerojay is done with this and RetroPie in general.
 
 # RetroPie-Extra
-
+**Under new Management**
 This is a **collection of unofficial installation scripts for RetroPie** allowing you to quickly and easily **install emulators, ports and libretrocores** that haven't been included in RetroPie for one reason or another. These scripts can be considered experimental at best. 
 
 Most of the scripts do work as is.
 These scritps are all going through retesting and cleanup to get them more inline with the new way of how scripts are writen in RetroPie. 
 
 **1 Find out what ones install as is and mark them as so**
+
 **2 See if the ones that dont can be fixed to work**
+
 **3 Clean up all the scripts to the new way RetroPie is writing the scripts**
 
 I have changed the list below to show what has been tested to at least to install. I dont have all the games so I cant test them all 
