@@ -65,7 +65,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-2048.sh` - 2048 engine - 2048 port for libretro - **Installs**
 - [X] - `lr-bk.sh` -  Elektronika БК-0010/0011/Terak 8510a emulator - BK port for libretro - **Installs**
 - [X] - `lr-blastem.sh` - Sega Genesis emu - BlastEm port for libretro - **Installs**
-- [ ] - `lr-boom3.sh` -  Doom 3 port for libretro on x86 systems **Cant test dont have the right system**
+- [ ] - `lr-boom3.sh` -  Doom 3 port for libretro on x86 systems **Cant test dont have the right system x86**
 - [ ] - `lr-canary.sh` - Citra Canary for libretro
 - [ ] - `lr-cannonball.sh` - An Enhanced OutRun engine for libretro
 - [ ] - `lr-chailove.sh` - 2D Game Framework with ChaiScript roughly inspired by the LÖVE API to libretro
