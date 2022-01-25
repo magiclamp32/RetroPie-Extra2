@@ -207,12 +207,12 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `zeldapicross.sh` - Zelda themed Picross fangame - 
 
 #### Supplementary
-- [ ] - `bezelproject.sh` - Easily set up the Bezel Project
-- [ ] - `gparted.sh` - partition editing application
-- [ ] - `fun-facts-splashscreens.sh` - Set up some loading splashscreens with fun facts.
-- [ ] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
-- [ ] - `mame-tools.sh` - Additional tools for MAME/MESS
-- [ ] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
+- [X] - `bezelproject.sh` - Easily set up the Bezel Project
+- [X] - `gparted.sh` - partition editing application
+- [ ] - `fun-facts-splashscreens.sh` - Set up some loading splashscreens with fun facts. **Blocked from installing on the Pi4**
+- [X] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
+- [ ] - `mame-tools.sh` - Additional tools for MAME/MESS **Failed**
+- [X] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
 
 ### My Future To-Do List 
 
