@@ -1,6 +1,6 @@
 
 # RetroPie-Extra
-**Under new Management**
+**Under New Management**
 
 This is a **collection of unofficial installation scripts for RetroPie** allowing you to quickly and easily **install emulators, ports and libretrocores** that haven't been included in RetroPie for one reason or another. These scripts can be considered experimental at best. 
 
