@@ -2,6 +2,7 @@
 
 # adapted from ZeroJay's RetroPie-Extra:
 # https://github.com/zerojay/RetroPie-Extra
+# written by s1eve-mcdichae1 
 
 # This file is part of The RetroPie Project
 #
@@ -15,8 +16,8 @@
 rp_module_id="screenshot"
 rp_module_desc="Universal Screenshot with Raspi2PNG"
 rp_module_help="Usage: 'screenshot [destination]' over SSH. File saved to '$datadir/screenshots/(date)_(time).png' if no destination given.\n\nThis script is incompatible with the OpenGL driver."
-rp_module_repo="git https://github.com/AndrewFromMelbourne/raspi2png.git master b3c5599"
 rp_module_licence="MIT https://raw.githubusercontent.com/AndrewFromMelbourne/raspi2png/master/LICENSE"
+rp_module_repo="git https://github.com/AndrewFromMelbourne/raspi2png.git master b3c5599"
 rp_module_section="exp"
 
 function depends_screenshot() {
