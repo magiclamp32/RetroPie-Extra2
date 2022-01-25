@@ -13,32 +13,24 @@
 #
 
 rp_module_id="hcl"
-rp_module_desc="Hydra Castle Labyrinth - a Metroidvania game created by E.Hashimoto (a.k.a. Buster)"
+rp_module_desc="Hydra Castle Labyrinth - a Metroidvania game created by E. Hashimoto (a.k.a. Buster)"
 rp_module_help="Linux port by ptitSeb, based on the 3DS port by 4chan/anon\n\nMake sure to set the language to English from the options menu before playing. If you are experiencing slowdowns in game, make sure the xBRZ shader is turned off in the options menu."
-rp_module_repo="git https://github.com/ptitSeb/hydracastlelabyrinth.git master e112bdb"
 rp_module_licence="GPL2 https://github.com/ptitSeb/hydracastlelabyrinth/blob/master/LICENSE"
+rp_module_repo="git https://github.com/ptitSeb/hydracastlelabyrinth.git master c5e6afc"
 rp_module_section="exp"
-rp_module_flags="!x86"
+rp_module_flags=""
 
 function depends_hcl() {
-    local depends=(cmake)
-    if isPlatform "rpi4"; then
-        depends+=(libsdl2-dev libsdl2-mixer-dev)
-    else
-        depends+=(libsdl1.2-dev libsdl-mixer1.2-dev)
-    fi
-    getDepends "${depends[@]}"
+    getDepends libsdl2-dev libsdl2-mixer-dev cmake
 }
 
 function sources_hcl() {
-     gitPullOrClone
+    gitPullOrClone
 }
 
 function build_hcl() {
-    local params=(-DCMAKE_INSTALL_PREFIX:PATH="$md_inst")
-    isPlatform "rpi4" && params+=(-DUSE_SDL2=ON)
     mkdir build && cd build
-    cmake "${params[@]}" ..
+    cmake -DUSE_SDL2=ON ..
     make
     md_ret_require="$md_build/build/hcl"
 }
@@ -51,7 +43,6 @@ function install_hcl() {
 }
 
 function configure_hcl() {
-    addPort "$md_id" "hcl" "Hydra Castle Labrinth - Metroidvania Game" "pushd $md_inst; $md_inst/hcl -d; popd"
-    mkRomDir "ports"
+    addPort "$md_id" "hcl" "Hydra Castle Labyrinth" "pushd $md_inst; $md_inst/hcl -d; popd"
     moveConfigDir "$home/.hydracastlelabyrinth" "$md_conf_root/hcl"
 }

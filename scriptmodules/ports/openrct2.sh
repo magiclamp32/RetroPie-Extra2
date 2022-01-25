@@ -9,15 +9,15 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="openrct"
-rp_module_desc="openrct - RollerCoaster Tycoon 2 port"
+rp_module_id="openrct2"
+rp_module_desc="OpenRCT2 - RollerCoaster Tycoon 2 port"
 rp_module_licence="GNU https://github.com/OpenRCT2/OpenRCT2/blob/develop/licence.txt"
 rp_module_help="Copy g1.dat, The 772 default RCT2 objects. /n/nEasy to identify by sorting on date, /n/nsince all 772 have a similar timestamp (usually from 2002 or 2003/n/n Required: If you use the OpenRCT2 title sequence, no scenarios are needed./n/n Six Flags Magic Mountain.SC6/n/n is needed for the RCT2 title sequence."
 rp_module_section="exp"
 rp_module_flags="noinstclean"
 
 
-function depends_openrct() {
+function depends_openrct2() {
    getDepends xorg matchbox-window-manager x11-xserver-utils libsdl2-dev libicu-dev gcc pkg-config libjansson-dev libspeex-dev libspeexdsp-dev libcurl4-openssl-dev libcrypto++-dev libfontconfig1-dev libfreetype6-dev libpng-dev libssl-dev libzip-dev build-essential make libbenchmark-dev libbenchmark1 libbenchmark-ocaml-dev duktape-dev libduktape203
 
 	echo 'deb http://deb.debian.org/debian buster-backports main contrib non-free' | sudo tee -a /etc/apt/sources.list
@@ -30,13 +30,13 @@ function depends_openrct() {
 }
 
 
-function sources_openrct() {
+function sources_openrct2() {
 
     git clone -b master --depth 1 --recursive https://github.com/OpenRCT2/OpenRCT2.git 
 	git clone https://github.com/Exarkuniv/RCTconfig.git 
 }
 
-function build_openrct() {
+function build_openrct2() {
 	mkdir "/home/pi/.config/OpenRCT2"
 	chown -R pi:pi "/home/pi/.config/OpenRCT2"
 
@@ -51,11 +51,11 @@ function build_openrct() {
 	 make install
 
     md_ret_require=( 
-	'openrct2'
+	'openrct22'
       )
 }
 
-function install_openrct() {
+function install_openrct2() {
     md_ret_files=(
 	'OpenRCT2/build'
 	'OpenRCT2/data'
@@ -63,14 +63,14 @@ function install_openrct() {
         )
 }
 
-function configure_openrct() {
+function configure_openrct2() {
 chmod +x "/home/pi/.config/OpenRCT2/config.ini"
 
 	cat >"$md_inst/rct.sh" << _EOF_
 
     
 #!/bin/bash
-cd "/opt/retropie/ports/openrct/build"
+cd "/opt/retropie/ports/openrct2/build"
 ./openrct2 
 _EOF_
 

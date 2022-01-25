@@ -10,7 +10,7 @@
 #
 
 rp_module_id="dhewm3"
-rp_module_desc="dhewm3 - Doom 3"
+rp_module_desc="dhewm3 - Doom 3 port"
 rp_module_licence="GPL3 https://github.com/dhewm/dhewm3/blob/master/COPYING.txt"
 rp_module_help="Please copybase/pak000.pk4\n\nbase/pak001.pk4\n\nbase/pak002.pk4\n\nbase/pak003.pk4\n\nbase/pak004.pk4\n\nbase/pak005.pk4\n\nbase/pak006.pk4\n\nbase/pak007.pk4\n\nbase/pak008.pk4\n\n
 and if you have the expansion:\n\n
