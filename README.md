@@ -7,6 +7,10 @@ This is a **collection of unofficial installation scripts for RetroPie** allowin
 Most of the scripts do work as is.
 These scritps are all going through retesting and cleanup to get them more inline with the new way of how scripts are writen in RetroPie. 
 
+**1 Find out what ones install as is and mark them as so**
+**2 See if the ones that dont can be fixed to work**
+**3 Clean up all the scripts to the new way RetroPie is writing the scripts**
+
 I have changed the list below to show what has been tested to at least to install. I dont have all the games so I cant test them all 
 
 Pull requests and issue reports are accepted and encouraged as well as requests. Feel free to use the issue tracker to send me any personal requests for new scripts that you may have.
@@ -53,11 +57,11 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 #### Emulators
 
 - [X] - `gearboy.sh` - Gameboy emulator - **Installs**
-- [X] - `kat5200.sh` - Atari 8-bit/5200 emulator - **Installs**
+- [ ] - `kat5200.sh` - Atari 8-bit/5200 emulator - **Blocked from installing on Pi4**
 - [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs**
 - [X] - `openbor.sh` - Beat 'em Up Game Engine (newest version) - **Tested only on Pi4 so far, installs as a system instead of as a port, direct launching of games from emulationstation supported!**
 - [ ] - `pico8.sh` - Fantasy Game Emulator - Adds as a new system in RetroPie so you can directly launch carts. **No clue, I dont have the required files to test**
-- [X] - `pokemini.sh` - Pokemon Mini emulator  - **Installs**
+- [ ] - `pokemini.sh` - Pokemon Mini emulator  - **Blocked from installing on Pi4**
 - [X] - `supermodel.sh` - Sega Model 3 Arcade emulator  - **Installs**
 
 #### Libretrocores
