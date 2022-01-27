@@ -51,7 +51,7 @@ function build_openrct2() {
 	 make install
 
     md_ret_require=( 
-	'openrct22'
+	'openrct2'
       )
 }
 
