@@ -9,7 +9,7 @@ Most of the scripts do work as is.
 
 **1 Find out what ones install as is and mark them as so**
 
-**2 See if the ones that dont can be fixed to work**
+**2 See if the ones that dont Install can be fixed to install**
 
 **3 Clean up all the scripts to the new way RetroPie is writing the scripts**
 
