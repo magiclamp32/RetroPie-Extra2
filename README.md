@@ -6,7 +6,6 @@ This is a **collection of unofficial installation scripts for RetroPie** allowin
 I have found new scripts made by other people and added them to this Repo. I dont take credit for any of them, other then the ones I made
 
 Most of the scripts do work as is.
-These scritps are all going through retesting and cleanup to get them more inline with the new way of how scripts are writen in RetroPie. 
 
 **1 Find out what ones install as is and mark them as so**
 
