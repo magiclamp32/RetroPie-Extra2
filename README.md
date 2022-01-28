@@ -173,7 +173,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `openjazz.sh` - An enhanced Jazz Jackrabbit source port - **Installs**
 - [X] - `openjk_ja.sh` - OpenJK: JediAcademy (SP + MP) - **Installs**
 - [X] - `openjk_jo.sh` - OpenJK: Jedi Outcast (SP) - **Installs**
-- [ ] - `openmw.sh` - Morrowind source port
+- [X] - `openmw.sh` - Morrowind source port - **Installs**
 - [X] - `openra.sh` - Real Time Strategy game engine supporting early Westwood classics - **Installs**
 - [X] - `openrct2.sh` - RollerCoaster Tycoon 2 port - **Installs**
 - [ ] - `openxcom.sh` - Open Source X-COM Engine - **Failed**
@@ -185,7 +185,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `pydance.sh` - Open Source Dancing Game  - **Installs**
 - [X] - `quakespasm.sh` - Another enhanced engine for quake  - **Installs**
 - [X] - `rawgl.sh` - Another World Engine  - **Installs**
-- [ ] - `refkeen.sh` - port for Keen Dreams, The Catacomb Adventure Series and Wolf3d  - **Failed**
+- [X] - `refkeen.sh` - port for Keen Dreams, The Catacomb Adventure Series and Wolf3d  - **Installs, more testing needed**
 - [ ] - `rickyd.sh` - Rick Dangerous clone - **Blocked from installing on Pi4
 - [X] - `rigelengine.sh` - RigelEngine - Duke Nukem 2 source port - **Installs**
 - [X] - `rocksndiamonds.sh` - Rocks'n'Diamonds - Emerald Mine Clone - **Installs**
