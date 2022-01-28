@@ -49,7 +49,7 @@ function install_dhewm3() {
 
 function configure_dhewm3() {
     if isPlatform "rpi"; then
-        addPort "$md_id" "doom3" "Doom 3" "XINIT:$md_inst/dhewm3"
+        addPort "$md_id" "doom3" "Doom 3" "XINIT:$md_inst/dhewm3 +set in_tty 0"
     else
         addPort "$md_id" "doom3" "Doom 3" "$md_inst/dhewm3"
     fi
