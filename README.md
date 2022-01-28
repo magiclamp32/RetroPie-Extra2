@@ -196,7 +196,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `shadowwarrior.sh` - Jfsw - Shadow warrior port
 - [X] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.  - **Installs**
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Installs**
-- [ ] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4.
+- [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4.
 - [X] - `texmaster2009.sh` - Tetris TGM clone - **Installs**
 - [X] - `tinyfugue.sh` - MUD client - **Installs**
 - [X] - `ulmos-adventure.sh` - Simple Adventure Game - **Installs**
