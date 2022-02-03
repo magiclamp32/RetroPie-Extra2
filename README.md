@@ -7,7 +7,7 @@ I have found new scripts made by other people and added them to this Repo. I don
 
 Most of the scripts do work as is.
 
-**1 Find out what ones install as is and mark them as so**
+**1 Find out what ones install as is and mark them as so / Done, all working ones are marked**
 
 **2 See if the ones that dont Install can be fixed to install**
 
