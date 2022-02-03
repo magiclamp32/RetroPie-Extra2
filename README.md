@@ -84,7 +84,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack. - **Installs**
 - [X] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games. - **Installs**
 - [X] - `lr-gearboy.sh` - Game Boy (Color) emulator - Gearboy port for libretro. - **Installs**
-- [X] - `lr-gearcoleco.sh` - ColecoVision emulator - GearColeco port for libretro. - **Installs**
+- [X] - `lr-gearcoleco.sh` - ColecoVision emulator - GearColeco port for libretro. - **Installs Tested, Runs well **
 - [X] - `lr-lutro.sh` - Lua engine - lua game framework (WIP) for libretro following the LÖVE API - **Installs**
 - [X] - `lr-mame2003_midway.sh` - MAME 0.78 core with Midway games optimizations. - **Installs**
 - [X] - `lr-melonds.sh` - NDS emu - MelonDS port for libretro - **Installs**
