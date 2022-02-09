@@ -36,6 +36,7 @@ function install_meritous() {
 }
 
 function configure_meritous() {
+    chown pi:pi "$md_inst"
     mkRomDir "ports"
 
     addPort "$md_id" "meritous" "Meritous 1.2" "pushd $md_inst; $md_inst/meritous; popd"
