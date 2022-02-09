@@ -67,5 +67,5 @@ function configure_openbor-v6510() {
     ln -snf "$romdir/ports/$md_id" "$md_inst/Paks"
     ln -snf "/dev/shm" "$md_inst/Logs"
     addEmulator 0 "$md_id" "openbor" "$md_inst/OpenBOR %ROM%"
-    addSystem "openbor"
+    addSystem "openbor" "OpenBOR" ".zip .ZIP .pak .PAK"
 }
