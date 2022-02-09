@@ -10,7 +10,7 @@
 #
 #TODO get the expandions to work
 
-rp_module_id="swport"
+rp_module_id="shadowwarrior"
 rp_module_desc="Jfsw - Shadow warrior port"
 rp_module_licence="GLP https://github.com/jonof/jfsw/blob/master/GPL.TXT"
 rp_module_help="you need to put the game files in the shadowwarrior folder"
@@ -18,16 +18,16 @@ rp_module_section="exp"
 rp_module_flags=""
 
 
-function depends_swport() {
+function depends_shadowwarrior() {
    getDepends cmake build-essential libgl1-mesa-dev libgtk2.0-dev libsdl1.2-dev libvorbis-dev timidity freepats git
   
 }
 
-function sources_swport() {
+function sources_shadowwarrior() {
 	gitPullOrClone "$md_build" https://github.com/jonof/jfsw.git
 }
 
-function build_swport() {
+function build_shadowwarrior() {
    	
 	 cd $md_build
 	git submodule update --init
@@ -35,13 +35,13 @@ function build_swport() {
 	md_ret_require="$md_build"
 }
 
-function install_swport() {
+function install_shadowwarrior() {
     md_ret_files=(        
         'sw'
     )
 }
 	
-function configure_swport() {
+function configure_shadowwarrior() {
 	
 	mkRomDir "ports/shadowwarrior"
 	
