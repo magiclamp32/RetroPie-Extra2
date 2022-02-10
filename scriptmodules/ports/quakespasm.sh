@@ -10,7 +10,7 @@
 #
 
 rp_module_id="quakespasm"
-rp_module_desc="quakespasm - Another enhanced engine for quake"
+rp_module_desc="Quakespasm - Another enhanced engine for quake"
 rp_module_licence="GNU https://sourceforge.net/p/quakespasm/quakespasm/ci/master/tree/LICENSE.txt"
 rp_module_section="exp"
 rp_module_flags="noinstclean"
