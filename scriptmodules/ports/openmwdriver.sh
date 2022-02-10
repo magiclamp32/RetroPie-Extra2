@@ -10,7 +10,7 @@
 #
 
 rp_module_id="openmwdriver"
-rp_module_desc="The OpenSceneGraph is an open source high performance 3D graphics toolkit."
+rp_module_desc="The OpenSceneGraph is an open source high performance 3D graphics toolkit. Needed for OpenMW"
 rp_module_licence="GPL3 https://github.com/OpenMW/osg/blob/3.4/LICENSE.txt"
 rp_module_section="driver"
 rp_module_flags="!all rpi"
