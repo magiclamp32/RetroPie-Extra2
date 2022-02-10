@@ -191,6 +191,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `rocksndiamonds.sh` - Rocks'n'Diamonds - Emerald Mine Clone - **Installs**
 - [X] - `rott-darkwar.sh` - Rise of the Triad source port with joystick support - **Installs**
 - [X] - `rott-huntbgin.sh` - Rise of the Triad (shareware version) source port with joystick support. - **Installs**
+- [X] - `rtcw.sh`- IORTCW source port of Return to Castle Wolfenstein. - **Installs, and plays great**
 - [X] - `score.sh` - score - Septerra Core: Legacy of the Creator port - **Installs**
 - [X] - `sdl-bomber.sh` - Simple Bomberman clone - **Installs**
 - [X] - `shadowwarrior.sh` - Jfsw - Shadow warrior port
