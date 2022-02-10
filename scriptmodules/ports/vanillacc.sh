@@ -10,7 +10,7 @@
 #
 
 rp_module_id="vanillacc"
-rp_module_desc="Vanilla-Command and Conquer"
+rp_module_desc="Vanilla-Command and Conquer - Just like the DOS version"
 rp_module_licence="GNU https://github.com/TheAssemblyArmada/Vanilla-Conquer/blob/vanilla/License.txt"
 rp_module_section="exp"
 rp_module_help="you will need to vist my github.com/Exarkuniv/Vanilla-Conquer=RPI for more info"
