@@ -18,29 +18,20 @@ rp_module_section="exp"
 rp_module_flags="!mali"
 
 function depends_easyrpg-player() {
-    local depends=(cmake autoconf automake libtool)
-    # For EasyRPG Player
-    depends+=(doxygen libsdl2-dev libsdl2-mixer-dev libpng-dev libfreetype6-dev libboost-dev libpixman-1-dev libmpg123-dev libwildmidi-dev libvorbis-dev libopusfile-dev libsndfile1-dev libxmp-dev libspeexdsp-dev libharfbuzz-dev libfmt-dev zlib1g-dev)
-    # For liblcf: 
-    depends+=(libexpat1-dev libicu-dev g++)
-    getDepends "${depends[@]}"
+    getDepends cmake autoconf automake libtool doxygen libsdl2-dev libsdl2-mixer-dev libpng-dev libfreetype6-dev libboost-dev libpixman-1-dev libmpg123-dev libwildmidi-dev libvorbis-dev libopusfile-dev libsndfile1-dev libxmp-dev libspeexdsp-dev libharfbuzz-dev libfmt-dev zlib1g-dev libraspberrypi-dev libraspberrypi-bin 
 }
 
 function sources_easyrpg-player() { 
-    gitPullOrClone && gitPullOrClone "liblcf" https://github.com/EasyRPG/liblcf.git
+    gitPullOrClone 
 }
 
 function build_easyrpg-player() {
-    cd "liblcf"
-    autoreconf -i
-    ./configure --prefix=/usr
-    make 
-    sudo make install
-    cd ..
+    sed -i 's#APPEND_STRING PROPERTY#APPEND PROPERTY#' "/home/pi/RetroPie-Setup/tmp/build/easyrpg-player/builds/cmake/Modules/FindSDL2.cmake"
+    sed -i 's#INTERFACE_LINK_LIBRARIES "${SDL2PC_STATIC_LIBRARIES}")#INTERFACE_INCLUDE_DIRECTORIES "${SDL2PC_STATIC_LIBRARY_DIRS}")#' "/home/pi/RetroPie-Setup/tmp/build/easyrpg-player/builds/cmake/Modules/FindSDL2.cmake"
 
-    autoreconf -i
-    ./configure --prefix=/usr --enable-fmmidi=fallback
-    make 
+    cmake . -DCMAKE_BUILD_TYPE=Release -DPLAYER_BUILD_LIBLCF=ON
+    cmake --build .
+
     md_ret_require="$md_build/easyrpg-player"
 }
 
