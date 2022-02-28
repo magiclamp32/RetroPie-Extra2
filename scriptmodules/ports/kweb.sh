@@ -16,23 +16,24 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_kweb() {
-    getDepends evince vlc tint2 lxterminal uget git xterm xserver-xorg-legacy
+    getDepends evince vlc tint2 lxterminal uget git xterm
 }
 
 function sources_kweb() {
     wget -O- -q http://steinerdatenbank.de/software/kweb-1.7.9.8.tar.gz | tar -zxv
-    wget -O- -q http://steinerdatenbank.de/software/kweb_upgrade_buster_20190823.tar.gz | tar -zxv
+    git clone git://github.com/rg3/youtube-dl youtube-dl
 }
 
 function install_kweb() {
     cd kweb-1.7.9.8
     ./debinstall
     cd ..
-    cd kweb_upgrade_buster_20190823
-    ./install
+    cp -R youtube-dl/ "$md_inst"
+    ln -s "$md_inst/youtube-dl/youtube_dl/__main__.py" /usr/bin/youtube-dl
+    chmod 755 /usr/bin/youtube-dl
 }
 
 function configure_kweb() {
     mkRomDir "ports"
-    addPort "$md_id" "kweb" "kweb - Minimal Kiosk Web Browser" "xinit kweb"
+    addPort "$md_id" "kweb" "kweb - Minimal Kiosk Web Browser" "XINIT: kweb"
 }

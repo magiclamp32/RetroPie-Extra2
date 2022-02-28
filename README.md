@@ -112,6 +112,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 
 - [X] - `amphetamine.sh` - 2D Platforming Game - **Installs**
 - [X] - `augustus.sh` - Augustus - Enhanced Caesar III source port - **Installs**
+- [X] - `audacity.sh` - Audacity open-source digital audio editor - **Installs Runs fine**
 - [X] - `barrage.sh` - Shooting Gallery action game - **Installs**
 - [X] - `bermudasyndrome.sh` - Bermuda Syndrome engine - **Installs**
 - [X] - `bloboats.sh` - Fun physics game - **Installs**
@@ -133,6 +134,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `dunelegacy.sh` - Dune Legacy - Dune 2 Building of a Dynasty port - **Installs**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Failed**
 - [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs**
+- [X] - `epiphany-browser.sh` - epiphany lightweight web browser - **Installs Runs fine **
 - [X] - `filezilla.sh` - A cross platform FTP application - **Installs**
 - [X] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser - **Installs**
 - [X] - `fofix.sh` - FoFix - Guitar Hero and Rock Band clone - **Installs**
@@ -144,6 +146,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `ganbare.sh` - Japanese 2D Platformer - **Installs**
 - [X] - `gmloader.sh` - GMLoader - play GameMaker Studio games for Android on non-Android operating systems - **Installs**
 - [X] - `gnukem.sh` - Dave Gnukem - Duke Nukem 1 look-a-like - **Installs**
+- [X] - `gtkboard.sh` - Board games system - **Installs Runs fine**
 - [X] - `hcl.sh` - Hydra Castle Labrinth - **Installs**
 - [X] - `heboris.sh` - Tetris The Grand Master clone - **Installs**
 - [X] - `hexen2.sh` - Hexen II - Hammer of Thyrion source port - **Installs**
@@ -156,15 +159,20 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `kaiten-patissier-cs.sh` - Japanese 2D Platformer - **Failed**
 - [X] - `kaiten-patissier-ura.sh` - Japanese 2D Platformer - **Installs**
 - [X] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Installs**
+- [X] - `kraptor.sh` - Shoot em up scroller game - **Installs Runs fine**
 - [X] - `kweb.sh` - Minimal kiosk web browser - **Installs**
 - [X] - `lbreakout2.sh` - Open Source Breakout game - **Installs**
 - [X] - `lgeneral.sh` - Open Source strategy game - **Installs**
+- [X] - `librecad.sh` - librecad open-source 2d cad - **Installs Runs fine**
+- [X] - `libreoffice.sh` - Open source office suite - **Installs Runs fine**
 - [X] - `lmarbles.sh` - Open Source Atomix game - **Installs**
 - [X] - `ltris.sh` - Open Source Tetris game - **Installs**
 - [X] - `lutris.sh` - lutris - Game engine for linux - **Installs**
 - [ ] - `maelstrom.sh` - Maelstrom - Classic Mac Asteroids Remake - **Failed**
 - [ ] - `manaplus.sh` - 2D MMORPG client - **Failed**
 - [X] - `meritous.sh` - Port of an action-adventure dungeon crawl game - **Installs**
+- [X] - `mixx.sh` - Mixxx DJ Mixing Software App - **Installs Runs fine**
+- [X] - `mypaint.sh` - mypaint easy-to-use painting program - **Installs Runs fine**
 - [X] - `nblood.sh` - Blood source port - **Installs**
 - [ ] - `netsurf.sh` - Lightweight web browser - **Failed**
 - [ ] - `nkaruga.sh` - Ikaruga demake. - ** Blocked from installing on Pi4**
@@ -178,15 +186,17 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `openra.sh` - Real Time Strategy game engine supporting early Westwood classics - **Installs**
 - [X] - `openrct2.sh` - RollerCoaster Tycoon 2 port - **Installs**
 - [ ] - `openxcom.sh` - Open Source X-COM Engine - **Failed**
+- [X] - `pcexhumed.sh` - PCExhumed - Powerslave source port - **Installs Runs fine**
+- [X] - `piegalaxy.sh` - Pie Galaxy - Download and install GOG.com games in RetroPie - **Installs Runs, Cant login to test**
 - [X] - `pingus.sh` - Lemmings clone - **Installs**
 - [X] - `pokerth.sh` - open source online poker  - **Installs**
 - [X] - `prboom-plus.sh` - Enhanced DOOM source port - **Installs**
-- [X] - `rawgl.sh` - Another World source port - **Installs**
-- [X] - `reminiscence.sh` - Flashback engine clone - **Installs**
+- [X] - `putty.sh` - SSH and telnet client - **Installs Runs fine**
 - [X] - `pydance.sh` - Open Source Dancing Game  - **Installs**
 - [X] - `quakespasm.sh` - Another enhanced engine for quake  - **Installs**
 - [X] - `rawgl.sh` - Another World Engine  - **Installs**
-- [X] - `refkeen.sh` - port for Keen Dreams, The Catacomb Adventure Series and Wolf3d  - **Installs, more testing needed**
+- [ ] - `refkeen.sh` - port for Keen Dreams, The Catacomb Adventure Series and Wolf3d  - **Does not install now**
+- [X] - `reminiscence.sh` - Flashback engine clone - **Installs**
 - [ ] - `rickyd.sh` - Rick Dangerous clone - **Blocked from installing on Pi4
 - [X] - `rigelengine.sh` - RigelEngine - Duke Nukem 2 source port - **Installs**
 - [X] - `rocksndiamonds.sh` - Rocks'n'Diamonds - Emerald Mine Clone - **Installs**
@@ -200,10 +210,12 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Installs**
 - [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4.
 - [X] - `texmaster2009.sh` - Tetris TGM clone - **Installs**
+- [X] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
 - [X] - `tinyfugue.sh` - MUD client - **Installs**
 - [X] - `ulmos-adventure.sh` - Simple Adventure Game - **Installs**
 - [X] - `vanillacc.sh` - Vanilla-Command and Conquer - **Installs**
 - [X] - `vgmplay.sh` - Music Player - **Installs**
+- [X] - `videolan.sh` - VLC media player - **Installs Runs fine**
 - [X] - `vorton.sh` - Highway Encounter Remake in Spanish - **Installs**
 - [X] - `warmux.sh` - Worms Clone - **Installs**
 - [X] - `weechat.sh` - Console IRC Client - **Installs**
