@@ -133,7 +133,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `dhewm3.sh` - dhewm3 - Doom 3 port - **Installs**
 - [X] - `dunedynasty.sh` - Dune Dynasty - Dune 2 Building of a Dynasty port - **Installs**
 - [X] - `dunelegacy.sh` - Dune Legacy - Dune 2 Building of a Dynasty port - **Installs**
-- [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Installs and launches**
+
 - [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs**
 - [X] - `filezilla.sh` - A cross platform FTP application - **Installs**
 - [X] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser - **Installs**
