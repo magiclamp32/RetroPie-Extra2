@@ -37,5 +37,5 @@ function configure_sorr() {
     ln -s "$romdir/ports/$md_id/palettes" "$md_inst/palettes"
     ln -s "$romdir/ports/$md_id/SorMaker.dat" "$md_inst/SorMaker.dat"
     moveConfigFile "$md_inst/savegame" "$md_conf_root/$md_id/"
-    addPort "$md_id" "sorr" "Streets of Rage Remake" "pushd $md_inst; ./bgdi-333 ./SorR.dat; popd"
+    addPort "$md_id" "sorr" "Streets of Rage Remake" "XINIT:pushd $md_inst; ./bgdi-333 ./SorR.dat; popd"
 }
