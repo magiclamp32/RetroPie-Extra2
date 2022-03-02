@@ -20,22 +20,22 @@ function depends_sorr() {
 }
 
 function sources_sorr() {
-    gitPullOrClone "$md_build" https://github.com/zerojay/bennugd.git
+    gitPullOrClone "$md_build" https://github.com/Exarkuniv/bennugd-Rpi.git
 }
 
 function install_sorr() {
     md_ret_files=(
-    'bgdi-333'
+    'bgdi-354'
     )
 }
 
 function configure_sorr() {
     mkRomDir "ports/$md_id"
-    chmod 755 "$md_inst/bgdi-333"
+    chmod 755 "$md_inst/bgdi-354"
     ln -s "$romdir/ports/$md_id/SorR.dat" "$md_inst/SorR.dat"
     ln -s "$romdir/ports/$md_id/mod" "$md_inst/mod"
     ln -s "$romdir/ports/$md_id/palettes" "$md_inst/palettes"
     ln -s "$romdir/ports/$md_id/SorMaker.dat" "$md_inst/SorMaker.dat"
     moveConfigFile "$md_inst/savegame" "$md_conf_root/$md_id/"
-    addPort "$md_id" "sorr" "Streets of Rage Remake" "pushd $md_inst; ./bgdi-333 ./SorR.dat; popd"
+    addPort "$md_id" "sorr" "Streets of Rage Remake" "XINIT: pushd $md_inst; ./bgdi-354 ./SorR.dat; popd"
 }
