@@ -32,6 +32,25 @@ function install_sorr() {
 function configure_sorr() {
     mkRomDir "ports/$md_id"
     chmod 755 "$md_inst/bgdi-354"
+    
+        
+    cat >"$romdir/ports/$md_id/mod/system.txt" << _EOF_
+    
+    // GAME PORTS: PC, WIZ, XBOX, PSP, WII, ANDROID, HANDHELD
+    PC
+
+    // LOADING TYPE: PRELOAD, REALTIME
+    PRELOAD
+
+    // FULL SCREEN WIDE: AUTO, DESKTOP, BORDERLESS, BORDERLESS_SYNC
+    AUTO
+
+    // XBOX CONTROL LAYOUT: (Y,A,B = JOY NUMBER)
+    3
+    0
+    1
+    _EOF_
+
     ln -s "$romdir/ports/$md_id/SorR.dat" "$md_inst/SorR.dat"
     ln -s "$romdir/ports/$md_id/mod" "$md_inst/mod"
     ln -s "$romdir/ports/$md_id/palettes" "$md_inst/palettes"
