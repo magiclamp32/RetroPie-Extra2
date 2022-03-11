@@ -17,36 +17,28 @@ rp_module_help="you need to put the game files in the shadowwarrior folder"
 rp_module_section="exp"
 rp_module_flags=""
 
-
 function depends_shadowwarrior() {
-   getDepends cmake build-essential libgl1-mesa-dev libgtk2.0-dev libsdl1.2-dev libvorbis-dev timidity freepats git
-  
+    getDepends cmake build-essential libgl1-mesa-dev libgtk2.0-dev libsdl1.2-dev libvorbis-dev timidity freepats git
 }
 
 function sources_shadowwarrior() {
-	gitPullOrClone "$md_build" https://github.com/jonof/jfsw.git
+    gitPullOrClone "$md_build" https://github.com/jonof/jfsw.git
 }
 
 function build_shadowwarrior() {
-   	
-	 cd $md_build
-	git submodule update --init
- make -j"$(nproc)" DATADIR=/home/pi/RetroPie/roms/ports/shadowwarrior RELEASE=1 USE_POLYMOST=1 USE_OPENGL=USE_GLES2 WITHOUT_GTK=1 OPTOPT="-march=armv8-a+crc -mtune=cortex-a53"
-	md_ret_require="$md_build"
+    cd $md_build
+    git submodule update --init
+    make -j"$(nproc)" DATADIR=/home/pi/RetroPie/roms/ports/shadowwarrior RELEASE=1 USE_POLYMOST=1 USE_OPENGL=USE_GLES2 WITHOUT_GTK=1 OPTOPT="-march=armv8-a+crc -mtune=cortex-a53"
+    md_ret_require="$md_build"
 }
 
 function install_shadowwarrior() {
-    md_ret_files=(        
-        'sw'
+    md_ret_files=(
+    'sw'
     )
 }
 	
 function configure_shadowwarrior() {
-	
-	mkRomDir "ports/shadowwarrior"
-	
-	addPort "$md_id" "sw" "Jfsw - Shadow Warrior source port" "XINIT: $md_inst/sw"	
-	
-	
-
+    mkRomDir "ports/shadowwarrior"
+    addPort "$md_id" "sw" "Jfsw - Shadow Warrior source port" "XINIT: $md_inst/sw"
 }
