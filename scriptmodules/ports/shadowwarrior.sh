@@ -32,9 +32,7 @@ function build_shadowwarrior() {
 }
 
 function install_shadowwarrior() {
-    md_ret_files=(
-    'sw'
-    )
+    md_ret_files='sw'
 }
 	
 function configure_shadowwarrior() {
