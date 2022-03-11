@@ -14,6 +14,7 @@ rp_module_id="shadowwarrior"
 rp_module_desc="Jfsw - Shadow warrior port"
 rp_module_licence="GLP https://github.com/jonof/jfsw/blob/master/GPL.TXT"
 rp_module_help="you need to put the game files in the shadowwarrior folder"
+rp_module_repo="https://github.com/jonof/jfsw.git master"
 rp_module_section="exp"
 rp_module_flags=""
 
@@ -22,7 +23,7 @@ function depends_shadowwarrior() {
 }
 
 function sources_shadowwarrior() {
-    gitPullOrClone "$md_build" https://github.com/jonof/jfsw.git
+    gitPullOrClone "$md_build"
 }
 
 function build_shadowwarrior() {
