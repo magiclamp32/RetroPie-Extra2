@@ -37,5 +37,6 @@ function install_shadowwarrior() {
 	
 function configure_shadowwarrior() {
     mkRomDir "ports/shadowwarrior"
+    moveConfigDir "$home/.jfsw" "$md_conf_root/shadowwarrior"
     addPort "$md_id" "sw" "Jfsw - Shadow Warrior source port" "XINIT: $md_inst/sw"
 }
