@@ -27,7 +27,7 @@ function sources_shadowwarrior() {
 }
 
 function build_shadowwarrior() {
-    make DATADIR=/home/pi/RetroPie/roms/ports/shadowwarrior RELEASE=1 USE_POLYMOST=1 USE_OPENGL=USE_GLES2 WITHOUT_GTK=1 OPTOPT="-march=armv8-a+crc -mtune=cortex-a53"
+    make DATADIR="$romdir/ports/shadowwarrior" RELEASE=1 USE_POLYMOST=1 USE_OPENGL=USE_GLES2 WITHOUT_GTK=1 OPTOPT="-march=armv8-a+crc -mtune=cortex-a53"
     md_ret_require="$md_build/sw"
 }
 
