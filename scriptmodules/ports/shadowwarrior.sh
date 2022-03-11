@@ -8,11 +8,11 @@
 # See the LICENSE.md file at the top-level directory of this distribution and
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
-#TODO get the expandions to work
+#TODO get the expansions to work
 
 rp_module_id="shadowwarrior"
 rp_module_desc="Jfsw - Shadow warrior port"
-rp_module_licence="GLP https://github.com/jonof/jfsw/blob/master/GPL.TXT"
+rp_module_licence="GPL https://github.com/jonof/jfsw/blob/master/GPL.TXT"
 rp_module_help="you need to put the game files in the shadowwarrior folder"
 rp_module_repo="https://github.com/jonof/jfsw.git master"
 rp_module_section="exp"
