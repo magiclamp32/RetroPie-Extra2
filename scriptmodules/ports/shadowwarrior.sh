@@ -19,7 +19,7 @@ rp_module_section="exp"
 rp_module_flags=""
 
 function depends_shadowwarrior() {
-    getDepends cmake build-essential libgl1-mesa-dev libgtk2.0-dev libsdl1.2-dev libvorbis-dev timidity freepats git
+    getDepends cmake libgl1-mesa-dev libgtk2.0-dev libsdl1.2-dev libvorbis-dev timidity freepats
 }
 
 function sources_shadowwarrior() {
