@@ -23,7 +23,7 @@ function depends_shadowwarrior() {
 }
 
 function sources_shadowwarrior() {
-    gitPullOrClone "$md_build"
+    gitPullOrClone
 }
 
 function build_shadowwarrior() {
