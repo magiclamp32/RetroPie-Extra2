@@ -8,7 +8,6 @@
 # See the LICENSE.md file at the top-level directory of this distribution and
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
-#TODO get the expansions to work
 
 rp_module_id="shadowwarrior"
 rp_module_desc="Jfsw - Shadow warrior port"
@@ -54,6 +53,9 @@ function gamedata_shadowwarrior() {
 	
 function configure_shadowwarrior() {
     [[ "$md_mode" == "install" ]] && gamedata_shadowwarrior
-    addPort "$md_id" "sw" "Jfsw - Shadow Warrior source port" "$md_inst/sw"
+    addPort "$md_id" "sw" "Jfsw - Shadow Warrior source port" "$md_inst/sw %ROM%" ""
+    local gamedir="$romdir/ports/shadowwarrior"
+    [[ -f "$gamedir/dragon.zip" ]] && addPort "$md_id" "sw" "Jfsw - Shadow Warrior: Twin Dragon" "$md_inst/sw %ROM%" "-gdragon.zip"
+    [[ -f "$gamedir/wt.grp" ]] && addPort "$md_id" "sw" "Jfsw - Shadow Warrior: Wanton Destruction" "$md_inst/sw %ROM%" "-gwt.grp"
     moveConfigDir "$home/.jfsw" "$md_conf_root/sw"
 }
