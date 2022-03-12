@@ -19,7 +19,7 @@ rp_module_section="exp"
 rp_module_flags=""
 
 function depends_shadowwarrior() {
-    getDepends libgl1-mesa-dev libsdl2-dev libvorbis-dev timidity freepats
+    getDepends libgl1-mesa-dev libsdl2-dev libvorbis-dev timidity freepats rename
 }
 
 function sources_shadowwarrior() {
@@ -34,9 +34,26 @@ function build_shadowwarrior() {
 function install_shadowwarrior() {
     md_ret_files='sw'
 }
+
+function gamedata_shadowwarrior() {
+    local dest="$romdir/ports/shadowwarrior"
+    mkUserDir "$dest"
+    pushd "$dest"
+    rename 'y/A-Z/a-z/' *
+    popd
+    if [[ ! -f "$dest/sw.grp" ]]; then
+        # download shareware data
+        local tempdir="$(mktemp -d)"
+        download ftp://ftp.3drealms.com/share/3dsw12.zip "$tempdir"
+        unzip -Lo "$tempdir/3dsw12.zip" swsw12.shr -d "$tempdir"
+        unzip -Lo "$tempdir/swsw12.shr" sw.grp sw.rts -d "$dest"
+        rm -rf "$tempdir"
+    fi
+    chown -R $user:$user "$dest"
+}
 	
 function configure_shadowwarrior() {
+    [[ "$md_mode" == "install" ]] && gamedata_shadowwarrior
     addPort "$md_id" "sw" "Jfsw - Shadow Warrior source port" "$md_inst/sw"
-    mkRomDir "ports/shadowwarrior"
     moveConfigDir "$home/.jfsw" "$md_conf_root/sw"
 }
