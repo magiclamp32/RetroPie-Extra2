@@ -10,8 +10,8 @@
 #
 
 rp_module_id="shadowwarrior"
-rp_module_desc="Jfsw - Shadow warrior port"
-rp_module_help="you need to put the game files in the shadowwarrior folder"
+rp_module_desc="JFSW - Shadow Warrior source port by Jonathon Fowler"
+rp_module_help="Place your registered version game files in $romdir/ports/shadowwarrior"
 rp_module_licence="GPL https://github.com/jonof/jfsw/blob/master/GPL.TXT"
 rp_module_repo="git https://github.com/jonof/jfsw.git master"
 rp_module_section="exp"
@@ -53,9 +53,9 @@ function gamedata_shadowwarrior() {
 
 function configure_shadowwarrior() {
     [[ "$md_mode" == "install" ]] && gamedata_shadowwarrior
-    addPort "$md_id" "sw" "Jfsw - Shadow Warrior source port" "$md_inst/sw %ROM%" ""
+    addPort "$md_id" "sw" "JFSW - Shadow Warrior source port" "$md_inst/sw %ROM%" ""
     local gamedir="$romdir/ports/shadowwarrior"
-    [[ -f "$gamedir/dragon.zip" ]] && addPort "$md_id" "sw" "Jfsw - Shadow Warrior: Twin Dragon" "$md_inst/sw %ROM%" "-gdragon.zip"
-    [[ -f "$gamedir/wt.grp" ]] && addPort "$md_id" "sw" "Jfsw - Shadow Warrior: Wanton Destruction" "$md_inst/sw %ROM%" "-gwt.grp"
+    [[ -f "$gamedir/dragon.zip" ]] && addPort "$md_id" "sw" "JFSW - Shadow Warrior: Twin Dragon" "$md_inst/sw %ROM%" "-gdragon.zip"
+    [[ -f "$gamedir/wt.grp" ]] && addPort "$md_id" "sw" "JFSW - Shadow Warrior: Wanton Destruction" "$md_inst/sw %ROM%" "-gwt.grp"
     moveConfigDir "$home/.jfsw" "$md_conf_root/sw"
 }
