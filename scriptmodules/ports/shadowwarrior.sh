@@ -18,7 +18,7 @@ rp_module_section="exp"
 rp_module_flags=""
 
 function depends_shadowwarrior() {
-    getDepends libgl1-mesa-dev libsdl2-dev libvorbis-dev timidity freepats rename
+    getDepends libgl1-mesa-dev libsdl2-dev libvorbis-dev rename
 }
 
 function sources_shadowwarrior() {
