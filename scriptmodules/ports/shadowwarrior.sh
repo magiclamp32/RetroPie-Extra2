@@ -50,7 +50,7 @@ function gamedata_shadowwarrior() {
     fi
     chown -R $user:$user "$dest"
 }
-        
+
 function configure_shadowwarrior() {
     [[ "$md_mode" == "install" ]] && gamedata_shadowwarrior
     addPort "$md_id" "sw" "Jfsw - Shadow Warrior source port" "$md_inst/sw %ROM%" ""
