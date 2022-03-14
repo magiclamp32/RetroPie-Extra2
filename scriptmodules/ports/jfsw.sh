@@ -9,7 +9,7 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="shadowwarrior"
+rp_module_id="jfsw"
 rp_module_desc="JFSW - Shadow Warrior source port by Jonathon Fowler"
 rp_module_help="Place your registered version game files in $romdir/ports/shadowwarrior"
 rp_module_licence="GPL https://github.com/jonof/jfsw/blob/master/GPL.TXT"
@@ -17,24 +17,24 @@ rp_module_repo="git https://github.com/jonof/jfsw.git master"
 rp_module_section="exp"
 rp_module_flags=""
 
-function depends_shadowwarrior() {
+function depends_jfsw() {
     getDepends libgl1-mesa-dev libsdl2-dev libvorbis-dev rename
 }
 
-function sources_shadowwarrior() {
+function sources_jfsw() {
     gitPullOrClone
 }
 
-function build_shadowwarrior() {
+function build_jfsw() {
     make DATADIR="$romdir/ports/shadowwarrior" RELEASE=1 USE_POLYMOST=1 USE_OPENGL=USE_GLES2 WITHOUT_GTK=1
     md_ret_require="$md_build/sw"
 }
 
-function install_shadowwarrior() {
+function install_jfsw() {
     md_ret_files='sw'
 }
 
-function gamedata_shadowwarrior() {
+function gamedata_jfsw() {
     local dest="$romdir/ports/shadowwarrior"
     mkUserDir "$dest"
     pushd "$dest"
@@ -51,8 +51,8 @@ function gamedata_shadowwarrior() {
     chown -R $user:$user "$dest"
 }
 
-function configure_shadowwarrior() {
-    [[ "$md_mode" == "install" ]] && gamedata_shadowwarrior
+function configure_jfsw() {
+    [[ "$md_mode" == "install" ]] && gamedata_jfsw
     addPort "$md_id" "sw" "JFSW - Shadow Warrior source port" "$md_inst/sw %ROM%" ""
     local gamedir="$romdir/ports/shadowwarrior"
     [[ -f "$gamedir/dragon.zip" ]] && addPort "$md_id" "sw" "JFSW - Shadow Warrior: Twin Dragon" "$md_inst/sw %ROM%" "-gdragon.zip"
