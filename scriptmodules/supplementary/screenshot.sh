@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# adapted from ZeroJay's RetroPie-Extra:
-# https://github.com/zerojay/RetroPie-Extra
-# written by s1eve-mcdichae1 
-
 # This file is part of The RetroPie Project
 #
 # The RetroPie Project is the legal property of its developers, whose names are
@@ -47,7 +43,7 @@ function script_screenshot() {
     cat > "$md_inst/$md_id.sh" << _EOF_
 #!/bin/bash
 dest="\$1"
-[[ ! -n "\$dest" ]] && dest="$datadir/screenshots/\$(date +%Y%m%d_%H%M%S).png"
+[[ -z "\$dest" ]] && dest="$datadir/screenshots/\$(date +%Y%m%d_%H%M%S).png"
 [[ -d "\$dest" ]] && dest="\$dest/\$(date +%Y%m%d_%H%M%S).png"
 dest_fileext="\${dest##*.}"
 [[ "\${dest_fileext,,}" != "png" ]] && dest="\$dest.png"
@@ -55,12 +51,13 @@ $md_inst/raspi2png -p "\$dest" && echo Saved "\$dest"
 _EOF_
 
     chmod +x "$md_inst/$md_id.sh"
-    ln -sf "$md_inst/$md_id.sh" /usr/local/bin/screenshot
+    ln -sf "$md_inst/$md_id.sh" /usr/local/bin/Screenshot
 }
 
 function configure_screenshot() {
+    [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot #remove old link
     if [[ "$md_mode" == "remove" ]]; then
-        [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
+        [[ -h /usr/local/bin/Screenshot ]] && rm -f /usr/local/bin/Screenshot
         remove_share_samba "screenshots"
         restart_samba
         return
