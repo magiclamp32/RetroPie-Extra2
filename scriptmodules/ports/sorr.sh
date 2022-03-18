@@ -41,7 +41,6 @@ function configure_sorr() {
     mkRomDir "ports/$md_id/mod" 
 
 cat >"$romdir/ports/$md_id/mod/system.txt" << _EOF_
-    
 // GAME PORTS: PC, WIZ, XBOX, PSP, WII, ANDROID, HANDHELD
 PC
 
