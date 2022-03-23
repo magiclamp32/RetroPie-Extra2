@@ -19,14 +19,8 @@ function depends_bennugd() {
     getDepends libsdl-mixer1.2 libpng12-0 xorg
 }
 
-function sources_bennugd() {
-    gitPullOrClone "$md_build" https://github.com/Exarkuniv/bennugd-Rpi.git
-}
-
-function install_bennugd() {
-    md_ret_files=(
-    'bgdi-354'
-    )
+function install_bin_bennugd() {
+    download "https://github.com/s1eve-mcdichae1/bennugd-Rpi/releases/download/354/bgdi-354" "$md_inst"
 }
 
 function configure_bennugd() {
