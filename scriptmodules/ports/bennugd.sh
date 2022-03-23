@@ -21,15 +21,14 @@ function depends_bennugd() {
 
 function install_bin_bennugd() {
     download "https://github.com/s1eve-mcdichae1/bennugd-Rpi/releases/download/354/bgdi-354" "$md_inst"
+    chmod 755 "$md_inst/bgdi-354"
 }
 
 function configure_bennugd() {
     mkRomDir "ports/sorr"
-    chmod 755 "$md_inst/bgdi-354"
-    
-    mkRomDir "ports/sorr/mod" 
-
-cat >"$romdir/ports/sorr/mod/system.txt" << _EOF_
+    # custom system.txt to set full screen mode: AUTO
+    mkRomDir "ports/sorr/mod"
+    cat >"$romdir/ports/sorr/mod/system.txt" << _EOF_
 // GAME PORTS: PC, WIZ, XBOX, PSP, WII, ANDROID, HANDHELD
 PC
 
