@@ -56,9 +56,8 @@ function configure_dhewm3() {
 
     mkRomDir "ports/doom3/base"
     mkRomDir "ports/doom3/d3xp"
-	chown -R pi:pi "/home/pi/RetroPie/roms/ports/doom3"
-	chown -R pi:pi "/home/pi/RetroPie/roms/ports/doom3/base"
-
     moveConfigDir "$md_inst/base" "$romdir/ports/doom3/base"
     moveConfigDir "$md_inst/d3xp" "$romdir/ports/doom3/d3xp"
+    chown -R pi:pi "/home/pi/RetroPie/roms/ports/doom3"
+    chown -R pi:pi "/home/pi/RetroPie/roms/ports/doom3/base"
 }
