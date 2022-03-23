@@ -21,28 +21,24 @@ function depends_dunedynasty() {
 }
 
 function sources_dunedynasty() {
-
 	wget https://sourceforge.net/projects/dunedynasty/files/dunedynasty-1.5/dunedynasty-1.5.7.tar.gz
 	tar -xvf dunedynasty-1.5.7.tar.gz -C /home/pi/RetroPie-Setup/tmp/build/dunedynasty
 
 }
 
 function build_dunedynasty() {
-	sed -i "/.*set(DUNE_DATA_DIR ".")*/c\\set(DUNE_DATA_DIR "/home/pi/RetroPie/roms/ports/dunedynasty/")" /home/pi/RetroPie-Setup/tmp/build/dunedynasty/dunedynasty-1.5.7/CMakeLists.txt
-	cd dunedynasty-1.5.7
-	mkdir build
-	cd build
-	cmake ..
-	make 
-    
-	
+sed -i "/.*set(DUNE_DATA_DIR ".")*/c\\set(DUNE_DATA_DIR "/home/pi/RetroPie/roms/ports/dunedynasty/")" /home/pi/RetroPie-Setup/tmp/build/dunedynasty/dunedynasty-1.5.7/CMakeLists.txt
+cd dunedynasty-1.5.7
+mkdir build
+cd build
+cmake ..
+make 
+
     md_ret_require=
 }
 
 function install_dunedynasty() {
-    md_ret_files=(
-	"dunedynasty-1.5.7/build/dist/dunedynasty"
- )
+    md_ret_files=("dunedynasty-1.5.7/build/dist/dunedynasty")
 }
 
 function configure_dunedynasty() {
@@ -54,11 +50,8 @@ function configure_dunedynasty() {
 	sed -i "/.*sidebar_scale=1.00*/c\\sidebar_scale=10.00" /home/pi/.config/dunedynasty/dunedynasty.cfg
 	sed -i "/.*viewport_scale=2.00*/c\\viewport_scale=10.00" /home/pi/.config/dunedynasty/dunedynasty.cfg
 		
-addPort "$md_id" "dunedynasty" "dune dynasty - Dune 2 port" "XINIT: $md_inst/dunedynasty"
-
+    addPort "$md_id" "dunedynasty" "Dune Dynasty - Dune 2 port" "XINIT: $md_inst/dunedynasty"
     mkRomDir "ports/dunedynasty"
-	mkRomDir "ports/dunedynasty/data"
-
-		chown -R pi:pi  "/home/pi/.config/dunedynasty/"
-
+    mkRomDir "ports/dunedynasty/data"
+    chown -R pi:pi  "/home/pi/.config/dunedynasty/"
 }
