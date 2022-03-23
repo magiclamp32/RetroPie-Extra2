@@ -20,7 +20,7 @@ function depends_bennugd() {
 }
 
 function install_bin_bennugd() {
-    download "https://github.com/s1eve-mcdichae1/bennugd-Rpi/releases/download/354/bgdi-354" "$md_inst"
+    download "https://github.com/saulbustos/bennugd-rpi/raw/main/bin/rpi/bgdi-354" "$md_inst"
     chmod 755 "$md_inst/bgdi-354"
 }
 
