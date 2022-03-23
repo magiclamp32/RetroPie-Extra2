@@ -27,11 +27,6 @@ function configure_bennugd() {
     mkRomDir "ports/sorr"
     chmod 755 "$md_inst/bgdi-354"
     
-    ln -s "$romdir/ports/sorr/SorR.dat" "$md_inst/SorR.dat"
-    ln -s "$romdir/ports/sorr/mod" "$md_inst/mod"
-    ln -s "$romdir/ports/sorr/palettes" "$md_inst/palettes"
-    ln -s "$romdir/ports/sorr/SorMaker.dat" "$md_inst/SorMaker.dat"
-    moveConfigFile "$md_inst/savegame" "$md_conf_root/sorr/"
     mkRomDir "ports/sorr/mod" 
 
 cat >"$romdir/ports/sorr/mod/system.txt" << _EOF_
@@ -50,5 +45,5 @@ AUTO
 1
 _EOF_
 
-    addPort "$md_id" "sorr" "Streets of Rage Remake" "XINIT: pushd $md_inst; ./bgdi-354 ./SorR.dat; popd"
+    addPort "$md_id" "sorr" "Streets of Rage Remake" "XINIT: pushd $romdir/ports/sorr; $md_inst/bgdi-354 ./SorR.dat; popd"
 }
