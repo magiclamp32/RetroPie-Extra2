@@ -27,6 +27,7 @@ function install_bin_bennugd() {
 function configure_bennugd() {
     addPort "$md_id" "sorr" "Streets of Rage Remake" "XINIT:pushd $romdir/ports/sorr; $md_inst/bgdi-354 ./SorR.dat; popd"
     [[ "$md_mode" == "remove" ]] && return
+
     mkRomDir "ports/sorr"
     # custom system.txt to set full screen mode: AUTO
     mkRomDir "ports/sorr/mod"
