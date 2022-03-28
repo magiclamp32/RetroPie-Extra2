@@ -9,23 +9,23 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="bennugd"
+rp_module_id="sorr"
 rp_module_desc="BennuGD interpreter for Streets of Rage Remake"
 rp_module_help="Please copy your SorR.dat file along with the mod and palettes folders into $romdir/ports/sorr"
 rp_module_section="exp"
 rp_module_flags="!x86 !x11 !mali"
 
-function depends_bennugd() {
+function depends_sorr() {
     getDepends libsdl-mixer1.2 libpng12-0 xorg
 }
 
-function install_bin_bennugd() {
+function install_bin_sorr() {
     download "https://github.com/Exarkuniv/bennugd-RPi/raw/master/bgdi-333" "$md_inst"
     chmod 755 "$md_inst/bgdi-333"
 }
 
-function configure_bennugd() {
-    addPort "$md_id" "sorr" "Streets of Rage Remake" "XINIT:pushd $romdir/ports/sorr; $md_inst/bgdi-333 ./SorR.dat; popd"
+function configure_sorr() {
+    addPort "bgdi-333" "sorr" "Streets of Rage Remake" "XINIT:pushd $romdir/ports/sorr; $md_inst/bgdi-333 ./SorR.dat; popd"
     [[ "$md_mode" == "remove" ]] && return
 
     mkRomDir "ports/sorr"
