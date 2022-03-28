@@ -20,12 +20,12 @@ function depends_bennugd() {
 }
 
 function install_bin_bennugd() {
-    download "https://github.com/saulbustos/bennugd-rpi/raw/main/bin/rpi/bgdi-354" "$md_inst"
-    chmod 755 "$md_inst/bgdi-354"
+    download "https://github.com/Exarkuniv/bennugd-RPi/raw/master/bgdi-333" "$md_inst"
+    chmod 755 "$md_inst/bgdi-333"
 }
 
 function configure_bennugd() {
-    addPort "$md_id" "sorr" "Streets of Rage Remake" "XINIT:pushd $romdir/ports/sorr; $md_inst/bgdi-354 ./SorR.dat; popd"
+    addPort "$md_id" "sorr" "Streets of Rage Remake" "XINIT:pushd $romdir/ports/sorr; $md_inst/bgdi-333 ./SorR.dat; popd"
     [[ "$md_mode" == "remove" ]] && return
 
     mkRomDir "ports/sorr"
