@@ -29,21 +29,11 @@ function configure_sorr() {
     [[ "$md_mode" == "remove" ]] && return
 
     mkRomDir "ports/sorr"
-    # custom system.txt to set full screen mode: AUTO
-    mkRomDir "ports/sorr/mod"
-    cat >"$romdir/ports/sorr/mod/system.txt" << _EOF_
-// GAME PORTS: PC, WIZ, XBOX, PSP, WII, ANDROID, HANDHELD
-PC
-
-// LOADING TYPE: PRELOAD, REALTIME
-PRELOAD
-
-// FULL SCREEN WIDE: AUTO, DESKTOP, BORDERLESS, BORDERLESS_SYNC
-AUTO
-
-// XBOX CONTROL LAYOUT: (Y,A,B = JOY NUMBER)
-3
-0
-1
-_EOF_
+    local config="$romdir/ports/sorr/mod/system.txt"
+    if [[ -f "$config" ]]; then
+        # set custom "system" for 5.1 (allows proper "exit" from game menu)
+        sed -i 's/system = PC/system = PSP/' "$config"
+        # set custom "full screen wide" mode for 5.2 (allows "windowed" and "vsync" options)
+        sed -i 's/^BORDERLESS_SYNC/AUTO/' "$config"
+    fi
 }
