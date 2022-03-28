@@ -20,7 +20,7 @@ function depends_sorr() {
 }
 
 function install_bin_sorr() {
-    download "https://github.com/Exarkuniv/bennugd-RPi/raw/master/bgdi-333" "$md_inst"
+    download "https://github.com/Exarkuniv/bennugd-Rpi/raw/master/bgdi-333" "$md_inst"
     chmod 755 "$md_inst/bgdi-333"
 }
 
