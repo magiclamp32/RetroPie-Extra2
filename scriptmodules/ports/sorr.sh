@@ -25,8 +25,18 @@ function install_bin_sorr() {
 }
 
 function configure_sorr() {
-    addPort "bgdi-333" "sorr" "Streets of Rage Remake" "XINIT:pushd $romdir/ports/$md_id; $md_inst/bgdi-333 %ROM%; popd" "./SorR.dat"
-    [[ -f "$romdir/ports/sorr/SorMaker.dat" || "$md_mode" == "remove" ]] && addPort "bgdi-333" "sorr" "SorMaker" "XINIT:pushd $romdir/ports/$md_id; $md_inst/bgdi-333 %ROM%; popd" "./SorMaker.dat"
+    #create buffer script for launch
+    local script="$md_inst/$md_id.sh"
+    cat > "$script" << _EOF_
+#!/bin/bash
+pushd "$romdir/ports/$md_id"
+"$md_inst/bgdi-333" \$*
+popd
+_EOF_
+    chown $user:$user "$script"
+    chmod +x "$script"
+    addPort "bgdi-333" "sorr" "Streets of Rage Remake" "XINIT:$script %ROM%" "./SorR.dat"
+    [[ -f "$romdir/ports/$md_id/SorMaker.dat" || "$md_mode" == "remove" ]] && addPort "bgdi-333" "sorr" "SorMaker" "XINIT:$script %ROM%" "./SorMaker.dat"
     [[ "$md_mode" == "remove" ]] && return
 
     mkRomDir "ports/$md_id"
