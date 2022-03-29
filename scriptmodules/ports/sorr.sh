@@ -11,7 +11,7 @@
 
 rp_module_id="sorr"
 rp_module_desc="BennuGD interpreter for Streets of Rage Remake"
-rp_module_help="Please copy your SorR.dat file along with the mod and palettes folders into $romdir/ports/sorr"
+rp_module_help="Please copy your SorR.dat file along with the mod and palettes folders into $romdir/ports/$md_id"
 rp_module_section="exp"
 rp_module_flags="!x86 !x11 !mali"
 
@@ -25,12 +25,12 @@ function install_bin_sorr() {
 }
 
 function configure_sorr() {
-    addPort "bgdi-333" "sorr" "Streets of Rage Remake" "XINIT:pushd $romdir/ports/sorr; $md_inst/bgdi-333 %ROM%; popd" "./SorR.dat"
-    [[ -f "$romdir/ports/sorr/SorMaker.dat" || "$md_mode" == "remove" ]] && addPort "bgdi-333" "sorr" "SorMaker" "XINIT:pushd $romdir/ports/sorr; $md_inst/bgdi-333 %ROM%; popd" "./SorMaker.dat"
+    addPort "bgdi-333" "sorr" "Streets of Rage Remake" "XINIT:pushd $romdir/ports/$md_id; $md_inst/bgdi-333 %ROM%; popd" "./SorR.dat"
+    [[ -f "$romdir/ports/sorr/SorMaker.dat" || "$md_mode" == "remove" ]] && addPort "bgdi-333" "sorr" "SorMaker" "XINIT:pushd $romdir/ports/$md_id; $md_inst/bgdi-333 %ROM%; popd" "./SorMaker.dat"
     [[ "$md_mode" == "remove" ]] && return
 
-    mkRomDir "ports/sorr"
-    local config="$romdir/ports/sorr/mod/system.txt"
+    mkRomDir "ports/$md_id"
+    local config="$romdir/ports/$md_id/mod/system.txt"
     if [[ -f "$config" ]]; then
         # set custom "system" for 5.1 (allows proper "exit" from game menu)
         sed -i 's/system = PC/system = PSP/' "$config"
