@@ -25,22 +25,23 @@ function install_bin_sorr() {
 }
 
 function configure_sorr() {
-    #create buffer script for launch
     local script="$md_inst/$md_id.sh"
+    local config="$romdir/ports/$md_id/mod/system.txt"
+
+    addPort "bgdi-333" "sorr" "Streets of Rage Remake" "XINIT:$script %ROM%" "./SorR.dat"
+    [[ -f "$romdir/ports/$md_id/SorMaker.dat" || "$md_mode" == "remove" ]] && addPort "bgdi-333" "sorr" "SorMaker" "XINIT:$script %ROM%" "./SorMaker.dat"
+    [[ "$md_mode" == "remove" ]] && return
+
+    #create buffer script for launch
     cat > "$script" << _EOF_
 #!/bin/bash
 pushd "$romdir/ports/$md_id"
 "$md_inst/bgdi-333" \$*
 popd
 _EOF_
-    chown $user:$user "$script"
-    chmod +x "$script"
-    addPort "bgdi-333" "sorr" "Streets of Rage Remake" "XINIT:$script %ROM%" "./SorR.dat"
-    [[ -f "$romdir/ports/$md_id/SorMaker.dat" || "$md_mode" == "remove" ]] && addPort "bgdi-333" "sorr" "SorMaker" "XINIT:$script %ROM%" "./SorMaker.dat"
-    [[ "$md_mode" == "remove" ]] && return
 
+    chmod +x "$script"
     mkRomDir "ports/$md_id"
-    local config="$romdir/ports/$md_id/mod/system.txt"
     if [[ -f "$config" ]]; then
         # set custom "system" for 5.1 (allows proper "exit" from game menu)
         sed -i 's/system = PC/system = PSP/' "$config"
