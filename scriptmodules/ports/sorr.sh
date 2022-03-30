@@ -33,7 +33,6 @@ function configure_sorr() {
     [[ "$md_mode" == "remove" ]] && return
 
     #create buffer script for launch
-
     cat > "$script" << _EOF_
 #!/bin/bash
 pushd "$romdir/ports/$md_id"
