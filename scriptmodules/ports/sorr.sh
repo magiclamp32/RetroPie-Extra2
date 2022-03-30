@@ -33,7 +33,6 @@ pushd "$romdir/ports/$md_id"
 "$md_inst/bgdi-333" \$*
 popd
 _EOF_
-    chown $user:$user "$script"
     chmod +x "$script"
     addPort "bgdi-333" "sorr" "Streets of Rage Remake" "XINIT:$script %ROM%" "./SorR.dat"
     [[ -f "$romdir/ports/$md_id/SorMaker.dat" || "$md_mode" == "remove" ]] && addPort "bgdi-333" "sorr" "SorMaker" "XINIT:$script %ROM%" "./SorMaker.dat"
