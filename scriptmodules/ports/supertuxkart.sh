@@ -24,7 +24,7 @@ function install_bin_supertuxkart() {
 }
 
 function remove_supertuxkart() {
-    aptRemove supertuxkart
+    aptRemove supertuxkart supertuxkart-data
 }
 
 function configure_supertuxkart() {
