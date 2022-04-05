@@ -29,7 +29,7 @@ function remove_supertuxkart() {
 
 function configure_supertuxkart() {
     addPort "$md_id" "supertuxkart" "SuperTuxKart" "XINIT:$md_inst/supertuxkart.sh"
-
+    [[ "$md_mode" == "remove" ]] && return
 
     cat >"$md_inst/supertuxkart.sh" << _EOF_
 #!/bin/bash
