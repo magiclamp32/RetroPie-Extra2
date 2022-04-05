@@ -20,7 +20,6 @@ function depends_supertuxkart() {
 }
 
 function install_bin_supertuxkart() {
-    [ -f "$md_inst/supertuxkart" ]] && rm -rf "$md_inst/"*
     aptInstall supertuxkart
 }
 
