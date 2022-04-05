@@ -31,6 +31,8 @@ function configure_supertuxkart() {
     addPort "$md_id" "supertuxkart" "SuperTuxKart" "XINIT:$md_inst/supertuxkart.sh"
     [[ "$md_mode" == "remove" ]] && return
 
+    # create script for launch
+    # is this needed?
     cat >"$md_inst/supertuxkart.sh" << _EOF_
 #!/bin/bash
 /usr/games/supertuxkart
