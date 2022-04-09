@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RPS_HOME='/home/pi/RetroPie-Setup'
+RPS_HOME="$HOME/RetroPie-Setup"
 if [ ! -z "$1" ];then
     RPS_HOME="$1"
 fi
