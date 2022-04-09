@@ -11,6 +11,6 @@ if [ ! -d "$RPS_HOME" ];then
 fi
 
 echo "Placing scriptmodules in $RPS_HOME"
-mkdir /home/pi/RetroPie-Setup/ext/RetroPie-Extra/
-mkdir /home/pi/RetroPie-Setup/ext/RetroPie-Extra/scriptmodules
-cp -R scriptmodules/* /home/pi/RetroPie-Setup/ext/RetroPie-Extra/scriptmodules
+mkdir "$RPS_HOME/ext/RetroPie-Extra/"
+mkdir "$RPS_HOME/ext/RetroPie-Extra/scriptmodules"
+cp -R scriptmodules/* "$RPS_HOME/ext/RetroPie-Extra/scriptmodules"
