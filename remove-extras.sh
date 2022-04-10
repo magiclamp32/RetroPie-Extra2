@@ -17,7 +17,7 @@ fi
 read -r -p "Removing directory $RP_EXTRA and all of its contents. Do you wish to continue? [y/N] " response
 case "$response" in
     [yY][eE][sS]|[yY])
-        rm -rf "$RPS_HOME/ext/RetroPie-Extra" && echo -e "...done."
+        rm -rf "$RP_EXTRA" && echo -e "...done."
         ;;
     [yY]*)
         echo -e "Error \"$response\": please enter \"y\" or \"yes\" to confirm.\nAborting."
