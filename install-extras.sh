@@ -11,6 +11,6 @@ if [ ! -d "$RPS_HOME" ]; then
     exit
 fi
 
-echo "Placing scriptmodules in $RP_EXTRA"
+echo -e "Placing scriptmodules in $RP_EXTRA"
 mkdir -p "$RP_EXTRA"
 cp -R scriptmodules "$RP_EXTRA" && echo -e "...done."
