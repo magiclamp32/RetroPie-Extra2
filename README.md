@@ -40,13 +40,22 @@ sudo ./retropie_setup.sh
 
 ## Updating
 
-The following commands update your Raspberry Pi to the latest repo and then run `install-scripts.sh` to install the scripts in the `master` branch directly to the proper directories in the `RetroPie-Setup/` folder.
+The following commands update your Raspberry Pi to the latest repo and then run `update-extras.sh` to install the scripts in the `master` branch directly to the proper directories in the `RetroPie-Setup/` folder.
 
 ```bash
 cd ~
 cd RetroPie-Extra/
-git pull origin
-./install-extras.sh
+./update-extras.sh
+```
+
+## Remove
+
+The following commands remove RetroPie-Extra your Raspberry Pi
+
+```bash
+cd ~
+cd RetroPie-Extra/
+./remove-extras.sh
 ```
 
 Scripts that are unfinished/untested/unpolished will not be located in this repository and instead have been moved to [RetroPie-Extra-unstable](https://github.com/Exarkuniv/RetroPie-Extra-unstable).
