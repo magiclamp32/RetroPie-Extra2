@@ -14,7 +14,7 @@ rp_module_desc="PCEngine emu - Mednafen PCE port for libretro"
 rp_module_help="ROM Extensions: .pce .ccd .cue .zip\n\nCopy your PC Engine / TurboGrafx roms to $romdir/pcengine\n\nCopy the required BIOS file syscard3.pce to $biosdir"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/beetle-pce-libretro/master/COPYING"
 rp_module_repo="git https://github.com/libretro/beetle-pce-libretro.git master"
-rp_module_section="main"
+rp_module_section="exp"
 
 function _update_hook_lr-beetle-pce() {
     # move from old location and update emulators.cfg
