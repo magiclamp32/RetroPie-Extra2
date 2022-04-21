@@ -45,7 +45,7 @@ function install_rocksndiamonds() {
 }
 
 function configure_rocksndiamonds() {
-    addPort "$md_id" "rocksndiamonds" "rocksndiamonds" "$md_inst/rocksndiamonds"
+    addPort "$md_id" "rocksndiamonds" "Rocks n' Diamonds" "$md_inst/rocksndiamonds"
 
     mkRomDir "ports/rocksndiamonds"
 
