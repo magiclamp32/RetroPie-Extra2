@@ -56,5 +56,5 @@ function configure_rott-huntbgin() {
     mv  "$romdir/ports/$md_id/huntbgin.rtl" "$romdir/ports/$md_id/HUNTBGIN.RTL"
     moveConfigDir "$home/.rott" "$md_conf_root/rott"
 
-    addPort "$md_id" "rott-huntbgin" "Rise of the Triad port Hunt Begins (Shareware)" "pushd $romdir/ports/rott-huntbgin/; $md_inst/rott-huntbgin; popd"
+    addPort "$md_id" "rott-huntbgin" "Rise Of The Triad - The Hunt Begins (Shareware)" "pushd $romdir/ports/rott-huntbgin/; $md_inst/rott-huntbgin; popd"
 }
