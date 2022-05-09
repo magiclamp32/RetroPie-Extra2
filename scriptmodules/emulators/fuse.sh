@@ -24,7 +24,7 @@ function depends_fuse() {
 function sources_fuse() {
     downloadAndExtract "$__archive_url/fuse-1.6.0.tar.gz" "$md_build" --strip-components 1
     mkdir libspectrum
-    downloadAndExtract "$__archive_url/libspectrum-1.4.4.tar.gz" "$md_build/libspectrum" --strip-components 1
+    downloadAndExtract "$__archive_url/libspectrum-1.5.0.tar.gz" "$md_build/libspectrum" --strip-components 1
     if ! isPlatform "x11"; then
         applyPatch "$md_data/01_disable_cursor.diff"
     fi
