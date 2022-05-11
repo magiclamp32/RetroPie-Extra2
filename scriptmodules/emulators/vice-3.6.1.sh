@@ -9,7 +9,7 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="vice 3.6.1"
+rp_module_id="vice-3.6.1"
 rp_module_desc="C64 emulator VICE"
 rp_module_help="ROM Extensions: .crt .d64 .g64 .prg .t64 .tap .x64 .zip .vsf\n\nCopy your Commodore 64 games to $romdir/c64"
 rp_module_licence="GPL2 http://svn.code.sf.net/p/vice-emu/code/trunk/vice/COPYING"
@@ -17,17 +17,17 @@ rp_module_repo="svn svn://svn.code.sf.net/p/vice-emu/code/tags/v3.6.1/vice - HEA
 rp_module_section="exp"
 rp_module_flags=""
 
-function depends_vice() {
+function depends_vice-3.6.1() {
     local depends=(libsdl2-dev libsdl2-image-dev libmpg123-dev libpng-dev zlib1g-dev libasound2-dev libvorbis-dev libflac-dev libpcap-dev automake bison flex libjpeg-dev portaudio19-dev xa65 dos2unix)
     isPlatform "x11" && depends+=(libpulse-dev)
     getDepends "${depends[@]}"
 }
 
-function sources_vice() {
+function sources_vice-3.6.1() {
     svn checkout "$md_repo_url" "$md_build"
 }
 
-function build_vice() {
+function build_vice-3.6.1() {
     local params=(--enable-sdlui2 --without-oss --enable-ethernet --enable-x64 --disable-pdf-docs --with-fastsid)
     ! isPlatform "x11" && params+=(--disable-catweasel --without-pulse)
     ./autogen.sh
@@ -36,11 +36,11 @@ function build_vice() {
     md_ret_require="$md_build/src/x64"
 }
 
-function install_vice() {
+function install_vice-3.6.1() {
     make install
 }
 
-function configure_vice() {
+function configure_vice-3.6.1() {
     # get a list of supported extensions
     local exts="$(getPlatformConfig c64_exts)"
 
