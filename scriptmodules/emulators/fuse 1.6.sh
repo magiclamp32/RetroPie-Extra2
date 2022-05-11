@@ -14,7 +14,7 @@ rp_module_desc="ZX Spectrum emulator Fuse"
 rp_module_help="ROM Extensions: .sna .szx .z80 .tap .tzx .gz .udi .mgt .img .trd .scl .dsk .zip\n\nCopy your ZX Spectrum games to $romdir/zxspectrum"
 rp_module_licence="GPL2 https://sourceforge.net/p/fuse-emulator/fuse/ci/master/tree/COPYING"
 rp_module_repo="file $__archive_url/fuse-1.6.0.tar.gz"
-rp_module_section="opt"
+rp_module_section="exp"
 rp_module_flags="sdl1 !mali"
 
 function depends_fuse() {
