@@ -9,7 +9,7 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="fuse 1.6"
+rp_module_id="fuse-1.6"
 rp_module_desc="ZX Spectrum emulator Fuse"
 rp_module_help="ROM Extensions: .sna .szx .z80 .tap .tzx .gz .udi .mgt .img .trd .scl .dsk .zip\n\nCopy your ZX Spectrum games to $romdir/zxspectrum"
 rp_module_licence="GPL2 https://sourceforge.net/p/fuse-emulator/fuse/ci/master/tree/COPYING"
@@ -17,11 +17,11 @@ rp_module_repo="file $__archive_url/fuse-1.6.0.tar.gz"
 rp_module_section="exp"
 rp_module_flags="sdl1 !mali"
 
-function depends_fuse() {
+function depends_fuse-1.6() {
     getDepends libsdl1.2-dev libpng-dev zlib1g-dev libbz2-dev libaudiofile-dev bison flex
 }
 
-function sources_fuse() {
+function sources_fuse-1.6() {
     downloadAndExtract "$__archive_url/fuse-1.6.0.tar.gz" "$md_build" --strip-components 1
     mkdir libspectrum
     downloadAndExtract "$__archive_url/libspectrum-1.5.0.tar.gz" "$md_build/libspectrum" --strip-components 1
@@ -31,7 +31,7 @@ function sources_fuse() {
     applyPatch "$md_data/02_sdl_fix.diff"
 }
 
-function build_fuse() {
+function build_fuse-1.6() {
     pushd libspectrum
     ./configure --disable-shared
     make clean
@@ -43,11 +43,11 @@ function build_fuse() {
     md_ret_require="$md_build/fuse"
 }
 
-function install_fuse() {
+function install_fuse-1.6() {
     make install
 }
 
-function configure_fuse() {
+function configure_fuse-1.6() {
     mkRomDir "zxspectrum"
 
     addEmulator 0 "$md_id-48k" "zxspectrum" "$md_inst/bin/fuse --machine 48 --full-screen %ROM%"
@@ -71,7 +71,7 @@ _EOF_
     chmod +x "$script"
 }
 
-function _backend_set_fuse() {
+function _backend_set_fuse-1.6() {
     local mode="$1"
     local force="$2"
     setBackend "$md_id" "$mode" "$force"
