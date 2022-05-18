@@ -9,15 +9,15 @@
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
-rp_module_id="ppsspp"
-rp_module_desc="PlayStation Portable emulator PPSSPP"
+rp_module_id="ppsspp-latest"
+rp_module_desc="PlayStation Portable emulator PPSSPP - latest master version"
 rp_module_help="ROM Extensions: .iso .pbp .cso\n\nCopy your PlayStation Portable roms to $romdir/psp"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/hrydgard/ppsspp/master/LICENSE.TXT"
-rp_module_repo="git https://github.com/hrydgard/ppsspp.git v1.12.3"
-rp_module_section="opt"
-rp_module_flags=""
+rp_module_repo="git https://github.com/hrydgard/ppsspp.git master"
+rp_module_section="exp"
+rp_module_flags="!videocore"
 
-function depends_ppsspp() {
+function depends_ppsspp-latest() {
     local depends=(cmake libsdl2-dev libsnappy-dev libzip-dev zlib1g-dev)
     isPlatform "videocore" && depends+=(libraspberrypi-dev)
     isPlatform "mesa" && depends+=(libgles2-mesa-dev)
@@ -25,7 +25,7 @@ function depends_ppsspp() {
     getDepends "${depends[@]}"
 }
 
-function sources_ppsspp() {
+function sources_ppsspp-latest() {
     gitPullOrClone "$md_build/ppsspp"
     cd "ppsspp"
 
@@ -51,7 +51,7 @@ function sources_ppsspp() {
     fi
 }
 
-function build_ffmpeg_ppsspp() {
+function build_ffmpeg_ppsspp-latest() {
     cd "$1"
     local arch
     if isPlatform "arm"; then
@@ -105,22 +105,22 @@ function build_ffmpeg_ppsspp() {
     make install
 }
 
-function build_cmake_ppsspp() {
+function build_cmake_ppsspp-latest() {
     cd "$md_build/cmake"
     ./bootstrap
     make
 }
 
-function build_ppsspp() {
+function build_ppsspp-latest() {
     local ppsspp_binary="PPSSPPSDL"
     local cmake="cmake"
     if hasPackage cmake 3.6 lt; then
-        build_cmake_ppsspp
+        build_cmake_ppsspp-latest
         cmake="$md_build/cmake/bin/cmake"
     fi
 
     # build ffmpeg
-    build_ffmpeg_ppsspp "$md_build/ppsspp/ffmpeg"
+    build_ffmpeg_ppsspp-latest "$md_build/ppsspp/ffmpeg"
 
     # build ppsspp
     cd "$md_build/ppsspp"
@@ -147,7 +147,7 @@ function build_ppsspp() {
     if isPlatform "arm" && ! isPlatform "x11"; then
         params+=(-DARM_NO_VULKAN=ON)
     fi
-    if [[ "$md_id" == "lr-ppsspp" ]]; then
+    if [[ "$md_id" == "lr-ppsspp-latest" ]]; then
         params+=(-DLIBRETRO=On)
         ppsspp_binary="lib/ppsspp_libretro.so"
     fi
@@ -158,24 +158,33 @@ function build_ppsspp() {
     md_ret_require="$md_build/ppsspp/$ppsspp_binary"
 }
 
-function install_ppsspp() {
+function install_ppsspp-latest() {
     md_ret_files=(
         'ppsspp/assets'
         'ppsspp/PPSSPPSDL'
     )
 }
 
-function configure_ppsspp() {
+function configure_ppsspp-latest() {
     local extra_params=()
     if ! isPlatform "x11"; then
         extra_params+=(--fullscreen)
     fi
 
     mkRomDir "psp"
-    moveConfigDir "$home/.config/ppsspp" "$md_conf_root/psp"
-    mkUserDir "$md_conf_root/psp/PSP"
-    ln -snf "$romdir/psp" "$md_conf_root/psp/PSP/GAME"
+    if [[ "$md_mode" == "install" ]]; then
+        moveConfigDir "$home/.config/ppsspp" "$md_conf_root/psp"
+        mkUserDir "$md_conf_root/psp/PSP"
+        ln -snf "$romdir/psp" "$md_conf_root/psp/PSP/GAME"
+    fi
 
     addEmulator 0 "$md_id" "psp" "pushd $md_inst; $md_inst/PPSSPPSDL ${extra_params[*]} %ROM%; popd"
     addSystem "psp"
+
+    # if we are removing the last remaining psp emu - remove the symlink
+    if [[ "$md_mode" == "remove" ]]; then
+        if [[ -h "$home/.config/ppsspp" && ! -f "$md_conf_root/psp/emulators.cfg" ]]; then
+            rm -f "$home/.config/ppsspp"
+        fi
+    fi
 }
