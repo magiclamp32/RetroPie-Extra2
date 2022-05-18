@@ -72,6 +72,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs**
 - [X] - `openbor.sh` - Beat 'em Up Game Engine (newest version) - **Tested only on Pi4 so far, installs as a system instead of as a port, direct launching of games from emulationstation supported!**
 - [ ] - `pico8.sh` - Fantasy Game Emulator - Adds as a new system in RetroPie so you can directly launch carts. **No clue, I dont have the required files to test**
+- [X] - `ppsspp-latest.sh` - PlayStation Portable emulator PPSSPP - latest master version - **!videocore: tested and works on RPi4 (May 2022)**
 - [ ] - `pokemini.sh` - Pokemon Mini emulator  - **Blocked from installing on Pi4**
 - [X] - `supermodel.sh` - Sega Model 3 Arcade emulator  - **Installs**
 
@@ -107,7 +108,8 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-pocketcdg.sh` - A MP3 karaoke music player. - **Installs**
 - [X] - `lr-potator.sh` -  Watara Supervision emulator based on Normmatt version - Potator port for libretro - **Installs**
 - [X] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port.  - **Installs**
-- [X]- `lr-race.sh` - Neo Geo Pocket (Color) emulator - RACE! port for libretro. - **Installs**
+- [X] - `lr-ppsspp-latest.sh` - PlayStation Portable emu - PPSSPP port for libretro - latest master version - **!videocore: tested and works on RPi4 (May 2022)**
+- [X] - `lr-race.sh` - Neo Geo Pocket (Color) emulator - RACE! port for libretro. - **Installs**
 - [X] - `lr-reminiscence.sh` - Flashback engine - Gregory Montoir’s Flashback emulator port for libretro - **Installs**
 - [X] - `lr-sameboy.sh` - Game Boy (Color) emulator - SameBoy Port for libretro - **Installs**
 - [X] - `lr-simcoupe.sh` - SAM Coupe emulator - SimCoupe port for libretro - **Installs**
