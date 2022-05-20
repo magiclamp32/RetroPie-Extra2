@@ -22,5 +22,5 @@ function install_bin_ltris() {
 function configure_ltris() {
     mkRomDir "ports"
     moveConfigFile "$home/.lgames/ltris.conf" "$md_conf_root/ltris/ltris.conf"
-    addPort "$md_id" "ltris" "ltris - Open Source Tetris game" "/usr/games/ltris"
+    addPort "$md_id" "ltris" "ltris - Open Source Tetris game" "XINIT: /usr/games/ltris"
 }
