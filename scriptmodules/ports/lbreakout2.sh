@@ -23,5 +23,5 @@ function install_bin_lbreakout2() {
 function configure_lbreakout2() {
     mkRomDir "ports"
     moveConfigFile "$home/.lgames/lbreakout2.conf" "$md_conf_root/lbreakout2/lbreakout2.conf"
-    addPort "$md_id" "lbreakout2" "lbreakout2 - Open Source Breakout game" "/usr/games/lbreakout2"
+    addPort "$md_id" "lbreakout2" "lbreakout2 - Open Source Breakout game" "XINIT: /usr/games/lbreakout2"
 }
