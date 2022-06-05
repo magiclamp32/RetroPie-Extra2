@@ -11,7 +11,7 @@
 
 rp_module_id="gmloader"
 rp_module_desc="GMLoader - play GameMaker Studio games for Android on non-Android operating systems"
-rp_module_help="ROM Extensions: .apk .APK\n\nCopy your APK files to $romdir/ports/droidports and then re-run this installer."
+rp_module_help="ROM Extensions: .apk .APK\n\nIncludes free games Maldita Castilla and Spelunky Classic HD. Use launch scripts as template for additional games."
 rp_module_repo="git https://github.com/s1eve-mcdichae1/droidports.git patch-config-dir cc31738"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/JohnnyonFlame/droidports/master/LICENSE.md"
 rp_module_section="exp"
@@ -33,15 +33,29 @@ function build_gmloader() {
 }
 
 function install_gmloader() {
-    md_ret_files="build/gmloader"
+    md_ret_files=('build/gmloader')
 }
 
 function configure_gmloader() {
-    while read apk; do
-        local apk_filename="${apk##*/}"
-        local apk_basename="${apk_filename%.*}"
-        addPort "$md_id" "droidports" "$apk_basename" "$md_inst/gmloader %ROM%" "$apk"
-    done < <(find "$romdir/ports/droidports" -maxdepth 1 -type f -iname "*.apk")
-    mkRomDir "ports/droidports"
+    local apkdir="$romdir/ports/droidports"
+    local maldita_url="https://locomalito.com/juegos/Maldita_Castilla_ouya.apk"
+    local spelunky_url="https://github.com/yancharkin/SpelunkyClassicHD/releases/download/1.1.7/spelunky_classic_hd-android.apk"
+    local maldita_file="$apkdir/$(basename ${maldita_url})"
+    local spelunky_file="$apkdir/$(basename ${spelunky_url})"
+    local am2r_file="$apkdir/am2r_155.apk"
+
+    if [[ "$md_mode" == "install" ]]; then
+        mkUserDir "$apkdir"
+        [[ ! -f "$maldita_file" ]] && download "$maldita_url" "$apkdir"
+        [[ ! -f "$spelunky_file" ]] && download "$spelunky_url" "$apkdir"
+    fi
+
+    addPort "$md_id" "droidports" "Maldita Castilla" "$md_inst/gmloader %ROM%" "$maldita_file"
+    addPort "$md_id" "droidports" "Spelunky Classic HD" "$md_inst/gmloader %ROM%" "$spelunky_file"
+
+    if [[ -f "$am2r_file" || "$md_mode" == "remove" ]]; then
+        addPort "$md_id" "droidports" "AM2R - Another Metroid 2 Remake" "$md_inst/gmloader %ROM%" "$am2r_file"
+    fi
+
     moveConfigDir "$home/.config/gmloader" "$md_conf_root/droidports"
 }
