@@ -21,7 +21,7 @@ function depends_abuse() {
 }
 
 function sources_abuse() {
-    wget http://abuse.zoy.org/raw-attachment/wiki/download/abuse-0.8.tar.gz
+	wget http://abuse.zoy.org/raw-attachment/wiki/download/abuse-0.8.tar.gz
 	tar -xf abuse-0.8.tar.gz
 }
 
@@ -35,7 +35,7 @@ function build_abuse() {
 function install_abuse() {
    	cd abuse-0.8
 	make install
-	 md_ret_files=(
+	md_ret_files=(
     )
 }
 
