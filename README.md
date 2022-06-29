@@ -68,11 +68,11 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 #### Emulators
 
 - [X] - `gearboy.sh` - Gameboy emulator - **Installs**
-- [ ] - `kat5200.sh` - Atari 8-bit/5200 emulator - **Blocked from installing on Pi4**
+- [ ] - `kat5200.sh` - Atari 8-bit/5200 emulator - **x86 only**
 - [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs**
 - [X] - `openbor.sh` - Beat 'em Up Game Engine (newest version) - **Tested only on Pi4 so far, installs as a system instead of as a port, direct launching of games from emulationstation supported!**
-- [ ] - `pico8.sh` - Fantasy Game Emulator - Adds as a new system in RetroPie so you can directly launch carts. **No clue, I dont have the required files to test**
-- [ ] - `pokemini.sh` - Pokemon Mini emulator  - **Blocked from installing on Pi4**
+- [x] - `pico8.sh` - Fantasy Game Emulator - Adds as a new system in RetroPie so you can directly launch carts. **Was told that it works fine, so I'll go with that**
+- [ ] - `pokemini.sh` - Pokemon Mini emulator  - **x86 only**
 - [X] - `ppsspp-latest.sh` - PlayStation Portable emulator PPSSPP - latest master version - **!videocore: tested and works on RPi4 (May 2022)**
 - [X] - `supermodel.sh` - Sega Model 3 Arcade emulator  - **Installs**
 
@@ -80,12 +80,12 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 
 - [X] - `lr-2048.sh` - 2048 engine - 2048 port for libretro - **Installs**
 - [X] - `lr-bk.sh` -  Elektronika БК-0010/0011/Terak 8510a emulator - BK port for libretro - **Installs**
-- [ ] - `lr-blastem.sh` - Sega Genesis emu - BlastEm port for libretro - **Cant test dont have the right system x86**
-- [ ] - `lr-boom3.sh` -  Doom 3 port for libretro on x86 systems - **Cant test dont have the right system x86**
-- [ ] - `lr-canary.sh` - Citra Canary for libretro - **Cant test dont have the right system x86**
+- [ ] - `lr-blastem.sh` - Sega Genesis emu - BlastEm port for libretro - **x86 only**
+- [ ] - `lr-boom3.sh` -  Doom 3 port for libretro - **x86 only**
+- [ ] - `lr-canary.sh` - Citra Canary for libretro - **x86 only**
 - [X] - `lr-cannonball.sh` - An Enhanced OutRun engine for libretro - **Installs**
 - [X] - `lr-chailove.sh` - 2D Game Framework with ChaiScript roughly inspired by the LÖVE API to libretro - **Installs**
-- [ ] - `lr-citra.sh` - Citra port for libretro - **Cant test dont have the right system x86**
+- [ ] - `lr-citra.sh` - Citra port for libretro - **x86 only**
 - [X] - `lr-craft.sh` - Minecraft engine  - **Installs**
 - [X] - `lr-crocods.sh` - CrocoDS port for libretro  - **Installs**
 - [X] - `lr-daphne.sh` - Daphne port to libretro - laserdisk arcade games. - **Installs**
@@ -104,7 +104,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-mu.sh` - Palm OS emu - Mu port for libretro - **Installs**
 - [X] - `lr-oberon.sh` - Oberon RISC emulator for libretro - **Installs**
 - [X] - `lr-openlara.sh` - Tomb Raider engine - OpenLara port for libretro - **Installs**
-- [X] - `lr-play.sh` - PlayStation 2 emulator - Play port for libretro - **Cant test dont have the right system x86**
+- [ ] - `lr-play.sh` - PlayStation 2 emulator - Play port for libretro - **x86 only**
 - [X] - `lr-pocketcdg.sh` - A MP3 karaoke music player. - **Installs**
 - [X] - `lr-potator.sh` -  Watara Supervision emulator based on Normmatt version - Potator port for libretro - **Installs**
 - [X] - `lr-ppsspp-latest.sh` - PlayStation Portable emu - PPSSPP port for libretro - latest master version - **!videocore: tested and works on RPi4 (May 2022)**
@@ -116,8 +116,8 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-thepowdertoy.sh` - Sandbox physics game for libretro - **Installs**
 - [X] - `lr-uzem.sh` - Uzebox engine - Uzem port for libretro - **Installs**
 - [X] - `lr-vemulator.sh` - SEGA VMU emulator - VeMUlator port for libretro - **Installs**
-- [ ] - `lr-vitaquake2.sh` - Quake 2 engine - vitaQuake II port for libretro **Cant test dont have the right system PSVita**
-- [ ] - `lr-vitaquake3.sh` - Quake 3 engine - vitaQuake III (ioquake3) port for libretro **Cant test dont have the right system PSVita**
+- [ ] - `lr-vitaquake2.sh` - Quake 2 engine - vitaQuake II port for libretro **PSVita only**
+- [ ] - `lr-vitaquake3.sh` - Quake 3 engine - vitaQuake III (ioquake3) port for libretro **PSVita only**
 
 #### Ports
 
@@ -219,7 +219,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `shadowwarrior.sh` - Jfsw - Shadow warrior port
 - [X] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.  - **Installs**
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Installs**
-- [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4.
+- [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4. **Installs Plays great**
 - [X] - `texmaster2009.sh` - Tetris TGM clone - **Installs**
 - [X] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
 - [X] - `tinyfugue.sh` - MUD client - **Installs**
@@ -236,11 +236,11 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `zeldapicross.sh` - Zelda themed Picross fangame - **Installs**
 
 #### Drivers
-- [X] - `openmwdriver.sh` - The OpenSceneGraph is an open source high performance 3D graphics toolkit. - **Installs**
+- [X] - `openmwdriver.sh` - The OpenSceneGraph is an open source high performance 3D graphics toolkit. - **Installs works as needed**
 
 #### Supplementary
 - [X] - `bezelproject.sh` - Easily set up the Bezel Project
-- [X] - 'bgm123.sh' - Straighforward background music player using mpg123. **Currently limited to RPi into HDMI. Testers / collaborators welcome to help expand this functionality.**
+- [X] - `bgm123.sh` - Straighforward background music player using mpg123. **Currently limited to RPi into HDMI. Testers / collaborators welcome to help expand this functionality.**
 - [X] - `gparted.sh` - partition editing application
 - [ ] - `fun-facts-splashscreens.sh` - Set up some loading splashscreens with fun facts. **Cant test dont have the right system x86**
 - [X] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
