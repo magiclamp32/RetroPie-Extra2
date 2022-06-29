@@ -177,7 +177,7 @@ function gui_bgm123() {
         grep '#bgm123' "$configdir/all/autostart.sh" >/dev/null && enabled=1
         local options=()
         if [[ "$enabled" -eq 1 ]]; then
-            options=+(
+            options+=(
                 E "Enable or disable background music (currently: Enabled)"
             )
             if pgrep emulationstatio >/dev/null; then
