@@ -50,18 +50,22 @@ function configure_bstone() {
     addPort "$md_id" "bsaog" "Blake Stone - Aliens of Gold" "$md_inst/bstone --data_dir $romdir/ports/bstone/aog"	
 	addPort "$md_id" "bsps" "Blake Stone - Planet Strike" "$md_inst/bstone --data_dir $romdir/ports/bstone/ps"
 
-    mkRomDir "ports/bstone"
+    #mkRomDir "ports/bstone"
     mkRomDir "ports/bstone/aog"
-	mkRomDir "ports/bstone/ps"
-	
-cat >"/home/pi/.local/share/bibendovsky/bstone/bstone_config.txt" << _EOF_
+    mkRomDir "ports/bstone/ps"
+    mkdir $home/.local/share/bibendovsky
+    mkdir $home/.local/share/bibendovsky/bstone
+
+    moveConfigDir "$home/.local/share/bibendovsky/bstone" "$md_conf_root/bibendovsky/bstone"
+
+
+cat >"$md_conf_root/bibendovsky/bstone/bstone_config.txt" << _EOF_
 
 vid_renderer "software"
 vid_is_widescreen "1"
 
 _EOF_
 
-chown -R $user:$user "/home/pi/.local/share/bibendovsky/bstone"
 
     [[ "$md_mode" == "install" ]] && game_data_bstone
 }
