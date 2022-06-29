@@ -240,6 +240,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 
 #### Supplementary
 - [X] - `bezelproject.sh` - Easily set up the Bezel Project
+- [X] - 'bgm123.sh' - Straighforward background music player using mpg123. **Currently limited to RPi into HDMI. Testers / collaborators welcome to help expand this functionality.**
 - [X] - `gparted.sh` - partition editing application
 - [ ] - `fun-facts-splashscreens.sh` - Set up some loading splashscreens with fun facts. **Cant test dont have the right system x86**
 - [X] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
