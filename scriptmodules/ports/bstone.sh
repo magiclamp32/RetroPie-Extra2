@@ -63,6 +63,7 @@ cat >"$md_conf_root/bibendovsky/bstone/bstone_config.txt" << _EOF_
 
 vid_renderer "software"
 vid_is_widescreen "1"
+vid_is_windowed "0"
 
 _EOF_
 
