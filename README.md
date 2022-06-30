@@ -132,6 +132,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `chocolate-doom.sh`- DOOM source port - **Installs**
 - [X] - `chocolate-doom-system.sh`- For setting up DOOM as an emulated system, not port. - **Installs**
 - [X] - `chromium.sh` - Open Source Web Browser - **Installs**
+- [X] - `chopper258.sh` - Chopper Commando Revisited - A modern port of Chopper Commando (DOS, 1990) - **Installs, Plays fine, needs keyboard**
 - [X] - `corsixth.sh` - Theme Hospital engine clone - **Installs**
 - [X] - `crack-attack.sh` - Tetris Attack clone - **Installs**
 - [X] - `crispy-doom.sh` - DOOM source port - **Installs**
@@ -199,6 +200,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `pcexhumed.sh` - PCExhumed - Powerslave source port - **Installs Runs fine**
 - [X] - `piegalaxy.sh` - Pie Galaxy - Download and install GOG.com games in RetroPie - **Installs Runs, Cant login to test**
 - [X] - `pingus.sh` - Lemmings clone - **Installs**
+- [X] - `prototype.sh` - Free R-Type remake by Ron Bunce - Gamepad support incomplete. **Installs, Plays fine, needs keyboard**
 - [X] - `pokerth.sh` - open source online poker  - **Installs**
 - [X] - `prboom-plus.sh` - Enhanced DOOM source port - **Installs**
 - [X] - `putty.sh` - SSH and telnet client - **Installs Runs fine**
