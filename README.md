@@ -120,16 +120,15 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `lr-vitaquake3.sh` - Quake 3 engine - vitaQuake III (ioquake3) port for libretro **PSVita only**
 
 #### Ports
-
-- [X] - `amphetamine.sh` - 2D Platforming Game - **Installs**
-- [X] - `augustus.sh` - Augustus - Enhanced Caesar III source port - **Installs**
+- [X] - `abuse.sh` - Classic action game -   **Installs Plays fine, needs keyboard**
+- [X] - `augustus.sh` - Augustus - Enhanced Caesar III source port - **Installs plays fine, needs mouse**
 - [X] - `audacity.sh` - Audacity open-source digital audio editor - **Installs Runs fine**
 - [X] - `barrage.sh` - Shooting Gallery action game - **Installs**
 - [X] - `bermudasyndrome.sh` - Bermuda Syndrome engine - **Installs**
 - [X] - `bloboats.sh` - Fun physics game - **Installs**
 - [X] - `breaker.sh` - Arkanoid clone - **Installs**
 - [X] - `burgerspace.sh` - BurgerTime clone - **Installs**
-- [X] - `bstone.sh` - Blake Stone - BStone A source port of Blake Stone: Aliens of Gold and Blake Stone: Planet Strike 
+- [X] - `bstone.sh` - Blake Stone - BStone A source port of Blake Stone: Aliens of Gold and Blake Stone: Planet Strike **Installs, Plays great**
 - [X] - `chocolate-doom.sh`- DOOM source port - **Installs**
 - [X] - `chocolate-doom-system.sh`- For setting up DOOM as an emulated system, not port. - **Installs**
 - [X] - `chromium.sh` - Open Source Web Browser - **Installs**
