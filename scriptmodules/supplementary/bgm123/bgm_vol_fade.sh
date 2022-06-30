@@ -9,6 +9,8 @@
 # https://github.com/crcerror/RetroPie-Shares/blob/master/BGM_vol_fade.sh
 #
 
+#autoconf
+
 # avoid multiple starts
 wait=0
 while [[ "$(pgrep -c -f $(basename $0))" -gt 1 ]]; do
@@ -21,8 +23,14 @@ done
 readonly MIXER_CHANNEL="HDMI"
 readonly MUSIC_PLAYER="mpg123"
 
+# command for amixer (use -M for mapped volume)
+# dnn't quote $MIXER in commands when -M (or any params) are used
+MIXER="amixer"
+[[ "$mapped_volume" -eq 1 ]] && MIXER="amixer -M"
+readonly MIXER
+
 # get mixer volume
-readonly VOLUME_RAW="$(amixer -M get $MIXER_CHANNEL | grep -o '...%')"
+readonly VOLUME_RAW="$($MIXER get $MIXER_CHANNEL | grep -o '...%')"
 readonly MIXER_VOLUME="${VOLUME_RAW//[![:digit:]]}"
 
 # get player status
@@ -35,30 +43,32 @@ fade_volume=""
 volume_step=""
 
 function setStep() {
+    # set dynamic step size for true volume
     case "$fade_volume" in
         [1-4][0-9]|50) volume_step="5" ;;
         [5-7][0-9]|80) volume_step="3" ;;
-        [8-9][0-9]|100) volume_step="2" ;;
+        [8-9][0-9]|100) volume_step="1" ;;
         *) volume_step="5" ;;
     esac
 }
 
 function volumeZero() {
-    amixer -q -M set "$MIXER_CHANNEL" 0%
+    $MIXER -q set "$MIXER_CHANNEL" 0%
 }
 
 function volumeReset() {
-    amixer -q -M set "$MIXER_CHANNEL" "${MIXER_VOLUME}%"
+    $MIXER -q set "$MIXER_CHANNEL" "${MIXER_VOLUME}%"
 }
 
 # if flag -(s)top, or status=(r)unning or interruptable (s)leep
 if [[ "${PLAYER_STATUS,,}" == *s* || "${PLAYER_STATUS,,}" == *r* ]]; then
     # fade out and stop player
     fade_volume="$MIXER_VOLUME"
+    volume_step="$[$MIXER_VOLUME /20]"
     until [[ "$fade_volume" -le 10 ]]; do
-        setStep
+        [[ "$mapped_volume" -eq 1 ]] || setStep
         fade_volume="$[$fade_volume -$volume_step]"
-        amixer -q -M set "$MIXER_CHANNEL" "${fade_volume}%"
+        $MIXER -q set "$MIXER_CHANNEL" "${fade_volume}%"
         sleep 0.1
     done
     volumeZero
@@ -73,10 +83,11 @@ elif [[ "${PLAYER_STATUS,,}" == *t* ]]; then
     sleep 0.5
     pkill -CONT "$MUSIC_PLAYER"
     fade_volume="10"
+    volume_step="$[$MIXER_VOLUME /20]"
     until [[ "$fade_volume" -ge "$MIXER_VOLUME" ]]; do
-        setStep
+        [[ "$mapped_volume" -eq 1 ]] || setStep
         fade_volume="$[$fade_volume +$volume_step]"
-        amixer -q -M set "$MIXER_CHANNEL" "${fade_volume}%"
+        $MIXER -q set "$MIXER_CHANNEL" "${fade_volume}%"
         sleep 0.2
     done
     volumeReset
