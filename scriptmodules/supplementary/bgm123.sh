@@ -31,6 +31,10 @@ function _onend_bgm123() {
     echo "$configdir/all/runcommand-onend.sh"
 }
 
+function _autoconf_bgm123() {
+    echo "$configdir/all/$md_id.cfg"
+}
+
 function _gamelist_bgm123() {
     local xmlfile="$datadir/retropiemenu/gamelist.xml"
     [[ -f "$xmlfile" ]] || xmlfile="$configdir/all/emulationstation/gamelists/retropie/gamelist.xml"
@@ -42,19 +46,11 @@ function depends_bgm123() {
 }
 
 function install_bin_bgm123() {
-    local fadescript="bgm_vol_fade.sh"
-    local menuconf="$md_inst/$md_id.menuconf"
-    local autoconf="$configdir/all/$md_id.cfg"
+    local scriptname="bgm_vol_fade.sh"
 
-    cp "$md_data/$fadescript" "$md_inst"
-    cp "$md_data/menu.sh" "$md_inst/$md_id.sh"
+    cp "$md_data/$scriptname" "$md_inst"
     cp -f "$md_data/icon.png" "$datadir/retropiemenu/icons/$md_id.png"
-
-    sed -i 's|.*#menuconf.*|source "'"$menuconf"'" #menuconf|' "$md_inst/$md_id.sh"
-    sed -i 's|.*#autoconf.*|source "'"$autoconf"'" #autoconf|' "$md_inst/$md_id.sh"
-    sed -i 's|.*#autoconf.*|source "'"$autoconf"'" #autoconf|' "$md_inst/$fadescript"
-
-    ln -sf "$md_inst/$md_id.sh" "$datadir/retropiemenu/$md_id.sh"
+    touch "$datadir/retropiemenu/$md_id.rp"
     chown -R $user:$user "$datadir/retropiemenu"
 }
 
@@ -67,11 +63,11 @@ function configure_bgm123() {
     onstart="$(_onstart_bgm123)"
     local onend
     onend="$(_onend_bgm123)"
+    local autoconf
+    autoconf="$(_autoconf_bgm123)"
     local gamelist
     gamelist="$(_gamelist_bgm123)"
 
-    local menuconf="$md_inst/$md_id.menuconf"
-    local autoconf="$configdir/all/$md_id.cfg"
     local share="$datadir/bgm"
     local file
 
@@ -85,35 +81,21 @@ function configure_bgm123() {
         fi
     done
 
-    cat > "$menuconf" << _EOF_
-# Menu variables for bgm123
-__backtitle="$__backtitle"
-autostart="$autostart"
-bashrc="$bashrc"
-onstart="$onstart"
-onend="$onend"
-rootdir="$rootdir"
-configdir="$configdir"
-scriptdir="$scriptdir"
-datadir="$datadir"
-md_inst="$md_inst"
-user="$user"
-_EOF_
-    chown $user:$user "$menuconf"
-
     local tmp
     tmp="$(mktemp)"
     iniConfig "=" '"' "$tmp"
     echo -e '# Configuration file for bgm123\n' >> "$tmp"
     iniSet "installed" "0"
-    iniSet "music_player" "mpg123"
     iniSet "mapped_volume" "1"
+    iniSet "music_player" "mpg123"
     copyDefaultConfig "$tmp" "$autoconf"
     rm -f "$tmp"
 
-    if ! grep "<path>./$md_id.sh</path>" "$gamelist" >/dev/null; then
+    sed -i 's|.*#autoconf.*|source "'"$autoconf"'" #autoconf|' "$md_inst/$scriptname"
+
+    if ! grep "<path>./$md_id.rp</path>" "$gamelist" >/dev/null; then
         xmlstarlet ed -L -s "/gameList" -t elem -n "gameTMP" \
-          -s "//gameTMP" -t elem -n path -v "./$md_id.sh" \
+          -s "//gameTMP" -t elem -n path -v "./$md_id.rp" \
           -s "//gameTMP" -t elem -n name -v "Background Music" \
           -s "//gameTMP" -t elem -n desc -v "Configure and control background music player. Enable or disable menu music while browsing and pause, resume, or skip current track." \
           -s "//gameTMP" -t elem -n image -v "./icons/$md_id.png" \
@@ -151,7 +133,7 @@ function enable_bgm123() {
         chown $user:$user "$file"
     done
 
-    echo -e "$(echo -e 'while pgrep omxplayer >/dev/null; do sleep 1; done #bgm123\n((vcgencmd force_audio hdmi 1) >/dev/null; sleep 6; (pgrep emulationstatio >/dev/null && mpg123 -Z "'$datadir'/bgm/"*.[mM][pP]3 >/dev/null 2>&1)) & #bgm123'; cat $autostart)" > "$autostart"
+    echo -e "$(echo -e 'while pgrep omxplayer >/dev/null; do sleep 1; done #bgm123\n((vcgencmd force_audio hdmi 1) >/dev/null; sleep 8; (pgrep emulationstatio >/dev/null && mpg123 -Z "'$datadir'/bgm/"*.[mM][pP]3 >/dev/null 2>&1)) & #bgm123'; cat $autostart)" > "$autostart"
     echo '[[ "$(tty)" == "/dev/tty1" ]] && ((vcgencmd force_audio hdmi 0) >/dev/null; sleep 0.5; pkill mpg123) #bgm123' >> "$bashrc"
     echo 'bash "'"$fadescript"'" -STOP & #bgm123' >> "$onstart"
     echo '(sleep 1; "bash '"$fadescript"'" -CONT) & #bgm123' >> "$onend"
@@ -190,53 +172,45 @@ function remove_bgm123() {
     local gamelist
     gamelist="$(_gamelist_bgm123)"
 
-    rm -f "$datadir/retropiemenu/$md_id.sh" "$datadir/retropiemenu/icons/$md_id.png"
-    xmlstarlet ed -L -d "/gameList/game[contains(path,'$md_id.sh')]" "$gamelist"
+    rm -f "$datadir/retropiemenu/$md_id.rp" "$datadir/retropiemenu/icons/$md_id.png"
+    xmlstarlet ed -L -d "/gameList/game[contains(path,'$md_id.rp')]" "$gamelist"
 
     disable_bgm123
     remove_share_samba "bgm"
     restart_samba
 }
 
-function play_pause_bgm123() {
-    if pgrep mpg123 >/dev/null; then
-        su "$user" -c "bash $md_inst/bgm_vol_fade.sh &"
-    else
-        su "$user" -c "((vcgencmd force_audio hdmi 1) >/dev/null; sleep 0.5; mpg123 -Z $datadir/bgm/*.[mM][pP]3 >/dev/null 2>&1) &"
-    fi
-}
-
-function next_track_bgm123() {
-    pkill mpg123
-    su "$user" -c "((vcgencmd force_audio hdmi 1) >/dev/null; sleep 0.5; mpg123 -Z $datadir/bgm/*.[mM][pP]3 >/dev/null 2>&1) &"
-}
-
 function gui_bgm123() {
+    local autoconf
+    autoconf="$(_autoconf_bgm123)"
+
     local cmd=(dialog --backtitle "$__backtitle" --cancel-label "Back" --menu "Configuration for $md_id. Please choose an option." 22 86 16)
     while true; do
-        local enabled=0
-        grep '#bgm123' "$configdir/all/autostart.sh" >/dev/null && enabled=1
-        local options=()
-        if [[ "$enabled" -eq 1 ]]; then
+        local status="disabled"
+        grep '#bgm123' "$configdir/all/autostart.sh" >/dev/null && status="enabled"
+
+        local mapped="disabled"
+        iniConfig "=" '"' "$autoconf"
+        iniGet "mapped_volume"
+        [[ "$ini_value" -eq 1 ]] && mapped="enabled"
+
+        local options=(
+            1 "Enable or disable background music (currently: ${status^})"
+            2 "Enable or disable mapped volume profile (currently: ${mapped^})"
+        )
+
+        if [[ "${status,,}" == "enabled" ]] && pgrep emulationstatio >/dev/null; then
             options+=(
-                E "Enable or disable background music (currently: Enabled)"
-            )
-            if pgrep emulationstatio >/dev/null; then
-                options+=(
-                    P "Play / pause"
-                    N "Next track"
-                )
-            fi
-        else
-            options+=(
-                E "Enable or disable background music (currently: Disabled)"
+                P "Play / pause"
+                N "Next track"
             )
         fi
+
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         if [[ -n "$choice" ]]; then
             case "$choice" in
-                E)
-                    if [[ "$enabled" -eq 1 ]]; then
+                1)
+                    if [[ "${status,,}" == "enabled" ]]; then
                         disable_bgm123
                         printMsgs "dialog" "Background music disabled."
                     else
@@ -244,11 +218,25 @@ function gui_bgm123() {
                         printMsgs "dialog" "Background music enabled."
                     fi
                     ;;
+                2)
+                    if [[ "${mapped,,}" == "enabled" ]]; then
+                        iniSet "mapped_volume" "0"
+                        printMsgs "dialog" "Mapped volume disabled."
+                    else
+                        iniSet "mapped_volume" "1"
+                        printMsgs "dialog" "Mapped volume enabled."
+                    fi
+                    ;;
                 P)
-                    play_pause_bgm123
+                    if pgrep mpg123 >/dev/null; then
+                        su "$user" -c "bash $md_inst/bgm_vol_fade.sh &"
+                    else
+                        su "$user" -c "((vcgencmd force_audio hdmi 1) >/dev/null; sleep 0.5; mpg123 -Z $datadir/bgm/*.[mM][pP]3 >/dev/null 2>&1) &"
+                    fi
                     ;;
                 N)
-                    next_track_bgm123
+                    pkill mpg123
+                    su "$user" -c "((vcgencmd force_audio hdmi 1) >/dev/null; sleep 0.5; mpg123 -Z $datadir/bgm/*.[mM][pP]3 >/dev/null 2>&1) &"
                     ;;
             esac
         else

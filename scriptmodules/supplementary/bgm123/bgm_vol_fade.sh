@@ -24,7 +24,7 @@ readonly MIXER_CHANNEL="HDMI"
 readonly MUSIC_PLAYER="mpg123"
 
 # command for amixer (use -M for mapped volume)
-# dnn't quote $MIXER in commands when -M (or any params) are used
+# don't quote $MIXER in commands when -M (or any params) are used
 MIXER="amixer"
 [[ "$mapped_volume" -eq 1 ]] && MIXER="amixer -M"
 readonly MIXER
