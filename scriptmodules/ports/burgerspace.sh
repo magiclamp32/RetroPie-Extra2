@@ -24,5 +24,5 @@ function configure_burgerspace() {
     mkRomDir "ports"
 
     moveConfigDir "$home/.burgerspace" "$md_conf_root/$md_id"
-    addPort "$md_id" "burgerspace" "BurgerSpace - BurgerTime clone" "xinit /usr/games/burgerspace"
+    addPort "$md_id" "burgerspace" "BurgerSpace - BurgerTime clone" "XINIT: /usr/games/burgerspace"
 }

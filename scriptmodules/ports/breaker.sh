@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_breaker() {
-    getDepends libsdl2-dev unzip
+    getDepends libsdl2-dev unzip xorg xinit x11-xserver-utils
 }
 
 function sources_breaker() {
@@ -39,5 +39,5 @@ function install_breaker() {
 
 function configure_breaker() {
     mkRomDir "ports"
-    addPort "$md_id" "breaker" "breaker - Arkanoid Clone" "pushd $md_inst; ./breaker; popd"
+    addPort "$md_id" "breaker" "breaker - Arkanoid Clone" "XINIT: pushd $md_inst; ./breaker; popd"
 }

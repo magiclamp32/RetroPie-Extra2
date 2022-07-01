@@ -123,20 +123,20 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `abuse.sh` - Classic action game -   **Installs Plays fine, needs keyboard**
 - [X] - `augustus.sh` - Augustus - Enhanced Caesar III source port - **Installs plays fine, needs mouse**
 - [X] - `audacity.sh` - Audacity open-source digital audio editor - **Installs Runs fine**
-- [X] - `barrage.sh` - Shooting Gallery action game - **Installs**
-- [X] - `bermudasyndrome.sh` - Bermuda Syndrome engine - **Installs**
-- [X] - `bloboats.sh` - Fun physics game - **Installs**
-- [X] - `breaker.sh` - Arkanoid clone - **Installs**
-- [X] - `burgerspace.sh` - BurgerTime clone - **Installs**
+- [X] - `barrage.sh` - Shooting Gallery action game - **Installs, Plays fine, needs mouse**
+- [X] - `bermudasyndrome.sh` - Bermuda Syndrome engine - **Installs, plays fine, cant exit, but thats the desine of the engine not the script**
+- [X] - `bloboats.sh` - Fun physics game - **Installs play fine**
+- [X] - `breaker.sh` - Arkanoid clone - **Installs, plays fine, need to drop the resolutions to 640-480**
+- [X] - `burgerspace.sh` - BurgerTime clone - **Installs, plays fine, need to drop the resolutions to 640-480**
 - [X] - `bstone.sh` - Blake Stone - BStone A source port of Blake Stone: Aliens of Gold and Blake Stone: Planet Strike **Installs, Plays great**
-- [X] - `chocolate-doom.sh`- DOOM source port - **Installs**
-- [X] - `chocolate-doom-system.sh`- For setting up DOOM as an emulated system, not port. - **Installs**
-- [X] - `chromium.sh` - Open Source Web Browser - **Installs**
+- [X] - `chocolate-doom.sh`- DOOM source port - **Installs, plays great**
+- [X] - `chocolate-doom-system.sh`- For setting up DOOM as an emulated system, not port. - **Installs Plays great**
+- [X] - `chromium.sh` - Open Source Web Browser - **Installs, Work well**
 - [X] - `chopper258.sh` - Chopper Commando Revisited - A modern port of Chopper Commando (DOS, 1990) - **Installs, Plays fine, needs keyboard**
 - [X] - `corsixth.sh` - Theme Hospital engine clone - **Installs**
 - [X] - `crack-attack.sh` - Tetris Attack clone - **Installs**
-- [X] - `crispy-doom.sh` - DOOM source port - **Installs**
-- [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port. - **Installs**
+- [X] - `crispy-doom.sh` - DOOM source port - **Installs, Plays great**
+- [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port. - **Installs, Plays great**
 - [X] - `cytadela.sh` - Cytadela project - a conversion of an Amiga first person shooter - **Installs**
 - [X] - `deadbeef.sh` - Music and ripped game music player - **Installs**
 - [X] - `devilutionx.sh` - Diablo source port - **Installs**

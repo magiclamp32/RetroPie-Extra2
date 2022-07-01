@@ -35,5 +35,5 @@ matchbox-window-manager -use_titlebar no &
 _EOF_
     chmod +x "$md_inst/chromium.sh"
 
-    addPort "$md_id" "chromium" "Chromium - Open Source Web Browser" "xinit $md_inst/chromium.sh"
+    addPort "$md_id" "chromium" "Chromium - Open Source Web Browser" "XINIT: $md_inst/chromium.sh"
 }

@@ -43,5 +43,5 @@ function install_bin_bloboats() {
 function configure_bloboats() {
     mkdir "ports"
     moveConfigDir "$home/.bloboats" "$md_conf_root/bloboats"
-    addPort "$md_id" "bloboats" "Bloboats" "LD_LIBRARY_PATH=/opt/retropie/supplementary/glshim LIBGL_FB=1 xinit bloboats"
+    addPort "$md_id" "bloboats" "Bloboats" "XINIT: /usr/games/bloboats"
 }

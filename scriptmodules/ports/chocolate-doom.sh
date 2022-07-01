@@ -13,6 +13,7 @@ rp_module_id="chocolate-doom"
 rp_module_desc="Chocolate Doom - Enhanced port of the official DOOM source"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/chocolate-doom/chocolate-doom/sdl2-branch/COPYING"
 rp_module_help="Please add your iWAD files to $romdir/ports/doom/ and reinstall $md_id to create entries for each game to EmulationStation. Run 'chocolate-doom-setup' to configure your controls and options."
+rp_module_repo="git https://github.com/chocolate-doom/chocolate-doom.git"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
@@ -21,7 +22,7 @@ function depends_chocolate-doom() {
 }
 
 function sources_chocolate-doom() {
-    gitPullOrClone "$md_build" https://github.com/chocolate-doom/chocolate-doom.git
+    gitPullOrClone 
 }
 
 function build_chocolate-doom() {
@@ -49,25 +50,25 @@ function install_chocolate-doom() {
     )
 }
 
-function configure_chocolate-doom() {
+function game_data_chocolate-doom() {
     mkRomDir "ports"
     mkRomDir "ports/doom"
-
-    mkUserDir "$home/.config"
-    moveConfigDir "$home/.chocolate-doom" "$md_conf_root/chocolate-doom"
-
-    # download doom 1 shareware
     if [[ ! -f "$romdir/ports/doom/doom1.wad" ]]; then
         wget "$__archive_url/doom1.wad" -O "$romdir/ports/doom/doom1.wad"
     fi
 
     if [[ ! -f "$romdir/ports/doom/freedoom1.wad" ]]; then
         wget "https://github.com/freedoom/freedoom/releases/download/v0.12.1/freedoom-0.12.1.zip"
-        unzip freedoom-0.12.1.zip 
+        unzip freedoom-0.12.1.zip
         mv freedoom-0.12.1/*.wad "$romdir/ports/doom"
         rm -rf freedoom-0.12.1
         rm freedoom-0.12.1.zip
     fi
+}
+
+function configure_chocolate-doom() {
+    mkUserDir "$home/.config"
+    moveConfigDir "$home/.chocolate-doom" "$md_conf_root/chocolate-doom"
 
     # Temporary until the official RetroPie WAD selector is complete.
     if [[ -f "$romdir/ports/doom/doom1.wad" ]]; then
@@ -134,4 +135,8 @@ function configure_chocolate-doom() {
        chown $user:$user "$romdir/ports/doom/strife1.wad"
        addPort "$md_id" "chocolate-strife1" "Chocolate Strife" "$md_inst/chocolate-strife -iwad $romdir/ports/doom/strife1.wad"
     fi
+
+    [[ "$md_mode" == "install" ]] && game_data_chocolate-doom
+    [[ "$md_mode" == "remove" ]] && return
+
 }

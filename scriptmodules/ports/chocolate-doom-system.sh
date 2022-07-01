@@ -13,6 +13,7 @@ rp_module_id="chocolate-doom-system"
 rp_module_desc="Chocolate Doom - Enhanced port of the official DOOM source"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/chocolate-doom/chocolate-doom/sdl2-branch/COPYING"
 rp_module_help="Please add your iWAD files to $romdir/ports/doom/ with filenames in lowercase. Run 'chocolate-doom-setup' to configure your controls and options."
+rp_module_repo="git https://github.com/chocolate-doom/chocolate-doom.git"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
@@ -21,7 +22,7 @@ function depends_chocolate-doom-system() {
 }
 
 function sources_chocolate-doom-system() {
-    gitPullOrClone "$md_build" https://github.com/chocolate-doom/chocolate-doom.git
+    gitPullOrClone 
 }
 
 function build_chocolate-doom-system() {
@@ -49,13 +50,8 @@ function install_chocolate-doom-system() {
     )
 }
 
-function configure_chocolate-doom-system() {
+function game_data_chocolate-doom-system() {
     mkRomDir "doom"
-
-    mkUserDir "$home/.config"
-    moveConfigDir "$home/.local/share/chocolate-doom" "$md_conf_root/chocolate-doom"
-
-    # download doom 1 shareware
     if [[ ! -f "$romdir/doom/doom1.wad" ]]; then
         wget "$__archive_url/doom1.wad" -O "$romdir/doom/doom1.wad"
     fi
@@ -67,14 +63,18 @@ function configure_chocolate-doom-system() {
         rm -rf freedoom-0.12.1
         rm freedoom-0.12.1.zip
     fi
+}
 
-#    chown $user:$user "$romdir/doom/*"
-    addEmulator 0 "chocolate-doom" "doom" "$md_inst/chocolate-doom -iwad $romdir/doom/doom.wad -file %ROM%"
-    addEmulator 0 "chocolate-doom1" "doom" "$md_inst/chocolate-doom -iwad $romdir/doom/doom1.wad -file %ROM%"
-    addEmulator 0 "chocolate-doom2" "doom" "$md_inst/chocolate-doom -iwad $romdir/doom/doom2.wad -file %ROM%"
-    addEmulator 0 "chocolate-doomu" "doom" "$md_inst/chocolate-doom -iwad $romdir/doom/doomu.wad -file %ROM%"
-    addEmulator 0 "chocolate-freedoom1" "doom" "$md_inst/chocolate-doom -iwad $romdir/doom/freedoom1.wad -file %ROM%"
-    addEmulator 0 "chocolate-freedoom2" "doom" "$md_inst/chocolate-doom -iwad $romdir/doom/freedoom2.wad -file %ROM%"
+function configure_chocolate-doom-system() {
+    setConfigRoot ""
+    addEmulator 1 "chocolate-doom" "doom" "$md_inst/chocolate-doom -iwad %ROM%"
+    addEmulator 0 "chocolate-heretic" "doom" "$md_inst/chocolate-heretic -iwad %ROM%"
+    addEmulator 0 "chocolate-hexen" "doom" "$md_inst/chocolate-hexen -iwad %ROM%"
+    addEmulator 0 "chocolate-strife" "doom" "$md_inst/chocolate-strife -iwad %ROM%"
     addSystem "doom" "DOOM" ".pk3 .wad"
+
+    moveConfigDir "$home/.doom" "$configdir/doom"
+    [[ "$md_mode" == "install" ]] && game_data_chocolate-doom-system
+    [[ "$md_mode" == "remove" ]] && return
 
 }

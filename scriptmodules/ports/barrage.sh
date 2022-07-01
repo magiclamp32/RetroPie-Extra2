@@ -15,12 +15,16 @@ rp_module_licence="GPL2 https://sourceforge.net/p/lgames/code/HEAD/tree/trunk/ba
 rp_module_section="exp"
 rp_module_flags="!mali"
 
+function depends_barrage() {
+   getDepends xorg xinit x11-xserver-utils 
+}
+
 function install_bin_barrage() {
      aptInstall barrage
 }
 
 function configure_barrage() {
     mkRomDir "ports"
-    moveConfigFile "$home/.lgames/barrage.conf" "$md_conf_root/barrage/barrage.conf"
-    addPort "$md_id" "barrage" "barrage - Shooting Range action game" "/usr/games/barrage"
+    #moveConfigFile "$home/.lgames/barrage.conf" "$md_conf_root/barrage/barrage.conf"
+    addPort "$md_id" "barrage" "barrage - Shooting Range action game" "XINIT: /usr/games/barrage"
 }
