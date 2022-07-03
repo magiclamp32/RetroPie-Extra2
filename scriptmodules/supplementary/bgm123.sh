@@ -13,30 +13,20 @@ rp_module_id="bgm123"
 rp_module_desc="Straightforward background music player using mpg123"
 rp_module_help="Place your MP3 files in $datadir/bgm"
 rp_module_section="exp"
-rp_module_flags="!all rpi"
+rp_module_flags=""
 
-function _autostart_bgm123() {
-    echo "$configdir/all/autostart.sh"
-}
-
-function _bashrc_bgm123() {
-    echo "$home/.bashrc"
-}
-
-function _onstart_bgm123() {
-    echo "$configdir/all/runcommand-onstart.sh"
-}
-
-function _onend_bgm123() {
-    echo "$configdir/all/runcommand-onend.sh"
-}
-
-function _autoconf_bgm123() {
-    echo "$configdir/all/$md_id.cfg"
-}
-
-function _menudir_bgm123() {
-    echo "$datadir/retropiemenu"
+function _get_vars_bgm123() {
+    case "$1" in
+        autostart) echo "$configdir/all/autostart.sh" ;;
+        bashrc) echo "$home/.bashrc" ;;
+        onstart) echo "$configdir/all/runcommand-onstart.sh" ;;
+        onend) echo "$configdir/all/runcommand-onend.sh" ;;
+        autoconf) echo "$configdir/all/$md_id.cfg" ;;
+        menudir) echo "$datadir/retropiemenu" ;;
+        init) echo "$md_inst/bgm_start.sh" ;;
+        killscript) echo "$md_inst/bgm_stop.sh" ;;
+        fadescript) echo "$md_inst/bgm_fade.sh" ;;
+    esac
 }
 
 function depends_bgm123() {
@@ -44,15 +34,19 @@ function depends_bgm123() {
 }
 
 function install_bin_bgm123() {
-    local autoconf
-    autoconf="$(_autoconf_bgm123)"
-    local menudir
-    menudir="$(_menudir_bgm123)"
+    local autoconf && autoconf="$(_get_vars_bgm123 autoconf)"
+    local menudir && menudir="$(_get_vars_bgm123 menudir)"
+    local file
+    local scripts=(
+        'bgm_start.sh'
+        'bgm_stop.sh'
+        'bgm_fade.sh'
+    )
 
-    local scriptname="bgm_vol_fade.sh"
-
-    cp "$md_data/$scriptname" "$md_inst"
-    sed -i 's|.*#autoconf.*|source "'"$autoconf"'" #autoconf|' "$md_inst/$scriptname"
+    for file in "${scripts[@]}"; do
+        cp "$md_data/$file" "$md_inst"
+        sed -i 's|.*#autoconf.*|source "'"$autoconf"'" #autoconf|' "$md_inst/$file"
+    done
 
     cp -f "$md_data/icon.png" "$menudir/icons/$md_id.png"
     touch "$menudir/$md_id.rp"
@@ -60,30 +54,23 @@ function install_bin_bgm123() {
 }
 
 function configure_bgm123() {
-    local autostart
-    autostart="$(_autostart_bgm123)"
-    local bashrc
-    bashrc="$(_bashrc_bgm123)"
-    local onstart
-    onstart="$(_onstart_bgm123)"
-    local onend
-    onend="$(_onend_bgm123)"
-    local autoconf
-    autoconf="$(_autoconf_bgm123)"
-    local menudir
-    menudir="$(_menudir_bgm123)"
+    local autostart && autostart="$(_get_vars_bgm123 autostart)"
+    local bashrc && bashrc="$(_get_vars_bgm123 bashrc)"
+    local onstart && onstart="$(_get_vars_bgm123 onstart)"
+    local onend && onend="$(_get_vars_bgm123 onend)"
+    local autoconf && autoconf="$(_get_vars_bgm123 autoconf)"
+    local menudir && menudir="$(_get_vars_bgm123 menudir)"
+    local share="$datadir/bgm"
+    local file
 
     local gamelist="$menudir/gamelist.xml"
     [[ -f "$gamelist" ]] || gamelist="$configdir/all/emulationstation/gamelists/retropie/gamelist.xml"
-
-    local share="$datadir/bgm"
-    local file
 
     if [[ "$md_mode" == "remove" ]]; then
         rm -f "$menudir/$md_id.rp" "$menudir/icons/$md_id.png"
         xmlstarlet ed -L -d "/gameList/game[contains(path,'$md_id.rp')]" "$gamelist"
 
-        enable_bgm123 "DISABLE"
+        toggle_bgm123 "off"
         remove_share_samba "bgm"
         restart_samba
         return
@@ -107,14 +94,16 @@ function configure_bgm123() {
           "$gamelist"
     fi
 
-    [[ -f "$autoconf"  ]] || enable_bgm123 "ENABLE"
+    [[ -f "$autoconf"  ]] || toggle_bgm123 on
 
     local tmp
     tmp="$(mktemp)"
     iniConfig "=" '"' "$tmp"
     echo '# Configuration file for bgm123' > "$tmp"
+    iniSet "mixer_channel" "HDMI"
     iniSet "music_player" "mpg123"
-    iniSet "mapped_volume" "1"
+    iniSet "music_dir" "$share"
+    iniSet "mapped_volume" "enabled"
     copyDefaultConfig "$tmp" "$autoconf"
     rm -f "$tmp"
 
@@ -123,17 +112,14 @@ function configure_bgm123() {
     restart_samba
 }
 
-function enable_bgm123() {
-    local autostart
-    autostart="$(_autostart_bgm123)"
-    local bashrc
-    bashrc="$(_bashrc_bgm123)"
-    local onstart
-    onstart="$(_onstart_bgm123)"
-    local onend
-    onend="$(_onend_bgm123)"
-
-    local fadescript="$md_inst/bgm_vol_fade.sh"
+function toggle_bgm123() {
+    local autostart && autostart="$(_get_vars_bgm123 autostart)"
+    local bashrc && bashrc="$(_get_vars_bgm123 bashrc)"
+    local onstart && onstart="$(_get_vars_bgm123 onstart)"
+    local onend && onend="$(_get_vars_bgm123 onend)"
+    local init && init="$(_get_vars_bgm123 init)"
+    local killscript && killscript="$(_get_vars_bgm123 killscript)"
+    local fadescript && fadescript="$(_get_vars_bgm123 fadescript)"
     local file
 
     # backup files and attempt to remove any existing bgm config
@@ -145,51 +131,61 @@ function enable_bgm123() {
         fi
     done
 
-    if [[ "${1,,}" == "enable" ]]; then
+    if [[ "$1" == "on" || "$1" == "enable"?("d") ]]; then
         for file in "$autostart" "$bashrc" "$onstart" "$onend"; do
             touch "$file"
             chown $user:$user "$file"
         done
 
-        echo -e "$(echo -e 'while pgrep omxplayer >/dev/null; do sleep 1; done #bgm123\n((vcgencmd force_audio hdmi 1) >/dev/null; sleep 8; (pgrep emulationstatio >/dev/null && mpg123 -Z "'$datadir'/bgm/"*.[mM][pP]3 >/dev/null 2>&1)) & #bgm123'; cat $autostart)" > "$autostart"
-        echo '[[ "$(tty)" == "/dev/tty1" ]] && ((vcgencmd force_audio hdmi 0) >/dev/null; sleep 0.5; pkill mpg123) #bgm123' >> "$bashrc"
-        echo 'bash "'"$fadescript"'" -STOP & #bgm123' >> "$onstart"
-        echo '(sleep 1; "bash '"$fadescript"'" -CONT) & #bgm123' >> "$onend"
+        echo "$(echo -e 'while pgrep omxplayer >/dev/null; do sleep 1; done #bgm123\n(sleep 10; bash "'"$init"'") & #bgm123'; cat $autostart)" > "$autostart"
+        echo '[[ "$(tty)" == "/dev/tty1" ]] && (bash "'"$killscript"'" &) #bgm123' >> "$bashrc"
+        echo "$(echo 'bash "'"$fadescript"'" -STOP & #bgm123'; cat $onstart)" > "$onstart"
+        echo '(sleep 1; bash "'"$fadescript"'" -CONT) & #bgm123' >> "$onend"
+
+        printMsgs "console" "Background music enabled."
     else
         # kill player now since .bashrc won't do it later
-        (vcgencmd force_audio hdmi 0) >/dev/null
-        sleep 0.5
-        pkill mpg123
+        su "$user" -c "bash $killscript"
 
         for file in "$onstart" "$onend"; do
             # if file is now empty, remove it
             [[ -f "$file" && ! -s "$file" ]] && rm -f "$file"
         done
+
+        printMsgs "console" "Background music disabled."
     fi
 }
 
+## because I still keep trying to use the old ones on command-line:
+function disable_bgm123() {
+    toggle_bgm123 off
+}
+
+function enable_bgm123() {
+    toggle_bgm123 on
+}
+
 function gui_bgm123() {
-    local autostart
-    autostart="$(_autostart_bgm123)"
-    local autoconf
-    autoconf="$(_autoconf_bgm123)"
+    local autostart && autostart="$(_get_vars_bgm123 autostart)"
+    local autoconf && autoconf="$(_get_vars_bgm123 autoconf)"
+    local init && init="$(_get_vars_bgm123 init)"
+    local killscript && killscript="$(_get_vars_bgm123 killscript)"
+    local fadescript && fadescript="$(_get_vars_bgm123 fadescript)"
 
     local cmd=(dialog --backtitle "$__backtitle" --cancel-label "Back" --menu "Configuration for $md_id. Please choose an option." 22 86 16)
+    iniConfig "=" '"' "$autoconf"
     while true; do
-        iniConfig "=" '"' "$autoconf"
-
         local status="disabled"
         grep '#bgm123' "$autostart" >/dev/null && status="enabled"
 
-        local mapped="disabled"
-        iniGet "mapped_volume"
-        [[ "$ini_value" -eq 1 ]] && mapped="enabled"
+        local mapped
+        iniGet "mapped_volume" && mapped="$ini_value"
 
         local options=(
             1 "Enable or disable background music (currently: ${status^})"
             2 "Enable or disable mapped volume profile (currently: ${mapped^})"
         )
-        if [[ "${status,,}" == "enabled" ]] && pgrep emulationstatio >/dev/null; then
+        if [[ "$status" == "enabled" ]] && pgrep emulationstatio >/dev/null; then
             options+=(
                 P "Play / pause"
                 N "Next track"
@@ -200,33 +196,32 @@ function gui_bgm123() {
         if [[ -n "$choice" ]]; then
             case "$choice" in
                 1)
-                    if [[ "${status,,}" == "enabled" ]]; then
-                        enable_bgm123 "DISABLE"
+                    if [[ "$status" == "enabled" ]]; then
+                        toggle_bgm123 off
                         printMsgs "dialog" "Background music disabled."
                     else
-                        enable_bgm123 "ENABLE"
+                        toggle_bgm123 on
                         printMsgs "dialog" "Background music enabled."
                     fi
                     ;;
                 2)
-                    if [[ "${mapped,,}" == "enabled" ]]; then
-                        iniSet "mapped_volume" "0"
+                    if [[ "$mapped" == "enabled" ]]; then
+                        iniSet "mapped_volume" "disabled"
                         printMsgs "dialog" "Mapped volume disabled."
                     else
-                        iniSet "mapped_volume" "1"
+                        iniSet "mapped_volume" "enabled"
                         printMsgs "dialog" "Mapped volume enabled."
                     fi
                     ;;
                 P)
                     if pgrep mpg123 >/dev/null; then
-                        su "$user" -c "bash $md_inst/bgm_vol_fade.sh &"
+                        su "$user" -c "bash $fadescript &"
                     else
-                        su "$user" -c "((vcgencmd force_audio hdmi 1) >/dev/null; sleep 0.5; mpg123 -Z $datadir/bgm/*.[mM][pP]3 >/dev/null 2>&1) &"
+                        su "$user" -c "bash $init &"
                     fi
                     ;;
                 N)
-                    pkill mpg123
-                    su "$user" -c "((vcgencmd force_audio hdmi 1) >/dev/null; sleep 0.5; mpg123 -Z $datadir/bgm/*.[mM][pP]3 >/dev/null 2>&1) &"
+                    su "$user" -c "(bash $killscript; sleep 1; bash $init) &"
                     ;;
             esac
         else

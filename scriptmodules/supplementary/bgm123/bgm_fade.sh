@@ -9,7 +9,7 @@
 # https://github.com/crcerror/RetroPie-Shares/blob/master/BGM_vol_fade.sh
 #
 
-#autoconf
+source #autoconf
 
 # avoid multiple starts
 wait=0
@@ -20,8 +20,8 @@ while [[ "$(pgrep -c -f $(basename $0))" -gt 1 ]]; do
 done
 
 # get mixer channel and player name
-readonly MIXER_CHANNEL="HDMI"
-readonly MUSIC_PLAYER="mpg123"
+readonly MIXER_CHANNEL="$mixer_channel"
+readonly MUSIC_PLAYER="$music_player"
 
 # command for amixer (use -M for mapped volume)
 # don't quote $MIXER in commands when -M (or any params) are used
