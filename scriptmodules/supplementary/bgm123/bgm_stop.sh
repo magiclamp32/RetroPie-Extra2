@@ -5,4 +5,4 @@
 source #autoconf
 
 vcgencmd force_audio hdmi 0 >/dev/null && sleep 0.1
-pkill "$music_player"
+pkill -9 "$music_player"
