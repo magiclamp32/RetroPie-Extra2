@@ -26,7 +26,7 @@ readonly MUSIC_PLAYER="$music_player"
 # command for amixer (use -M for mapped volume)
 # don't quote $MIXER in commands when -M (or any params) are used
 MIXER="amixer"
-[[ "$mapped_volume" -eq 1 ]] && MIXER="amixer -M"
+[[ "$mapped_volume" == "enabled" ]] && MIXER="amixer -M"
 readonly MIXER
 
 # get mixer volume
@@ -66,7 +66,7 @@ if [[ "${PLAYER_STATUS,,}" == *s* || "${PLAYER_STATUS,,}" == *r* ]]; then
     fade_volume="$MIXER_VOLUME"
     volume_step="$[$MIXER_VOLUME /20]"
     until [[ "$fade_volume" -le 10 ]]; do
-        [[ "$mapped_volume" -eq 1 ]] || setStep
+        [[ "$mapped_volume" == "enabled" ]] || setStep
         fade_volume="$[$fade_volume -$volume_step]"
         $MIXER -q set "$MIXER_CHANNEL" "${fade_volume}%"
         sleep 0.1
@@ -85,7 +85,7 @@ elif [[ "${PLAYER_STATUS,,}" == *t* ]]; then
     fade_volume="10"
     volume_step="$[$MIXER_VOLUME /20]"
     until [[ "$fade_volume" -ge "$MIXER_VOLUME" ]]; do
-        [[ "$mapped_volume" -eq 1 ]] || setStep
+        [[ "$mapped_volume" == "enabled" ]] || setStep
         fade_volume="$[$fade_volume +$volume_step]"
         $MIXER -q set "$MIXER_CHANNEL" "${fade_volume}%"
         sleep 0.2
