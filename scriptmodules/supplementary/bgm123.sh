@@ -16,17 +16,18 @@ rp_module_section="exp"
 rp_module_flags=""
 
 function _get_vars_bgm123() {
-    case "$1" in
-        autostart) echo "$configdir/all/autostart.sh" ;;
-        bashrc) echo "$home/.bashrc" ;;
-        onstart) echo "$configdir/all/runcommand-onstart.sh" ;;
-        onend) echo "$configdir/all/runcommand-onend.sh" ;;
-        autoconf) echo "$configdir/all/$md_id.cfg" ;;
-        menudir) echo "$datadir/retropiemenu" ;;
-        init) echo "$md_inst/bgm_start.sh" ;;
-        killscript) echo "$md_inst/bgm_stop.sh" ;;
-        fadescript) echo "$md_inst/bgm_fade.sh" ;;
-    esac
+    declare -A gvar=(
+        [autostart]="$configdir/all/autostart.sh"
+        [bashrc]="$home/.bashrc"
+        [onstart]="$configdir/all/runcommand-onstart.sh"
+        [onend]="$configdir/all/runcommand-onend.sh"
+        [autoconf]="$configdir/all/$md_id.cfg"
+        [menudir]="$datadir/retropiemenu"
+        [init]="$md_inst/bgm_start.sh"
+        [killscript]="$md_inst/bgm_stop.sh"
+        [fadescript]="$md_inst/bgm_fade.sh"
+    )
+    echo "${gvar[$1]}"
 }
 
 function depends_bgm123() {
