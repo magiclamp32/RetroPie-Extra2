@@ -34,8 +34,8 @@ function depends_bgm123() {
 }
 
 function install_bin_bgm123() {
-    local autoconf && autoconf="$(_get_vars_bgm123 autoconf)"
-    local menudir && menudir="$(_get_vars_bgm123 menudir)"
+    local autoconf="$(_get_vars_bgm123 autoconf)"
+    local menudir="$(_get_vars_bgm123 menudir)"
     local file
     local scripts=(
         'bgm_start.sh'
@@ -56,12 +56,12 @@ function install_bin_bgm123() {
 }
 
 function configure_bgm123() {
-    local autostart && autostart="$(_get_vars_bgm123 autostart)"
-    local bashrc && bashrc="$(_get_vars_bgm123 bashrc)"
-    local onstart && onstart="$(_get_vars_bgm123 onstart)"
-    local onend && onend="$(_get_vars_bgm123 onend)"
-    local autoconf && autoconf="$(_get_vars_bgm123 autoconf)"
-    local menudir && menudir="$(_get_vars_bgm123 menudir)"
+    local autostart="$(_get_vars_bgm123 autostart)"
+    local bashrc="$(_get_vars_bgm123 bashrc)"
+    local onstart="$(_get_vars_bgm123 onstart)"
+    local onend="$(_get_vars_bgm123 onend)"
+    local autoconf="$(_get_vars_bgm123 autoconf)"
+    local menudir="$(_get_vars_bgm123 menudir)"
     local share="$datadir/bgm"
     local file
 
@@ -78,6 +78,7 @@ function configure_bgm123() {
         toggle_bgm123 "off"
         remove_share_samba "bgm"
         restart_samba
+
         return
     fi
 
@@ -101,8 +102,7 @@ function configure_bgm123() {
     fi
 
     # create user config
-    local tmp
-    tmp="$(mktemp)"
+    local tmp="$(mktemp)"
     iniConfig "=" '"' "$tmp"
     echo '# Configuration file for bgm123' > "$tmp"
     iniSet "status" "enabled"
@@ -125,13 +125,13 @@ function configure_bgm123() {
 }
 
 function toggle_bgm123() {
-    local autostart && autostart="$(_get_vars_bgm123 autostart)"
-    local bashrc && bashrc="$(_get_vars_bgm123 bashrc)"
-    local onstart && onstart="$(_get_vars_bgm123 onstart)"
-    local onend && onend="$(_get_vars_bgm123 onend)"
-    local init && init="$(_get_vars_bgm123 init)"
-    local killscript && killscript="$(_get_vars_bgm123 killscript)"
-    local fadescript && fadescript="$(_get_vars_bgm123 fadescript)"
+    local autostart="$(_get_vars_bgm123 autostart)"
+    local bashrc="$(_get_vars_bgm123 bashrc)"
+    local onstart="$(_get_vars_bgm123 onstart)"
+    local onend="$(_get_vars_bgm123 onend)"
+    local init="$(_get_vars_bgm123 init)"
+    local killscript="$(_get_vars_bgm123 killscript)"
+    local fadescript="$(_get_vars_bgm123 fadescript)"
     local file
 
     # backup files and attempt to remove any existing bgm config
@@ -180,13 +180,13 @@ function enable_bgm123() {
 }
 
 function gui_bgm123() {
-    local autoconf && autoconf="$(_get_vars_bgm123 autoconf)"
+    local autoconf="$(_get_vars_bgm123 autoconf)"
     iniConfig "=" '"' "$autoconf"
 
-    local autostart && autostart="$(_get_vars_bgm123 autostart)"
-    local init && init="$(_get_vars_bgm123 init)"
-    local killscript && killscript="$(_get_vars_bgm123 killscript)"
-    local fadescript && fadescript="$(_get_vars_bgm123 fadescript)"
+    local autostart="$(_get_vars_bgm123 autostart)"
+    local init="$(_get_vars_bgm123 init)"
+    local killscript="$(_get_vars_bgm123 killscript)"
+    local fadescript="$(_get_vars_bgm123 fadescript)"
 
     local cmd=(dialog --backtitle "$__backtitle" --cancel-label "Back" --menu "Configuration for $md_id. Please choose an option." 22 86 16)
     while true; do
