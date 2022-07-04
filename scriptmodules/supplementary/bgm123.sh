@@ -16,7 +16,7 @@ rp_module_section="exp"
 rp_module_flags=""
 
 function _get_vars_bgm123() {
-    declare -A gvar=(
+    declare -A path=(
         [autostart]="$configdir/all/autostart.sh"
         [bashrc]="$home/.bashrc"
         [onstart]="$configdir/all/runcommand-onstart.sh"
@@ -27,7 +27,11 @@ function _get_vars_bgm123() {
         [killscript]="$md_inst/bgm_stop.sh"
         [fadescript]="$md_inst/bgm_fade.sh"
     )
-    echo "${gvar[$1]}"
+
+    local var
+    for var in "$@"; do
+        echo "local $var=${path[$var]}"
+    done
 }
 
 function depends_bgm123() {
@@ -35,8 +39,12 @@ function depends_bgm123() {
 }
 
 function install_bin_bgm123() {
-    local autoconf="$(_get_vars_bgm123 autoconf)"
-    local menudir="$(_get_vars_bgm123 menudir)"
+    local vars=(
+        'autoconf'
+        'menudir'
+    )
+    $(_get_vars_bgm123 "${vars[@]}")
+
     local file
     local scripts=(
         'bgm_start.sh'
@@ -57,12 +65,16 @@ function install_bin_bgm123() {
 }
 
 function configure_bgm123() {
-    local autostart="$(_get_vars_bgm123 autostart)"
-    local bashrc="$(_get_vars_bgm123 bashrc)"
-    local onstart="$(_get_vars_bgm123 onstart)"
-    local onend="$(_get_vars_bgm123 onend)"
-    local autoconf="$(_get_vars_bgm123 autoconf)"
-    local menudir="$(_get_vars_bgm123 menudir)"
+    local vars=(
+        'autostart'
+        'bashrc'
+        'onstart'
+        'onend'
+        'autoconf'
+        'menudir'
+    )
+    $(_get_vars_bgm123 "${vars[@]}")
+
     local share="$datadir/bgm"
     local file
 
@@ -126,14 +138,17 @@ function configure_bgm123() {
 }
 
 function toggle_bgm123() {
-    local autostart="$(_get_vars_bgm123 autostart)"
-    local bashrc="$(_get_vars_bgm123 bashrc)"
-    local onstart="$(_get_vars_bgm123 onstart)"
-    local onend="$(_get_vars_bgm123 onend)"
-    local init="$(_get_vars_bgm123 init)"
-    local killscript="$(_get_vars_bgm123 killscript)"
-    local fadescript="$(_get_vars_bgm123 fadescript)"
     local file
+    local vars=(
+        'autostart'
+        'bashrc'
+        'onstart'
+        'onend'
+        'init'
+        'killscript'
+        'fadescript'
+    )
+    $(_get_vars_bgm123 "${vars[@]}")
 
     # backup files and attempt to remove any existing bgm config
     for file in "$autostart" "$bashrc" "$onstart" "$onend"; do
@@ -181,14 +196,16 @@ function enable_bgm123() {
 }
 
 function gui_bgm123() {
-    local autoconf="$(_get_vars_bgm123 autoconf)"
+    local vars=(
+        'autostart'
+        'autoconf'
+        'init'
+        'killscript'
+        'fadescript'
+    )
+    $(_get_vars_bgm123 "${vars[@]}")
+
     iniConfig "=" '"' "$autoconf"
-
-    local autostart="$(_get_vars_bgm123 autostart)"
-    local init="$(_get_vars_bgm123 init)"
-    local killscript="$(_get_vars_bgm123 killscript)"
-    local fadescript="$(_get_vars_bgm123 fadescript)"
-
     local cmd=(dialog --backtitle "$__backtitle" --cancel-label "Back" --menu "Configuration for $md_id. Please choose an option." 22 86 16)
     while true; do
         # check if bgm code is actually enabled in autostart
