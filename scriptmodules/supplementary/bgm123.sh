@@ -43,11 +43,13 @@ function install_bin_bgm123() {
         'bgm_fade.sh'
     )
 
+    # copy scripts and include config
     for file in "${scripts[@]}"; do
         cp "$md_data/$file" "$md_inst"
         sed -i 's|.*#autoconf.*|source "'"$autoconf"'" #autoconf|' "$md_inst/$file"
     done
 
+    # create rp menu items
     cp -f "$md_data/icon.png" "$menudir/icons/$md_id.png"
     touch "$menudir/$md_id.rp"
     chown -R $user:$user "$menudir"
@@ -63,10 +65,13 @@ function configure_bgm123() {
     local share="$datadir/bgm"
     local file
 
+    # find gamelist
     local gamelist="$menudir/gamelist.xml"
     [[ -f "$gamelist" ]] || gamelist="$configdir/all/emulationstation/gamelists/retropie/gamelist.xml"
 
     if [[ "$md_mode" == "remove" ]]; then
+        # remove menu items and network share
+
         rm -f "$menudir/$md_id.rp" "$menudir/icons/$md_id.png"
         xmlstarlet ed -L -d "/gameList/game[contains(path,'$md_id.rp')]" "$gamelist"
 
@@ -84,6 +89,7 @@ function configure_bgm123() {
         fi
     done
 
+    # add gamelist entry
     if ! grep "<path>./$md_id.rp</path>" "$gamelist" >/dev/null; then
         xmlstarlet ed -L -s "/gameList" -t elem -n "gameTMP" \
           -s "//gameTMP" -t elem -n path -v "./$md_id.rp" \
@@ -94,12 +100,12 @@ function configure_bgm123() {
           "$gamelist"
     fi
 
-    [[ -f "$autoconf"  ]] || toggle_bgm123 on
-
+    # create user config
     local tmp
     tmp="$(mktemp)"
     iniConfig "=" '"' "$tmp"
     echo '# Configuration file for bgm123' > "$tmp"
+    iniSet "status" "enabled"
     iniSet "mixer_channel" "HDMI"
     iniSet "music_player" "mpg123"
     iniSet "music_dir" "$share"
@@ -107,6 +113,12 @@ function configure_bgm123() {
     copyDefaultConfig "$tmp" "$autoconf"
     rm -f "$tmp"
 
+    # check for enable
+    iniConfig "=" '"' "$autoconf"
+    iniGet "status"
+    [[ "$ini_value" == "enabled" ]] && toggle_bgm123 on
+
+    # add music dir and network share
     mkUserDir "$share"
     add_share_samba "bgm" "$share"
     restart_samba
@@ -131,6 +143,8 @@ function toggle_bgm123() {
         fi
     done
 
+    # enable with toggle "on" or "enable(d)"
+    # disable with anything else
     if [[ "$1" == "on" || "$1" == "enable"?("d") ]]; then
         for file in "$autostart" "$bashrc" "$onstart" "$onend"; do
             touch "$file"
@@ -156,7 +170,7 @@ function toggle_bgm123() {
     fi
 }
 
-## because I still keep trying to use the old ones on command-line:
+# dummy enable/disable functions for CLI
 function disable_bgm123() {
     toggle_bgm123 off
 }
@@ -166,15 +180,17 @@ function enable_bgm123() {
 }
 
 function gui_bgm123() {
-    local autostart && autostart="$(_get_vars_bgm123 autostart)"
     local autoconf && autoconf="$(_get_vars_bgm123 autoconf)"
+    iniConfig "=" '"' "$autoconf"
+
+    local autostart && autostart="$(_get_vars_bgm123 autostart)"
     local init && init="$(_get_vars_bgm123 init)"
     local killscript && killscript="$(_get_vars_bgm123 killscript)"
     local fadescript && fadescript="$(_get_vars_bgm123 fadescript)"
 
     local cmd=(dialog --backtitle "$__backtitle" --cancel-label "Back" --menu "Configuration for $md_id. Please choose an option." 22 86 16)
-    iniConfig "=" '"' "$autoconf"
     while true; do
+        # check if bgm code is actually enabled in autostart
         local status="disabled"
         grep '#bgm123' "$autostart" >/dev/null && status="enabled"
 
@@ -198,9 +214,11 @@ function gui_bgm123() {
                 1)
                     if [[ "$status" == "enabled" ]]; then
                         toggle_bgm123 off
+                        iniSet "status" "disabled"
                         printMsgs "dialog" "Background music disabled."
                     else
                         toggle_bgm123 on
+                        iniSet "status" "enabled"
                         printMsgs "dialog" "Background music enabled."
                     fi
                     ;;
