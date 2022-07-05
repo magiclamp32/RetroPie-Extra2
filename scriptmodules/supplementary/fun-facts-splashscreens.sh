@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# This file is part of RetroPie-Extra, a supplement to RetroPie.
+# For more information, please visit:
+#
+# https://github.com/RetroPie/RetroPie-Setup
+# https://github.com/Exarkuniv/RetroPie-Extra
+#
+# See the LICENSE file distributed with this source and at
+# https://github.com/Exarkuniv/RetroPie-Extra/blob/master/LICENSE
+#
+
 rp_module_id="fun-facts-splashscreens"
 rp_module_desc="A tool for RetroPie to generate splashscreens with random video game related Fun Facts!."
 rp_module_help="Basics:"
