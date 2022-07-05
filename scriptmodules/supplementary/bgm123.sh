@@ -119,6 +119,7 @@ function configure_bgm123() {
     iniConfig "=" '"' "$tmp"
     echo '# Configuration file for bgm123' > "$tmp"
     iniSet "status" "enabled"
+    iniSet "sleep_timer" "10"
     iniSet "mixer_channel" "HDMI"
     iniSet "music_player" "mpg123"
     iniSet "music_dir" "$share"
@@ -144,6 +145,7 @@ function toggle_bgm123() {
         'bashrc'
         'onstart'
         'onend'
+        'autoconf'
         'init'
         'killscript'
         'fadescript'
@@ -163,7 +165,9 @@ function toggle_bgm123() {
             chown $user:$user "$file"
         done
 
-        echo "$(echo -e 'while pgrep omxplayer >/dev/null; do sleep 1; done #bgm123\n(sleep 10; bash "'"$init"'") & #bgm123'; cat $autostart)" > "$autostart"
+        iniConfig "=" '"' "$autoconf"
+        iniGet "sleep_timer"
+        echo "$(echo '(sleep '"${ini_value:-10}"'; bash "'"$init"'") & #bgm123'; cat $autostart)" > "$autostart"
         echo '[[ "$(tty)" == "/dev/tty1" ]] && (bash "'"$killscript"'" &) #bgm123' >> "$bashrc"
         echo "$(echo 'bash "'"$fadescript"'" -STOP & #bgm123'; cat $onstart)" > "$onstart"
         echo '(sleep 1; bash "'"$fadescript"'" -CONT) & #bgm123' >> "$onend"
@@ -210,10 +214,13 @@ function gui_bgm123() {
 
         local mapped
         iniGet "mapped_volume" && mapped="$ini_value"
+        local sleep_timer
+        iniGet "sleep_timer" && sleep_timer="$ini_value"
 
         local options=(
             1 "Enable or disable background music (currently: ${status^})"
-            2 "Enable or disable mapped volume profile (currently: ${mapped^})"
+            2 "Configure startup sleep timer (currently: ${sleep_timer:-(unset)} secs)"
+            3 "Enable or disable mapped volume profile (currently: ${mapped^})"
         )
         if [[ "$status" == "enabled" ]] && pgrep emulationstatio >/dev/null; then
             options+=(
@@ -237,6 +244,10 @@ function gui_bgm123() {
                     fi
                     ;;
                 2)
+                    sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup before music starts" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
+                    [[ -n "$sleep_timer" ]] && iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
+                    ;;
+                3)
                     if [[ "$mapped" == "enabled" ]]; then
                         iniSet "mapped_volume" "disabled"
                         printMsgs "dialog" "Mapped volume disabled."
