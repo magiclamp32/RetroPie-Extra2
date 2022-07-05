@@ -17,17 +17,22 @@ rp_module_section="exp"
 rp_module_flags=""
 
 function _get_vars_bgm123() {
-    case "$1" in
-        autostart) echo "$configdir/all/autostart.sh" ;;
-        bashrc) echo "$home/.bashrc" ;;
-        onstart) echo "$configdir/all/runcommand-onstart.sh" ;;
-        onend) echo "$configdir/all/runcommand-onend.sh" ;;
-        autoconf) echo "$configdir/all/$md_id.cfg" ;;
-        menudir) echo "$datadir/retropiemenu" ;;
-        init) echo "$md_inst/bgm_start.sh" ;;
-        killscript) echo "$md_inst/bgm_stop.sh" ;;
-        fadescript) echo "$md_inst/bgm_fade.sh" ;;
-    esac
+    declare -A path=(
+        [autostart]="$configdir/all/autostart.sh"
+        [bashrc]="$home/.bashrc"
+        [onstart]="$configdir/all/runcommand-onstart.sh"
+        [onend]="$configdir/all/runcommand-onend.sh"
+        [autoconf]="$configdir/all/$md_id.cfg"
+        [menudir]="$datadir/retropiemenu"
+        [init]="$md_inst/bgm_start.sh"
+        [killscript]="$md_inst/bgm_stop.sh"
+        [fadescript]="$md_inst/bgm_fade.sh"
+    )
+
+    local var
+    for var in "$@"; do
+        echo "local $var=${path[$var]}"
+    done
 }
 
 function depends_bgm123() {
@@ -35,8 +40,12 @@ function depends_bgm123() {
 }
 
 function install_bin_bgm123() {
-    local autoconf="$(_get_vars_bgm123 autoconf)"
-    local menudir="$(_get_vars_bgm123 menudir)"
+    local vars=(
+        'autoconf'
+        'menudir'
+    )
+    $(_get_vars_bgm123 "${vars[@]}")
+
     local file
     local scripts=(
         'bgm_start.sh'
@@ -57,12 +66,16 @@ function install_bin_bgm123() {
 }
 
 function configure_bgm123() {
-    local autostart="$(_get_vars_bgm123 autostart)"
-    local bashrc="$(_get_vars_bgm123 bashrc)"
-    local onstart="$(_get_vars_bgm123 onstart)"
-    local onend="$(_get_vars_bgm123 onend)"
-    local autoconf="$(_get_vars_bgm123 autoconf)"
-    local menudir="$(_get_vars_bgm123 menudir)"
+    local vars=(
+        'autostart'
+        'bashrc'
+        'onstart'
+        'onend'
+        'autoconf'
+        'menudir'
+    )
+    $(_get_vars_bgm123 "${vars[@]}")
+
     local share="$datadir/bgm"
     local file
 
@@ -107,6 +120,7 @@ function configure_bgm123() {
     iniConfig "=" '"' "$tmp"
     echo '# Configuration file for bgm123' > "$tmp"
     iniSet "status" "enabled"
+    iniSet "sleep_timer" "10"
     iniSet "mixer_channel" "HDMI"
     iniSet "music_player" "mpg123"
     iniSet "music_dir" "$share"
@@ -126,22 +140,22 @@ function configure_bgm123() {
 }
 
 function toggle_bgm123() {
-    local autostart="$(_get_vars_bgm123 autostart)"
-    local bashrc="$(_get_vars_bgm123 bashrc)"
-    local onstart="$(_get_vars_bgm123 onstart)"
-    local onend="$(_get_vars_bgm123 onend)"
-    local init="$(_get_vars_bgm123 init)"
-    local killscript="$(_get_vars_bgm123 killscript)"
-    local fadescript="$(_get_vars_bgm123 fadescript)"
     local file
+    local vars=(
+        'autostart'
+        'bashrc'
+        'onstart'
+        'onend'
+        'autoconf'
+        'init'
+        'killscript'
+        'fadescript'
+    )
+    $(_get_vars_bgm123 "${vars[@]}")
 
-    # backup files and attempt to remove any existing bgm config
+    # attempt to remove any existing bgm config
     for file in "$autostart" "$bashrc" "$onstart" "$onend"; do
-        if [[ -f "$file" ]]; then
-            cp -f "$file" "$file.bak"
-            chown $user:$user "$file.bak"
-            sed -i '/#bgm/d' "$file"
-        fi
+        [[ -f "$file" ]] && sed -i '/#bgm/d' "$file"
     done
 
     # enable with toggle "on" or "enable(d)"
@@ -152,7 +166,9 @@ function toggle_bgm123() {
             chown $user:$user "$file"
         done
 
-        echo "$(echo -e 'while pgrep omxplayer >/dev/null; do sleep 1; done #bgm123\n(sleep 10; bash "'"$init"'") & #bgm123'; cat $autostart)" > "$autostart"
+        iniConfig "=" '"' "$autoconf"
+        iniGet "sleep_timer"
+        echo "$(echo '(sleep '"${ini_value:-10}"'; bash "'"$init"'") & #bgm123'; cat $autostart)" > "$autostart"
         echo '[[ "$(tty)" == "/dev/tty1" ]] && (bash "'"$killscript"'" &) #bgm123' >> "$bashrc"
         echo "$(echo 'bash "'"$fadescript"'" -STOP & #bgm123'; cat $onstart)" > "$onstart"
         echo '(sleep 1; bash "'"$fadescript"'" -CONT) & #bgm123' >> "$onend"
@@ -181,14 +197,16 @@ function enable_bgm123() {
 }
 
 function gui_bgm123() {
-    local autoconf="$(_get_vars_bgm123 autoconf)"
+    local vars=(
+        'autostart'
+        'autoconf'
+        'init'
+        'killscript'
+        'fadescript'
+    )
+    $(_get_vars_bgm123 "${vars[@]}")
+
     iniConfig "=" '"' "$autoconf"
-
-    local autostart="$(_get_vars_bgm123 autostart)"
-    local init="$(_get_vars_bgm123 init)"
-    local killscript="$(_get_vars_bgm123 killscript)"
-    local fadescript="$(_get_vars_bgm123 fadescript)"
-
     local cmd=(dialog --backtitle "$__backtitle" --cancel-label "Back" --menu "Configuration for $md_id. Please choose an option." 22 86 16)
     while true; do
         # check if bgm code is actually enabled in autostart
@@ -197,10 +215,13 @@ function gui_bgm123() {
 
         local mapped
         iniGet "mapped_volume" && mapped="$ini_value"
+        local sleep_timer
+        iniGet "sleep_timer" && sleep_timer="$ini_value"
 
         local options=(
             1 "Enable or disable background music (currently: ${status^})"
-            2 "Enable or disable mapped volume profile (currently: ${mapped^})"
+            2 "Configure startup sleep timer (currently: ${sleep_timer:-(unset)} secs)"
+            3 "Enable or disable mapped volume profile (currently: ${mapped^})"
         )
         if [[ "$status" == "enabled" ]] && pgrep emulationstatio >/dev/null; then
             options+=(
@@ -224,6 +245,10 @@ function gui_bgm123() {
                     fi
                     ;;
                 2)
+                    sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup before music starts" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
+                    [[ -n "$sleep_timer" ]] && iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
+                    ;;
+                3)
                     if [[ "$mapped" == "enabled" ]]; then
                         iniSet "mapped_volume" "disabled"
                         printMsgs "dialog" "Mapped volume disabled."
