@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# This file is part of RetroPie-Extra, a supplement to RetroPie.
+# For more information, please visit:
+#
+# https://github.com/RetroPie/RetroPie-Setup
+# https://github.com/Exarkuniv/RetroPie-Extra
+#
+# See the LICENSE file distributed with this source and at
+# https://github.com/Exarkuniv/RetroPie-Extra/blob/master/LICENSE
+#
 # This file is part of The RetroPie Project
 # 
 # The RetroPie Project is the legal property of its developers, whose names are
