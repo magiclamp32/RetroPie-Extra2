@@ -150,13 +150,9 @@ function toggle_bgm123() {
     )
     $(_get_vars_bgm123 "${vars[@]}")
 
-    # backup files and attempt to remove any existing bgm config
+    # attempt to remove any existing bgm config
     for file in "$autostart" "$bashrc" "$onstart" "$onend"; do
-        if [[ -f "$file" ]]; then
-            cp -f "$file" "$file.bak"
-            chown $user:$user "$file.bak"
-            sed -i '/#bgm/d' "$file"
-        fi
+        [[ -f "$file" ]] && sed -i '/#bgm/d' "$file"
     done
 
     # enable with toggle "on" or "enable(d)"
