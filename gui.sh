@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GUI=0
-if [[ "${1,,}" == "-i" ]]; then
+if [[ "${1,,}" == "-i" || "${1,,}" == "--interactive" ]]; then
     GUI=1
     shift
 fi
@@ -15,14 +15,14 @@ readonly RPS_HOME
 readonly RP_EXTRA="$RPS_HOME/ext/RetroPie-Extra"
 
 if [[ ! -d "$RPS_HOME" ]]; then
-    echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./install-extras.sh /home/pi/RetroPie-Setup\n\nAborting."
+    echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename $0) /home/pi/RetroPie-Setup\n\nAborting."
     exit
 fi
 
 if [[ "$GUI" -eq 0 ]]; then
     echo "Placing scriptmodules in $RP_EXTRA"
     mkdir -p "$RP_EXTRA"
-    cp -R scriptmodules/ "$RP_EXTRA" && echo "...done."
+    cp -R scriptmodules/ "$RP_EXTRA" && echo -e "\n...done."
     exit
 fi
 
