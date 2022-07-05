@@ -7,7 +7,7 @@
 # https://github.com/Exarkuniv/RetroPie-Extra
 #
 # See the LICENSE file distributed with this source and at
-# https://github.com/Exarkuniv/RetroPie-Extra/blob/master/LICENSE
+# https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/LICENSE
 #
 # This file is part of The RetroPie Project
 # 
