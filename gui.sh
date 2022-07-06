@@ -12,16 +12,15 @@ if [[ -n "$1" ]]; then
     RPS_HOME="$1"
 fi
 readonly RPS_HOME
+
 readonly RP_EXTRA="$RPS_HOME/ext/RetroPie-Extra"
 readonly BACKTITLE="Installation utility for RetroPie-Extra - Setup directory: $RPS_HOME"
 
-if [[ ! -d "$RPS_HOME" ]]; then
-    echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename $0) /home/pi/RetroPie-Setup\n\nAborting."
-    exit
-fi
-
 function startCmd() {
-    if [[ "$GUI" -eq 1 ]]; then
+    if [[ ! -d "$RPS_HOME" ]]; then
+        echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename $0) /home/pi/RetroPie-Setup\n\nAborting."
+        exit
+    elif [[ "$GUI" -eq 1 ]]; then
         runGUI
     else
         runAuto
@@ -55,7 +54,7 @@ function runGUI() {
                     dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "$errormsg" 20 60
                     ;;
                 2)
-                    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Coming soon..." 20 60
+                    chooseModules
                     ;;
             esac
         else
@@ -66,4 +65,9 @@ function runGUI() {
     clear
 }
 
+function chooseModules() {
+    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Coming soon..." 20 60
+}
+
+# Run
 startCmd
