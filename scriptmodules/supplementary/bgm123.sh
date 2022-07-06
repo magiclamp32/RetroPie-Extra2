@@ -224,8 +224,11 @@ function gui_bgm123() {
         iniGet "mapped_volume" && mapped="$ini_value"
         local sleep_timer
         iniGet "sleep_timer" && sleep_timer="$ini_value"
+        local music_dir
+        iniGet "music_dir" && music_dir="$ini_value"
 
         local options=(
+            0 "Choose music directory (currently: $music_dir)"
             1 "Configure startup sleep timer (currently: ${sleep_timer:-(unset)} sec)"
             2 "Enable or disable background music (currently: ${status^})"
             3 "Enable or disable mapped volume profile (currently: ${mapped^})"
@@ -240,6 +243,9 @@ function gui_bgm123() {
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         if [[ -n "$choice" ]]; then
             case "$choice" in
+                0)
+                    printMsgs "dialog" "Coming soon...\n\n...for now, you may manually edit the music_dir setting in $autoconf to change this."
+                    ;;
                 1)
                     sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
                     if [[ -n "$sleep_timer" ]]; then
