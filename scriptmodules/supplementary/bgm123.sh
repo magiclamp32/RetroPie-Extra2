@@ -168,14 +168,21 @@ function toggle_bgm123() {
 
         iniConfig "=" '"' "$autoconf"
         iniGet "sleep_timer"
-        echo "$(echo '(sleep '"${ini_value:-10}"'; bash "'"$init"'") & #bgm123'; cat $autostart)" > "$autostart"
-        echo '[[ "$(tty)" == "/dev/tty1" ]] && (bash "'"$killscript"'" &) #bgm123' >> "$bashrc"
-        echo "$(echo 'bash "'"$fadescript"'" -STOP & #bgm123'; cat $onstart)" > "$onstart"
-        echo '(sleep 1; bash "'"$fadescript"'" -CONT) & #bgm123' >> "$onend"
+
+        local autostart_text='(sleep '"${ini_value:-10}"'; bash "'"$init"'") & #bgm123'
+        local onstart_text='bash "'"$fadescript"'" -STOP & #bgm123'
+        local onend_text='(sleep 1; bash "'"$fadescript"'" -CONT) & #bgm123'
+        local bashrc_text='[[ "$(tty)" == "/dev/tty1" ]] && (bash "'"$killscript"'" &) #bgm123'
+
+        # add lines to the TOP of autostart, onstart, and the BOTTOM of onend, bashrc
+        echo "$(echo $autostart_text; cat $autostart)" > "$autostart"
+        echo "$(echo $onstart_text; cat $onstart)" > "$onstart"
+        echo "$onend_text" >> "$onend"
+        echo "$bashrc_text" >> "$bashrc"
 
         printMsgs "console" "Background music enabled."
     else
-        # kill player now since .bashrc won't do it later
+        # kill player now since bashrc won't do it later
         su "$user" -c "bash $killscript"
 
         for file in "$onstart" "$onend"; do
