@@ -251,6 +251,7 @@ function gui_bgm123() {
                     if [[ -n "$sleep_timer" ]]; then
                         iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
                         [[ "$status" == "enabled" ]] && toggle_bgm123 on
+                        printMsgs "dialog" "Sleep timer set: $sleep_timer sec"
                     fi
                     ;;
                 2)
