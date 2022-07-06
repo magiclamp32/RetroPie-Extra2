@@ -1,11 +1,11 @@
 #!/bin/bash
 
-GUI=0
-if [[ "${1,,}" == "-i" || "${1,,}" == "--interactive" ]]; then
-    GUI=1
+AUTO=0
+if [[ "${1,,}" == "-a" || "${1,,}" == "--all" ]]; then
+    AUTO=1
     shift
 fi
-readonly GUI
+readonly AUTO
 
 RPS_HOME="$HOME/RetroPie-Setup"
 if [[ -n "$1" ]]; then
@@ -20,10 +20,10 @@ function startCmd() {
     if [[ ! -d "$RPS_HOME" ]]; then
         echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename $0) /home/pi/RetroPie-Setup\n\nAborting."
         exit
-    elif [[ "$GUI" -eq 1 ]]; then
-        runGUI
-    else
+    elif [[ "$AUTO" -eq 1 ]]; then
         runAuto
+    else
+        runGUI
     fi
 }
 

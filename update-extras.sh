@@ -1,4 +1,4 @@
 #!/bin/bash
 
-git pull origin
-./install-extras.sh
+git pull #origin <-- for testing, uncomment before release
+./install-extras.sh "$@"
