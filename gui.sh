@@ -29,7 +29,7 @@ fi
 backtitle="Installation utility for RetroPie-Extra - Setup directory: $RPS_HOME"
 cmd=(dialog --backtitle "$backtitle" --menu "Choose an option." 22 86 16)
 while true; do
-    local options=(
+    options=(
         1 "Install all RetroPie-Extra modules"
         2 "Choose which modules to install"
     )
@@ -38,7 +38,7 @@ while true; do
         case "$choice" in
             1)
                 errormsg=$(mkdir -p "$RP_EXTRA" && cp -r scriptmodules "$RP_EXTRA")
-                if [[ -n "$err" ]]; then
+                if [[ -n "$errormsg" ]]; then
                     errormsg="Error: $errormsg"
                 else
                     errormsg="All scriptmodules copied to $RP_EXTRA."
