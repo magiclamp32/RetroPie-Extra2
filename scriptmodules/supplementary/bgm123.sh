@@ -226,8 +226,8 @@ function gui_bgm123() {
         iniGet "sleep_timer" && sleep_timer="$ini_value"
 
         local options=(
-            1 "Enable or disable background music (currently: ${status^})"
-            2 "Configure startup sleep timer (currently: ${sleep_timer:-(unset)} sec)"
+            1 "Configure startup sleep timer (currently: ${sleep_timer:-(unset)} sec)"
+            2 "Enable or disable background music (currently: ${status^})"
             3 "Enable or disable mapped volume profile (currently: ${mapped^})"
         )
         if [[ "$status" == "enabled" ]] && pgrep emulationstatio >/dev/null; then
@@ -241,6 +241,13 @@ function gui_bgm123() {
         if [[ -n "$choice" ]]; then
             case "$choice" in
                 1)
+                    sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
+                    if [[ -n "$sleep_timer" ]]; then
+                        iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
+                        [[ "$status" == "enabled" ]] && toggle_bgm123 on
+                    fi
+                    ;;
+                2)
                     if [[ "$status" == "enabled" ]]; then
                         toggle_bgm123 off
                         iniSet "status" "disabled"
@@ -249,13 +256,6 @@ function gui_bgm123() {
                         toggle_bgm123 on
                         iniSet "status" "enabled"
                         printMsgs "dialog" "Background music enabled."
-                    fi
-                    ;;
-                2)
-                    sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
-                    if [[ -n "$sleep_timer" ]]; then
-                        iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
-                        [[ "$status" == "enabled" ]] && toggle_bgm123 on
                     fi
                     ;;
                 3)
