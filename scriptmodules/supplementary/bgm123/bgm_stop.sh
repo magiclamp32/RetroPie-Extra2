@@ -4,6 +4,6 @@
 
 source #autoconf
 
-vcgencmd force_audio hdmi 0 >/dev/null && sleep 0.1
+vcgencmd force_audio hdmi 0 >/dev/null && sleep 0.2
 pkill "$music_player"
 [[ "$(ps -ostate= -C $music_player)" == "T" ]] && pkill -CONT "$music_player"
