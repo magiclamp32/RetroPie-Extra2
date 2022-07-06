@@ -253,7 +253,10 @@ function gui_bgm123() {
                     ;;
                 2)
                     sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup before music starts" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
-                    [[ -n "$sleep_timer" ]] && iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
+                    if [[ -n "$sleep_timer" ]]; then
+                        iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
+                        [[ "$status" == "enabled" ]] && toggle_bgm123 on
+                    fi
                     ;;
                 3)
                     if [[ "$mapped" == "enabled" ]]; then
