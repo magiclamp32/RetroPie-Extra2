@@ -89,7 +89,7 @@ function configure_bgm123() {
         rm -f "$menudir/$md_id.rp" "$menudir/icons/$md_id.png"
         xmlstarlet ed -L -d "/gameList/game[contains(path,'$md_id.rp')]" "$gamelist"
 
-        toggle_bgm123 "off"
+        toggle_bgm123 off
         remove_share_samba "bgm"
         restart_samba
 
@@ -227,7 +227,7 @@ function gui_bgm123() {
 
         local options=(
             1 "Enable or disable background music (currently: ${status^})"
-            2 "Configure startup sleep timer (currently: ${sleep_timer:-(unset)} secs)"
+            2 "Configure startup sleep timer (currently: ${sleep_timer:-(unset)} sec)"
             3 "Enable or disable mapped volume profile (currently: ${mapped^})"
         )
         if [[ "$status" == "enabled" ]] && pgrep emulationstatio >/dev/null; then
@@ -252,7 +252,7 @@ function gui_bgm123() {
                     fi
                     ;;
                 2)
-                    sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup before music starts" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
+                    sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
                     if [[ -n "$sleep_timer" ]]; then
                         iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
                         [[ "$status" == "enabled" ]] && toggle_bgm123 on
