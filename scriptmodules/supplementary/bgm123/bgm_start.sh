@@ -5,4 +5,4 @@
 source #autoconf
 
 vcgencmd force_audio hdmi 1 >/dev/null && sleep 0.2
-mpg123 -Z "$music_dir/"*.[mM][pP]3 >/dev/null 2>&1
+mpg123 -Z -@- >/dev/null 2>&1 < <(find "$music_dir" -type f -iname "*.mp3")
