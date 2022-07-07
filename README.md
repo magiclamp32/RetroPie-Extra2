@@ -122,7 +122,6 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 #### Ports
 - [X] - `abuse.sh` - Classic action game -   **Installs Plays fine, needs keyboard**
 - [X] - `augustus.sh` - Augustus - Enhanced Caesar III source port - **Installs plays fine, needs mouse**
-- [X] - `audacity.sh` - Audacity open-source digital audio editor - **Installs Runs fine**
 - [X] - `barrage.sh` - Shooting Gallery action game - **Installs, Plays fine, needs mouse**
 - [X] - `bermudasyndrome.sh` - Bermuda Syndrome engine - **Installs, plays fine, cant exit, but thats the desine of the engine not the script**
 - [X] - `bloboats.sh` - Fun physics game - **Installs play fine**
@@ -131,23 +130,18 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `bstone.sh` - Blake Stone - BStone A source port of Blake Stone: Aliens of Gold and Blake Stone: Planet Strike **Installs, Plays great**
 - [X] - `chocolate-doom.sh`- DOOM source port - **Installs, plays great**
 - [X] - `chocolate-doom-system.sh`- For setting up DOOM as an emulated system, not port. - **Installs Plays great**
-- [X] - `chromium.sh` - Open Source Web Browser - **Installs, Work well**
 - [X] - `chopper258.sh` - Chopper Commando Revisited - A modern port of Chopper Commando (DOS, 1990) - **Installs, Plays fine, needs keyboard**
 - [X] - `corsixth.sh` - Theme Hospital engine clone - **Installs, plays fine with demo**
 - [X] - `crack-attack.sh` - Tetris Attack clone - **Installs works, but you need to need to drop the resolutions to 640-480 **
 - [X] - `crispy-doom.sh` - DOOM source port - **Installs, Plays great**
 - [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port. - **Installs, Plays great**
 - [X] - `cytadela.sh` - Cytadela project - a conversion of an Amiga first person shooter - **Installs**
-- [X] - `deadbeef.sh` - Music and ripped game music player - **Installs**
 - [X] - `devilutionx.sh` - Diablo source port - **Installs**
 - [X] - `dhewm3.sh` - dhewm3 - Doom 3 port - **Installs**
 - [X] - `dunedynasty.sh` - Dune Dynasty - Dune 2 Building of a Dynasty port - **Installs**
 - [X] - `dunelegacy.sh` - Dune Legacy - Dune 2 Building of a Dynasty port - **Installs**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Installs and launches**
 - [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs**
-- [X] - `epiphany-browser.sh` - epiphany lightweight web browser - **Installs Runs fine **
-- [X] - `filezilla.sh` - A cross platform FTP application - **Installs**
-- [X] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser - **Installs**
 - [X] - `fofix.sh` - FoFix - Guitar Hero and Rock Band clone - **Installs**
 - [X] - `freeciv.sh` - Civilization online clone - **Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.**
 - [X] - `freedink.sh` - Dink Smallwood engine - **Installs**
@@ -169,27 +163,19 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `kaiten-patissier.sh` - Japanese 2D Platformer - **Installs**
 - [ ] - `kaiten-patissier-cs.sh` - Japanese 2D Platformer - **Failed**
 - [X] - `kaiten-patissier-ura.sh` - Japanese 2D Platformer - **Installs**
-- [X] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Installs**
 - [X] - `kraptor.sh` - Shoot em up scroller game - **Installs Runs fine**
-- [X] - `kweb.sh` - Minimal kiosk web browser - **Installs**
 - [X] - `lbreakout2.sh` - Open Source Breakout game - **Installs**
 - [X] - `lgeneral.sh` - Open Source strategy game - **Installs**
-- [X] - `librecad.sh` - librecad open-source 2d cad - **Installs Runs fine**
-- [X] - `libreoffice.sh` - Open source office suite - **Installs Runs fine**
 - [X] - `lmarbles.sh` - Open Source Atomix game - **Installs**
 - [X] - `ltris.sh` - Open Source Tetris game - **Installs**
 - [X] - `lutris.sh` - lutris - Game engine for linux - **Installs**
 - [ ] - `maelstrom.sh` - Maelstrom - Classic Mac Asteroids Remake - **Failed**
 - [ ] - `manaplus.sh` - 2D MMORPG client - **Failed**
 - [X] - `meritous.sh` - Port of an action-adventure dungeon crawl game - **Installs**
-- [X] - `mixx.sh` - Mixxx DJ Mixing Software App - **Installs Runs fine**
-- [X] - `mypaint.sh` - mypaint easy-to-use painting program - **Installs Runs fine**
 - [X] - `nblood.sh` - Blood source port - **Installs**
-- [ ] - `netsurf.sh` - Lightweight web browser - **Failed**
 - [ ] - `nkaruga.sh` - Ikaruga demake. - ** Blocked from installing on Pi4**
 - [X] - `nxengine-evo.sh` - The standalone version of the open-source clone/rewrite of Cave Story - **Installs Plays fine on Pi4. Need to bind controller in options**
 - [X] - `openjazz.sh` - Jazz Jackrabbit source port. - **Installs**
-- [X] - `omxplayer.sh` - Video Player - **Installs**
 - [X] - `openjazz.sh` - An enhanced Jazz Jackrabbit source port - **Installs**
 - [X] - `openjk_ja.sh` - OpenJK: JediAcademy (SP + MP) - **Installs**
 - [X] - `openjk_jo.sh` - OpenJK: Jedi Outcast (SP) - **Installs**
@@ -203,7 +189,6 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `prototype.sh` - Free R-Type remake by Ron Bunce - Gamepad support incomplete. **Installs, Plays fine, needs keyboard**
 - [X] - `pokerth.sh` - open source online poker  - **Installs**
 - [X] - `prboom-plus.sh` - Enhanced DOOM source port - **Installs**
-- [X] - `putty.sh` - SSH and telnet client - **Installs Runs fine**
 - [X] - `pydance.sh` - Open Source Dancing Game  - **Installs**
 - [X] - `quakespasm.sh` - Another enhanced engine for quake  - **Installs**
 - [X] - `rawgl.sh` - Another World Engine  - **Installs**
@@ -222,12 +207,9 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Installs**
 - [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4. **Installs Plays great**
 - [X] - `texmaster2009.sh` - Tetris TGM clone - **Installs**
-- [X] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
 - [X] - `tinyfugue.sh` - MUD client - **Installs**
 - [X] - `ulmos-adventure.sh` - Simple Adventure Game - **Installs**
 - [X] - `vanillacc.sh` - Vanilla-Command and Conquer - **Installs**
-- [X] - `vgmplay.sh` - Music Player - **Installs**
-- [X] - `videolan.sh` - VLC media player - **Installs Runs fine**
 - [X] - `vorton.sh` - Highway Encounter Remake in Spanish - **Installs**
 - [X] - `warmux.sh` - Worms Clone - **Installs**
 - [X] - `weechat.sh` - Console IRC Client - **Installs**
@@ -247,6 +229,23 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
 - [ ] - `mame-tools.sh` - Additional tools for MAME/MESS **Failed**
 - [X] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
+- [X] - `audacity.sh` - Audacity open-source digital audio editor - **Installs Runs fine**
+- [X] - `chromium.sh` - Open Source Web Browser - **Installs, Work well**
+- [X] - `deadbeef.sh` - Music and ripped game music player - **Installs**
+- [X] - `epiphany-browser.sh` - epiphany lightweight web browser - **Installs Runs fine **
+- [X] - `filezilla.sh` - A cross platform FTP application - **Installs**
+- [X] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser - **Installs**
+- [X] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Installs**
+- [X] - `kweb.sh` - Minimal kiosk web browser - **Installs**
+- [X] - `librecad.sh` - librecad open-source 2d cad - **Installs Runs fine**
+- [X] - `libreoffice.sh` - Open source office suite - **Installs Runs fine**
+- [X] - `mixx.sh` - Mixxx DJ Mixing Software App - **Installs Runs fine**
+- [X] - `mypaint.sh` - mypaint easy-to-use painting program - **Installs Runs fine**
+- [X] - `omxplayer.sh` - Video Player - **Installs**
+- [X] - `putty.sh` - SSH and telnet client - **Installs Runs fine**
+- [X] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
+- [X] - `videolan.sh` - VLC media player - **Installs Runs fine**
+- [X] - `vgmplay.sh` - Music Player - **Installs**
 
 ### My Future To-Do List 
 
