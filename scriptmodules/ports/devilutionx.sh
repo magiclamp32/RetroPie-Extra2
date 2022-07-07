@@ -14,6 +14,7 @@ rp_module_id="devilutionx"
 rp_module_desc="devilutionx - Diablo Engine"
 rp_module_licence="https://raw.githubusercontent.com/diasurgical/devilutionX/master/LICENSE"
 rp_module_help="Copy your original diabdat.mpq file from Diablo to $romdir/ports/devilutionx."
+rp_module_repo="file https://github.com/diasurgical/devilutionX/releases/download/1.4.0/devilutionx-linux-armhf.zip"
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
@@ -22,13 +23,13 @@ function depends_devilutionx() {
 }
 
 function sources_devilutionx() {
-     wget https://github.com/diasurgical/devilutionX/releases/download/1.3.0/devilutionx-linux-armhf.zip
-     unzip devilutionx-linux-armhf.zip
-     }
+     downloadAndExtract "$md_repo_url" "$md_build"
+
+}
 
 function install_devilutionx() {
   cd devilutionx-linux-armhf
-dpkg -i ./devilutionx_1.3.0_armhf.deb
+dpkg -i ./devilutionx_1.4.0_armhf.deb
     md_ret_files=(
           	devilutionx-linux-armhf/devilutionx
 		devilutionx-linux-armhf/devilutionx.mpq

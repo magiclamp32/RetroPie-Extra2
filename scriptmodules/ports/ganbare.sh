@@ -12,6 +12,7 @@
 
 rp_module_id="ganbare"
 rp_module_desc="Ganbare! Natsuke-San - 2D Platformer"
+rp_module_repo="file https://dl.openhandhelds.org/gp2x/uploads/Home/gp2x%20-%20Games/Games%20-%20Freeware/Jump%20and%20Run/gnp_104.zip"
 rp_module_section="exp"
 rp_module_flags="!x11 !mali"
 
@@ -20,8 +21,7 @@ function depends_ganbare() {
 }
 
 function sources_ganbare() {
-    wget -q https://dl.openhandhelds.org/gp2x/uploads/Home/gp2x%20-%20Games/Games%20-%20Freeware/Jump%20and%20Run/gnp_104.zip
-    unzip gnp_104.zip
+    downloadAndExtract "$md_repo_url" "$md_build" 
 }
 
 function build_ganbare() {

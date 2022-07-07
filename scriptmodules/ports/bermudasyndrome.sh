@@ -13,6 +13,7 @@
 rp_module_id="bermudasyndrome"
 rp_module_desc="Bermuda Syndrome - Open Source Engine"
 rp_module_help="Please copy your Bermuda Syndrome data files to $romdir/ports/$md_id before running the game."
+rp_module_repo="file http://cyxdown.free.fr/bs/bs-0.1.7.tar.bz2"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
@@ -21,7 +22,7 @@ function depends_bermudasyndrome() {
 }
 
 function sources_bermudasyndrome() {
-    wget -O- -q http://cyxdown.free.fr/bs/bs-0.1.7.tar.bz2 | tar -xvj --strip-components=1
+    downloadAndExtract "$md_repo_url" "$md_build" --strip-components=1
 }
 
 function build_bermudasyndrome() {

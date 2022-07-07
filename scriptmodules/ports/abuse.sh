@@ -13,6 +13,7 @@
 rp_module_id="abuse"
 rp_module_desc="Abuse"
 rp_module_licence="GPL https://raw.githubusercontent.com/Xenoveritas/abuse/master/COPYING"
+rp_module_repo="file http://abuse.zoy.org/raw-attachment/wiki/download/abuse-0.8.tar.gz"
 rp_module_section="exp"
 rp_module_flags="!mali"
 
@@ -22,8 +23,7 @@ function depends_abuse() {
 }
 
 function sources_abuse() {
-	wget http://abuse.zoy.org/raw-attachment/wiki/download/abuse-0.8.tar.gz
-	tar -xf abuse-0.8.tar.gz
+     downloadAndExtract "$md_repo_url" "$md_build"
 }
 
 function build_abuse() {

@@ -17,6 +17,7 @@ rp_module_help="Please copybase/pak000.pk4\n\nbase/pak001.pk4\n\nbase/pak002.pk4
 and if you have the expansion:\n\n
 d3xp/pak000.pk4\n\n
 d3xp/pak001.pk4\n\nInto the $romdir/doom3/base and $romdir/doom3/d3xp directories"
+rp_module_repo="git https://github.com/dhewm/dhewm3.git"
 rp_module_section="exp"
 rp_module_flags=""
 
@@ -25,7 +26,7 @@ function depends_dhewm3() {
 }
 
 function sources_dhewm3() {
-    gitPullOrClone "$md_build" https://github.com/dhewm/dhewm3.git
+    gitPullOrClone  
 }
 
 function build_dhewm3() {
@@ -48,6 +49,15 @@ function install_dhewm3() {
     )
 }
 
+function game_data_dhewm3() {
+    if [[ ! -f "$romdir/ports/doom3/base/pak000.pk4" ]]; then
+        downloadAndExtract "https://github.com/techcoder20/RPIDoom3Installer/releases/download/v1.0.0/Doom3DemoGameFiles.zip" "$romdir/ports/doom3/base"
+    mv "$romdir/ports/doom3/base/Doom3Demo/demo/"* "$romdir/ports/doom3/base"
+    rm -r "$romdir/ports/doom3/base/Doom3Demo"
+        chown -R pi:pi "$romdir/ports/doom3"
+    fi
+}
+
 function configure_dhewm3() {
     if isPlatform "rpi"; then
         addPort "$md_id" "doom3" "Doom 3" "XINIT:$md_inst/dhewm3 +set in_tty 0"
@@ -59,6 +69,8 @@ function configure_dhewm3() {
     mkRomDir "ports/doom3/d3xp"
     moveConfigDir "$md_inst/base" "$romdir/ports/doom3/base"
     moveConfigDir "$md_inst/d3xp" "$romdir/ports/doom3/d3xp"
-    chown -R pi:pi "/home/pi/RetroPie/roms/ports/doom3"
-    chown -R pi:pi "/home/pi/RetroPie/roms/ports/doom3/base"
+    #chown -R pi:pi "/home/pi/RetroPie/roms/ports/doom3"
+    #chown -R pi:pi "/home/pi/RetroPie/roms/ports/doom3/base"
+
+ [[ "$md_mode" == "install" ]] && game_data_dhewm3
 }

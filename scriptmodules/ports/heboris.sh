@@ -21,6 +21,7 @@
 rp_module_id="heboris"
 rp_module_desc="HeborisC7EX - Tetris The Grand Master Clone"
 rp_module_help="To get mp3 audio working, you will need to change the music type from MIDI to MP3 in the Heboris options menu."
+rp_module_repo="git https://github.com/zerojay/HeborisC7EX.git"
 rp_module_section="exp"
 rp_module_flags="!mali"
 
@@ -29,7 +30,7 @@ function depends_heboris() {
 }
 
 function sources_heboris() {
-    gitPullOrClone "$md_build" https://github.com/zerojay/HeborisC7EX.git
+    gitPullOrClone
 }
 
 function build_heboris() {

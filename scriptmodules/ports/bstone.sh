@@ -41,9 +41,8 @@ function install_bstone() {
 
 function game_data_bstone() {
     if [[ ! -f "$romdir/ports/bstone/aog/BS_AOG.EXE" ]]; then
-        wget "https://ia800303.us.archive.org/30/items/BlakeStoneAliensOfGold/BSTONE.ZIP"
-        unzip BSTONE.ZIP -d "$romdir/ports/bstone/aog/"
-        rm -r BSTONE.ZIP
+        downloadAndExtract "https://ia800303.us.archive.org/30/items/BlakeStoneAliensOfGold/BSTONE.ZIP" "$romdir/ports/bstone/aog/"
+        #rm -r BSTONE.ZIP
         chown -R $user:$user "$romdir/ports/bstone"
     fi
 }
@@ -65,6 +64,7 @@ cat >"$md_conf_root/bibendovsky/bstone/bstone_config.txt" << _EOF_
 
 vid_renderer "software"
 vid_is_widescreen "1"
+vid_is_windowed "0"
 
 _EOF_
 

@@ -13,6 +13,7 @@
 rp_module_id="breaker"
 rp_module_desc="breaker - Arkanoid Clone"
 rp_module_licence="GPL2 https://ayera.dl.sourceforge.net/project/breaker10/source/GNU-GPL-2.0.txt"
+rp_module_repo="file http://oldschoolprg.x10.mx/downloads/_sf_breaker_215.tar.gz"
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
@@ -21,7 +22,7 @@ function depends_breaker() {
 }
 
 function sources_breaker() {
-    wget -O- -q http://oldschoolprg.x10.mx/downloads/_sf_breaker_215.tar.gz | tar -xvz
+    downloadAndExtract "$md_repo_url" "$md_build"
 }
 
 function build_breaker() {
