@@ -89,7 +89,7 @@ function configure_bgm123() {
         rm -f "$menudir/$md_id.rp" "$menudir/icons/$md_id.png"
         xmlstarlet ed -L -d "/gameList/game[contains(path,'$md_id.rp')]" "$gamelist"
 
-        toggle_bgm123 "off"
+        toggle_bgm123 off
         remove_share_samba "bgm"
         restart_samba
 
@@ -168,14 +168,21 @@ function toggle_bgm123() {
 
         iniConfig "=" '"' "$autoconf"
         iniGet "sleep_timer"
-        echo "$(echo '(sleep '"${ini_value:-10}"'; bash "'"$init"'") & #bgm123'; cat $autostart)" > "$autostart"
-        echo '[[ "$(tty)" == "/dev/tty1" ]] && (bash "'"$killscript"'" &) #bgm123' >> "$bashrc"
-        echo "$(echo 'bash "'"$fadescript"'" -STOP & #bgm123'; cat $onstart)" > "$onstart"
-        echo '(sleep 1; bash "'"$fadescript"'" -CONT) & #bgm123' >> "$onend"
+
+        local autostart_text='(sleep '"${ini_value:-10}"'; pgrep emulationstatio >/dev/null && bash "'"$init"'") & #bgm123'
+        local onstart_text='bash "'"$fadescript"'" -STOP & #bgm123'
+        local onend_text='(sleep 1; bash "'"$fadescript"'" -CONT) & #bgm123'
+        local bashrc_text='[[ "$(tty)" == "/dev/tty1" ]] && (bash "'"$killscript"'" &) #bgm123'
+
+        # add lines to the TOP of autostart, onstart, and the BOTTOM of onend, bashrc
+        echo "$(echo $autostart_text; cat $autostart)" > "$autostart"
+        echo "$(echo $onstart_text; cat $onstart)" > "$onstart"
+        echo "$onend_text" >> "$onend"
+        echo "$bashrc_text" >> "$bashrc"
 
         printMsgs "console" "Background music enabled."
     else
-        # kill player now since .bashrc won't do it later
+        # kill player now since bashrc won't do it later
         su "$user" -c "bash $killscript"
 
         for file in "$onstart" "$onend"; do
@@ -217,11 +224,14 @@ function gui_bgm123() {
         iniGet "mapped_volume" && mapped="$ini_value"
         local sleep_timer
         iniGet "sleep_timer" && sleep_timer="$ini_value"
+        local music_dir
+        iniGet "music_dir" && music_dir="$ini_value"
 
         local options=(
-            1 "Enable or disable background music (currently: ${status^})"
-            2 "Configure startup sleep timer (currently: ${sleep_timer:-(unset)} secs)"
+            1 "Configure startup sleep timer (currently: ${sleep_timer:-(unset)} sec)"
+            2 "Enable or disable background music (currently: ${status^})"
             3 "Enable or disable mapped volume profile (currently: ${mapped^})"
+            4 "Choose music directory (currently: $music_dir)"
         )
         if [[ "$status" == "enabled" ]] && pgrep emulationstatio >/dev/null; then
             options+=(
@@ -234,6 +244,14 @@ function gui_bgm123() {
         if [[ -n "$choice" ]]; then
             case "$choice" in
                 1)
+                    sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
+                    if [[ -n "$sleep_timer" ]]; then
+                        iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
+                        [[ "$status" == "enabled" ]] && toggle_bgm123 on
+                        printMsgs "dialog" "Sleep timer set: $sleep_timer sec"
+                    fi
+                    ;;
+                2)
                     if [[ "$status" == "enabled" ]]; then
                         toggle_bgm123 off
                         iniSet "status" "disabled"
@@ -244,10 +262,6 @@ function gui_bgm123() {
                         printMsgs "dialog" "Background music enabled."
                     fi
                     ;;
-                2)
-                    sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup before music starts" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
-                    [[ -n "$sleep_timer" ]] && iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
-                    ;;
                 3)
                     if [[ "$mapped" == "enabled" ]]; then
                         iniSet "mapped_volume" "disabled"
@@ -256,6 +270,9 @@ function gui_bgm123() {
                         iniSet "mapped_volume" "enabled"
                         printMsgs "dialog" "Mapped volume enabled."
                     fi
+                    ;;
+                4)
+                    printMsgs "dialog" "Coming soon...\n\n...for now, you may manually edit the music_dir setting in $autoconf to change this."
                     ;;
                 P)
                     if pgrep mpg123 >/dev/null; then

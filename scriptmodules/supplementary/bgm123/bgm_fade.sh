@@ -31,7 +31,7 @@ readonly MIXER
 
 # get mixer volume
 readonly VOLUME_RAW="$($MIXER get $MIXER_CHANNEL | grep -o '...%')"
-readonly MIXER_VOLUME="${VOLUME_RAW//[![:digit:]]}"
+readonly MIXER_VOLUME="${VOLUME_RAW//[^[:digit:]]}"
 
 # get player status
 PLAYER_STATUS="$(ps -o state= -C $MUSIC_PLAYER 2>/dev/null)"
