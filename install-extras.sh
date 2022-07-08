@@ -105,7 +105,7 @@ function copyModule() {
 
     mkdir -p "$target" 2>&1 && \
     cp -f "$script" "$target" 2>&1 && \
-    [[ -d "$datadir" ]] && cp -rf "$datadir" "$target" 2>&1
+    [[ ! -d "$datadir" ]] || cp -rf "$datadir" "$target" 2>&1
 }
 
 # Run
