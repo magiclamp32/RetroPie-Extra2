@@ -213,9 +213,9 @@ function gui_bgm123() {
     )
     $(_get_vars_bgm123 "${vars[@]}")
 
-    iniConfig "=" '"' "$autoconf"
-    local cmd=(dialog --backtitle "$__backtitle" --cancel-label "Back" --menu "Configuration for $md_id. Please choose an option." 22 86 16)
     while true; do
+        iniConfig "=" '"' "$autoconf"
+
         # check if bgm code is actually enabled in autostart
         local status="disabled"
         grep '#bgm123' "$autostart" >/dev/null && status="enabled"
@@ -227,6 +227,7 @@ function gui_bgm123() {
         local music_dir
         iniGet "music_dir" && music_dir="$ini_value"
 
+        local cmd=(dialog --backtitle "$__backtitle" --cancel-label "Back" --menu "Configuration for $md_id. Please choose an option." 22 86 16)
         local options=(
             1 "Configure startup sleep timer (currently: ${sleep_timer:-(unset)} sec)"
             2 "Enable or disable background music (currently: ${status^})"
@@ -244,7 +245,7 @@ function gui_bgm123() {
         if [[ -n "$choice" ]]; then
             case "$choice" in
                 1)
-                    sleep_timer=$(dialog --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
+                    sleep_timer=$(dialog --backtitle "$__backtitle" --title "Sleep timer" --clear --rangebox "Choose how long to wait at startup" 0 60 0 90 ${sleep_timer:-10} 2>&1 >/dev/tty)
                     if [[ -n "$sleep_timer" ]]; then
                         iniSet "sleep_timer" "${sleep_timer//[^[:digit:]]}"
                         [[ "$status" == "enabled" ]] && toggle_bgm123 on
@@ -272,7 +273,25 @@ function gui_bgm123() {
                     fi
                     ;;
                 4)
-                    printMsgs "dialog" "Coming soon...\n\n...for now, you may manually edit the music_dir setting in $autoconf to change this."
+                    cmd=(dialog --backtitle "$__backtitle" --menu "Choose a location for music directory" 22 86 16)
+                    options=(
+                        1 "Use default music directory"
+                        2 "Choose own location"
+                    )
+                    choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+                    case "$choice" in
+                        1)
+                            iniSet "music_dir" "$datadir/bgm"
+                            printMsgs "dialog" "Music directory set to default ($datadir/bgm)\n\nSkip track or restart to apply changes."
+                            ;;
+                        2)
+                            music_dir=$(dialog --backtitle "$__backtitle" --title "Music directory" --dselect "$music_dir" 12 60 2>&1 >/dev/tty)
+                            if [[ -n "$music_dir" ]]; then
+                                iniSet "music_dir" "$music_dir"
+                                printMsgs "dialog" "Music directory set to $music_dir\n\nSkip track or restart to apply changes."
+                            fi
+                            ;;
+                    esac
                     ;;
                 P)
                     if pgrep mpg123 >/dev/null; then
