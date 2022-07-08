@@ -35,8 +35,8 @@ function runAuto() {
 }
 
 function runGUI() {
-    cmd=(dialog --clear --backtitle "$BACKTITLE" --menu "Choose an option." 22 86 16)
     while true; do
+        local cmd=(dialog --clear --backtitle "$BACKTITLE" --menu "Choose an option." 22 86 16)
         local options=(
             1 "Choose which modules to install"
             2 "Install all RetroPie-Extra modules"
