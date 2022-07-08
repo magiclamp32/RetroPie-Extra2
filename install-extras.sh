@@ -1,11 +1,11 @@
 #!/bin/bash
 
-AUTO=0
+MODE="gui"
 if [[ "${1,,}" == "-a" || "${1,,}" == "--all" ]]; then
-    AUTO=1
+    MODE="auto"
     shift
 fi
-readonly AUTO
+readonly MODE
 
 RPS_HOME="$HOME/RetroPie-Setup"
 if [[ -n "$1" ]]; then
@@ -20,7 +20,7 @@ function startCmd() {
     if [[ ! -d "$RPS_HOME" ]]; then
         echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename $0) /home/pi/RetroPie-Setup\n\nAborting."
         exit
-    elif [[ "$AUTO" -eq 1 ]]; then
+    elif [[ "$MODE" == "auto" ]]; then
         runAuto
     else
         runGUI
@@ -52,7 +52,7 @@ function runGUI() {
                     if [[ -n "$errormsg" ]]; then
                         errormsg="Error: $errormsg"
                     else
-                        errormsg="All scriptmodules copied to $RP_EXTRA."
+                        errormsg="All scriptmodules copied to $RP_EXTRA"
                     fi
                     dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "$errormsg" 20 60
                     ;;
@@ -70,34 +70,42 @@ function chooseModules() {
     local module
     local i=1
 
-    local cmd=(dialog --backtitle "$BACKTITLE" --checklist "Choose which modules to install:" 22 60 16)
-
     while read module; do
         module="${module/scriptmodules\//}"
         options+=($i "$module" off)
         ((i++))
     done < <(find scriptmodules -mindepth 2 -maxdepth 2 -type f | sort -u)
 
+    local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "Choose which modules to install:" 22 60 16)
+
     local choices=($("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty))
-    local choice
-    local script
-    local datadir
-    local section
-    local target
+    if [[ -n "$choices" ]]; then
+        local choice
+        local errormsg
 
-    for choice in "${choices[@]}"; do
-        script="scriptmodules/${options[choice*3-2]}"
-        section="$(basename $(dirname $script))"
-        datadir="${script%.*}"
-        target="$RP_EXTRA/scriptmodules/$section"
+        for choice in "${choices[@]}"; do
+            choice="${options[choice*3-2]}"
+            errormsg+=("$(copyModule $choice)") || break
+        done
+        if [[ -n "$errormsg" ]]; then
+            errormsg="Error: $errormsg"
+        else
+            errormsg="The selected scriptmodules have been copied to $RP_EXTRA"
+        fi
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "$errormsg" 20 60
+    fi
+}
 
-        [[ ! -d "$target" ]] && mkdir -p "$target"
-        cp -f "$script" "$target"
-        [[ -d "$datadir" ]] && cp -r "$datadir" "$target"
-    done
+function copyModule() {
+    local choice="$1"
+    local section="$(dirname $choice)"
+    local script="scriptmodules/$choice"
+    local datadir="${script%.*}"
+    local target="$RP_EXTRA/scriptmodules/$section"
 
-    clear
-    exit
+    mkdir -p "$target" 2>&1 && \
+    cp -f "$script" "$target" 2>&1 && \
+    [[ -d "$datadir" ]] && cp -rf "$datadir" "$target" 2>&1
 }
 
 # Run
