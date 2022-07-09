@@ -72,6 +72,7 @@ function chooseModules() {
     local section
     local lastsection
     local i=1
+    local re='^[0-9]+$'
 
     while read module; do
         module="${module/scriptmodules\//}"
@@ -93,8 +94,10 @@ function chooseModules() {
         local errormsg
 
         for choice in "${choices[@]}"; do
-            choice="${options_b[choice*3-2]}"
-            errormsg+=("$(copyModule $choice)") || break
+            if [[ "$choice" =~ $re ]]; then
+                choice="${options_b[choice*3-2]}"
+                errormsg+=("$(copyModule $choice)") || break
+            fi
         done
         if [[ -n "$errormsg" ]]; then
             errormsg="Error: $errormsg"
