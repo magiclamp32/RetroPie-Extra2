@@ -67,13 +67,22 @@ function runGUI() {
 
 function chooseModules() {
     local options=()
+    local options_b=()
     local module
+    local section
+    local lastsection
     local i=1
 
     while read module; do
         module="${module/scriptmodules\//}"
+        section="$(dirname $module)"
+        if [[ "$section" != "$lastsection" ]]; then
+            options+=("---" "------[  $section  ]------" off)
+        fi
         options+=($i "$module" off)
+        options_b+=($i "$module" off)
         ((i++))
+        lastsection="$section"
     done < <(find scriptmodules -mindepth 2 -maxdepth 2 -type f | sort -u)
 
     local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "Choose which modules to install:" 22 60 16)
@@ -84,7 +93,7 @@ function chooseModules() {
         local errormsg
 
         for choice in "${choices[@]}"; do
-            choice="${options[choice*3-2]}"
+            choice="${options_b[choice*3-2]}"
             errormsg+=("$(copyModule $choice)") || break
         done
         if [[ -n "$errormsg" ]]; then
