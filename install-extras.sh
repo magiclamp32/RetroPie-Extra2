@@ -124,9 +124,9 @@ function copyModule() {
     local datadir="${script%.*}"
     local target="$RP_EXTRA/scriptmodules/$section"
 
-    mkdir -p "$target" 2>&1 && \
-    cp -f "$script" "$target" 2>&1 && \
-    [[ ! -d "$datadir" ]] || cp -rf "$datadir" "$target" 2>&1
+    mkdir -p "$target" 2>&1 \
+      && cp -f "$script" "$target" 2>&1 \
+      && ([[ ! -d "$datadir" ]] || cp -rf "$datadir" "$target" 2>&1)
 }
 
 # Run
