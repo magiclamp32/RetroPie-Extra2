@@ -68,8 +68,8 @@ function runGUI() {
 }
 
 function chooseModules() {
-    local menu_options=()
-    local choice_options=()
+    local menu=()
+    local options=()
     local module
     local section
     local lastsection
@@ -81,19 +81,19 @@ function chooseModules() {
         module="${module/scriptmodules\//}"
         section="$(dirname $module)"
         if [[ "$section" != "$lastsection" ]]; then
-            menu_options+=("---" "------[  $section  ]------" off)
+            menu+=("---" "------[  $section  ]------" off)
         fi
         installed="off"
         [[ -f "$RP_EXTRA/scriptmodules/$module" ]] && installed="on"
-        menu_options+=($i "$module" "$installed")
-        choice_options+=("$module")
+        menu+=($i "$module" "$installed")
+        options+=("$module")
         ((i++))
         lastsection="$section"
     done < <(find scriptmodules -mindepth 2 -maxdepth 2 -type f | sort -u)
 
     local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "Choose which modules to install:" 22 60 16)
 
-    local choices=($("${cmd[@]}" "${menu_options[@]}" 2>&1 >/dev/tty))
+    local choices=($("${cmd[@]}" "${menu[@]}" 2>&1 >/dev/tty))
     if [[ -n "$choices" ]]; then
         local choice
         local errormsg
@@ -101,7 +101,7 @@ function chooseModules() {
         local n=0
         for choice in "${choices[@]}"; do
             if [[ "$choice" =~ $re ]]; then
-                choice="${choice_options[choice-1]}"
+                choice="${options[choice-1]}"
                 errormsg+=("$(copyModule $choice)") || break
                 ((n++))
             fi
