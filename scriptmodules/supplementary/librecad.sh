@@ -36,5 +36,5 @@ matchbox-window-manager -use_titlebar no &
 _EOF_
     chmod +x "$md_inst/librecad.sh"
 
-     addPort "$md_id" "librecad" "LibreCAD - Free Open Source 2D CAD" "XINIT: $md_inst/librecad.sh"
+    addPort "$md_id" "librecad" "LibreCAD - Free Open Source 2D CAD" "XINIT: $md_inst/librecad.sh"
 }

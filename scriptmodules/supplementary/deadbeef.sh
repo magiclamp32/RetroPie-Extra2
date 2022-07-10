@@ -17,23 +17,23 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_deadbeef() {
-    	getDepends git autopoint libtool intltool libgtk-3-dev libjansson-dev automake autoconf xdg-utils matchbox xorg
+    getDepends git autopoint libtool intltool libgtk-3-dev libjansson-dev automake autoconf xdg-utils matchbox xorg
 }
 
 function sources_deadbeef() {
-        git clone https://github.com/Alexey-Yakovenko/deadbeef.git
+    git clone https://github.com/Alexey-Yakovenko/deadbeef.git
 }
 
 function build_deadbeef() {
-	cd "$md_build/deadbeef"
-	./autogen.sh
-	./configure --prefix="$md_inst"
-	make
+    cd "$md_build/deadbeef"
+    ./autogen.sh
+    ./configure --prefix="$md_inst"
+    make
 }
 
 function install_deadbeef() {
-        cd "$md_build/deadbeef"
-	make install
+    cd "$md_build/deadbeef"
+    make install
 }
 
 function configure_deadbeef() {

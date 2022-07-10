@@ -17,17 +17,17 @@ rp_module_section="exp"
 rp_module_flags="!x86"
 
 function depends_vgmplay() {
-    	getDepends make gcc zlib1g-dev libao-dev
+    getDepends make gcc zlib1g-dev libao-dev
 }
 
 function sources_vgmplay() {
-        git clone https://github.com/it-s/vgmplay.git
+    git clone https://github.com/it-s/vgmplay.git
 }
 
 function build_vgmplay() {
-	cd "$md_build/vgmplay/VGMPlay"
-	make
-        md_ret_require="$md_build/vgmplay/VGMPlay/vgmplay"
+    cd "$md_build/vgmplay/VGMPlay"
+    make
+    md_ret_require="$md_build/vgmplay/VGMPlay/vgmplay"
 }
 
 function install_vgmplay() {

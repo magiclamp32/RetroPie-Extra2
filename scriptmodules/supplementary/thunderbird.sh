@@ -36,5 +36,5 @@ matchbox-window-manager -use_titlebar no &
 _EOF_
     chmod +x "$md_inst/thunderbird.sh"
 
-     addPort "$md_id" "thunderbird" "Mozilla - Thunderbird - Email Client" "XINIT: $md_inst/thunderbird.sh"
+    addPort "$md_id" "thunderbird" "Mozilla - Thunderbird - Email Client" "XINIT: $md_inst/thunderbird.sh"
 }

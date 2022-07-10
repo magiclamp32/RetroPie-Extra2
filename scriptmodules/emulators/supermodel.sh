@@ -60,7 +60,7 @@ function build_supermodel() {
     cd Config
     way="$md_inst/bin/Config"
     if [[ -e $way/Supermodel.ini ]]; then
-	mv Supermodel.ini Supermodel.ini.rp-dist
+        mv Supermodel.ini Supermodel.ini.rp-dist
     fi
 
     md_ret_require="$md_build/bin/supermodel"
@@ -68,7 +68,7 @@ function build_supermodel() {
 
 function install_supermodel() {
     md_ret_files=(
-	'bin'
+        'bin'
         'Docs/LICENSE.txt'
         'Docs/README.txt'
     )

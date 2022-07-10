@@ -36,5 +36,5 @@ matchbox-window-manager -use_titlebar no &
 _EOF_
     chmod +x "$md_inst/videolan.sh"
 
-     addPort "$md_id" "videolan" "VLC media player" "XINIT: $md_inst/videolan.sh"
+    addPort "$md_id" "videolan" "VLC media player" "XINIT: $md_inst/videolan.sh"
 }

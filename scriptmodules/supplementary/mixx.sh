@@ -36,5 +36,5 @@ matchbox-window-manager -use_titlebar no &
 _EOF_
     chmod +x "$md_inst/mixxx.sh"
 
-     addPort "$md_id" "mixxx" "Mixxx - Free DJ Mixing Software App" "XINIT: $md_inst/mixxx.sh"
+    addPort "$md_id" "mixxx" "Mixxx - Free DJ Mixing Software App" "XINIT: $md_inst/mixxx.sh"
 }

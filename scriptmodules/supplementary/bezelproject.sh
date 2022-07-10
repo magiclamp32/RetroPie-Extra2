@@ -20,7 +20,6 @@ function sources_bezelproject() {
 }
 
 function install_bezelproject() {
-
     cp ./bezelproject.sh "$home/RetroPie/retropiemenu"
     chown -R $user:$user "$datadir/retropiemenu"
 }

@@ -36,5 +36,5 @@ matchbox-window-manager -use_titlebar no &
 _EOF_
     chmod +x "$md_inst/libreoffice.sh"
 
-     addPort "$md_id" "libreoffice" "LibreOffice Open Source office suite" "XINIT: $md_inst/libreoffice.sh"
+    addPort "$md_id" "libreoffice" "LibreOffice Open Source office suite" "XINIT: $md_inst/libreoffice.sh"
 }
