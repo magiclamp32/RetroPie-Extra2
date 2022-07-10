@@ -86,7 +86,7 @@ function chooseModules() {
         installed="off"
         [[ -f "$RP_EXTRA/scriptmodules/$module" ]] && installed="on"
         menu_options+=($i "$module" "$installed")
-        choice_options+=($i "$module" "$installed")
+        choice_options+=("$module")
         ((i++))
         lastsection="$section"
     done < <(find scriptmodules -mindepth 2 -maxdepth 2 -type f | sort -u)
@@ -101,7 +101,7 @@ function chooseModules() {
         local n=0
         for choice in "${choices[@]}"; do
             if [[ "$choice" =~ $re ]]; then
-                choice="${choice_options[choice*3-2]}"
+                choice="${choice_options[choice-1]}"
                 errormsg+=("$(copyModule $choice)") || break
                 ((n++))
             fi
