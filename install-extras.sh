@@ -48,13 +48,15 @@ function runGUI() {
                     chooseModules
                     ;;
                 2)
-                    local errormsg=$(mkdir -p $RP_EXTRA 2>&1 && cp -r scriptmodules $RP_EXTRA 2>&1)
-                    if [[ -n "$errormsg" ]]; then
-                        errormsg="Error: $errormsg"
-                    else
-                        errormsg="All scriptmodules copied to $RP_EXTRA"
+                    if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "  -- Install all --\n\nThis may severely impact the loading time of RP Setup and RP Menu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
+                        local errormsg=$(mkdir -p $RP_EXTRA 2>&1 && cp -r scriptmodules $RP_EXTRA 2>&1)
+                        if [[ -n "$errormsg" ]]; then
+                            errormsg="Error: $errormsg"
+                        else
+                            errormsg="All scriptmodules copied to $RP_EXTRA"
+                        fi
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "$errormsg" 20 60
                     fi
-                    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "$errormsg" 20 60
                     ;;
             esac
         else
