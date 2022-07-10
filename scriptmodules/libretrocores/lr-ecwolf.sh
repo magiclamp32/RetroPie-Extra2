@@ -46,7 +46,7 @@ function game_data_lr-ecwolf() {
         # Get ECWolf System File
         download "$__archive_url__/ecwolf.pk3" "$dest/ecwolf.pk3"
     fi
-    
+
     if [[ ! -f "$dest/vswap.wl6" && ! -f "$dest/vswap.wl1" ]]; then
         cd "$__tmpdir"
         # Get shareware game data
@@ -67,7 +67,7 @@ function _add_games_lr-ecwolf(){
     local game
     local doswad
     local wad
-    
+
     declare -A -g games=(
         ['vswap.wl1']="Wolfenstein 3D (Demo)"
         ['vswap.wl6']="Wolfenstein 3D"
@@ -78,7 +78,7 @@ function _add_games_lr-ecwolf(){
         ['vswap.sdm']="Wolfenstein 3D - Spear of Destiny (Demo)"
         ['vswap.n3d']="Wolfenstein 3D - Super Noah’s Ark 3D"
     )
-    
+
     for game in "${!games[@]}"; do
         doswad="$romdir/ports/wolf3d/${game^^}"
         wad="$romdir/ports/wolf3d/$game"

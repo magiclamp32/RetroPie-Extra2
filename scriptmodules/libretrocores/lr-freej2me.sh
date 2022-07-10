@@ -52,6 +52,6 @@ function configure_lr-freej2me() {
     addEmulator 1 "$md_id" "j2me" "$md_inst/freej2me_libretro.so"
     addSystem "j2me"
 
-    cp -Rv "$md_inst/freej2me-lr.jar" "$md_inst/freej2me-sdl.jar" "$md_inst/freej2me.jar" "$biosdir" 
+    cp -Rv "$md_inst/freej2me-lr.jar" "$md_inst/freej2me-sdl.jar" "$md_inst/freej2me.jar" "$biosdir"
     chown $user:$user -R "$biosdir/freej2me.jar" "$biosdir/freej2me-sdl.jar" "$biosdir/freej2me-lr.jar"
 }

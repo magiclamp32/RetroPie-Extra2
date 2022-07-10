@@ -24,7 +24,7 @@ function depends_corsixth() {
 }
 
 function sources_corsixth() {
-    gitPullOrClone  
+    gitPullOrClone
 }
 
 function build_corsixth() {
@@ -51,7 +51,7 @@ function configure_corsixth() {
     mkdir "$home/.config/CorsixTH"
 
     cat >"$md_inst/bin/corsix.sh" << _EOF_
-    
+
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager & /opt/retropie/ports/corsixth/bin/corsix-th

@@ -20,7 +20,7 @@ rp_module_flags=""
 
 function depends_lr-reminiscence() {
     local depends=(modplug-tools zlib1g-dev libsdl2-dev)
-    getDepends "${depends[@]}"    
+    getDepends "${depends[@]}"
 }
 
 function sources_lr-reminiscence() {
@@ -44,7 +44,7 @@ function configure_lr-reminiscence() {
     local script
     setConfigRoot "ports"
 
-    addPort "$md_id" "reminiscence" "REminiscence" "$md_inst/reminiscence_libretro.so" 
+    addPort "$md_id" "reminiscence" "REminiscence" "$md_inst/reminiscence_libretro.so"
     local file="$romdir/ports/REminiscence.sh"
 
     cat >"$file" << _EOF_

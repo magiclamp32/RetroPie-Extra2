@@ -35,6 +35,6 @@ matchbox-window-manager -use_titlebar no &
 /usr/games/pokerth
 _EOF_
     chmod +x "$md_inst/pokerth.sh"
-    
+
      addPort "$md_id" "pokerth" "PokerTH is an Open Source Online Poker" "xinit $md_inst/pokerth.sh"
 }

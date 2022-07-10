@@ -35,15 +35,15 @@ function sources_sm64ex() {
     else
 	dialog --msgbox "Unable to find the required baserom.<VERSION>.z64 file to extract. Make sure to place it in $home." 0 0
         md_ret_errors+=("Failed: Couldn't find Super Mario 64 baserom to extract assets from.")
-    fi    
+    fi
 }
 
 function build_sm64ex() {
 
     pitype=$(tr -d '\0' < /sys/firmware/devicetree/base/model)
-    if [[ $pitype =~ "4" ]] 
+    if [[ $pitype =~ "4" ]]
     then
-	
+
 	if [[ -f "$md_build/baserom.us.z64" ]]
 	then
         	 make TARGET_RPI=1 VERSION=us

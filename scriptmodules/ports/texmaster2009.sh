@@ -22,7 +22,7 @@ function depends_texmaster2009() {
 
 function sources_texmaster2009() {
     wget -q http://mindflyer.net/tetris/texmaster/Texmaster2009-5.7z
-    7zr x Texmaster2009-5.7z 
+    7zr x Texmaster2009-5.7z
     #tar xvfz Texmaster2009.rpi1-ARMv6.tar.gz
     cd Texmaster2009
     tar xvfz Texmaster2009.rpi2-ARMv7.tar.gz

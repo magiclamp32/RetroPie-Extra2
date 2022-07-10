@@ -14,7 +14,7 @@ rp_module_id="bloboats"
 rp_module_desc="Bloboats"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
- 
+
 function depends_bloboats() {
     getDepends cmake xorg
 }
@@ -24,7 +24,7 @@ function sources_bloboats() {
         gitPullOrClone "$md_build/glshim" https://github.com/ptitseb/glshim.git
     fi
 }
- 
+
 function build_bloboats() {
     if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
        cd "$md_build/glshim"
@@ -40,7 +40,7 @@ function install_bin_bloboats() {
        cp "$md_build/glshim/lib/libGL.so.1" /opt/retropie/supplementary/glshim/
     fi
 }
- 
+
 function configure_bloboats() {
     mkdir "ports"
     moveConfigDir "$home/.bloboats" "$md_conf_root/bloboats"

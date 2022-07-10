@@ -29,7 +29,7 @@ function sources_rocksndiamonds() {
 
 function build_rocksndiamonds() {
     cd rocksndiamonds-4.2.3.1
-	make 
+	make
     md_ret_require="$md_build/rocksndiamonds-4.2.3.1"
 }
 

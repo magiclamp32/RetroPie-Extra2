@@ -36,7 +36,7 @@ function build_lr-boom3() {
     for target in $(_get_targets_lr-boom3); do
         make clean
 	if [[ "$target" == boom3_xp ]]; then
-	    make D3XP=1 
+	    make D3XP=1
 	else
 	    make
 	fi
@@ -58,7 +58,7 @@ function install_lr-boom3() {
 function add_games_lr-boom3() {
     local cmd1="$md_inst/boom3_xp_libretro.so"
     local cmd2="$md_inst/boom3_libretro.so"
-    declare -A games=(	
+    declare -A games=(
         ['base']="Doom 3"
         ['d3xp']="Doom 3 - Resurrection of Evil"
     )

@@ -46,7 +46,7 @@ function install_rott-huntbgin() {
 function configure_rott-huntbgin() {
     mkRomDir "ports"
     mkRomDir "ports/$md_id"
-    
+
     wget "http://icculus.org/rott/share/1rott13.zip" -O 1rott13.zip
     unzip -L -o 1rott13.zip rottsw13.shr
     unzip -L -o rottsw13.shr -d "$romdir/ports/$md_id" huntbgin.wad huntbgin.rtc huntbgin.rtl remote1.rts

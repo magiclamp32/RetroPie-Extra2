@@ -67,8 +67,8 @@ function configure_lr-mess-jaguar() {
 	#iniSet "save_on_exit" "false"
 
 	# set permissions for configurations
- 	chown $user:$user "$_custom_coreconfig" 
- 	chown $user:$user "$_add_config" 
+ 	chown $user:$user "$_custom_coreconfig"
+ 	chown $user:$user "$_add_config"
 
 	# setup rom folder
 	mkRomDir "$_system"

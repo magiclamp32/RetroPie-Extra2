@@ -23,7 +23,7 @@ function depends_chocolate-doom-system() {
 }
 
 function sources_chocolate-doom-system() {
-    gitPullOrClone 
+    gitPullOrClone
 }
 
 function build_chocolate-doom-system() {

@@ -35,6 +35,6 @@ matchbox-window-manager -use_titlebar no &
 /usr/bin/audacity
 _EOF_
     chmod +x "$md_inst/audacity.sh"
-    
+
      addPort "$md_id" "audacity" "Audacity Open-Source Digital Audio Editor" "XINIT: $md_inst/audacity.sh"
 }

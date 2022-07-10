@@ -24,7 +24,7 @@ function depends_gnukem() {
 
 
 function sources_gnukem() {
-    gitPullOrClone 
+    gitPullOrClone
     gitPullOrClone "$md_build/data" https://github.com/davidjoffe/gnukem_data.git
 }
 
@@ -34,7 +34,7 @@ function build_gnukem() {
 }
 
 function install_gnukem() {
-    md_ret_files=( 
+    md_ret_files=(
 	'davegnukem'
 	'data'
         )
@@ -47,7 +47,7 @@ cat >"$md_inst/dave.sh" << _EOF_
 
 #!/bin/bash
 cd "$md_inst"
-./davegnukem -640 -f 
+./davegnukem -640 -f
 
 _EOF_
 

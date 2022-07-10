@@ -23,7 +23,7 @@ function depends_crispy-doom() {
 }
 
 function sources_crispy-doom() {
-    gitPullOrClone 
+    gitPullOrClone
 }
 
 function build_crispy-doom() {

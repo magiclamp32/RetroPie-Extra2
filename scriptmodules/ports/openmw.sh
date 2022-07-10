@@ -20,8 +20,8 @@ rp_module_flags="noinstclean"
 
 function depends_openmw() {
 
-   getDepends cmake build-essential libopenal-dev libopenscenegraph-3.4-dev libsdl2-dev libqt4-dev libboost-filesystem-dev libboost-thread-dev libboost-program-options-dev libboost-system-dev libboost-iostreams-dev libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libswresample-dev libbullet-dev libmygui-dev libunshield-dev libqt4-opengl-dev libtinyxml-dev xorg 
-   
+   getDepends cmake build-essential libopenal-dev libopenscenegraph-3.4-dev libsdl2-dev libqt4-dev libboost-filesystem-dev libboost-thread-dev libboost-program-options-dev libboost-system-dev libboost-iostreams-dev libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libswresample-dev libbullet-dev libmygui-dev libunshield-dev libqt4-opengl-dev libtinyxml-dev xorg
+
 }
 
 function _arch_openmw() {

@@ -13,7 +13,7 @@
 rp_module_id="julius"
 rp_module_desc="Julius - Caesar III source port"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/bvschaik/julius/master/LICENSE.txt"
-rp_module_help="Julius requires the original assets (graphics, sounds, etc) from Caesar 3 to run. Add all data files from your Caesar 3 installation folder to $romdir/ports/caesar3" 
+rp_module_help="Julius requires the original assets (graphics, sounds, etc) from Caesar 3 to run. Add all data files from your Caesar 3 installation folder to $romdir/ports/caesar3"
 rp_module_repo="git https://github.com/bvschaik/julius.git"
 rp_module_section="exp"
 rp_module_flags=""

@@ -23,7 +23,7 @@ function depends_augustus() {
 }
 
 function sources_augustus() {
-    gitPullOrClone 	
+    gitPullOrClone
 }
 
 function build_augustus() {

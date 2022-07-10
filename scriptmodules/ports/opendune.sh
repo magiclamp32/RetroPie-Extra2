@@ -19,7 +19,7 @@ rp_module_flags="noinstclean"
 
 
 function depends_opendune() {
-   getDepends libsdl2-image-dev libsdl2-dev  libsdl-image1.2-dev libsdl1.2-dev dos2unix zip timidity timidity-daemon xorg matchbox-window-manager x11-xserver-utils 
+   getDepends libsdl2-image-dev libsdl2-dev  libsdl-image1.2-dev libsdl1.2-dev dos2unix zip timidity timidity-daemon xorg matchbox-window-manager x11-xserver-utils
 }
 
 
@@ -39,9 +39,9 @@ function install_opendune() {
     md_ret_files=(bin/opendune
 		bin/opendune.ini.sample
 )
-	
+
     cp $md_inst/opendune.ini.sample "/home/pi/.config/opendune/opendune.ini"
-	
+
     sed -i "/.*;datadir=$usr$local$opendune.*/c\\datadir=/home/pi/RetroPie/roms/ports/opendune" /home/pi/.config/opendune/opendune.ini
     sed -i "/.*;fullscreen=1.*/c\\fullscreen=1" /home/pi/.config/opendune/opendune.ini
     sed -i "/.*;language=french.*/c\\language=english" /home/pi/.config/opendune/opendune.ini

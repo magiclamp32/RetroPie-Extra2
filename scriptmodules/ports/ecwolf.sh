@@ -23,7 +23,7 @@ function depends_ecwolf() {
 }
 
 function sources_ecwolf() {
-    gitPullOrClone 
+    gitPullOrClone
 }
 
 function build_ecwolf() {
@@ -64,7 +64,7 @@ function _add_games_ecwolf(){
         ['sd2']="Wolfenstein 3D - SoD MP2 - Return to Danger"
         ['sd3']="Wolfenstein 3D - SoD MP3 - Ultimate Challenge"
     )
-    
+
     pushd "$romdir/ports/wolf3d"
     for game in "${!games[@]}"; do
         ecw=$(find . -iname "*.$game" -print -quit)
@@ -99,6 +99,6 @@ function configure_ecwolf() {
     # Check if some wolfenstein files are present and upload shareware files
     [[ "$md_mode" == "install" ]] && game_data_ecwolf
     [[ "$md_mode" == "install" ]] && add_games_ecwolf
-    
+
     chown -R $user:$user "$romdir/ports/wolf3d"
 }

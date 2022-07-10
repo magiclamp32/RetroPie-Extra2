@@ -35,6 +35,6 @@ matchbox-window-manager -use_titlebar no &
 /usr/bin/filezilla
 _EOF_
     chmod +x "$md_inst/filezilla.sh"
-    
+
      addPort "$md_id" "filezilla" "FileZilla cross platform FTP application" "xinit $md_inst/filezilla.sh"
 }

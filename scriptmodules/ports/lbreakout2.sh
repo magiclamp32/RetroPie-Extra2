@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!mali"
 
 function install_bin_lbreakout2() {
-    
+
     aptInstall lbreakout2
 }
 

@@ -34,7 +34,7 @@ function build_lr-easyrpg() {
     sudo make install
     cd ../..
 
-    cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DPLAYER_TARGET_PLATFORM=libretro -DBUILD_SHARED_LIBS=ON 
+    cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DPLAYER_TARGET_PLATFORM=libretro -DBUILD_SHARED_LIBS=ON
     cmake --build .
     md_ret_require="$md_build/easyrpg_libretro.so"
 }
@@ -56,8 +56,8 @@ function configure_lr-easyrpg() {
 
     addPort "$md_id" "easyrpg" "EasyRPG Player" "$md_inst/easyrpg_libretro.so" "$romdir/ports/easyrpg/games/"
 
-    ensureSystemretroconfig "ports/easyrpg" 
+    ensureSystemretroconfig "ports/easyrpg"
 
     mkUserDir "$biosdir/rtp/2000"
-    mkUserDir "$biosdir/rtp/2003"    
+    mkUserDir "$biosdir/rtp/2003"
 }

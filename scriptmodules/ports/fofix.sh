@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
- 
+
 # This file is part of RetroPie-Extra, a supplement to RetroPie.
 # For more information, please visit:
 #
@@ -9,13 +9,13 @@
 # See the LICENSE file distributed with this source and at
 # https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/LICENSE
 #
- 
+
 rp_module_id="fofix"
 rp_module_desc="FoFix - Guitar Hero and Rock Band clone"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/fofix/fofix/master/COPYING"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
- 
+
 function depends_fofix() {
     getDepends cmake xorg
 }
@@ -25,7 +25,7 @@ function sources_fofix() {
         gitPullOrClone "$md_build/glshim" https://github.com/ptitseb/glshim.git
     fi
 }
- 
+
 function build_fofix() {
     if [ ! -f "/opt/retropie/supplementary/glshim/libGL.so.1" ]; then
         cd "$md_build/glshim"
@@ -41,7 +41,7 @@ function install_bin_fofix() {
        cp "$md_build/glshim/lib/libGL.so.1" /opt/retropie/supplementary/glshim/
     fi
 }
- 
+
 function configure_fofix() {
     mkdir "ports"
     moveConfigDir "$home/.fofix" "$md_conf_root/$md_id"

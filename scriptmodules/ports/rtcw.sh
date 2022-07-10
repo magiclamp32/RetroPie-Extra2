@@ -23,7 +23,7 @@ function depends_rtcw() {
 	if compareVersions "$__os_debian_ver" lt 10; then
         depends+=(libgles1-mesa-dev)
     fi
-	
+
 	getDepends "${depends[@]}"
 }
 
@@ -77,7 +77,7 @@ function game_data_rtcw() {
 
 function configure_rtcw() {
     rm -R /home/pi/RetroPie/roms/ports/rtcw/vm
-	
+
     addPort "rtcw-sp" "rtcw-sp" "Return to Castle Wolfenstein SP" "$md_inst/iowolfsp.armv7l"
     addPort "rtcw-mp" "rtcw-mp" "Return to Castle Wolfenstein MP" "$md_inst/iowolfmp.armv7l"
 

@@ -18,7 +18,7 @@ rp_module_flags="noinstclean"
 
 
 function depends_relive() {
-   
+
 	getDepends cmake libboost-all-dev libsdl2-dev libsdl2-mixer-dev libopengl-dev libglx-dev libopengl0 libclang-7-dev  libclang-common-7-dev clang clang-7 zenity xorg x11-xserver-utils libxrandr-dev libxrandr2 lxrandr
 }
 
@@ -28,23 +28,23 @@ function sources_relive() {
 }
 
 function build_relive() {
-    
+
 	cd alive_reversing
 	mkdir build
     cd build
-	
+
 	export CC=/usr/bin/clang
 	export CXX=/usr/bin/clang++
     cmake -S .. -B .
 	make
 	#make -j$(nproc) > output.txt 2> errors.txt
-    
+
 	    md_ret_require=(
       )
 }
 
 function install_relive() {
-    
+
 	md_ret_files=(alive_reversing/build/Source/relive/relive
         	alive_reversing/assets/relive-ao
 	alive_reversing/assets/relive-ae
@@ -55,7 +55,7 @@ function configure_relive() {
 
 		mkRomDir "ports/exoddus"
 		mkRomDir "ports/oddysee"
-	
+
 	cp -r /opt/retropie/ports/relive/relive /home/pi/RetroPie/roms/ports/oddysee
 	cp -r /opt/retropie/ports/relive/relive /home/pi/RetroPie/roms/ports/exoddus
 
@@ -85,6 +85,6 @@ _EOF_
 	chown -R pi:pi "/home/pi/RetroPie/roms/ports/oddysee/relive"
 
 
-	#ln -s "/home/pi/RetroPie/roms/ports/relive" "/opt/retropie/ports/relive"  
-  
+	#ln -s "/home/pi/RetroPie/roms/ports/relive" "/opt/retropie/ports/relive"
+
 }
