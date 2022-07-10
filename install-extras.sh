@@ -93,16 +93,20 @@ function chooseModules() {
         local choice
         local errormsg
 
+        local n=0
         for choice in "${choices[@]}"; do
             if [[ "$choice" =~ $re ]]; then
                 choice="${options_b[choice*3-2]}"
                 errormsg+=("$(copyModule $choice)") || break
+                ((n++))
             fi
         done
         if [[ -n "$errormsg" ]]; then
             errormsg="Error: $errormsg"
+        elif [[ $n -eq 0 ]]; then
+            errormsg="Error: no scriptmodules selected"
         else
-            errormsg="The selected scriptmodules have been copied to $RP_EXTRA"
+            errormsg="$n selected scriptmodules have been copied to $RP_EXTRA"
         fi
         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "$errormsg" 20 60
     fi
