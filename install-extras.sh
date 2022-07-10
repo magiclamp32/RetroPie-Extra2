@@ -101,7 +101,7 @@ function chooseModules() {
         local n=0
         for choice in "${choices[@]}"; do
             if [[ "$choice" =~ $re ]]; then
-                choice="${options[$choice-1]}"
+                choice="${options[choice-1]}"
                 errormsg+=("$(copyModule $choice)") || break
                 ((n++))
             fi
