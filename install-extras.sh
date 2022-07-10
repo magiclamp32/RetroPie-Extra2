@@ -75,6 +75,7 @@ function chooseModules() {
     local lastsection
     local i=1
     local re='^[0-9]+$'
+    local installed
 
     while read module; do
         module="${module/scriptmodules\//}"
@@ -82,8 +83,10 @@ function chooseModules() {
         if [[ "$section" != "$lastsection" ]]; then
             menu_options+=("---" "------[  $section  ]------" off)
         fi
-        menu_options+=($i "$module" off)
-        choice_options+=($i "$module" off)
+        installed="off"
+        [[ -f "$RP_EXTRA/scriptmodules/$module" ]] && installed="on"
+        menu_options+=($i "$module" "$installed")
+        choice_options+=($i "$module" "$installed")
         ((i++))
         lastsection="$section"
     done < <(find scriptmodules -mindepth 2 -maxdepth 2 -type f | sort -u)
