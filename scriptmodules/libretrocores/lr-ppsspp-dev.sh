@@ -10,34 +10,34 @@
 # https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/LICENSE
 #
 
-rp_module_id="lr-ppsspp-latest"
-rp_module_desc="PlayStation Portable emu - PPSSPP port for libretro - latest master version"
+rp_module_id="lr-ppsspp-dev"
+rp_module_desc="PlayStation Portable emu - PPSSPP port for libretro - latest development version"
 rp_module_help="ROM Extensions: .iso .pbp .cso\n\nCopy your PlayStation Portable roms to $romdir/psp"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/RetroPie/ppsspp/master/LICENSE.TXT"
 rp_module_repo="git https://github.com/hrydgard/ppsspp.git master"
 rp_module_section="exp"
 rp_module_flags="!videocore"
 
-function depends_lr-ppsspp-latest() {
-    depends_ppsspp-latest
+function depends_lr-ppsspp-dev() {
+    depends_ppsspp-dev
 }
 
-function sources_lr-ppsspp-latest() {
-    sources_ppsspp-latest
+function sources_lr-ppsspp-dev() {
+    sources_ppsspp-dev
 }
 
-function build_lr-ppsspp-latest() {
-    build_ppsspp-latest
+function build_lr-ppsspp-dev() {
+    build_ppsspp-dev
 }
 
-function install_lr-ppsspp-latest() {
+function install_lr-ppsspp-dev() {
     md_ret_files=(
         'ppsspp/lib/ppsspp_libretro.so'
         'ppsspp/assets'
     )
 }
 
-function configure_lr-ppsspp-latest() {
+function configure_lr-ppsspp-dev() {
     mkRomDir "psp"
     ensureSystemretroconfig "psp"
 
