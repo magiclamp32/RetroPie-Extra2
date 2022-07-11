@@ -1,5 +1,9 @@
 #!/bin/bash
 
+SCRIPTDIR="$(dirname "$0")"
+SCRIPTDIR="$(cd "$SCRIPTDIR" && pwd)"
+readonly SCRIPTDIR
+
 MODE="gui"
 if [[ "${1,,}" == "-a" || "${1,,}" == "--all" ]]; then
     MODE="auto"
