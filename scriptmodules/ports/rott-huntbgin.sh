@@ -19,7 +19,7 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_rott-huntbgin() {
-    getDepends libsdl1.2-dev libsdl-mixer1.2-dev automake autoconf xorg 
+    getDepends libsdl1.2-dev libsdl-mixer1.2-dev automake autoconf unzip xorg
 }
 
 function sources_rott-huntbgin() {
