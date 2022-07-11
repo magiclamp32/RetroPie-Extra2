@@ -8,10 +8,13 @@ MODE="gui"
 if [[ "${1,,}" == "-a" || "${1,,}" == "--all" ]]; then
     MODE="auto"
     shift
+elif [[ "${1,,}" == "-u" || "${1,,}" == "--update-all" ]]; then
+    MODE="update"
+    shift
 elif [[ "${1,,}" == "-r" || "${1,,}" == "--remove" ]]; then
     MODE="remove"
     shift
-elif [[ "${1,,}" == "-h" || "${1,,}" == "--help" ]]; then
+elif [[ "${1,,}" == "-?" || "${1,,}" == "-h" || "${1,,}" == "--help" ]]; then
     MODE="help"
     shift
 fi
@@ -32,6 +35,9 @@ function startCmd() {
         exit
     elif [[ "$MODE" == "auto" ]]; then
         runAuto
+    elif [[ "$MODE" == "update" ]]; then
+        git pull #origin <-- for testing. Uncomment before release
+        runAuto
     elif [[ "$MODE" == "remove" ]]; then
         removeAll
     elif [[ "$MODE" == "help" ]]; then
@@ -44,7 +50,7 @@ function startCmd() {
 function runAuto() {
     echo -e "Placing scriptmodules in $RP_EXTRA\n"
     mkdir -p "$RP_EXTRA"
-    cp -R scriptmodules/ "$RP_EXTRA" && echo "...done."
+    cp -r scriptmodules/ "$RP_EXTRA" && echo "...done."
     exit
 }
 
@@ -54,21 +60,8 @@ function removeAll() {
         exit
     fi
 
-    read -r -p "Removing directory $RP_EXTRA and all of its contents. Do you wish to continue? [y/N] " response
-    case "$response" in
-        [yY][eE][sS]|[yY])
-            rm -rf "$RP_EXTRA" && echo -e "\n...done."
-            ;;
-        [yY]*)
-            echo -e "\nError \"$response\": please enter \"y\" or \"yes\" to confirm.\n\nAborting."
-            exit
-            ;;
-        *)
-            echo -e "\nAborting."
-            exit
-            ;;
-    esac
-
+    echo -e "Removing directory $RP_EXTRA and all of its contents.\n"
+    rm -rf "$RP_EXTRA" && echo -e "...done."
     exit
 }
 
@@ -88,12 +81,20 @@ Options (choose one):
 _BREAK_
 }
 
+function updateExtras () {
+    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull" 20 60 2>&1 >/dev/tty
+# for testing.  Update before release:
+#   dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull origin" 20 60 2>&1 >/dev/tty
+}
+
 function runGUI() {
     while true; do
         local cmd=(dialog --clear --backtitle "$BACKTITLE" --cancel-label "Exit" --menu "Choose an option." 22 86 16)
         local options=(
             1 "Choose which modules to install"
-            2 "Install all RetroPie-Extra modules"
+            2 "Update RetroPie-Extra"
+            3 "Install all RetroPie-Extra modules"
+            4 "Remove all RetroPie-Extra modules"
         )
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         if [[ -n "$choice" ]]; then
@@ -102,6 +103,9 @@ function runGUI() {
                     chooseModules
                     ;;
                 2)
+                    updateExtras
+                    ;;
+                3)
                     if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "  -- Install all --\n\nThis may severely impact the loading time of RP Setup and RP Menu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
                         local errormsg=$(mkdir -p $RP_EXTRA 2>&1 && cp -r scriptmodules $RP_EXTRA 2>&1)
                         if [[ -n "$errormsg" ]]; then
@@ -109,7 +113,14 @@ function runGUI() {
                         else
                             errormsg="All scriptmodules copied to $RP_EXTRA"
                         fi
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "$errormsg" 20 60
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "$errormsg" 20 60 2>&1 >/dev/tty
+                    fi
+                    ;;
+                4)
+                    if [ ! -d "$RP_EXTRA" ]; then
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "RetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
+                    elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "Removing $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Removing RetroPie-Extra scriptmodules..." "rm -rf $RP_EXTRA && echo ...done." 20 60 2>&1 >/dev/tty
                     fi
                     ;;
             esac
@@ -180,7 +191,7 @@ function copyModule() {
 
     mkdir -p "$target" 2>&1 \
       && cp -f "$script" "$target" 2>&1 \
-      && ([[ ! -d "$datadir" ]] || cp -rf "$datadir" "$target" 2>&1)
+      && [[ ! -d "$datadir" ]] || cp -rf "$datadir" "$target" 2>&1
 }
 
 # Run
