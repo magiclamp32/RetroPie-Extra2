@@ -19,7 +19,6 @@ rp_module_flags="noinstclean"
 
 
 function depends_relive() {
-
 	getDepends cmake libboost-all-dev libsdl2-dev libsdl2-mixer-dev libopengl-dev libglx-dev libopengl0 libclang-7-dev  libclang-common-7-dev clang clang-7 zenity xorg x11-xserver-utils libxrandr-dev libxrandr2 lxrandr
 }
 
