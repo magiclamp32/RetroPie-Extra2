@@ -113,6 +113,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-reminiscence.sh` - Flashback engine - Gregory Montoir’s Flashback emulator port for libretro - **Installs**
 - [X] - `lr-sameboy.sh` - Game Boy (Color) emulator - SameBoy Port for libretro - **Installs**
 - [X] - `lr-simcoupe.sh` - SAM Coupe emulator - SimCoupe port for libretro - **Installs**
+- [X] - `lr-swanstation.sh` - Playstation emulator - Duckstation fork for libretro
 - [X] - `lr-thepowdertoy.sh` - Sandbox physics game for libretro - **Installs**
 - [X] - `lr-uzem.sh` - Uzebox engine - Uzem port for libretro - **Installs**
 - [X] - `lr-vemulator.sh` - SEGA VMU emulator - VeMUlator port for libretro - **Installs**
