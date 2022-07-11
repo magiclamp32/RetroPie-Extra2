@@ -118,9 +118,9 @@ function runGUI() {
                     ;;
                 4)
                     if [ ! -d "$RP_EXTRA" ]; then
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "RetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
-                    elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "Removing $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Removing RetroPie-Extra scriptmodules..." "rm -rf $RP_EXTRA && echo ...done." 20 60 2>&1 >/dev/tty
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "  -- Remove All --\n\nRetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
+                    elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "  -- Remove All --\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Removing all RetroPie-Extra scriptmodules..." "rm -rf $RP_EXTRA && echo ...done." 20 60 2>&1 >/dev/tty
                     fi
                     ;;
             esac
