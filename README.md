@@ -32,7 +32,7 @@ The installation script assumes that you are running it on a Raspberry Pi with t
 ## Usage
 
 After installing **RetroPie-Extra**, the extra scripts will be installed directly in the **RetroPie Setup script** (generally in the experimental section), which you can run from either the command line or from the menu within Emulation Station.
-```
+```bash
 cd ~
 cd RetroPie-Setup/
 sudo ./retropie_setup.sh
@@ -73,7 +73,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `openbor.sh` - Beat 'em Up Game Engine (newest version) - **Tested only on Pi4 so far, installs as a system instead of as a port, direct launching of games from emulationstation supported!**
 - [x] - `pico8.sh` - Fantasy Game Emulator - Adds as a new system in RetroPie so you can directly launch carts. **Was told that it works fine, so I'll go with that**
 - [ ] - `pokemini.sh` - Pokemon Mini emulator  - **x86 only**
-- [X] - `ppsspp-latest.sh` - PlayStation Portable emulator PPSSPP - latest master version - **!videocore: tested and works on RPi4 (May 2022)**
+- [X] - `ppsspp-dev.sh` - PlayStation Portable emulator PPSSPP - latest development version - **black screen on videocore, tested and works on RPi4 (May 2022)**
 - [X] - `supermodel.sh` - Sega Model 3 Arcade emulator  - **Installs**
 
 #### Libretrocores
@@ -107,7 +107,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `lr-play.sh` - PlayStation 2 emulator - Play port for libretro - **x86 only**
 - [X] - `lr-pocketcdg.sh` - A MP3 karaoke music player. - **Installs**
 - [X] - `lr-potator.sh` -  Watara Supervision emulator based on Normmatt version - Potator port for libretro - **Installs**
-- [X] - `lr-ppsspp-latest.sh` - PlayStation Portable emu - PPSSPP port for libretro - latest master version - **!videocore: tested and works on RPi4 (May 2022)**
+- [X] - `lr-ppsspp-dev.sh` - PlayStation Portable emu - PPSSPP port for libretro - latest development version - **bkackbscreen on videocore, tested and works on RPi4 (May 2022)**
 - [X] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port.  - **Installs**
 - [X] - `lr-race.sh` - Neo Geo Pocket (Color) emulator - RACE! port for libretro. - **Installs**
 - [X] - `lr-reminiscence.sh` - Flashback engine - Gregory Montoir’s Flashback emulator port for libretro - **Installs**
@@ -158,6 +158,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `hheretic.sh` - Heretic GL-port - **Installs**
 - [X] - `hhexen.sh` - Hexen GL-port - **Installs**
 - [X] - `hurrican.sh` - Turrican clone. - **Installs**
+- [X] - `jfsw.sh` - Shadow warrior port - **Installs and runs on rpi4**
 - [X] - `julius.sh` - Julius - Caesar III source port - **Installs**
 - [X] - `kaiten-patissier.sh` - Japanese 2D Platformer - **Installs**
 - [X] - `kaiten-patissier-ura.sh` - Japanese 2D Platformer - **Installs**
@@ -199,7 +200,6 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `rtcw.sh`- IORTCW source port of Return to Castle Wolfenstein. - **Installs, and plays great**
 - [X] - `score.sh` - score - Septerra Core: Legacy of the Creator port - **Installs**
 - [X] - `sdl-bomber.sh` - Simple Bomberman clone - **Installs**
-- [X] - `shadowwarrior.sh` - Jfsw - Shadow warrior port
 - [X] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.  - **Installs**
 - [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4. **Installs Plays great**
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Installs**
