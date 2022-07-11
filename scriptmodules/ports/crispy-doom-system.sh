@@ -23,7 +23,7 @@ function depends_crispy-doom-system() {
 }
 
 function sources_crispy-doom-system() {
-    gitPullOrClone 
+    gitPullOrClone
 }
 
 function build_crispy-doom-system() {
@@ -43,7 +43,7 @@ function install_crispy-doom-system() {
 }
 
 function game_data_doom() {
-    mkRomDir "doom" 
+    mkRomDir "doom"
     if [[ ! -f "$romdir/doom/doom1.wad" ]]; then
         wget "$__archive_url/doom1.wad" -O "$romdir/doom/doom1.wad"
     fi
@@ -62,7 +62,7 @@ function configure_crispy-doom-system() {
     mkUserDir "$home/.config"
     setConfigRoot ""
     addEmulator 1 "crispy-doom" "doom" "$md_inst/crispy-doom -iwad %ROM%"
-    addSystem "doom" "DOOM" ".pk3 .wad" 
+    addSystem "doom" "DOOM" ".pk3 .wad"
 
     moveConfigDir "$home/.local/share/crispy-doom" "$md_conf_root/crispy-doom"
     [[ "$md_mode" == "install" ]] && game_data_doom

@@ -20,7 +20,7 @@ rp_module_section="exp x86=opt"
 function depends_lr-sameboy() {
     # For lr-Sameboy
     local depends=(clang libsdl2-dev)
-    # For rgbds: 
+    # For rgbds:
     #depends+=(byacc flex libpng-dev)
     getDepends "${depends[@]}"
 }

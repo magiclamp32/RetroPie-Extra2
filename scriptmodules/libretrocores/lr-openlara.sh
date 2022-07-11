@@ -84,8 +84,8 @@ scriptdir="\$HOME/RetroPie-Setup"
 source "\$scriptdir/scriptmodules/helpers.sh"
 
 joy2keyStart
-let i=0 
-W=() 
+let i=0
+W=()
 while read -r line; do
     let i=\$i+1
     W+=(\$i "\$line")
@@ -96,7 +96,7 @@ if [ "\$ROMS" == "" ]; then
     joy2keyStop
 else
     joy2keyStop
-    item=\$((\$ROMS*2-1)) 
+    item=\$((\$ROMS*2-1))
     "/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "tombraider" "$romdir/ports/tombraider/level/$dir/\${W[\$item]}"
 fi
 _EOF_

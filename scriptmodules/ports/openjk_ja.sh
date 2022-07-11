@@ -88,7 +88,7 @@ function configure_openjk_ja() {
     mkRomDir "ports/jediacademy"
 
     moveConfigDir "${md_inst}/base" "$romdir/ports/jediacademy"
-    moveConfigDir "$home/.local/share/openjk" "${md_conf_root}/jediacademy/openjk" 
+    moveConfigDir "$home/.local/share/openjk" "${md_conf_root}/jediacademy/openjk"
 
     [[ "$md_mode" == "install" ]] && game_data_openjk_ja
 }

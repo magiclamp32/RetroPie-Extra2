@@ -35,6 +35,6 @@ matchbox-window-manager -use_titlebar no &
 /usr/bin/putty
 _EOF_
     chmod +x "$md_inst/putty.sh"
-    
-     addPort "$md_id" "putty" "Putty SSH and telnet client" "XINIT: $md_inst/putty.sh"
+
+    addPort "$md_id" "putty" "Putty SSH and telnet client" "XINIT: $md_inst/putty.sh"
 }

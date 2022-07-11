@@ -35,6 +35,6 @@ matchbox-window-manager -use_titlebar no &
 /usr/games/gtkboard
 _EOF_
     chmod +x "$md_inst/gtkboard.sh"
-    
+
      addPort "$md_id" "gtkboard" "Gtkboard Board games system" "XINIT: $md_inst/gtkboard.sh"
 }

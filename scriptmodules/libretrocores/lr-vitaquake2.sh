@@ -27,11 +27,11 @@ function build_lr-vitaquake2() {
     local basegame
     local params=()
     for i in _ -rogue_ -xatrix_ -zaero_; do
-        if [[ $i == -rogue_ ]]; then 
+        if [[ $i == -rogue_ ]]; then
 	    j="rogue"
-        elif [[ $i == -xatrix_ ]]; then 
+        elif [[ $i == -xatrix_ ]]; then
 	    j="xatrix"
-        elif [[ $i == -zaero_ ]]; then 
+        elif [[ $i == -zaero_ ]]; then
 	    j="zaero"
 	fi
 	params+=(basegame=$j)
@@ -70,14 +70,14 @@ function add_games_lr-vitaquake2() {
         pak="$romdir/ports/quake2/baseq2/pak0.pak"
         if [[ -f "$pak" ]]; then
 	    if [[ "$game" == "baseq2/pak0" ]]; then
-                addPort "$md_id" "quake2" "${games[$game]}" "$cmd1" "$pak" 
+                addPort "$md_id" "quake2" "${games[$game]}" "$cmd1" "$pak"
 	    elif [[ "$game" == "rogue/pak0" ]]; then
-                addPort "$md_id-rogue" "quake2" "${games[$game]}" "$cmd2" "$pak" 
+                addPort "$md_id-rogue" "quake2" "${games[$game]}" "$cmd2" "$pak"
 	    elif [[ "$game" == "xatrix/pak0" ]]; then
-                addPort "$md_id-xatrix" "quake2" "${games[$game]}" "$cmd3" "$pak" 
+                addPort "$md_id-xatrix" "quake2" "${games[$game]}" "$cmd3" "$pak"
 	    elif [[ "$game" == "zaero/pak0" ]]; then
                 addPort "$md_id-zaero" "quake2" "${games[$game]}" "$cmd4" "$pak"
-	    fi      	    
+	    fi
         fi
     done
 }

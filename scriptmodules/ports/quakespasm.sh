@@ -28,16 +28,15 @@ function sources_quakespasm() {
 }
 
 function build_quakespasm() {
-    cb Quake
-    make USE_SDL2=1 DO_USERDIRS=1
-	
+  	cd Quake
+	  make USE_SDL2=1 DO_USERDIRS=1
     md_ret_require=(
       )
 }
 
 function install_quakespasm() {
     md_ret_files=(Quake/quakespasm
-	Quake/quakespasm.pak        
+	Quake/quakespasm.pak
         )
 }
 
@@ -45,7 +44,7 @@ function configure_quakespasm() {
         addPort "$md_id" "quakespasm" "Quakespasm - Quake engine" "$md_inst/quakespasm -basedir /home/pi/RetroPie/roms/ports/quake"
 
     mkRomDir "ports/quake"
-   
 
-   
+
+
 }

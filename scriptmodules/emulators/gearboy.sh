@@ -35,9 +35,9 @@ function build_gearboy() {
     elif isPlatform "rpi2"; then
         cd "$md_build/platforms/raspberrypi2"
     elif isPlatform "rpi3"; then
-            cd "$md_build/platforms/raspberrypi3"
+        cd "$md_build/platforms/raspberrypi3"
     elif isPlatform "rpi4"; then
-            cd "$md_build/platforms/raspberrypi4"
+        cd "$md_build/platforms/raspberrypi4"
     fi
 
     make clean

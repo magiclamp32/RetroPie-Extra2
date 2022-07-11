@@ -37,7 +37,7 @@ function install_lr-lutro() {
 function configure_lr-lutro() {
     mkRomDir "lutro"
     ensureSystemretroconfig "lutro"
-    
+
     addEmulator 1 "$md_id" "lutro" "$md_inst/lutro_libretro.so"
     addSystem "lutro"
 }

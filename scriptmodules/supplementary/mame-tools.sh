@@ -32,11 +32,11 @@ function build_mame-tools() {
     else
         rpSwap on 4096
     fi
-    
+
     local params=(SOURCES=./src/mame/drivers/pacman.cpp SUBTARGET=pacman TOOLS=1 REGENIE=1)
     isPlatform "64bit" && params+=(PTR64=1)
     make clean
-    QT_SELECT=5 make "${params[@]}" -j`nproc` 
+    QT_SELECT=5 make "${params[@]}" -j`nproc`
     rpSwap off
 }
 
@@ -80,7 +80,7 @@ function batch_convert_castool_mame-tools() {
     for ((b=0; b<${#ext[@]}; b++)); do
         if [ "$b" = 0 ]; then
             __ext=(${__ext[@]}${ext[b]})
-	else 
+	else
             __ext=(${__ext[@]}\|${ext[b]})
         fi
     done
@@ -91,7 +91,7 @@ function batch_convert_castool_mame-tools() {
         a26sp=""
     fi
     local m="ERROR: There aren't valid extensions in ${d%/} directory.\n\nSupported extensions:\n ${_ext[@]} $a26sp\n\nSupported compressions:\n *.zip *.7z"
-    
+
     cd && cd $d
     echo "Reading directory ..."
     ls -1 -A $d > ext.txt
@@ -99,10 +99,10 @@ function batch_convert_castool_mame-tools() {
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             zipinfo -1 "$f" "${_ext[@]}" >> out_1.txt
             cat out_1.txt >> out_merge_a.txt
-        elif [[ "$f" = *.7[zZ] ]]; then 
+        elif [[ "$f" = *.7[zZ] ]]; then
             7z l -ba "$f" "${_ext[@]}" -r- | cut -c54- >> out_2.txt
             cat out_2.txt >> out_merge_a.txt
-        else 
+        else
             find $d -maxdepth 1 -regextype posix-egrep -iregex ".*\.(${__ext[@]})" >> out_3.txt
             cat out_3.txt > out_merge_b.txt
         fi 2>/dev/null >/dev/null
@@ -113,7 +113,7 @@ function batch_convert_castool_mame-tools() {
     for i in a b; do
         while read -r g; do
             if [[ "$sys" = atom ]] || [[ "$sys" = fmsx ]] || [[ "$sys" = kc85 ]] || [[ "$sys" = pmd85 ]] || [[ "$sys" = spc1000 ]] || [[ "$sys" = tzx ]]; then
-                if [[ "$g" = *.[tT][aA][pP] ]]; then 
+                if [[ "$g" = *.[tT][aA][pP] ]]; then
                     echo "tap" >> out_$i.txt
                 fi
             fi
@@ -128,105 +128,105 @@ function batch_convert_castool_mame-tools() {
                 fi
             fi
             if [[ "$sys" = apf ]]; then
-                if [[ "$g" = *.[cC][pP][fF] ]]; then 
+                if [[ "$g" = *.[cC][pP][fF] ]]; then
                     echo "cpf" >> out_$i.txt
-                elif [[ "$g" = *.[aA][pP][tT] ]]; then 
+                elif [[ "$g" = *.[aA][pP][tT] ]]; then
                     echo "apt" >> out_$i.txt
                 fi
             elif [[ "$sys" = atom ]] || [[ "$sys" = bbc ]]; then
-                if [[ "$g" = *.[cC][sS][wW] ]]; then 
+                if [[ "$g" = *.[cC][sS][wW] ]]; then
                     echo "csw" >> out_$i.txt
-                elif [[ "$g" = *.[uU][eE][fF] ]]; then 
+                elif [[ "$g" = *.[uU][eE][fF] ]]; then
                     echo "uef" >> out_$i.txt
                 fi
             elif [[ "$sys" = hector ]]; then
-                if [[ "$g" = *.[cC][iI][nN] ]]; then 
+                if [[ "$g" = *.[cC][iI][nN] ]]; then
                     echo "cin" >> out_$i.txt
-                elif [[ "$g" = *.[fF][oO][rR] ]]; then 
+                elif [[ "$g" = *.[fF][oO][rR] ]]; then
                     echo "for" >> out_$i.txt
-                fi		
+                fi
             elif [[ "$sys" = kc85 ]]; then
-                if [[ "$g" = *.[kK][cC][cC] ]]; then 
+                if [[ "$g" = *.[kK][cC][cC] ]]; then
                     echo "kcc" >> out_$i.txt
-                elif [[ "$g" = *.[kK][cC][bB] ]]; then 
+                elif [[ "$g" = *.[kK][cC][bB] ]]; then
                     echo "kcb" >> out_$i.txt
-                elif [[ "$g" = *.853 ]]; then 
+                elif [[ "$g" = *.853 ]]; then
                     echo "853" >> out_$i.txt
-                elif [[ "$g" = *.854 ]]; then 
+                elif [[ "$g" = *.854 ]]; then
                     echo "854" >> out_$i.txt
-                elif [[ "$g" = *.855 ]]; then 
+                elif [[ "$g" = *.855 ]]; then
                     echo "855" >> out_$i.txt
-                elif [[ "$g" = *.[tT][pP]2 ]]; then 
+                elif [[ "$g" = *.[tT][pP]2 ]]; then
                     echo "tp2" >> out_$i.txt
-                elif [[ "$g" = *.[kK][cC][mM] ]]; then 
+                elif [[ "$g" = *.[kK][cC][mM] ]]; then
                     echo "kcm" >> out_$i.txt
-                elif [[ "$g" = *.[sS][sS][sS] ]]; then 
+                elif [[ "$g" = *.[sS][sS][sS] ]]; then
                     echo "sss" >> out_$i.txt
                 fi
             elif [[ "$sys" = kim ]]; then
-                if [[ "$g" = *.[kK][iI][mM]1 ]]; then 
+                if [[ "$g" = *.[kK][iI][mM]1 ]]; then
                     echo "kim1" >> out_$i.txt
-                elif [[ "$g" = *.[kK][iI][mM] ]]; then 
+                elif [[ "$g" = *.[kK][iI][mM] ]]; then
                     echo "kim" >> out_$i.txt
-                fi	  
+                fi
             elif [[ "$sys" = lviv ]]; then
-                if [[ "$g" = *.[lL][vV][tT] ]]; then 
+                if [[ "$g" = *.[lL][vV][tT] ]]; then
                     echo "lvt" >> out_$i.txt
-                elif [[ "$g" = *.[lL][vV][rR] ]]; then 
+                elif [[ "$g" = *.[lL][vV][rR] ]]; then
                     echo "lvr" >> out_$i.txt
-                elif [[ "$g" = *.[lL][vV]0 ]]; then 
+                elif [[ "$g" = *.[lL][vV]0 ]]; then
                     echo "lv0" >> out_$i.txt
-                elif [[ "$g" = *.[lL][vV]1 ]]; then 
+                elif [[ "$g" = *.[lL][vV]1 ]]; then
                     echo "lv1" >> out_$i.txt
-                elif [[ "$g" = *.[lL][vV]2 ]]; then 
+                elif [[ "$g" = *.[lL][vV]2 ]]; then
                     echo "lv2" >> out_$i.txt
-                elif [[ "$g" = *.[lL][vV]3 ]]; then 
+                elif [[ "$g" = *.[lL][vV]3 ]]; then
                     echo "lv3" >> out_$i.txt
                 fi
             elif [[ "$sys" = mo5 ]]; then
-                if [[ "$g" = *.[kK]5 ]]; then 
+                if [[ "$g" = *.[kK]5 ]]; then
                     echo "k5" >> out_$i.txt
                 fi
             elif [[ "$sys" = mz ]]; then
-                if [[ "$g" = *.[mM]12 ]]; then 
+                if [[ "$g" = *.[mM]12 ]]; then
                     echo "m12" >> out_$i.txt
-                elif [[ "$g" = *.[mM][zZ][fF] ]]; then 
+                elif [[ "$g" = *.[mM][zZ][fF] ]]; then
                     echo "mzf" >> out_$i.txt
-                elif [[ "$g" = *.[mM][zZ][tT] ]]; then 
+                elif [[ "$g" = *.[mM][zZ][tT] ]]; then
                     echo "mzt" >> out_$i.txt
                 fi
             elif [[ "$sys" = pmd85 ]]; then
-                if [[ "$g" = *.[pP][mM][dD] ]]; then 
+                if [[ "$g" = *.[pP][mM][dD] ]]; then
                     echo "pmd" >> out_$i.txt
-                elif [[ "$g" = *.[pP][tT][pP] ]]; then 
+                elif [[ "$g" = *.[pP][tT][pP] ]]; then
                     echo "ptp" >> out_$i.txt
                 fi
             elif [[ "$sys" = rkr ]]; then
-                if [[ "$g" = *.[rR][kK] ]]; then 
+                if [[ "$g" = *.[rR][kK] ]]; then
                     echo "rk" >> out_$i.txt
-                elif [[ "$g" = *.[rR][kK][rR] ]]; then 
+                elif [[ "$g" = *.[rR][kK][rR] ]]; then
                     echo "rkr" >> out_$i.txt
                 fi
             elif [[ "$sys" = tzx ]]; then
-                if [[ "$g" = *.[bB][lL][kK] ]]; then 
+                if [[ "$g" = *.[bB][lL][kK] ]]; then
                     echo "blk" >> out_$i.txt
-                elif [[ "$g" = *.[tT][zZ][xX] ]]; then 
+                elif [[ "$g" = *.[tT][zZ][xX] ]]; then
                     echo "tzx" >> out_$i.txt
                 fi
-            elif [[ "$sys" = x07 ]]; then 
-                if [[ "$g" = *.[lL][sS][tT] ]]; then 
+            elif [[ "$sys" = x07 ]]; then
+                if [[ "$g" = *.[lL][sS][tT] ]]; then
                     echo "lst" >> out_$i.txt
                 fi
             elif [[ "$sys" = zx80_o ]]; then
-                if [[ "$g" = *.[oO] ]]; then 
+                if [[ "$g" = *.[oO] ]]; then
                     echo "o" >> out_$i.txt
-                elif [[ "$g" = *.80 ]]; then 
+                elif [[ "$g" = *.80 ]]; then
                     echo "80" >> out_$i.txt
                 fi
             elif [[ "$sys" = zx81_p ]]; then
-                if [[ "$g" = *.[pP] ]]; then 
+                if [[ "$g" = *.[pP] ]]; then
                     echo "p" >> out_$i.txt
-                elif [[ "$g" = *.81 ]]; then 
+                elif [[ "$g" = *.81 ]]; then
                     echo "81" >> out_$i.txt
                 fi
             fi
@@ -262,7 +262,7 @@ function batch_convert_castool_mame-tools() {
                 else
                     aux_input="*.zip#*.{$out_ext_1}, *.{$out_ext_2}"
                 fi
-            fi		
+            fi
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -z `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
@@ -288,7 +288,7 @@ function batch_convert_castool_mame-tools() {
                 else
                     aux_input="*.7z#*.{$out_ext_1},*.{$out_ext_2}"
                 fi
-            fi		
+            fi
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -n `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
@@ -314,7 +314,7 @@ function batch_convert_castool_mame-tools() {
                 else
                     aux_input="*.{zip,7z}#*.{$out_ext_1}, *.{$out_ext_2}"
                 fi
-            fi		
+            fi
         fi
     else
 	    if [[ -n `find $d -maxdepth 1 -regextype posix-egrep -iregex '.*\.(zip|7z)'` ]] && [[ -z `cat out_3.txt` ]]; then
@@ -326,8 +326,8 @@ function batch_convert_castool_mame-tools() {
                 aux_input="$_ext"
             else
                 aux_input="*.{$out_ext_2}"
-            fi	
-        fi    
+            fi
+        fi
     fi 2>/dev/null >/dev/null
 
     local output="${d%/}"
@@ -381,9 +381,9 @@ function batch_convert_castool_mame-tools() {
                     unzip "$i"
                 elif [[ -n `7z l -ba $i "${_ext[@]}" -r-` ]] && [[ ${i} = *.7z ]]; then
                     ls "$i" >> $remove
-                    7z e "$i" 
+                    7z e "$i"
                 fi 2>/dev/null >/dev/null
-            done < out.txt 
+            done < out.txt
             chown $user:$user ${_ext[@]} 2>/dev/null
             rm -rf out.txt
         fi
@@ -408,7 +408,7 @@ function batch_convert_castool_mame-tools() {
                         echo "${j%.*}".wav >> $create
                     fi
                 fi
-            done    	  
+            done
         fi
 
         if [[ -e "$create" ]]; then
@@ -442,7 +442,7 @@ function convert_castool_mame-tools(){
     local ext=""
     local _ext=""
     local __ext=""
-    
+
     echo ${ext_form} | sed 's/ /\n/g' > ext_form.txt
     set -- "`cat ext_form.txt`"; IFS=$'\n'; declare -a ext=($*)
     rm -rf ext_form.txt
@@ -458,7 +458,7 @@ function convert_castool_mame-tools(){
     for ((b=0; b<${#ext[@]}; b++)); do
         if [ "$b" = 0 ]; then
             __ext=(${__ext[@]}${ext[b]})
-        else 
+        else
             __ext=(${__ext[@]}\|${ext[b]})
         fi
     done
@@ -480,7 +480,7 @@ function convert_castool_mame-tools(){
             aux_input="$out"
         fi
         if [[ -z $aux_input ]]; then
-            m="ERROR: $input doesn't have a compressed valid file.\n\nSupported compressed extensions:\n ${_ext[@]} $a26sp" 
+            m="ERROR: $input doesn't have a compressed valid file.\n\nSupported compressed extensions:\n ${_ext[@]} $a26sp"
         fi
         input="$input#$aux_input"
         __f="$__f#$aux_input"
@@ -531,10 +531,10 @@ function convert_castool_mame-tools(){
         cd && cd "$DIR"
         if [[ -n `find . -maxdepth 1 -regextype posix-egrep -iregex '.*\.(zip|7z)'` ]]; then
             echo $'Extracting files ...\nThis may take several minutes ...\n'
-            for i in ${f%.*}.[zZ][iI][pP]; do 
+            for i in ${f%.*}.[zZ][iI][pP]; do
                 unzip "$i"
             done 2>/dev/null >/dev/null
-            for i in ${f%.*}.7[zZ]; do 
+            for i in ${f%.*}.7[zZ]; do
                 7z e "$i"
             done 2>/dev/null >/dev/null
         fi
@@ -549,7 +549,7 @@ function convert_castool_mame-tools(){
         fi
         if [[ -n "$output" ]]; then
             params+=("$__output")
-        fi 
+        fi
 
         echo $'Converting file ...\n'
         $md_inst/castool convert $sys ${params[@]}
@@ -601,7 +601,7 @@ function aux_castool_mame-tools(){
             1 "single conversion"
             2 "batch conversion"
         )
-	
+
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         if [[ -n "$choice" ]]; then
             default="$choice"
@@ -721,7 +721,7 @@ function castool_mame-tools() {
                     aux_castool_mame-tools 't77' 'fm7'
                     ;;
                 12)
-                    aux_castool_mame-tools 'tap cas' 'fmsx' 
+                    aux_castool_mame-tools 'tap cas' 'fmsx'
                     ;;
                 13)
                     aux_castool_mame-tools 'gtp' 'gtp'
@@ -742,7 +742,7 @@ function castool_mame-tools() {
                     aux_castool_mame-tools 'lvt lvr lv0 lv1 lv2 lv3' 'lviv'
                     ;;
                 19)
-                    aux_castool_mame-tools 'k5 k7' 'mo5' 
+                    aux_castool_mame-tools 'k5 k7' 'mo5'
                     ;;
                 20)
                     aux_castool_mame-tools 'm12 mzf mzt' 'mz'
@@ -802,7 +802,7 @@ function castool_mame-tools() {
                     aux_castool_mame-tools 'cas' 'sordm5'
                     ;;
                 39)
-                    aux_castool_mame-tools 'tap cas' 'spc1000' 
+                    aux_castool_mame-tools 'tap cas' 'spc1000'
                     ;;
                 40)
                     aux_castool_mame-tools 'cas' 'svi'
@@ -829,7 +829,7 @@ function castool_mame-tools() {
                     aux_castool_mame-tools 'cas' 'vtech2'
                     ;;
                 48)
-                    aux_castool_mame-tools 'k7 lst cas' 'x07' 
+                    aux_castool_mame-tools 'k7 lst cas' 'x07'
                     ;;
                 49)
                     aux_castool_mame-tools 'tap' 'x1'
@@ -849,7 +849,7 @@ function castool_mame-tools() {
 
 function listtemplates_chdman_mame-tools(){
     $md_inst/chdman listtemplates > "list_template.txt"
-    dialog --backtitle "$__backtitle" --stdout --title "List Hard Disk Templates" --clear --textbox list_template.txt 0 0 
+    dialog --backtitle "$__backtitle" --stdout --title "List Hard Disk Templates" --clear --textbox list_template.txt 0 0
     rm -rf "list_template.txt"
 }
 
@@ -859,7 +859,7 @@ function dumpmeta_chdman_mame-tools(){
     local m="ERROR: $input isn't a CHD file"
 
     local DIR=`dirname $f`
-    
+
     local output="none"
     local __output="$output"
     local force="0"
@@ -951,9 +951,9 @@ function dumpmeta_chdman_mame-tools(){
         clear
         $md_inst/chdman dumpmeta -i "$f" ${params[@]} > "${f%.*}_info.dumpmeta" 2> "${f%.*}.dumpmeta"
         if [ `awk 'NR == 1{print $1}' ${f%.*}.dumpmeta` = "Error" ]; then
-            m=`sed 's/([^>]*)/'$input'/g' ${f%.*}.dumpmeta`	    	
+            m=`sed 's/([^>]*)/'$input'/g' ${f%.*}.dumpmeta`
         elif [ `awk 'NR == 1{print $1}' ${f%.*}.dumpmeta` = "Error:" ]; then
-            m=`cat ${f%.*}.dumpmeta`	
+            m=`cat ${f%.*}.dumpmeta`
         else
             sed '1d' ${f%.*}_info.dumpmeta > "${f%.*}-info.dumpmeta"
             n=`sed 's/([^>]*)/'$input'/g' ${f%.*}-info.dumpmeta`
@@ -966,9 +966,9 @@ function dumpmeta_chdman_mame-tools(){
                     dialog --backtitle "$__backtitle" --stdout --msgbox "${__output##*/} has been saved!" 17 54
                 else
                     rm -rf "$__output"
-                fi	
+                fi
             else
-            m="Metadata dumped for $input (no 'output' parameters)"	
+            m="Metadata dumped for $input (no 'output' parameters)"
             fi
         fi
         rm -rf "${f%.*}.dumpmeta" rm -rf "${f%.*}_info.dumpmeta" "${f%.*}-info.dumpmeta"
@@ -1042,9 +1042,9 @@ function delmeta_chdman_mame-tools(){
         clear
         $md_inst/chdman delmeta -i "$f" ${params[@]} 2> "${f%.*}.delmeta"
         if [ `awk 'NR == 1{print $1}' ${f%.*}.delmeta` = "Error" ]; then
-            m=`sed 's/([^>]*)/'$input'/g' ${f%.*}.delmeta`	    	
+            m=`sed 's/([^>]*)/'$input'/g' ${f%.*}.delmeta`
         elif [ `awk 'NR == 1{print $1}' ${f%.*}.delmeta` = "Error:" ]; then
-            m=`cat ${f%.*}.delmeta`	
+            m=`cat ${f%.*}.delmeta`
         else
             m="Metadata deleted for $input"
         fi
@@ -1161,13 +1161,13 @@ function addmeta_chdman_mame-tools(){
         if [[ "$no_checksum" -eq 1 ]]; then
             params+=(-nocs)
         fi
-   
+
         clear
         $md_inst/chdman addmeta -i "$f" ${params[@]} 2> "${f%.*}.addmeta"
         if [ `awk 'NR == 1{print $1}' ${f%.*}.addmeta` = "Error" ]; then
-            m=`sed 's/([^>]*)/'$input'/g' ${f%.*}.addmeta`	    	
+            m=`sed 's/([^>]*)/'$input'/g' ${f%.*}.addmeta`
         elif [ `awk 'NR == 1{print $1}' ${f%.*}.addmeta` = "Error:" ]; then
-            m=`cat ${f%.*}.addmeta`	
+            m=`cat ${f%.*}.addmeta`
         else
             m="Metadata added for $input"
         fi
@@ -1395,7 +1395,7 @@ function copy_chdman_mame-tools(){
             params+=(-hs "$hunk_size")
         fi
         if [[ "$compression" -ne 0 ]]; then
-            params+=(-c "$compr")        
+            params+=(-c "$compr")
         fi
         if [[ -n "$num_processors" ]]; then
             params+=(-np "$num_processors")
@@ -1405,7 +1405,7 @@ function copy_chdman_mame-tools(){
         echo $'Copying file ...\n'
         $md_inst/chdman copy -i "$f" ${params[@]}
         chown $user:$user "$__output"
-        
+
         if [[ -f "$__output" ]]; then
             m="Copy completed. ${__output##*/} have been created."
         else
@@ -1429,9 +1429,9 @@ function batch_extractld_chdman_mame-tools() {
     while read -r f; do
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             zipinfo -1 "$f" "$aux_input" >> out_1.txt
-        elif [[ "$f" = *.7[zZ] ]]; then 
+        elif [[ "$f" = *.7[zZ] ]]; then
             7z l -ba "$f" "$aux_input" -r- | cut -c54- >> out_2.txt
-        else 
+        else
             find $d -maxdepth 1 -regextype posix-egrep -iregex ".*\.($_aux_input)" >> out_3.txt
         fi 2>/dev/null >/dev/null
     done < ext.txt
@@ -1441,13 +1441,13 @@ function batch_extractld_chdman_mame-tools() {
         if [[ -z `cat out_3.txt` ]]; then
             aux_input="*.zip#$aux_input"
         else
-            aux_input="*.zip#$aux_input, $aux_input"	
+            aux_input="*.zip#$aux_input, $aux_input"
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -z `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
             aux_input="*.7z#$aux_input"
         else
-            aux_input="*.7z#$aux_input, $aux_input"	
+            aux_input="*.7z#$aux_input, $aux_input"
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -n `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
@@ -1541,9 +1541,9 @@ function batch_extractld_chdman_mame-tools() {
                     unzip "$i"
                 elif [[ -n `7z l -ba $i '*.chd' -r-` ]] && [[ ${i} = *.7z ]]; then
                     ls "$i" >> $remove
-                    7z e "$i" 
+                    7z e "$i"
                 fi 2>/dev/null >/dev/null
-            done < out.txt 
+            done < out.txt
             chown $user:$user *.chd
             rm -rf out.txt
         fi
@@ -1579,11 +1579,11 @@ function batch_extractld_chdman_mame-tools() {
                         echo "${j%.*}".avi >> $create
                     fi
                 fi
-            done    	  
+            done
         fi
 
         if [[ -e "$create" ]]; then
-            sort -u $remove -o $remove && sort -u $create -o $create 
+            sort -u $remove -o $remove && sort -u $create -o $create
             dialog --backtitle "$__backtitle" --stdout --defaultno --yesno "Would you like to delete $aux_input files and keeping only *.avi files?" 8 50
             if [[ $? = 0 ]]; then
                 xargs -d '\n' rm -f {} < $remove
@@ -1604,7 +1604,7 @@ function batch_extractld_chdman_mame-tools() {
 }
 
 function extractld_chdman_mame-tools(){
-    local f="$1" 
+    local f="$1"
     local __f="$f"
     local input="${f##*/}"
     local m="ERROR: $input isn't a CHD file"
@@ -1613,13 +1613,13 @@ function extractld_chdman_mame-tools(){
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             aux_input=`zipinfo -1 $f *.chd`
         elif [[ "$f" = *.7[zZ] ]]; then
-            7z l -ba $f *.chd -r- > out.txt 
+            7z l -ba $f *.chd -r- > out.txt
             out=`cat out.txt | cut -c54-`
             rm -rf "out.txt"
             aux_input="$out"
         fi
         if [[ -z $aux_input ]]; then
-            m="ERROR: $input doesn't have a compressed CHD file" 
+            m="ERROR: $input doesn't have a compressed CHD file"
         fi
         input="$input#$aux_input"
         __f="$__f#$aux_input"
@@ -1719,10 +1719,10 @@ function extractld_chdman_mame-tools(){
         cd && cd "$DIR"
         if [[ -n `find . -maxdepth 1 -regextype posix-egrep -iregex '.*\.(zip|7z)'` ]]; then
             echo $'Extracting files ...\nThis may take several minutes ...\n'
-            for i in ${f%.*}.[zZ][iI][pP]; do 
+            for i in ${f%.*}.[zZ][iI][pP]; do
                 unzip "$i"
             done 2>/dev/null >/dev/null
-            for i in ${f%.*}.7[zZ]; do 
+            for i in ${f%.*}.7[zZ]; do
                 7z e "$i"
             done 2>/dev/null >/dev/null
         fi
@@ -1753,7 +1753,7 @@ function extractld_chdman_mame-tools(){
 
         echo $'Converting file ...\n'
         $md_inst/chdman extractld ${params[@]}
-        chown $user:$user "$__output" 
+        chown $user:$user "$__output"
         if [[ -f "$__input_parent" ]]; then
             chown $user:$user "$__input_parent"
         fi
@@ -1790,9 +1790,9 @@ function batch_extractcd_chdman_mame-tools() {
     while read -r f; do
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             zipinfo -1 "$f" "$aux_input" >> out_1.txt
-        elif [[ "$f" = *.7[zZ] ]]; then 
+        elif [[ "$f" = *.7[zZ] ]]; then
             7z l -ba "$f" "$aux_input" -r- | cut -c54- >> out_2.txt
-        else 
+        else
             find $d -maxdepth 1 -regextype posix-egrep -iregex ".*\.($_aux_input)" >> out_3.txt
         fi 2>/dev/null >/dev/null
     done < ext.txt
@@ -1802,13 +1802,13 @@ function batch_extractcd_chdman_mame-tools() {
         if [[ -z `cat out_3.txt` ]]; then
             aux_input="*.zip#$aux_input"
         else
-            aux_input="*.zip#$aux_input, $aux_input"	
+            aux_input="*.zip#$aux_input, $aux_input"
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -z `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
             aux_input="*.7z#$aux_input"
         else
-            aux_input="*.7z#$aux_input, $aux_input"	
+            aux_input="*.7z#$aux_input, $aux_input"
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -n `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
@@ -1908,13 +1908,13 @@ function batch_extractcd_chdman_mame-tools() {
                     unzip "$i"
                 elif [[ -n `7z l -ba $i '*.chd' -r-` ]] && [[ ${i} = *.7z ]]; then
                     ls "$i" >> $remove
-                    7z e "$i" 
+                    7z e "$i"
                 fi 2>/dev/null >/dev/null
-            done < out.txt 
+            done < out.txt
             chown $user:$user *.chd
             rm -rf out.txt
         fi
-	
+
         local params=()
         if [[ "$force" -eq 1 ]]; then
             params+=(-f)
@@ -1946,7 +1946,7 @@ function batch_extractcd_chdman_mame-tools() {
                         ls "${j%.*}"*raw >> $create
                     fi
                 fi 2>/dev/null >/dev/null
-            done 	  
+            done
         fi
         if [[ -e "$__output/$create" ]]; then
             mv "$__output/$create" "$d"
@@ -1958,7 +1958,7 @@ function batch_extractcd_chdman_mame-tools() {
         fi
 
         if [[ -e "$create" ]]; then
-            sort -u $remove -o $remove && sort -u $create -o $create 
+            sort -u $remove -o $remove && sort -u $create -o $create
             dialog --backtitle "$__backtitle" --stdout --defaultno --yesno "Would you like to delete $aux_input files and keeping only *.$ext,*.bin${r} files?" 8 50
             if [[ $? = 0 ]]; then
                 xargs -d '\n' rm -f {} < $remove
@@ -1979,7 +1979,7 @@ function batch_extractcd_chdman_mame-tools() {
 }
 
 function extractcd_chdman_mame-tools(){
-    local f="$1" 
+    local f="$1"
     local __f="$f"
     local input="${f##*/}"
     local m="ERROR: $input isn't a CHD file.\n\nSupported extensions:\n CHD files (*.chd)\n\nSupported compressions:\n *.zip *.7z"
@@ -1988,13 +1988,13 @@ function extractcd_chdman_mame-tools(){
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             aux_input=`zipinfo -1 $f *.chd`
         elif [[ "$f" = *.7[zZ] ]]; then
-            7z l -ba $f '*.chd' -r- > out.txt 
+            7z l -ba $f '*.chd' -r- > out.txt
             out=`cat out.txt | cut -c54-`
             rm -rf "out.txt"
             aux_input="$out"
         fi
         if [[ -z $aux_input ]]; then
-            m="ERROR: $input doesn't have a compressed CHD file.\n\nSupported compressed extensions:\n- CHD files (*.chd)" 
+            m="ERROR: $input doesn't have a compressed CHD file.\n\nSupported compressed extensions:\n- CHD files (*.chd)"
         fi
         input="$input#$aux_input"
         __f="$__f#$aux_input"
@@ -2017,7 +2017,7 @@ function extractcd_chdman_mame-tools(){
         do
             output_bn="${output##*/}"
             binary="${output_bn%.???}.bin"
-            
+
             local cmd=(dialog --backtitle "$__backtitle" --cancel-label "Continue" --default-item "$default" --menu "Input file: $__f\nOutput file: $__output\nBinary output file: ${__output%.???}.bin\nParent input file: $__input_parent\n\nOptional parameters:" 22 76 16)
             local options=()
 
@@ -2076,10 +2076,10 @@ function extractcd_chdman_mame-tools(){
         cd && cd "$DIR"
         if [[ "$f" = *.[zZ][iI][pP] ]] || [[ "$f" = *.7[zZ] ]]; then
             echo $'Extracting files ...\nThis may take several minutes ...\n'
-            for i in ${f%.*}.[zZ][iI][pP]; do 
+            for i in ${f%.*}.[zZ][iI][pP]; do
                 unzip "$i"
             done 2>/dev/null >/dev/null
-            for i in ${f%.*}.7[zZ]; do 
+            for i in ${f%.*}.7[zZ]; do
                 7z e "$i"
             done 2>/dev/null >/dev/null
         fi
@@ -2096,7 +2096,7 @@ function extractcd_chdman_mame-tools(){
             params+=(-i "$f")
         fi
         if [[ -n "$output" ]]; then
-            params+=(-o "$__output" -ob "${__output%.???}.bin")  
+            params+=(-o "$__output" -ob "${__output%.???}.bin")
             bin_bn="${__output%.???}"
             b=",${bin_bn##*/}*bin"
         fi
@@ -2149,9 +2149,9 @@ function batch_extracthd_chdman_mame-tools() {
     while read -r f; do
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             zipinfo -1 "$f" "$aux_input" >> out_1.txt
-        elif [[ "$f" = *.7[zZ] ]]; then 
+        elif [[ "$f" = *.7[zZ] ]]; then
             7z l -ba "$f" "$aux_input" -r- | cut -c54- >> out_2.txt
-        else 
+        else
             find $d -maxdepth 1 -regextype posix-egrep -iregex ".*\.($_aux_input)" >> out_3.txt
         fi 2>/dev/null >/dev/null
     done < ext.txt
@@ -2161,13 +2161,13 @@ function batch_extracthd_chdman_mame-tools() {
         if [[ -z `cat out_3.txt` ]]; then
             aux_input="*.zip#$aux_input"
         else
-            aux_input="*.zip#$aux_input, $aux_input"	
+            aux_input="*.zip#$aux_input, $aux_input"
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -z `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
             aux_input="*.7z#$aux_input"
         else
-            aux_input="*.7z#$aux_input, $aux_input"	
+            aux_input="*.7z#$aux_input, $aux_input"
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -n `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
@@ -2260,7 +2260,7 @@ function batch_extracthd_chdman_mame-tools() {
             local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
             if [[ -n "$choice" ]]; then
                 default="$choice"
-                case "$choice" in		
+                case "$choice" in
                     1)
                         cmd=(dialog --backtitle "$__backtitle" --inputbox "Please type the starting byte offset within the input:" 10 60 "$input_start_byte")
                         input_start_byte=$("${cmd[@]}" 2>&1 >/dev/tty)
@@ -2343,9 +2343,9 @@ function batch_extracthd_chdman_mame-tools() {
                     unzip "$i"
                 elif [[ -n `7z l -ba $i '*.chd' -r-` ]] && [[ ${i} = *.7z ]]; then
                     ls "$i" >> $remove
-                    7z e "$i" 
+                    7z e "$i"
                 fi 2>/dev/null >/dev/null
-            done < out.txt 
+            done < out.txt
             chown $user:$user *.chd
             rm -rf out.txt
         fi
@@ -2387,11 +2387,11 @@ function batch_extracthd_chdman_mame-tools() {
                         echo "${j%.*}".$ext >> $create
                     fi
                 fi
-            done    	  
+            done
         fi
 
         if [[ -e "$create" ]]; then
-            sort -u $remove -o $remove && sort -u $create -o $create 
+            sort -u $remove -o $remove && sort -u $create -o $create
             dialog --backtitle "$__backtitle" --stdout --defaultno --yesno "Would you like to delete $aux_input files and keeping only *.$ext files?" 8 50
             if [[ $? = 0 ]]; then
                 xargs -d '\n' rm -f {} < $remove
@@ -2412,7 +2412,7 @@ function batch_extracthd_chdman_mame-tools() {
 }
 
 function extracthd_chdman_mame-tools(){
-    local f="$1" 
+    local f="$1"
     local __f="$f"
     local input="${f##*/}"
     local m="ERROR: $input isn't a CHD file.\n\nSupported extensions:\n CHD files (*.chd)\n\nSupported compressions:\n *.zip *.7z"
@@ -2421,13 +2421,13 @@ function extracthd_chdman_mame-tools(){
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             aux_input=`zipinfo -1 $f *.chd`
         elif [[ "$f" = *.7[zZ] ]]; then
-            7z l -ba $f '*.chd' -r- > out.txt 
+            7z l -ba $f '*.chd' -r- > out.txt
             out=`cat out.txt | cut -c54-`
             rm -rf "out.txt"
             aux_input="$out"
         fi
         if [[ -z $aux_input ]]; then
-            m="ERROR: $input doesn't have a compressed CHD file.\n\nSupported compressed extensions:\n- CHD files (*.chd)" 
+            m="ERROR: $input doesn't have a compressed CHD file.\n\nSupported compressed extensions:\n- CHD files (*.chd)"
         fi
         input="$input#$aux_input"
         __f="$__f#$aux_input"
@@ -2548,10 +2548,10 @@ function extracthd_chdman_mame-tools(){
         cd && cd "$DIR"
         if [[ "$f" = *.[zZ][iI][pP] ]] || [[ "$f" = *.7[zZ] ]]; then
             echo $'Extracting files ...\nThis may take several minutes ...\n'
-            for i in ${f%.*}.[zZ][iI][pP]; do 
+            for i in ${f%.*}.[zZ][iI][pP]; do
                 unzip "$i"
             done 2>/dev/null >/dev/null
-            for i in ${f%.*}.7[zZ]; do 
+            for i in ${f%.*}.7[zZ]; do
                 7z e "$i"
             done 2>/dev/null >/dev/null
         fi
@@ -2588,7 +2588,7 @@ function extracthd_chdman_mame-tools(){
 
         echo $'Converting file ...\n'
         $md_inst/chdman extracthd ${params[@]}
-        chown $user:$user "$__output" 
+        chown $user:$user "$__output"
         if [[ -f "$__input_parent" ]]; then
             chown $user:$user "$__input_parent"
         fi
@@ -2625,9 +2625,9 @@ function batch_extractraw_chdman_mame-tools() {
     while read -r f; do
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             zipinfo -1 "$f" "$aux_input" >> out_1.txt
-        elif [[ "$f" = *.7[zZ] ]]; then 
+        elif [[ "$f" = *.7[zZ] ]]; then
             7z l -ba "$f" "$aux_input" -r- | cut -c54- >> out_2.txt
-        else 
+        else
             find $d -maxdepth 1 -regextype posix-egrep -iregex ".*\.($_aux_input)" >> out_3.txt
         fi 2>/dev/null >/dev/null
     done < ext.txt
@@ -2637,13 +2637,13 @@ function batch_extractraw_chdman_mame-tools() {
         if [[ -z `cat out_3.txt` ]]; then
             aux_input="*.zip#$aux_input"
         else
-            aux_input="*.zip#$aux_input, $aux_input"	
+            aux_input="*.zip#$aux_input, $aux_input"
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -z `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
             aux_input="*.7z#$aux_input"
         else
-            aux_input="*.7z#$aux_input, $aux_input"	
+            aux_input="*.7z#$aux_input, $aux_input"
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -n `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
@@ -2759,9 +2759,9 @@ function batch_extractraw_chdman_mame-tools() {
                     unzip "$i"
                 elif [[ -n `7z l -ba $i '*.chd' -r-` ]] && [[ ${i} = *.7z ]]; then
                     ls "$i" >> $remove
-                    7z e "$i" 
+                    7z e "$i"
                 fi 2>/dev/null >/dev/null
-            done < out.txt 
+            done < out.txt
             chown $user:$user *.chd
             rm -rf out.txt
         fi
@@ -2803,11 +2803,11 @@ function batch_extractraw_chdman_mame-tools() {
                         echo "${j%.*}".raw >> $create
                     fi
                 fi
-            done    	  
+            done
         fi
 
         if [[ -e "$create" ]]; then
-            sort -u $remove -o $remove && sort -u $create -o $create 
+            sort -u $remove -o $remove && sort -u $create -o $create
             dialog --backtitle "$__backtitle" --stdout --defaultno --yesno "Would you like to delete $aux_input files and keeping only *.raw files?" 8 50
             if [[ $? = 0 ]]; then
                 xargs -d '\n' rm -f {} < $remove
@@ -2828,7 +2828,7 @@ function batch_extractraw_chdman_mame-tools() {
 }
 
 function extractraw_chdman_mame-tools(){
-    local f="$1" 
+    local f="$1"
     local __f="$f"
     local input="${f##*/}"
     local m="ERROR: $input isn't a CHD file.\n\nSupported extensions:\n CHD files (*.chd)\n\nSupported compressions:\n *.zip *.7z"
@@ -2837,13 +2837,13 @@ function extractraw_chdman_mame-tools(){
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             aux_input=`zipinfo -1 $f *.chd`
         elif [[ "$f" = *.7[zZ] ]]; then
-            7z l -ba $f *.chd -r- > out.txt 
+            7z l -ba $f *.chd -r- > out.txt
             out=`cat out.txt | cut -c54-`
             rm -rf "out.txt"
             aux_input="$out"
         fi
         if [[ -z $aux_input ]]; then
-            m="ERROR: $input doesn't have a compressed CHD file.\n\nSupported compressed extensions:\n- CHD files (*.chd)" 
+            m="ERROR: $input doesn't have a compressed CHD file.\n\nSupported compressed extensions:\n- CHD files (*.chd)"
         fi
         input="$input#$aux_input"
         __f="$__f#$aux_input"
@@ -2965,10 +2965,10 @@ function extractraw_chdman_mame-tools(){
         cd && cd "$DIR"
         if [[ "$f" = *.[zZ][iI][pP] ]] || [[ "$f" = *.7[zZ] ]]; then
             echo $'Extracting files ...\nThis may take several minutes ...\n'
-            for i in ${f%.*}.[zZ][iI][pP]; do 
+            for i in ${f%.*}.[zZ][iI][pP]; do
                 unzip "$i"
             done 2>/dev/null >/dev/null
-            for i in ${f%.*}.7[zZ]; do 
+            for i in ${f%.*}.7[zZ]; do
                 7z e "$i"
             done 2>/dev/null >/dev/null
         fi
@@ -3005,7 +3005,7 @@ function extractraw_chdman_mame-tools(){
 
         echo $'Converting file ...\n'
         $md_inst/chdman extractraw ${params[@]}
-        chown $user:$user "$__output" 
+        chown $user:$user "$__output"
         if [[ -f "$__input_parent" ]]; then
             chown $user:$user "$__input_parent"
         fi
@@ -3042,9 +3042,9 @@ function batch_createld_chdman_mame-tools() {
     while read -r f; do
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             zipinfo -1 "$f" "$aux_input" >> out_1.txt
-        elif [[ "$f" = *.7[zZ] ]]; then 
+        elif [[ "$f" = *.7[zZ] ]]; then
             7z l -ba "$f" "$aux_input" -r- | cut -c54- >> out_2.txt
-        else 
+        else
             find $d -maxdepth 1 -regextype posix-egrep -iregex ".*\.($_aux_input)" >> out_3.txt
         fi 2>/dev/null >/dev/null
     done < ext.txt
@@ -3054,13 +3054,13 @@ function batch_createld_chdman_mame-tools() {
         if [[ -z `cat out_3.txt` ]]; then
             aux_input="*.zip#$aux_input"
         else
-            aux_input="*.zip#$aux_input, $aux_input"	
+            aux_input="*.zip#$aux_input, $aux_input"
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -z `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
             aux_input="*.7z#$aux_input"
         else
-            aux_input="*.7z#$aux_input, $aux_input"	
+            aux_input="*.7z#$aux_input, $aux_input"
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -n `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
@@ -3211,9 +3211,9 @@ function batch_createld_chdman_mame-tools() {
                     unzip "$i"
                 elif [[ -n `7z l -ba $i '*.avi' -r-` ]] && [[ ${i} = *.7z ]]; then
                     ls "$i" >> $remove
-                    7z e "$i" 
+                    7z e "$i"
                 fi 2>/dev/null >/dev/null
-            done < out.txt 
+            done < out.txt
             chown $user:$user *.avi
             rm -rf out.txt
         fi
@@ -3232,7 +3232,7 @@ function batch_createld_chdman_mame-tools() {
             params+=(-hs "$hunk_size")
         fi
         if [[ "$compression" -ne 0 ]]; then
-            params+=(-c "$compr")        
+            params+=(-c "$compr")
         fi
         if [[ -n "$num_processors" ]]; then
             params+=(-np "$num_processors")
@@ -3258,7 +3258,7 @@ function batch_createld_chdman_mame-tools() {
                         echo ${j%.*}.chd >> $create
                     fi
                 fi
-            done    	  
+            done
         fi
 
         if [[ -e "$create" ]]; then
@@ -3296,13 +3296,13 @@ function createld_chdman_mame-tools(){
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             aux_input=`zipinfo -1 $f *.avi`
         elif [[ "$f" = *.7[zZ] ]]; then
-            7z l -ba $f *.avi -r- > out.txt 
+            7z l -ba $f *.avi -r- > out.txt
             out=`cat out.txt | cut -c54-`
             rm -rf "out.txt"
             aux_input="$out"
         fi
         if [[ -z $aux_input ]]; then
-            m="ERROR: $input haven't a compressed AVI file.\n\nSupported compressed extensions:\n AVI laserdisc files (*.avi)" 
+            m="ERROR: $input haven't a compressed AVI file.\n\nSupported compressed extensions:\n AVI laserdisc files (*.avi)"
         fi
         input="$input#$aux_input"
         __f="$__f#$aux_input"
@@ -3455,10 +3455,10 @@ function createld_chdman_mame-tools(){
         cd && cd "$DIR"
         if [[ "$f" = *.[zZ][iI][pP] ]] || [[ "$f" = *.7[zZ] ]]; then
             echo $'Extracting files ...\nThis may take several minutes ...\n'
-            for i in ${f%.*}.[zZ][iI][pP]; do 
+            for i in ${f%.*}.[zZ][iI][pP]; do
                 unzip "$i"
             done 2>/dev/null >/dev/null
-            for i in ${f%.*}.7[zZ]; do 
+            for i in ${f%.*}.7[zZ]; do
                 7z e "$i"
             done 2>/dev/null >/dev/null
         fi
@@ -3490,15 +3490,15 @@ function createld_chdman_mame-tools(){
             params+=(-hs "$hunk_size")
         fi
         if [[ "$compression" -ne 0 ]]; then
-            params+=(-c "$compr")        
+            params+=(-c "$compr")
         fi
         if [[ -n "$num_processors" ]]; then
             params+=(-np "$num_processors")
         fi
 
         echo $'Converting file ...\n'
-        $md_inst/chdman createld ${params[@]} 
-        chown $user:$user "$__output" 
+        $md_inst/chdman createld ${params[@]}
+        chown $user:$user "$__output"
         if [[ -f "$__output_parent" ]]; then
             chown $user:$user "$__output_parent"
         fi
@@ -3542,11 +3542,11 @@ function batch_createcd_chdman_mame-tools() {
     for ((c=0; c<3; c++)); do
 	if [ "$c" = 0 ]; then
 	    __ext=(${__ext[@]}${ext[c]})
-	else 
+	else
 	    __ext=(${__ext[@]}\|${ext[c]})
 	fi
     done
-    
+
     cd && cd $d
     echo "Reading directory ..."
     ls -1 -A $d > ext.txt
@@ -3554,23 +3554,23 @@ function batch_createcd_chdman_mame-tools() {
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             zipinfo -1 "$f" "${_ext[@]}" >> out_1.txt
             cat out_1.txt >> out_merge_a.txt
-        elif [[ "$f" = *.7[zZ] ]]; then 
+        elif [[ "$f" = *.7[zZ] ]]; then
             7z l -ba "$f" "${_ext[@]}" -r- | cut -c54- >> out_2.txt
             cat out_2.txt >> out_merge_a.txt
-        else 
+        else
             find $d -maxdepth 1 -regextype posix-egrep -iregex ".*\.(${__ext[@]})" >> out_3.txt
             cat out_3.txt > out_merge_b.txt
         fi 2>/dev/null >/dev/null
     done < ext.txt
     rm -rf ext.txt
-	
+
     for i in a b; do
         while read -r g; do
             if [[ "$g" = *.[cC][uU][eE] ]]; then
                 echo "cue" >> out_$i.txt
-            elif [[ "$g" = *.[gG][dD][iI] ]]; then 
+            elif [[ "$g" = *.[gG][dD][iI] ]]; then
                 echo "gdi">> out_$i.txt
-            elif [[ "$g" = *.[tT][oO][cC] ]]; then 
+            elif [[ "$g" = *.[tT][oO][cC] ]]; then
                 echo "toc" >> out_$i.txt
             fi 2>/dev/null >/dev/null
         done < out_merge_$i.txt
@@ -3601,12 +3601,12 @@ function batch_createcd_chdman_mame-tools() {
                 else
                     aux_input="*.zip#*.{$out_ext_1}, *.{$out_ext_2}"
                 fi
-            fi		
+            fi
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -z `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
             if [[ ${out_ext_1} = ??? ]]; then
-                aux_input="*.7z#*.$out_ext_1" 
+                aux_input="*.7z#*.$out_ext_1"
             else
                 aux_input="*.7z#*.{$out_ext_1}"
             fi
@@ -3623,7 +3623,7 @@ function batch_createcd_chdman_mame-tools() {
                 else
                     aux_input="*.7z#*.{$out_ext_1},*.{$out_ext_2}"
                 fi
-            fi		
+            fi
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -n `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
@@ -3645,7 +3645,7 @@ function batch_createcd_chdman_mame-tools() {
                 else
                     aux_input="*.{zip,7z}#*.{$out_ext_1}, *.{$out_ext_2}"
                 fi
-            fi		
+            fi
         fi
     else
         if [[ -n `find $d -maxdepth 1 -regextype posix-egrep -iregex '.*\.(zip|7z)'` ]] && [[ -z `cat out_3.txt` ]]; then
@@ -3655,8 +3655,8 @@ function batch_createcd_chdman_mame-tools() {
                 aux_input="*.$out_ext_2"
             elif [[ ${out_ext_2} != ??? ]]; then
                 aux_input="*.{$out_ext_2}"
-            fi	
-        fi    
+            fi
+        fi
     fi 2>/dev/null >/dev/null
 
     local output="${d%/}"
@@ -3776,9 +3776,9 @@ function batch_createcd_chdman_mame-tools() {
                     unzip "$i"
                 elif [[ -n `7z l -ba $i "${_ext[@]}" -r-` ]] && [[ ${i} = *.7z ]]; then
                     ls "$i" >> $remove
-                    7z e "$i" 
+                    7z e "$i"
                 fi 2>/dev/null >/dev/null
-            done < out.txt 
+            done < out.txt
             chown $user:$user ${_ext[@]} ${_ext_aux[@]} 2>/dev/null
             rm -rf out.txt
         fi
@@ -3787,14 +3787,14 @@ function batch_createcd_chdman_mame-tools() {
         find $d -maxdepth 1 | while read k; do
             if [[ "${k}" == ${_ext[0]} ]]; then # CUE
                 cat $k |  awk '/.bin/ {print}' > 1.txt
-                sed 's/FILE "\|" BINARY//g' 1.txt >> $remove_bins && rm -rf 1.txt 
+                sed 's/FILE "\|" BINARY//g' 1.txt >> $remove_bins && rm -rf 1.txt
             elif [[ "${k}" == ${_ext[1]} ]]; then # GDI
                 cat $k | awk '{s=""; for (i=5; i<NF; i++) s = s $i; print s}' >> 1.txt 2>/dev/null
                 sed '/^$/d' 1.txt >> $remove_bins && rm -rf 1.txt
             elif [[ "${k}" == ${_ext[2]} ]]; then
-                cat $k | awk '/.bin/ {print}' > 1.txt 
-                sed 's/DATAFILE "//g' 1.txt > 2.txt 
-                sed 's/" .*$//' 2.txt >> $remove_bins && rm -rf {1,2}.txt # TOC	    
+                cat $k | awk '/.bin/ {print}' > 1.txt
+                sed 's/DATAFILE "//g' 1.txt > 2.txt
+                sed 's/" .*$//' 2.txt >> $remove_bins && rm -rf {1,2}.txt # TOC
             fi 2>/dev/null >/dev/null
         done
 
@@ -3806,7 +3806,7 @@ function batch_createcd_chdman_mame-tools() {
             params+=(-hs "$hunk_size")
         fi
         if [[ "$compression" -ne 0 ]]; then
-            params+=(-c "$compr")        
+            params+=(-c "$compr")
         fi
         if [[ -n "$num_processors" ]]; then
             params+=(-np "$num_processors")
@@ -3832,8 +3832,8 @@ function batch_createcd_chdman_mame-tools() {
                         echo ${j%.*}.chd >> $create
                     fi
                 fi
-            done    	  
-        fi  
+            done
+        fi
 
         if [[ -e "$create" ]]; then
             sort -u $remove -o $remove && sort -u $create -o $create
@@ -3890,7 +3890,7 @@ function createcd_chdman_mame-tools(){
             aux_input="$out"
         fi
         if [[ -z $aux_input ]]; then
-            m="ERROR: $input doesn't have a compressed CD image file.\n\nSupported compressed extensions:\n- CUE files (*.cue)\n- GDI files (*.gdi)\n- TOC files (*.toc)" 
+            m="ERROR: $input doesn't have a compressed CD image file.\n\nSupported compressed extensions:\n- CUE files (*.cue)\n- GDI files (*.gdi)\n- TOC files (*.toc)"
         fi
         input="$input#$aux_input"
         __f="$__f#$aux_input"
@@ -4021,10 +4021,10 @@ function createcd_chdman_mame-tools(){
         cd && cd "$DIR"
         if [[ "$f" = *.[zZ][iI][pP] ]] || [[ "$f" = *.7[zZ] ]]; then
             echo $'Extracting files ...\nThis may take several minutes ...\n'
-            for i in ${f%.*}.[zZ][iI][pP]; do 
+            for i in ${f%.*}.[zZ][iI][pP]; do
                 unzip "$i"
             done 2>/dev/null >/dev/null
-            for i in ${f%.*}.7[zZ]; do 
+            for i in ${f%.*}.7[zZ]; do
                 7z e "$i"
             done 2>/dev/null >/dev/null
         fi
@@ -4033,13 +4033,13 @@ function createcd_chdman_mame-tools(){
         remove_bins="remove_bins.txt"
         if [[ "${aux_input}" == ${_ext[0]} ]]; then # CUE
             cat $aux_input |  awk '/.bin/ {print}' > 1.txt
-            sed 's/FILE "\|" BINARY//g' 1.txt > $remove_bins && rm -rf 1.txt 
+            sed 's/FILE "\|" BINARY//g' 1.txt > $remove_bins && rm -rf 1.txt
         elif [[ "${aux_input}" == ${_ext[1]} ]]; then # GDI
             cat $aux_input | awk '{s=""; for (i=5; i<NF; i++) s = s $i; print s}' >> 1.txt 2>/dev/null
             sed '/^$/d' 1.txt > $remove_bins && rm -rf 1.txt
         elif [[ "${aux_input}" == ${_ext[2]} ]]; then
-            cat $aux_input | awk '/.bin/ {print}' > 1.txt && sed 's/DATAFILE "//g' 1.txt > 2.txt && sed 's/" .*$//' 2.txt > $remove_bins && rm -rf {1,2}.txt # TOC	    
-        fi 2>/dev/null >/dev/null	
+            cat $aux_input | awk '/.bin/ {print}' > 1.txt && sed 's/DATAFILE "//g' 1.txt > 2.txt && sed 's/" .*$//' 2.txt > $remove_bins && rm -rf {1,2}.txt # TOC
+        fi 2>/dev/null >/dev/null
 
         local params=()
         if [[ "$force" -eq 1 ]]; then
@@ -4061,14 +4061,14 @@ function createcd_chdman_mame-tools(){
             params+=(-hs "$hunk_size")
         fi
         if [[ "$compression" -ne 0 ]]; then
-            params+=(-c "$compr")        
+            params+=(-c "$compr")
         fi
         if [[ -n "$num_processors" ]]; then
             params+=(-np "$num_processors")
         fi
 
         echo $'Converting file ...\n'
-        $md_inst/chdman createcd ${params[@]} 
+        $md_inst/chdman createcd ${params[@]}
         chown $user:$user "$__output"
         if [[ -f "$__output_parent" ]]; then
             chown $user:$user "$__output_parent"
@@ -4113,7 +4113,7 @@ function batch_createhd_chdman_mame-tools() {
     for ((b=0; b<${#ext[@]}; b++)); do
         if [ "$b" = 0 ]; then
             __ext=(${__ext[@]}${ext[b]})
-        else 
+        else
             __ext=(${__ext[@]}\|${ext[b]})
         fi
     done
@@ -4125,39 +4125,39 @@ function batch_createhd_chdman_mame-tools() {
         if [[ "$f" = *.[zZ][iI][pP] ]]; then
             zipinfo -1 "$f" "${_ext[@]}" >> out_1.txt
             cat out_1.txt >> out_merge_a.txt
-        elif [[ "$f" = *.7[zZ] ]]; then 
+        elif [[ "$f" = *.7[zZ] ]]; then
             7z l -ba "$f" "${_ext[@]}" -r- | cut -c54- >> out_2.txt
             cat out_2.txt >> out_merge_a.txt
-        else 
+        else
             find $d -maxdepth 1 -regextype posix-egrep -iregex ".*\.(${__ext[@]})" >> out_3.txt
             cat out_3.txt > out_merge_b.txt
         fi 2>/dev/null >/dev/null
     done < ext.txt
     rm -rf ext.txt
-	
+
     for i in a b; do
         while read -r g; do
             if [[ "$g" = *.[iI][mM][gG] ]]; then
                 echo "img" >> out_$i.txt	# raw disk image (*.img)
-            elif [[ "$g" = *.[dD][mM][gG] ]]; then 
+            elif [[ "$g" = *.[dD][mM][gG] ]]; then
                 echo "dmg">> out_$i.txt		# Mac disk image (*.dmg)
-            elif [[ "$g" = *.2[mM][gG] ]]; then 
+            elif [[ "$g" = *.2[mM][gG] ]]; then
                 echo "2mg" >> out_$i.txt	# Apple IIgs disk image (*.2mg)
             elif [[ "$g" = *.[hH]0 ]]; then
                 echo "h0" >> out_$i.txt
-            elif [[ "$g" = *.[hH]1 ]]; then 
+            elif [[ "$g" = *.[hH]1 ]]; then
                 echo "h1" >> out_$i.txt
-            elif [[ "$g" = *.[hH]2 ]]; then 
+            elif [[ "$g" = *.[hH]2 ]]; then
                 echo "h2" >> out_$i.txt		# FM-Towns disk image (*.h[0,1,2,3,4])
-            elif [[ "$g" = *.[hH]3 ]]; then 
+            elif [[ "$g" = *.[hH]3 ]]; then
                 echo "h3" >> out_$i.txt
-            elif [[ "$g" = *.[hH]4 ]]; then 
+            elif [[ "$g" = *.[hH]4 ]]; then
                 echo "h4" >> out_$i.txt
-            elif [[ "$g" = *.[hH][dD][dD] ]]; then 
+            elif [[ "$g" = *.[hH][dD][dD] ]]; then
                 echo "hdd">> out_$i.txt		# IDE64 disk image (*.hdd)
-            elif [[ "$g" = *.[hH][dD][fF] ]]; then 
+            elif [[ "$g" = *.[hH][dD][fF] ]]; then
                 echo "hdf">> out_$i.txt		# X68k SASI disk image (*.hdf)
-            elif [[ "$g" = *.[hH][dD][sS] ]]; then 
+            elif [[ "$g" = *.[hH][dD][sS] ]]; then
                 echo "hds">> out_$i.txt		# X68k SCSI disk image (*.hds)
             fi 2>/dev/null >/dev/null
         done < out_merge_$i.txt
@@ -4188,7 +4188,7 @@ function batch_createhd_chdman_mame-tools() {
                 else
                     aux_input="*.zip#*.{$out_ext_1}, *.{$out_ext_2}"
                 fi
-            fi		
+            fi
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -z `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
@@ -4210,7 +4210,7 @@ function batch_createhd_chdman_mame-tools() {
                 else
                     aux_input="*.7z#*.{$out_ext_1},*.{$out_ext_2}"
                 fi
-            fi		
+            fi
         fi
     elif [[ -n `cat out_2.txt` ]] && [[ -n `cat out_1.txt` ]]; then
         if [[ -z `cat out_3.txt` ]]; then
@@ -4232,7 +4232,7 @@ function batch_createhd_chdman_mame-tools() {
                 else
                     aux_input="*.{zip,7z}#*.{$out_ext_1}, *.{$out_ext_2}"
                 fi
-            fi		
+            fi
 	    fi
     else
         if [[ -n `find $d -maxdepth 1 -regextype posix-egrep -iregex '.*\.(zip|7z)'` ]] && [[ -z `cat out_3.txt` ]]; then
@@ -4242,8 +4242,8 @@ function batch_createhd_chdman_mame-tools() {
                 aux_input="*.$out_ext_2"
             else
                 aux_input="*.{$out_ext_2}"
-            fi	
-        fi    
+            fi
+        fi
     fi 2>/dev/null >/dev/null
 
     local output="${d%/}"
@@ -4518,9 +4518,9 @@ function batch_createhd_chdman_mame-tools() {
                     unzip "$i"
                 elif [[ -n `7z l -ba $i "${_ext[@]}" -r-` ]] && [[ ${i} = *.7z ]]; then
                     ls "$i" >> $remove
-                    7z e "$i" 
+                    7z e "$i"
                 fi 2>/dev/null >/dev/null
-            done < out.txt 
+            done < out.txt
             chown $user:$user ${_ext[@]} 2>/dev/null
             rm -rf out.txt
         fi
@@ -4560,7 +4560,7 @@ function batch_createhd_chdman_mame-tools() {
             params+=(-ss "$sector_size")
         fi
         if [[ "$compression" -ne 0 ]]; then
-            params+=(-c "$compr")        
+            params+=(-c "$compr")
         fi
         if [[ -n "$num_processors" ]]; then
             params+=(-np "$num_processors")
@@ -4586,7 +4586,7 @@ function batch_createhd_chdman_mame-tools() {
                         echo ${j%.*}.chd >> $create
                     fi
                 fi
-            done    	  
+            done
         fi
 
         if [[ -e "$create" ]]; then
@@ -4637,7 +4637,7 @@ function createhd_chdman_mame-tools(){
             aux_input="$out"
         fi
         if [[ -z $aux_input ]]; then
-            m="ERROR: $input doesn't have a compressed HD file.\n\nSupported compressed extensions:\n- raw disk image (*.img)\n- Mac disk image (*.dmg)\n- Apple IIgs disk image (*.2mg)\n- FM-Towns disk image (*.h0,*.h1,*.h2,*.h3,*.h4)\n- IDE64 disk image (*.hdd)\n- X68k SASI disk image (*.hdf)\n- X68k SCSI disk image (*.hds)" 
+            m="ERROR: $input doesn't have a compressed HD file.\n\nSupported compressed extensions:\n- raw disk image (*.img)\n- Mac disk image (*.dmg)\n- Apple IIgs disk image (*.2mg)\n- FM-Towns disk image (*.h0,*.h1,*.h2,*.h3,*.h4)\n- IDE64 disk image (*.hdd)\n- X68k SASI disk image (*.hdf)\n- X68k SCSI disk image (*.hds)"
         fi
         input="$input#$aux_input"
         __f="$__f#$aux_input"
@@ -4964,7 +4964,7 @@ function createhd_chdman_mame-tools(){
                             elif  [[ "${input}" = */* ]]; then
                                 __input="$input"
                                 __f="$__input"
-                            fi	
+                            fi
                         fi
                         ;;
                     O)
@@ -5006,10 +5006,10 @@ function createhd_chdman_mame-tools(){
         cd && cd "$DIR"
         if [[ "$f" = *.[zZ][iI][pP] ]] || [[ "$f" = *.7[zZ] ]]; then
             echo $'Extracting files ...\nThis may take several minutes ...\n'
-            for i in ${f%.*}.[zZ][iI][pP]; do 
+            for i in ${f%.*}.[zZ][iI][pP]; do
                 unzip "$i"
             done 2>/dev/null >/dev/null
-            for i in ${f%.*}.7[zZ]; do 
+            for i in ${f%.*}.7[zZ]; do
                 7z e "$i"
             done 2>/dev/null >/dev/null
         fi
@@ -5060,7 +5060,7 @@ function createhd_chdman_mame-tools(){
             if [[ "$chs" = ",," ]] || [[ "$chs" = "required,required,required" ]]; then
                 dialog --backtitle "$__backtitle" --stdout --clear --msgbox "Required Parameters missing (CHS)" 17 54
             else
-                params+=(-chs "$chs")		
+                params+=(-chs "$chs")
             fi
         else
             if [[ "$chs" != ",," ]] && [[ "$chs" != "auto,auto,auto" ]]; then
@@ -5074,14 +5074,14 @@ function createhd_chdman_mame-tools(){
             params+=(-ss "$sector_size")
         fi
         if [[ "$compression" -ne 0 ]]; then
-            params+=(-c "$compr")        
+            params+=(-c "$compr")
         fi
         if [[ -n "$num_processors" ]]; then
             params+=(-np "$num_processors")
         fi
 
         echo $'Converting file ...\n'
-        $md_inst/chdman createhd ${params[@]} 
+        $md_inst/chdman createhd ${params[@]}
         chown $user:$user "$__output"
         if [[ -f "$__output_parent" ]]; then
             chown $user:$user "$__output_parent"
@@ -5101,7 +5101,7 @@ function createhd_chdman_mame-tools(){
                 fi
             else
                 m="${__output##*/} successfully created."
-            fi  
+            fi
         else
             m="ERROR: Conversion Failed."
         fi
@@ -5301,12 +5301,12 @@ function batch_createraw_chdman_mame-tools() {
             dialog --backtitle "$__backtitle" --stdout --clear --msgbox "Required Parameters missing (Unit size)" 17 54
         fi
         if [[ "$compression" -ne 0 ]]; then
-            params+=(-c "$compr")        
+            params+=(-c "$compr")
         fi
         if [[ -n "$num_processors" ]]; then
             params+=(-np "$num_processors")
         fi
-	
+
         remove="remove_files.txt"
         remove_show="remove_show_files.txt"
         create="create_files.txt"
@@ -5582,7 +5582,7 @@ function createraw_chdman_mame-tools(){
             dialog --backtitle "$__backtitle" --stdout --clear --msgbox "Required Parameters missing (Unit size)" 17 54
         fi
         if [[ "$compression" -ne 0 ]]; then
-            params+=(-c "$compr")        
+            params+=(-c "$compr")
         fi
         if [[ -n "$num_processors" ]]; then
             params+=(-np "$num_processors")
@@ -5591,7 +5591,7 @@ function createraw_chdman_mame-tools(){
         clear
         echo $'Converting file ...\n'
         $md_inst/chdman createraw -i "$f" ${params[@]}
-        chown $user:$user "$__output"   
+        chown $user:$user "$__output"
         if [[ -f "$__output_parent" ]]; then
             chown $user:$user "$__output_parent"
         fi
@@ -5666,9 +5666,9 @@ function verify_chdman_mame-tools(){
         clear
         echo "File: $f"
         $md_inst/chdman verify -i "$f" ${params[@]} > "${f%.*}._verify"
-        awk '/SHA1/ {print}' ${f%.*}._verify > "${f%.*}.verify" 
+        awk '/SHA1/ {print}' ${f%.*}._verify > "${f%.*}.verify"
         rm -rf "${f%.*}._verify"
-        dialog --backtitle "$__backtitle" --stdout --clear --textbox ${f%.*}.verify 10 52 
+        dialog --backtitle "$__backtitle" --stdout --clear --textbox ${f%.*}.verify 10 52
         rm -rf "${f%.*}.verify"
         m="Verification completed for $input"
     else
@@ -5723,7 +5723,7 @@ function info_chdman_mame-tools(){
 
         clear
         $md_inst/chdman info -i "$f" ${params[@]} > "${f%.*}.info"
-        dialog --backtitle "$__backtitle" --stdout --title "$f" --clear --textbox ${f%.*}.info 0 0 
+        dialog --backtitle "$__backtitle" --stdout --title "$f" --clear --textbox ${f%.*}.info 0 0
         dialog --backtitle "$__backtitle" --stdout --defaultno --yesno "Would you like to save ${input%.*}.info?" 8 50
         if [[ $? = 0 ]]; then
             chown $user:$user "${f%.*}.info"
@@ -5752,12 +5752,12 @@ function _aux_chdman_mame-tools() {
     export IFS=$'\n'
     if [[ "$opt" = "createhd" ]]; then
         FILE=$(dialog --backtitle "$__backtitle" --default-item "$default" --stdout --cancel-label "No Input" --extra-button --extra-label "Back" --title "Choose a ROM *.{${format// /|}}" --fselect "$romdir/" 20 105)
-    
+
         [ $? = 1 ] && FILE="none"
         [ $FILE = "none" ] || [ -f "$FILE" ] && "$opt"_chdman_mame-tools "$FILE"
     else
         FILE=$(dialog --backtitle "$__backtitle" --default-item "$default" --stdout --title "Choose a ROM *.{${format// /|}}" --fselect "$romdir/" 20 105)
-    
+
         [ ! -z $FILE ] && [ -f "$FILE" ] && "$opt"_chdman_mame-tools "$FILE"
     fi
 }
@@ -5773,7 +5773,7 @@ function aux_chdman_mame-tools(){
             1 "single conversion"
             2 "batch conversion"
 	)
-	
+
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         if [[ -n "$choice" ]]; then
             default="$choice"
@@ -5819,7 +5819,7 @@ function chdman_mame-tools() {
         if [[ -n "$choice" ]]; then
             default="$choice"
             case "$choice" in
-                S)  
+                S)
                     man "$md_inst/man/chdman.1" > man.txt
                     dialog --backtitle "$__backtitle" --stdout --title "CHDMAN - MANUAL" --clear --textbox man.txt 0 0
                     rm -rf man.txt
@@ -5840,7 +5840,7 @@ function chdman_mame-tools() {
                     aux_chdman_mame-tools "createcd" "cue gdi toc zip 7z"
                     ;;
                 6)
-                    aux_chdman_mame-tools "createld" "avi zip 7z" 
+                    aux_chdman_mame-tools "createld" "avi zip 7z"
                     ;;
                 7)
                     aux_chdman_mame-tools "extractraw" "chd zip 7z"
@@ -5937,13 +5937,13 @@ function batch_convert_floptool_mame-tools() {
                 fi
             elif [[ "$sys" = a2_16sect ]]; then
 	        if [[ "$ext" -eq 0 ]]; then
-		    form=".dsk"		    
+		    form=".dsk"
                     options+=(E "Output extension ($form)")
                 elif [[ "$ext" -eq 1 ]]; then
-		    form=".do"	
+		    form=".do"
                     options+=(E "Output extension ($form)")
                 else
-		    form=".po"	
+		    form=".po"
                     options+=(E "Output extension ($form)")
                 fi
             elif [[ "$sys" = atom ]]; then
@@ -5994,14 +5994,14 @@ function batch_convert_floptool_mame-tools() {
                 default="$choice"
                 case "$choice" in
 		    E)
-		        if [ "$sys" = d88 ] || [ "$sys" = cqm ] || [ "$sys" = a2_16sect ] || [ "$sys" = ssd ]; then		      
+		        if [ "$sys" = d88 ] || [ "$sys" = cqm ] || [ "$sys" = a2_16sect ] || [ "$sys" = ssd ]; then
                             ext="$((( ext + 1) % 3))"
 		        elif [ "$sys" = xdf ] || [ "$sys" = atom ] || [ "$sys" = os9 ]; then
                             ext="$((ext ^ 1))"
 		        elif [ "$sys" = adfs_o ]; then
                             ext="$((( ext + 1) % 4))"
 		        elif [ "$sys" = pc ]; then
-                            ext="$((( ext + 1) % 5))"	    
+                            ext="$((( ext + 1) % 5))"
 		        fi
 			;;
 		    -)
@@ -6020,9 +6020,9 @@ function batch_convert_floptool_mame-tools() {
         mkdir -p floptool.rp
         ls -1 > floptool.rp/1.rp
         for j in *.*; do
-	    $md_inst/floptool convert auto $sys "$j" "${j%.*}$form" 
+	    $md_inst/floptool convert auto $sys "$j" "${j%.*}$form"
 	    if [[ ! -s "${j%.*}$form" ]]; then
-		rm -rf "${j%.*}$form" 
+		rm -rf "${j%.*}$form"
 	    fi
         done
         chown $user:$user *"$form"
@@ -6033,13 +6033,13 @@ function batch_convert_floptool_mame-tools() {
 	if [ "$DIF" = "" ]; then
 	    dialog --backtitle "$__backtitle" --stdout --clear --msgbox "File(s) not converted" 13 50
 	else
-	    dialog --backtitle "$__backtitle" --stdout --clear --msgbox "There is(are) file(s) successfully converted to *$form" 13 50         
+	    dialog --backtitle "$__backtitle" --stdout --clear --msgbox "There is(are) file(s) successfully converted to *$form" 13 50
 	fi
 	rm -rf *.rp
     else
         dialog --backtitle "$__backtitle" --stdout --clear --msgbox "ERROR: Conversion Failed !!!" 8 50
     fi
-    
+
 }
 
 function convert_floptool_mame-tools(){
@@ -6104,13 +6104,13 @@ function convert_floptool_mame-tools(){
                 fi
             elif [[ "$sys" = a2_16sect ]]; then
 	        if [[ "$ext" -eq 0 ]]; then
-		    form=".dsk"		    
+		    form=".dsk"
                     options+=(E "Output extension ($form)")
                 elif [[ "$ext" -eq 1 ]]; then
-		    form=".do"	
+		    form=".do"
                     options+=(E "Output extension ($form)")
                 else
-		    form=".po"	
+		    form=".po"
                     options+=(E "Output extension ($form)")
                 fi
             elif [[ "$sys" = atom ]]; then
@@ -6161,14 +6161,14 @@ function convert_floptool_mame-tools(){
                 default="$choice"
                 case "$choice" in
 		    E)
-		        if [ "$sys" = d88 ] || [ "$sys" = cqm ] || [ "$sys" = a2_16sect ] || [ "$sys" = ssd ]; then		      
+		        if [ "$sys" = d88 ] || [ "$sys" = cqm ] || [ "$sys" = a2_16sect ] || [ "$sys" = ssd ]; then
                             ext="$((( ext + 1) % 3))"
 		        elif [ "$sys" = xdf ] || [ "$sys" = atom ] || [ "$sys" = os9 ]; then
                             ext="$((ext ^ 1))"
 		        elif [ "$sys" = adfs_o ]; then
                             ext="$((( ext + 1) % 4))"
 		        elif [ "$sys" = pc ]; then
-                            ext="$((( ext + 1) % 5))"	    
+                            ext="$((( ext + 1) % 5))"
 		        fi
 			;;
 		    -)
@@ -6190,13 +6190,13 @@ function convert_floptool_mame-tools(){
 	    if [[ -e "${f%.*}$form" ]] && [[ ! -s "${f%.*}$form" ]]; then
 		dialog --backtitle "$__backtitle" --stdout --title "Floptool - convert to *$form" --clear --msgbox "input: $f\n\noutput: ${f%.*}$form is a empty file (0kB).\n\nOutput invalid!!" 17 54
 		rm -rf "${f%.*}$form"
-	    fi 
+	    fi
 	    m="Error: saving to format '*$form' unsupported to input $f"
         fi
         chown $user:$user "${f%.*}$form"
     else
 	m="$m"
-    fi 
+    fi
     dialog --backtitle "$__backtitle" --stdout --clear --msgbox "$m" 13 50
 }
 
@@ -6228,7 +6228,7 @@ function aux_floptool_mame-tools(){
             1 "single conversion"
             2 "batch conversion"
 	)
-	
+
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         if [[ -n "$choice" ]]; then
             default="$choice"
@@ -6281,7 +6281,7 @@ function _identify_floptool_mame-tools(){
         fi
     else
 	m="$m"
-    fi 
+    fi
     dialog --backtitle "$__backtitle" --stdout --clear --msgbox "$m" 8 50
 }
 
@@ -6294,7 +6294,7 @@ function __aux_identify_floptool_mame-tools(){
 function _aux_identify_floptool_mame-tools() {
     export IFS=$'\n'
     FILE=$(dialog --backtitle "$__backtitle" --stdout --title "Choose a ROM" --fselect "$romdir/" 13 105)
-    [ ! -z $FILE ] && _identify_floptool_mame-tools "$FILE" 
+    [ ! -z $FILE ] && _identify_floptool_mame-tools "$FILE"
 }
 
 function identify_floptool_mame-tools() {
@@ -6305,7 +6305,7 @@ function identify_floptool_mame-tools() {
             1 "one identification"
             2 "batch identification"
 	)
-	
+
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         if [[ -n "$choice" ]]; then
             default="$choice"
@@ -6649,7 +6649,7 @@ function aux_jedutil_dump_mame-tools() {
         if [[ -n "$choice" ]]; then
             default="$choice"
             case "$choice" in
-		D)  
+		D)
                     device="$((( device + 1) % 53))"
 		    ;;
 		-)
@@ -6794,7 +6794,7 @@ function aux_jedutil_dump_mame-tools() {
         fi
     else
 	m="$m"
-    fi 
+    fi
     dialog --backtitle "$__backtitle" --stdout --clear --msgbox "$m" 8 50
 }
 
@@ -6851,7 +6851,7 @@ function aux_jedutil_convert_bin_mame-tools() {
         fi
     else
 	m="$m"
-    fi 
+    fi
     dialog --backtitle "$__backtitle" --stdout --clear --msgbox "$m" 8 50
 }
 
@@ -6918,7 +6918,7 @@ function aux_jedutil_convert_jedec_mame-tools() {
         fi
     else
 	m="$m"
-    fi 
+    fi
     dialog --backtitle "$__backtitle" --stdout --clear --msgbox "$m" 8 50
 }
 
@@ -6928,7 +6928,7 @@ function aux_jedutil_mame-tools() {
     export IFS='
 '
     FILE=$(dialog --backtitle "$__backtitle" --stdout --title "Jedutil - $cmd_1" --fselect "$romdir/" 13 105)
-    [ ! -z $FILE ] && aux_jedutil_"$cmd_2"_mame-tools "$FILE" 
+    [ ! -z $FILE ] && aux_jedutil_"$cmd_2"_mame-tools "$FILE"
 }
 
 function viewlist_jedutil_mame-tools() {
@@ -7068,7 +7068,7 @@ function _aux_ldresample_mame-tools() {
         fi
     else
 	m="$m"
-    fi 
+    fi
     dialog --backtitle "$__backtitle" --stdout --clear --msgbox "$m" 8 50
 }
 
@@ -7076,7 +7076,7 @@ function aux_ldresample_mame-tools() {
     export IFS='
 '
     FILE=$(dialog --backtitle "$__backtitle" --stdout --title "Choose a CHD (LD) file" --fselect "$romdir/" 13 105)
-    [ ! -z $FILE ] && _aux_ldresample_mame-tools "$FILE" 
+    [ ! -z $FILE ] && _aux_ldresample_mame-tools "$FILE"
 }
 
 function ldresample_mame-tools() {
@@ -7130,7 +7130,7 @@ function _aux_ldverify_mame-tools() {
         fi
     else
 	m="$m"
-    fi 
+    fi
     dialog --backtitle "$__backtitle" --stdout --clear --msgbox "$m" 8 50
 }
 
@@ -7138,7 +7138,7 @@ function aux_ldverify_mame-tools() {
     export IFS='
 '
     FILE=$(dialog --backtitle "$__backtitle" --stdout --title "Choose a AVI or CHD file" --fselect "$romdir/" 13 105)
-    [ ! -z $FILE ] && _aux_ldverify_mame-tools "$FILE" 
+    [ ! -z $FILE ] && _aux_ldverify_mame-tools "$FILE"
 }
 
 function ldverify_mame-tools() {
@@ -7271,10 +7271,10 @@ function romcmp_mame-tools() {
  		    dialog --backtitle "$__backtitle" --stdout --title "ROMCMP - MANUAL" --textbox man.txt 0 0
                     rm -rf man.txt
                     ;;
-                1)  
+                1)
 		    aux_romcmp_mame-tools "Directory"
                     ;;
-                2)  
+                2)
 		    aux_romcmp_mame-tools "Compress file"
                     ;;
             esac
@@ -7296,12 +7296,12 @@ function _aux_split_verify_mame-tools() {
         $md_inst/split -verify "$verify_file" >  "$verify_file.verify"
         if [[ -f "$verify_file.verify" ]]; then
             dialog --backtitle "$__backtitle" --stdout --title "Split - verify" --clear --textbox $verify_file.verify 0 0
-	    rm -rf "$verify_file.verify" 
+	    rm -rf "$verify_file.verify"
         fi
     else
         dialog --backtitle "$__backtitle" --stdout --clear --msgbox "$m" 8 50
     fi
-    
+
 }
 
 function _aux_split_join_mame-tools() {
@@ -7334,7 +7334,7 @@ function _aux_split_join_mame-tools() {
                     if [[ "$output_file" = "default" ]] || [[ -z "$output_file" ]]; then
 			outfile="${split_file%.split}"
    		    else
-			outfile="$output_file" 
+			outfile="$output_file"
     		    fi
                     ;;
 		-)
@@ -7382,7 +7382,7 @@ function _aux_split_mame-tools() {
     DIR=`dirname $bigfile`
     basename="default"
     if [[ "$basename" = "default" ]]; then
-	b_name="$bigfile" 
+	b_name="$bigfile"
     fi
     size="100"
 
@@ -7406,7 +7406,7 @@ function _aux_split_mame-tools() {
     		    if [[ "$basename" = "default" ]] || [[ -z "$basename" ]]; then
 			b_name="$bigfile"
     		    else
-			b_name="$basename" 
+			b_name="$basename"
     		    fi
                     ;;
                 S)
@@ -7460,7 +7460,7 @@ function aux_split_mame-tools() {
     export IFS='
 '
     FILE=$(dialog --backtitle "$__backtitle" --stdout --title "$opt" --fselect "$romdir/" 13 105)
-    [ ! -z $FILE ] && _aux_$2_mame-tools "$FILE" 
+    [ ! -z $FILE ] && _aux_$2_mame-tools "$FILE"
 }
 
 function split_mame-tools() {
@@ -7497,7 +7497,7 @@ function aux_srcclean_mame-tools() {
     f="$1"
     local m="ERROR: Input invalid !!!"
     local DIR=`dirname $f`
-    
+
     TAM=`du -h $f`
     keep_backup="1"
     dry_run="0"
@@ -7593,9 +7593,9 @@ function aux_srcclean_mame-tools() {
         chown $user:$user "$f"
         dialog --backtitle "$__backtitle" --stdout --title 'Srcclean: output info' --textbox srcclean.info 0 0
         du -h "${f%.*}"* > tam.info
-        dialog --backtitle "$__backtitle" --stdout --title 'Srclean: Output file(s) size (in Bytes)' --textbox tam.info 13 76 
-        rm -rf "srcclean.info" "tam.info" 
-        m="Cleaning completed"  
+        dialog --backtitle "$__backtitle" --stdout --title 'Srclean: Output file(s) size (in Bytes)' --textbox tam.info 13 76
+        rm -rf "srcclean.info" "tam.info"
+        m="Cleaning completed"
     else
         m="$m"
     fi
@@ -7606,7 +7606,7 @@ function srcclean_mame-tools() {
     export IFS='
 '
     FILE=$(dialog --backtitle "$__backtitle" --stdout --title "Choose a ROM" --fselect "$romdir/" 13 105)
-    [ ! -z $FILE ] && aux_srcclean_mame-tools "$FILE" 
+    [ ! -z $FILE ] && aux_srcclean_mame-tools "$FILE"
 }
 
 function testkeys_mame-tools() {
@@ -7645,7 +7645,7 @@ _EOF_
         chmod +x "$file"
     fi
     man "$file" > man.txt
-    
+
     dialog --backtitle "$__backtitle" --stdout --title 'Testkeys - MAME SDL keycode scanner' --textbox man.txt 0 0 --and-widget --stdout --title 'Testkeys' --defaultno --yesno '\n   Do you wanna start testkeys?' 10 40
     if [[ $? = 0 ]]; then
 	$md_inst/testkeys
@@ -8179,13 +8179,13 @@ function aux_unidasm_mame-tools() {
     	elif [[ "$arch" -eq 253 ]]; then
 	    options+=(1 "Architecture (xavix2)")
     	elif [[ "$arch" -eq 254 ]]; then
-	    options+=(1 "Architecture (z180)")  
+	    options+=(1 "Architecture (z180)")
     	elif [[ "$arch" -eq 255 ]]; then
-	    options+=(1 "Architecture (z8)")  
+	    options+=(1 "Architecture (z8)")
     	elif [[ "$arch" -eq 256 ]]; then
-	    options+=(1 "Architecture (z80)")  
+	    options+=(1 "Architecture (z80)")
     	elif [[ "$arch" -eq 257 ]]; then
-	    options+=(1 "Architecture (z8000)")            
+	    options+=(1 "Architecture (z8000)")
         fi
 	options+=(2 "Base PC: $basepc")
 	options+=(3 "Mode: $mode")
@@ -8221,12 +8221,12 @@ function aux_unidasm_mame-tools() {
         if [[ -n "$choice" ]]; then
             default="$choice"
             case "$choice" in
-		1)  
+		1)
                     arch="$((( arch + 1) % 258))"
  		    ;;
 		2)
                     cmd=(dialog --backtitle "$__backtitle" --inputbox "Please type the base PC:" 10 60 "$basepc")
-                    basepc=$("${cmd[@]}" 2>&1 >/dev/tty)		    
+                    basepc=$("${cmd[@]}" 2>&1 >/dev/tty)
 		    ;;
 		3)
 		    cmd=(dialog --backtitle "$__backtitle" --inputbox "Please type the mode:" 10 60 "$mode")
@@ -8472,7 +8472,7 @@ function aux_unidasm_mame-tools() {
     elif [[ "$arch" -eq 101 ]]; then
         params+=(-arch m65c02)
     elif [[ "$arch" -eq 102 ]]; then
-        params+=(-arch m65ce02) 
+        params+=(-arch m65ce02)
     elif [[ "$arch" -eq 103 ]]; then
 	params+=(-arch m6800)
     elif [[ "$arch" -eq 104 ]]; then
@@ -8576,7 +8576,7 @@ function aux_unidasm_mame-tools() {
     elif [[ "$arch" -eq 153 ]]; then
 	params+=(-arch scmp)
     elif [[ "$arch" -eq 154 ]]; then
-	params+=(-arch score7)  
+	params+=(-arch score7)
     elif [[ "$arch" -eq 155 ]]; then
 	params+=(-arch scudsp)
     elif [[ "$arch" -eq 156 ]]; then
@@ -8680,7 +8680,7 @@ function aux_unidasm_mame-tools() {
     elif [[ "$arch" -eq 205 ]]; then
 	params+=(-arch ucom4)
     elif [[ "$arch" -eq 206 ]]; then
-	params+=(-arch unsp10)           
+	params+=(-arch unsp10)
     elif [[ "$arch" -eq 207 ]]; then
 	params+=(-arch unsp12)
     elif [[ "$arch" -eq 208 ]]; then
@@ -8776,13 +8776,13 @@ function aux_unidasm_mame-tools() {
     elif [[ "$arch" -eq 253 ]]; then
 	params+=(-arch xavix2)
     elif [[ "$arch" -eq 254 ]]; then
-	params+=(-arch z180)  
+	params+=(-arch z180)
     elif [[ "$arch" -eq 255 ]]; then
-	params+=(-arch z8)  
+	params+=(-arch z8)
     elif [[ "$arch" -eq 256 ]]; then
-	params+=(-arch z80)  
+	params+=(-arch z80)
     elif [[ "$arch" -eq 257 ]]; then
-	params+=(-arch z8000)              
+	params+=(-arch z8000)
     fi
     if [[ -n "$basepc" ]] && [[ "$basepc" != "none" ]]; then
         params+=(-basepc "$basepc")
@@ -8819,7 +8819,7 @@ function aux_unidasm_mame-tools() {
         chown $user:$user "$f"
         dialog --backtitle "$__backtitle" --stdout --title "Disassembly to $f" --clear --textbox unidasm.info 23 60
         rm -rf "unidasm.info"
-        m="Disassembly completed"  
+        m="Disassembly completed"
     else
         m="$m"
     fi
@@ -8829,7 +8829,7 @@ function unidasm_mame-tools() {
     export IFS='
 '
     FILE=$(dialog --backtitle "$__backtitle" --stdout --title "Unidasm - Choose a ROM" --fselect "$romdir/" 13 105)
-    [ ! -z $FILE ] && aux_unidasm_mame-tools "$FILE" 
+    [ ! -z $FILE ] && aux_unidasm_mame-tools "$FILE"
 }
 
 function gui_mame-tools() {

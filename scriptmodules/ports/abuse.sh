@@ -28,7 +28,7 @@ function sources_abuse() {
 
 function build_abuse() {
 	cd abuse-0.8
-	./configure --enable-debug   
+	./configure --enable-debug
 	make
     md_ret_require=()
 }

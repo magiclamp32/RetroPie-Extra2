@@ -21,7 +21,7 @@ function depends_ganbare() {
 }
 
 function sources_ganbare() {
-    downloadAndExtract "$md_repo_url" "$md_build" 
+    downloadAndExtract "$md_repo_url" "$md_build"
 }
 
 function build_ganbare() {

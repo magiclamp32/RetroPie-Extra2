@@ -30,9 +30,9 @@ function sources_refkeen() {
 function build_refkeen() {
     mkdir $md_build/build
     cd $md_build/build
-    cmake .. 
-	
-    make 
+    cmake ..
+
+    make
 
     md_ret_require=(
       )
@@ -42,7 +42,7 @@ function install_refkeen() {
     md_ret_files=(build/reflection-catacomb
 	build/reflection-kdreams
 	build/reflection-wolf3d
-        
+
         )
 }
 

@@ -35,6 +35,6 @@ matchbox-window-manager -use_titlebar no &
 /usr/games/kraptor -windowscreen -1024x768
 _EOF_
     chmod +x "$md_inst/kraptor.sh"
-    
+
      addPort "$md_id" "kraptor" "Kraptor Shoot em up scroller game" "XINIT: $md_inst/kraptor.sh"
 }

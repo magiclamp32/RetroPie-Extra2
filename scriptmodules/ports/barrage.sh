@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!mali"
 
 function depends_barrage() {
-   getDepends xorg xinit x11-xserver-utils 
+   getDepends xorg xinit x11-xserver-utils
 }
 
 function install_bin_barrage() {

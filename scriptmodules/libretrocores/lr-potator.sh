@@ -16,7 +16,7 @@ rp_module_help="ROM Extensions: .sv .zip .7z\n\nCopy your Watara Supervision rom
 rp_module_licence="Unl https://raw.githubusercontent.com/libretro/potator/master/LICENSE"
 rp_module_section="exp"
 rp_module_repo="git https://github.com/libretro/potator.git master"
-rp_module_flags="" 
+rp_module_flags=""
 
 function sources_lr-potator() {
     gitPullOrClone
@@ -25,7 +25,7 @@ function sources_lr-potator() {
 function build_lr-potator() {
     cd "platform/libretro"
     make clean
-    make 
+    make
     md_ret_require="$md_build/platform/libretro/potator_libretro.so"
 }
 

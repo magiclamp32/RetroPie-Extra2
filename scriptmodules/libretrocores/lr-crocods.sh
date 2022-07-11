@@ -21,7 +21,7 @@ rp_module_flags=""
 #function depends_lr-crocods() {
 #    local depends
 #    isPlatform "arm" && depends+=(gcc-arm-linux-gnueabihf)
-#    getDepends "${depends[@]}"    
+#    getDepends "${depends[@]}"
 #}
 
 function sources_lr-crocods() {

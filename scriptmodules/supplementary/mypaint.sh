@@ -35,6 +35,6 @@ matchbox-window-manager -use_titlebar no &
 /usr/bin/mypaint +set in_tty 0
 _EOF_
     chmod +x "$md_inst/mypaint.sh"
-    
-     addPort "$md_id" "mypaint" "MyPaint easy-to-use painting program" "XINIT: $md_inst/mypaint.sh"
+
+    addPort "$md_id" "mypaint" "MyPaint easy-to-use painting program" "XINIT: $md_inst/mypaint.sh"
 }

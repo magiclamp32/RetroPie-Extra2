@@ -16,7 +16,7 @@ rp_module_help="ROM Extensions: .ngp .ngc .ngpc .npc .zip .7z\n\nCopy your Neo G
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/RACE/master/license.txt"
 rp_module_section="exp"
 rp_module_repo="git https://github.com/libretro/RACE.git master"
-rp_module_flags="" 
+rp_module_flags=""
 
 function sources_lr-race() {
     gitPullOrClone

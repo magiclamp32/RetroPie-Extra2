@@ -17,11 +17,11 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_weechat() {
-    	getDepends xdg-utils matchbox xorg
+    getDepends xdg-utils matchbox xorg
 }
 
 function install_bin_weechat() {
-        aptInstall weechat
+    aptInstall weechat
 }
 
 function configure_weechat() {

@@ -33,7 +33,7 @@ dpkg -i ./devilutionx_1.4.0_armhf.deb
     md_ret_files=(
           	devilutionx-linux-armhf/devilutionx
 		devilutionx-linux-armhf/devilutionx.mpq
-		devilutionx-linux-armhf/README.txt 
+		devilutionx-linux-armhf/README.txt
 		devilutionx-linux-armhf/LICENSE.CC-BY.txt
 		devilutionx-linux-armhf/LICENSE.OFL.txt)
 }

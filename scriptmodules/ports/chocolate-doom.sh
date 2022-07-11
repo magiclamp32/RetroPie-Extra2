@@ -23,7 +23,7 @@ function depends_chocolate-doom() {
 }
 
 function sources_chocolate-doom() {
-    gitPullOrClone 
+    gitPullOrClone
 }
 
 function build_chocolate-doom() {
@@ -121,12 +121,12 @@ function configure_chocolate-doom() {
        chown $user:$user "$romdir/ports/doom/heretic.wad"
        addPort "$md_id" "chocolate-heretic" "Chocolate Heretic Registered" "$md_inst/chocolate-heretic -iwad $romdir/ports/doom/heretic.wad"
     fi
-    
+
     if [[ -f "$romdir/ports/doom/hexen.wad" ]]; then
        chown $user:$user "$romdir/ports/doom/hexen.wad"
        addPort "$md_id" "chocolate-hexen" "Chocolate Hexen" "$md_inst/chocolate-hexen -iwad $romdir/ports/doom/hexen.wad"
     fi
-    
+
     if [[ -f "$romdir/ports/doom/hexdd.wad" && -f "$romdir/ports/doom/hexen.wad" ]]; then
        chown $user:$user "$romdir/ports/doom/hexdd.wad"
        addPort "$md_id" "chocolate-hexdd" "Chocolate Hexen: Deathkings of the Dark Citadel" "$md_inst/chocolate-hexen -iwad $romdir/ports/doom/hexen.wad -file $romdir/ports/doom/hexdd.wad"

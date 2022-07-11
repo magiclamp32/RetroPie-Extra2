@@ -18,7 +18,7 @@ rp_module_section="exp"
 rp_module_flags="sdl2"
 
 function depends_supermodel() {
-    getDepends subversion libglew-dev libsdl2-dev libsdl2-net-dev libzip-dev zlib1g-dev 
+    getDepends subversion libglew-dev libsdl2-dev libsdl2-net-dev libzip-dev zlib1g-dev
 }
 
 function sources_supermodel() {
@@ -48,7 +48,7 @@ function build_supermodel() {
     sed -i 's|InputAnalogGunY2 = "NONE"|InputAnalogGunY2 = "JOY2_YAXIS"|g' ./Config/Supermodel.ini
     sed -i 's|InputAnalogTriggerLeft2 = "NONE"|InputAnalogTriggerLeft2 = "JOY2_BUTTON1"|g' ./Config/Supermodel.ini
     sed -i 's|InputAnalogTriggerRight2 = "NONE"|InputAnalogTriggerRight2 = "JOY2_BUTTON2"|g' ./Config/Supermodel.ini
-   
+
     ln -s Makefiles/Makefile.UNIX Makefile
     make
     cd bin
@@ -56,11 +56,11 @@ function build_supermodel() {
     mkdir -p Config Saves
     cp ../Config/Supermodel.ini Config
     cp ../Config/Games.xml Config
-    
+
     cd Config
     way="$md_inst/bin/Config"
     if [[ -e $way/Supermodel.ini ]]; then
-	mv Supermodel.ini Supermodel.ini.rp-dist
+        mv Supermodel.ini Supermodel.ini.rp-dist
     fi
 
     md_ret_require="$md_build/bin/supermodel"
@@ -68,7 +68,7 @@ function build_supermodel() {
 
 function install_supermodel() {
     md_ret_files=(
-	'bin'
+        'bin'
         'Docs/LICENSE.txt'
         'Docs/README.txt'
     )
@@ -82,7 +82,7 @@ function configure_supermodel() {
     Yaxis=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
 
     mkRomDir "model3"
-    
+
     moveConfigDir "$md_inst/bin/Config" "$md_conf_root/model3/Config"
     moveConfigDir "$md_inst/bin/NVRAM" "$home/.model3/NVRAM"
     moveConfigDir "$md_inst/bin/Saves" "$home/.model3/Saves"

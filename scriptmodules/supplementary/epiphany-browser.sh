@@ -35,6 +35,6 @@ matchbox-window-manager -use_titlebar no &
 /usr/bin/epiphany-browser +set in_tty 0
 _EOF_
     chmod +x "$md_inst/epiphany.sh"
-    
-     addPort "$md_id" "epiphany" "Epiphany Lightweight Web Browser" "XINIT: $md_inst/epiphany.sh"
+
+    addPort "$md_id" "epiphany" "Epiphany Lightweight Web Browser" "XINIT: $md_inst/epiphany.sh"
 }

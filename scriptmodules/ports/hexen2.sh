@@ -31,7 +31,7 @@ function depends_hexen2() {
 }
 
 function sources_hexen2() {
-    gitPullOrClone 
+    gitPullOrClone
 }
 
 function build_hexen2() {

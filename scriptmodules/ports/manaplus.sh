@@ -39,6 +39,5 @@ function configure_manaplus() {
     mkRomDir "ports"
     mkRomDir "ports/manaplus"
     moveConfigDir "$home/.config/mana" "$md_conf_root/manaplus"
-
-    addPort "$md_id" "manaplus" "manaplus - 2D MMORPG Client" "sudo xinit $md_inst/bin/manaplus" 
+    addPort "$md_id" "manaplus" "manaplus - 2D MMORPG Client" "sudo xinit $md_inst/bin/manaplus"
 }

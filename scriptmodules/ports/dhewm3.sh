@@ -26,7 +26,7 @@ function depends_dhewm3() {
 }
 
 function sources_dhewm3() {
-    gitPullOrClone  
+    gitPullOrClone
 }
 
 function build_dhewm3() {

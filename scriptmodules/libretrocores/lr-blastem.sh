@@ -38,7 +38,7 @@ function install_lr-blastem() {
 function configure_lr-blastem() {
     mkRomDir "megadrive"
     ensureSystemretroconfig "megadrive"
-    
+
     addEmulator 1 "$md_id" "megadrive" "$md_inst/blastem_libretro.so"
     addSystem "megadrive"
 }

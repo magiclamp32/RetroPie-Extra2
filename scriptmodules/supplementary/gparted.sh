@@ -35,6 +35,6 @@ matchbox-window-manager -use_titlebar no &
 sudo /usr/bin/gparted-pkexec
 _EOF_
     chmod +x "$md_inst/gparted.sh"
-    
-     addPort "$md_id" "gparted" "Gparted partition editing application" "xinit $md_inst/gparted.sh"
+
+    addPort "$md_id" "gparted" "Gparted partition editing application" "xinit $md_inst/gparted.sh"
 }

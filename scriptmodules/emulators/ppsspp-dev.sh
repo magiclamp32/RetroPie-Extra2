@@ -10,15 +10,15 @@
 # https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/LICENSE
 #
 
-rp_module_id="ppsspp-latest"
-rp_module_desc="PlayStation Portable emulator PPSSPP - latest master version"
+rp_module_id="ppsspp-dev"
+rp_module_desc="PlayStation Portable emulator PPSSPP - latest development version"
 rp_module_help="ROM Extensions: .iso .pbp .cso\n\nCopy your PlayStation Portable roms to $romdir/psp"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/hrydgard/ppsspp/master/LICENSE.TXT"
 rp_module_repo="git https://github.com/hrydgard/ppsspp.git master"
 rp_module_section="exp"
 rp_module_flags="!videocore"
 
-function depends_ppsspp-latest() {
+function depends_ppsspp-dev() {
     local depends=(cmake libsdl2-dev libsnappy-dev libzip-dev zlib1g-dev)
     isPlatform "videocore" && depends+=(libraspberrypi-dev)
     isPlatform "mesa" && depends+=(libgles2-mesa-dev)
@@ -26,7 +26,7 @@ function depends_ppsspp-latest() {
     getDepends "${depends[@]}"
 }
 
-function sources_ppsspp-latest() {
+function sources_ppsspp-dev() {
     gitPullOrClone "$md_build/ppsspp"
     cd "ppsspp"
 
@@ -52,7 +52,7 @@ function sources_ppsspp-latest() {
     fi
 }
 
-function build_ffmpeg_ppsspp-latest() {
+function build_ffmpeg_ppsspp-dev() {
     cd "$1"
     local arch
     if isPlatform "arm"; then
@@ -106,22 +106,22 @@ function build_ffmpeg_ppsspp-latest() {
     make install
 }
 
-function build_cmake_ppsspp-latest() {
+function build_cmake_ppsspp-dev() {
     cd "$md_build/cmake"
     ./bootstrap
     make
 }
 
-function build_ppsspp-latest() {
+function build_ppsspp-dev() {
     local ppsspp_binary="PPSSPPSDL"
     local cmake="cmake"
     if hasPackage cmake 3.6 lt; then
-        build_cmake_ppsspp-latest
+        build_cmake_ppsspp-dev
         cmake="$md_build/cmake/bin/cmake"
     fi
 
     # build ffmpeg
-    build_ffmpeg_ppsspp-latest "$md_build/ppsspp/ffmpeg"
+    build_ffmpeg_ppsspp-dev "$md_build/ppsspp/ffmpeg"
 
     # build ppsspp
     cd "$md_build/ppsspp"
@@ -148,7 +148,7 @@ function build_ppsspp-latest() {
     if isPlatform "arm" && ! isPlatform "x11"; then
         params+=(-DARM_NO_VULKAN=ON)
     fi
-    if [[ "$md_id" == "lr-ppsspp-latest" ]]; then
+    if [[ "$md_id" == "lr-ppsspp-dev" ]]; then
         params+=(-DLIBRETRO=On)
         ppsspp_binary="lib/ppsspp_libretro.so"
     fi
@@ -159,14 +159,14 @@ function build_ppsspp-latest() {
     md_ret_require="$md_build/ppsspp/$ppsspp_binary"
 }
 
-function install_ppsspp-latest() {
+function install_ppsspp-dev() {
     md_ret_files=(
         'ppsspp/assets'
         'ppsspp/PPSSPPSDL'
     )
 }
 
-function configure_ppsspp-latest() {
+function configure_ppsspp-dev() {
     local extra_params=()
     if ! isPlatform "x11"; then
         extra_params+=(--fullscreen)

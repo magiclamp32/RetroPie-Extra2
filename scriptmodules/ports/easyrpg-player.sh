@@ -19,11 +19,11 @@ rp_module_section="exp"
 rp_module_flags="!mali"
 
 function depends_easyrpg-player() {
-    getDepends cmake autoconf automake libtool doxygen libsdl2-dev libsdl2-mixer-dev libpng-dev libfreetype6-dev libboost-dev libpixman-1-dev libmpg123-dev libwildmidi-dev libvorbis-dev libopusfile-dev libsndfile1-dev libxmp-dev libspeexdsp-dev libharfbuzz-dev libfmt-dev zlib1g-dev libraspberrypi-dev libraspberrypi-bin 
+    getDepends cmake autoconf automake libtool doxygen libsdl2-dev libsdl2-mixer-dev libpng-dev libfreetype6-dev libboost-dev libpixman-1-dev libmpg123-dev libwildmidi-dev libvorbis-dev libopusfile-dev libsndfile1-dev libxmp-dev libspeexdsp-dev libharfbuzz-dev libfmt-dev zlib1g-dev libraspberrypi-dev libraspberrypi-bin
 }
 
-function sources_easyrpg-player() { 
-    gitPullOrClone 
+function sources_easyrpg-player() {
+    gitPullOrClone
 }
 
 function build_easyrpg-player() {
@@ -57,7 +57,7 @@ function configure_easyrpg-player() {
 
     mkRomDir "ports/easyrpg/games/"
     mkUserDir "$biosdir/rtp/2000"
-    mkUserDir "$biosdir/rtp/2003"  
+    mkUserDir "$biosdir/rtp/2003"
 
     addPort "$md_id" "easyrpg" "EasyRPG Player" "cd $romdir/ports/easyrpg/games/; RPG2K_RTP_PATH=$biosdir/rtp/2000/ RPG2K3_RTP_PATH=$biosdir/rtp/2003 $md_inst/easyrpg-player"
 }

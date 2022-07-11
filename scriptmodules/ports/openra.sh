@@ -35,10 +35,10 @@ function build_openra() {
 	echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
 	echo 'export PATH=$PATH:$HOME/.dotnet' >> ~/.bashrc
 	source ~/.bashrc
-	
+
 		cd openra
 
-	make 
+	make
     md_ret_require="$md_build/openra"
 }
 
@@ -50,7 +50,7 @@ function install_openra() {
 
 function configure_openra() {
     addPort "$md_id" "openra" "Open Red Alert" "XINIT: /opt/retropie/ports/openra/openra/ORA.sh"
-	
+
 cat >"$md_inst/openra/ORA.sh" << _EOF_
 
 #!/bin/bash
@@ -64,7 +64,7 @@ _EOF_
     mkRomDir "ports/openra"
 
 addPort "$md_id" "opentd" "Open Tiberian Dawn" "XINIT: /opt/retropie/ports/openra/openra/OTD.sh"
-	
+
 cat >"$md_inst/openra/OTD.sh" << _EOF_
 
 #!/bin/bash
@@ -78,7 +78,7 @@ _EOF_
     mkRomDir "ports/opentd"
 
 addPort "$md_id" "opentd" "Open Dune2000" "XINIT: /opt/retropie/ports/openra/openra/OD2K.sh"
-	
+
 cat >"$md_inst/openra/OD2K.sh" << _EOF_
 
 #!/bin/bash
