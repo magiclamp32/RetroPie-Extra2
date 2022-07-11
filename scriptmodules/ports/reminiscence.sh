@@ -19,25 +19,25 @@ rp_module_section="exp"
 rp_module_flags="!mali!x86"
 
 functiondepends_reminiscence() {
-   getDepends libsdl1.2-dev
+    getDepends libsdl1.2-dev
 }
 
 functionsources_reminiscence() {
-   downloadAndExtract "$md_repo_url" "$md_build" "--strip-components=1"
+    downloadAndExtract "$md_repo_url" "$md_build" "--strip-components=1"
 }
 
 functionbuild_reminiscence() {
-   make
+    make
 }
 
 functioninstall_reminiscence() {
-   md_ret_files=('rs')
+    md_ret_files=('rs')
 }
 
 functionconfigure_reminiscence() {
-   mkRomDir "ports"
-   mkRomDir "ports/$md_id"
+    mkRomDir "ports"
+    mkRomDir "ports/$md_id"
    #fixme: Missing configuration dir.
 
-   addPort "$md_id" "reminiscence" "REminiscence" "$md_inst/rs --datapath=$romdir/ports/$md_id --savepath=$md_conf_root/$md_id"
+    addPort "$md_id" "reminiscence" "REminiscence" "$md_inst/rs --datapath=$romdir/ports/$md_id --savepath=$md_conf_root/$md_id"
 }
