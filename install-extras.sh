@@ -8,6 +8,12 @@ MODE="gui"
 if [[ "${1,,}" == "-a" || "${1,,}" == "--all" ]]; then
     MODE="auto"
     shift
+elif [[ "${1,,}" == "-r" || "${1,,}" == "--remove" ]]; then
+    MODE="remove"
+    shift
+elif [[ "${1,,}" == "-h" || "${1,,}" == "--help" ]]; then
+    MODE="help"
+    shift
 fi
 readonly MODE
 
@@ -22,10 +28,14 @@ readonly BACKTITLE="Installation utility for RetroPie-Extra - Setup directory: $
 
 function startCmd() {
     if [[ ! -d "$RPS_HOME" ]]; then
-        echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename $0) /home/pi/RetroPie-Setup\n\nAborting."
+        echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename $0) /home/pi/RetroPie-Setup\n\nUse '-h' for help. Aborting."
         exit
     elif [[ "$MODE" == "auto" ]]; then
         runAuto
+    elif [[ "$MODE" == "remove" ]]; then
+        removeAll
+    elif [[ "$MODE" == "help" ]]; then
+        runHelp
     else
         runGUI
     fi
@@ -36,6 +46,46 @@ function runAuto() {
     mkdir -p "$RP_EXTRA"
     cp -R scriptmodules/ "$RP_EXTRA" && echo "...done."
     exit
+}
+
+function removeAll() {
+    if [ ! -d "$RP_EXTRA" ]; then
+        echo -e "RetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting."
+        exit
+    fi
+
+    read -r -p "Removing directory $RP_EXTRA and all of its contents. Do you wish to continue? [y/N] " response
+    case "$response" in
+        [yY][eE][sS]|[yY])
+            rm -rf "$RP_EXTRA" && echo -e "\n...done."
+            ;;
+        [yY]*)
+            echo -e "\nError \"$response\": please enter \"y\" or \"yes\" to confirm.\n\nAborting."
+            exit
+            ;;
+        *)
+            echo -e "\nAborting."
+            exit
+            ;;
+    esac
+
+    exit
+}
+
+function runHelp() {
+    cat >/dev/tty << _BREAK_
+Installation utility for RetroPie-Extra, a supplement to RetroPie.
+
+Usage: ./$(basename "$0") [option] [rp_setup_directory]
+
+Options (choose one):
+    -a  --all       Add all RetroPie-Extra modules (may significantly impact
+                    loading times of RetroPie-Setup and retropiemenu configuration
+                    items.)
+    -r  --remove    Remove all RetroPie-Extra modules (does not "uninstall" the modules
+                    in RP-Setup.)
+    -h  --help      Display this help and exit.
+_BREAK_
 }
 
 function runGUI() {
