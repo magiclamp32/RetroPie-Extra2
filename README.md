@@ -240,9 +240,12 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `putty.sh` - SSH and telnet client - **Installs Runs fine**
 - [X] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
 - [X] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
-- [X] - `videolan.sh` - VLC media player - **Installs Runs fine**
 - [X] - `vgmplay.sh` - Music Player - **Installs**
+- [X] - `videolan.sh` - VLC media player - **Installs Runs fine**
 - [X] - `weechat.sh` - Console IRC Client - **Installs**
+
+
+>>>>>>> Stashed changes
 
 ### My Future To-Do List 
 
