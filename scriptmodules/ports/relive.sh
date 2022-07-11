@@ -27,7 +27,6 @@ function sources_relive() {
 }
 
 function build_relive() {
-
 	cd alive_reversing
 	mkdir build
     cd build
@@ -43,7 +42,6 @@ function build_relive() {
 }
 
 function install_relive() {
-
 	md_ret_files=(alive_reversing/build/Source/relive/relive
         	alive_reversing/assets/relive-ao
 	alive_reversing/assets/relive-ae
@@ -51,7 +49,6 @@ function install_relive() {
 }
 
 function configure_relive() {
-
 		mkRomDir "ports/exoddus"
 		mkRomDir "ports/oddysee"
 
@@ -78,12 +75,9 @@ cd "/home/pi/RetroPie/roms/ports/exoddus"
 ./relive
 
 _EOF_
-	 chmod +x "$md_inst/ae.sh"
-
+	chmod +x "$md_inst/ae.sh"
 	chown -R pi:pi "/home/pi/RetroPie/roms/ports/exoddus/relive"
 	chown -R pi:pi "/home/pi/RetroPie/roms/ports/oddysee/relive"
 
-
 	#ln -s "/home/pi/RetroPie/roms/ports/relive" "/opt/retropie/ports/relive"
-
 }
