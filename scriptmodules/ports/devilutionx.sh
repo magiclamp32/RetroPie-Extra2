@@ -14,7 +14,7 @@ rp_module_id="devilutionx"
 rp_module_desc="devilutionx - Diablo Engine"
 rp_module_licence="https://raw.githubusercontent.com/diasurgical/devilutionX/master/LICENSE"
 rp_module_help="Copy your original diabdat.mpq file from Diablo to $romdir/ports/devilutionx."
-rp_module_repo="file https://github.com/diasurgical/devilutionX/releases/download/1.4.0/devilutionx-linux-armhf.zip"
+rp_module_repo="wget https://github.com/diasurgical/devilutionX/releases/download/1.4.0/devilutionx-linux-armhf.zip"
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
@@ -23,8 +23,7 @@ function depends_devilutionx() {
 }
 
 function sources_devilutionx() {
-     downloadAndExtract "$md_repo_url" "$md_build"
-
+     downloadAndExtract
 }
 
 function install_devilutionx() {
@@ -33,16 +32,9 @@ dpkg -i ./devilutionx_1.4.0_armhf.deb
     md_ret_files=(
           	devilutionx-linux-armhf/devilutionx
 		devilutionx-linux-armhf/devilutionx.mpq
-		devilutionx-linux-armhf/README.txt
+		devilutionx-linux-armhf/README.txt 
 		devilutionx-linux-armhf/LICENSE.CC-BY.txt
 		devilutionx-linux-armhf/LICENSE.OFL.txt)
-}
-
-function game_data_devilutionx() {
-    if [[ ! -f "$romdir/ports/devilutionx/diablo.exe" ]]; then
-        downloadAndExtract "https://github.com/Exarkuniv/game-data/raw/main/diablo.zip" "$romdir/ports/devilutionx"
-    chown -R $user:$user "$romdir/ports/devilutionx"
-    fi
 }
 
 function configure_devilutionx() {
@@ -50,6 +42,4 @@ function configure_devilutionx() {
     mkRomDir "ports/devilutionx"
     cp -r "$md_inst/devilutionx.mpq" "$romdir/ports/$md_id"
     addPort "$md_id" "devilutionx" "devilutionx - Diablo Engine" "$md_inst/devilutionx --data-dir $romdir/ports/devilutionx --save-dir $md_conf_root/devilutionx"
-
-    [[ "$md_mode" == "install" ]] && game_data_devilutionx
 }

@@ -48,7 +48,7 @@ function game_data_bstone() {
 }
 
 function configure_bstone() {
-    addPort "$md_id" "bsaog" "Blake Stone - Aliens of Gold" "$md_inst/bstone --data_dir $romdir/ports/bstone/aog"
+    addPort "$md_id" "bsaog" "Blake Stone - Aliens of Gold" "$md_inst/bstone --data_dir $romdir/ports/bstone/aog"	
 	addPort "$md_id" "bsps" "Blake Stone - Planet Strike" "$md_inst/bstone --data_dir $romdir/ports/bstone/ps"
 
     #mkRomDir "ports/bstone"
