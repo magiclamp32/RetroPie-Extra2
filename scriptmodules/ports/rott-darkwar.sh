@@ -47,5 +47,5 @@ function configure_rott-darkwar() {
     mkRomDir "ports/$md_id"
     moveConfigDir "$home/.rott" "$md_conf_root/rott"
 
-    addPort "$md_id" "rott-darkwar" "Rise Of The Triad - Dark War" " XINIT: pushd $romdir/ports/rott-darkwar; $md_inst/rott-darkwar; popd"
+    addPort "$md_id" "rott-darkwar" "Rise Of The Triad - Dark War" "XINIT: pushd $romdir/ports/rott-darkwar; $md_inst/rott-darkwar; popd"
 }
