@@ -47,24 +47,6 @@ function startCmd() {
     fi
 }
 
-function runAuto() {
-    echo -e "Placing scriptmodules in $RP_EXTRA\n"
-    mkdir -p "$RP_EXTRA"
-    cp -r scriptmodules/ "$RP_EXTRA" && echo "...done."
-    exit
-}
-
-function removeAll() {
-    if [ ! -d "$RP_EXTRA" ]; then
-        echo -e "RetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting."
-        exit
-    fi
-
-    echo -e "Removing directory $RP_EXTRA and all of its contents.\n"
-    rm -rf "$RP_EXTRA" && echo -e "...done."
-    exit
-}
-
 function runHelp() {
     cat >/dev/tty << _BREAK_
 Installation utility for RetroPie-Extra, a supplement to RetroPie.
@@ -81,10 +63,22 @@ Options (choose one):
 _BREAK_
 }
 
-function updateExtras () {
-    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull" 20 60 2>&1 >/dev/tty
-# for testing.  Update before release:
-#   dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull origin" 20 60 2>&1 >/dev/tty
+function runAuto() {
+    echo -e "Placing scriptmodules in $RP_EXTRA\n"
+    mkdir -p "$RP_EXTRA"
+    cp -r scriptmodules/ "$RP_EXTRA" && echo "...done."
+    exit
+}
+
+function removeAll() {
+    if [ ! -d "$RP_EXTRA" ]; then
+        echo -e "RetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting."
+        exit
+    fi
+
+    echo -e "Removing directory $RP_EXTRA and all of its contents.\n"
+    rm -rf "$RP_EXTRA" && echo -e "...done."
+    exit
 }
 
 function runGUI() {
@@ -192,6 +186,12 @@ function copyModule() {
     mkdir -p "$target" 2>&1 \
       && cp -f "$script" "$target" 2>&1 \
       && [[ ! -d "$datadir" ]] || cp -rf "$datadir" "$target" 2>&1
+}
+
+function updateExtras () {
+    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull" 20 60 2>&1 >/dev/tty
+# for testing.  Update before release:
+#   dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull origin" 20 60 2>&1 >/dev/tty
 }
 
 # Run
