@@ -8,7 +8,7 @@ MODE="gui"
 case "${1,,}" in
     -u|--update)
         shift
-        git pull && "./$(basename "$0")" "$@"
+        git pull origin && "./$(basename "$0")" "$@"
         exit
         ;;
     -a|--all)
