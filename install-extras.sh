@@ -36,7 +36,7 @@ readonly BACKTITLE="Installation utility for RetroPie-Extra - Setup directory: $
 
 function startCmd() {
     if [[ ! -d "$RPS_HOME" ]]; then
-        echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename $0) /home/pi/RetroPie-Setup\n\nUse '-h' for help. Aborting."
+        echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename "$0") /home/pi/RetroPie-Setup\n\nUse '-h' for help. Aborting."
         exit
     fi
 
@@ -69,7 +69,7 @@ _BREAK_
 function runAuto() {
     echo -e "Placing scriptmodules in $RP_EXTRA\n"
     mkdir -p "$RP_EXTRA"
-    cp -r scriptmodules/ "$RP_EXTRA" && echo "...done."
+    cp -r "$SCRIPTDIR/scriptmodules/" "$RP_EXTRA" && echo "...done."
     exit
 }
 
@@ -80,7 +80,7 @@ function removeAll() {
     fi
 
     echo -e "Removing directory $RP_EXTRA and all of its contents.\n"
-    rm -rf "$RP_EXTRA" && echo -e "...done."
+    rm -rf "$RP_EXTRA" && echo "...done."
     exit
 }
 
@@ -104,7 +104,7 @@ function runGUI() {
                     ;;
                 3)
                     if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "  -- Install all --\n\nThis may severely impact the loading time of RP Setup and RP Menu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
-                        local errormsg=$(mkdir -p $RP_EXTRA 2>&1 && cp -r scriptmodules $RP_EXTRA 2>&1)
+                        local errormsg=$(mkdir -p "$RP_EXTRA" 2>&1 && cp -r "$SCRIPTDIR/scriptmodules/" "$RP_EXTRA" 2>&1)
                         if [[ -n "$errormsg" ]]; then
                             errormsg="Error: $errormsg"
                         else
@@ -117,7 +117,7 @@ function runGUI() {
                     if [ ! -d "$RP_EXTRA" ]; then
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "  -- Remove All --\n\nRetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
                     elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "  -- Remove All --\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Removing all RetroPie-Extra scriptmodules..." "rm -rf $RP_EXTRA && echo ...done." 20 60 2>&1 >/dev/tty
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Removing all RetroPie-Extra scriptmodules..." "rm -rf \"$RP_EXTRA\" && echo \"...done.\"" 20 60 2>&1 >/dev/tty
                     fi
                     ;;
             esac
@@ -141,7 +141,7 @@ function chooseModules() {
 
     while read module; do
         module="${module/scriptmodules\//}"
-        section="$(dirname $module)"
+        section="$(dirname "$module")"
         if [[ "$section" != "$lastsection" ]]; then
             menu+=("---" "------[  $section  ]------" off)
         fi
@@ -164,7 +164,7 @@ function chooseModules() {
         for choice in "${choices[@]}"; do
             if [[ "$choice" =~ $re ]]; then
                 choice="${options[choice-1]}"
-                errormsg+=("$(copyModule $choice)") || break
+                errormsg+=("$(copyModule "$choice")") || break
                 ((n++))
             fi
         done
@@ -181,7 +181,7 @@ function chooseModules() {
 
 function copyModule() {
     local choice="$1"
-    local section="$(dirname $choice)"
+    local section="$(dirname "$choice")"
     local script="scriptmodules/$choice"
     local datadir="${script%.*}"
     local target="$RP_EXTRA/scriptmodules/$section"
