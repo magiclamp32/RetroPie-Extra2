@@ -137,10 +137,10 @@ function chooseModules() {
     local module
     local section
     local lastsection
-    local i=1
-    local re='^[0-9]+$'
     local installed
+    local re='^[0-9]+$'
 
+    local i=1
     while read module; do
         module="${module/scriptmodules\//}"
         section="$(dirname "$module")"
