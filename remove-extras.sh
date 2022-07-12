@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./install-extras.sh --remove
+./install-extras.sh --remove "$@"
