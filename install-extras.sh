@@ -145,7 +145,7 @@ function chooseModules() {
         module="${module/scriptmodules\//}"
         section="$(dirname "$module")"
         if [[ "$section" != "$lastsection" ]]; then
-            menu+=("---" "-----[  $section  ]-----" off)
+            menu+=("---" "-----------[  $section  ]-----------" off)
         fi
         installed="off"
         [[ -f "$RP_EXTRA/scriptmodules/$module" ]] && installed="on"
