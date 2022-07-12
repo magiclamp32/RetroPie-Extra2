@@ -60,12 +60,11 @@ Usage:
 Options:
     -a  --all       Add all RetroPie-Extra modules (may significantly impact
                     loading times of RetroPie-Setup and retropiemenu configuration
-                    items.)
+                    items, especially on slower hardware.)
     -r  --remove    Remove all RetroPie-Extra modules (does not "uninstall" the modules
                     in RP-Setup.)
     -h  --help      Display this help and exit.
 _BREAK_
-
 exit
 }
 
@@ -106,7 +105,7 @@ function runGUI() {
                     updateExtras
                     ;;
                 3)
-                    if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "  -- Install all --\n\nThis may severely impact the loading time of RP Setup and RP Menu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
+                    if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Install all\n\nThis may severely impact the loading time of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
                         local errormsg=$(mkdir -p "$RP_EXTRA" 2>&1 && cp -r "$SCRIPTDIR/scriptmodules/" "$RP_EXTRA" 2>&1)
                         if [[ -n "$errormsg" ]]; then
                             errormsg="Error: $errormsg"
@@ -118,8 +117,8 @@ function runGUI() {
                     ;;
                 4)
                     if [ ! -d "$RP_EXTRA" ]; then
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "  -- Remove All --\n\nRetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
-                    elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "  -- Remove All --\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "-- Remove All\n\nRetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
+                    elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Remove All\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Removing all RetroPie-Extra scriptmodules..." "rm -rf \"$RP_EXTRA\" && echo \"...done.\"" 20 60 2>&1 >/dev/tty
                     fi
                     ;;
@@ -146,7 +145,7 @@ function chooseModules() {
         module="${module/scriptmodules\//}"
         section="$(dirname "$module")"
         if [[ "$section" != "$lastsection" ]]; then
-            menu+=("---" "------[  $section  ]------" off)
+            menu+=("---" "-----[  $section  ]-----" off)
         fi
         installed="off"
         [[ -f "$RP_EXTRA/scriptmodules/$module" ]] && installed="on"
