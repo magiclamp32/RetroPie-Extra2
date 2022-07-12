@@ -6,12 +6,13 @@ readonly SCRIPTDIR
 
 MODE="gui"
 case "${1,,}" in
+    -u|--update)
+        shift
+        git pull && "./$(basename "$0")" "$@"
+        exit
+        ;;
     -a|--all)
         MODE="auto"
-        shift
-        ;;
-    -u|--update-all)
-        MODE="update"
         shift
         ;;
     -r|--remove)
@@ -43,7 +44,6 @@ function startCmd() {
     case "$MODE" in
         help) runHelp ;;
         auto) runAuto ;;
-        update) git pull origin && runAuto ;;
         remove) removeAll ;;
         *) runGUI ;;
     esac
@@ -53,9 +53,11 @@ function runHelp() {
     cat >/dev/tty << _BREAK_
 Installation utility for RetroPie-Extra, a supplement to RetroPie.
 
-Usage: ./$(basename "$0") [option] [rp_setup_directory]
+Usage:
 
-Options (choose one):
+    ./$(basename "$0") [-u|--update] [option] [rp_setup_directory]
+
+Options:
     -a  --all       Add all RetroPie-Extra modules (may significantly impact
                     loading times of RetroPie-Setup and retropiemenu configuration
                     items.)
@@ -63,6 +65,8 @@ Options (choose one):
                     in RP-Setup.)
     -h  --help      Display this help and exit.
 _BREAK_
+
+exit
 }
 
 function runAuto() {
