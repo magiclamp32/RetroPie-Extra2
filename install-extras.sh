@@ -5,19 +5,24 @@ SCRIPTDIR="$(cd "$SCRIPTDIR" && pwd)"
 readonly SCRIPTDIR
 
 MODE="gui"
-if [[ "${1,,}" == "-a" || "${1,,}" == "--all" ]]; then
-    MODE="auto"
-    shift
-elif [[ "${1,,}" == "-u" || "${1,,}" == "--update-all" ]]; then
-    MODE="update"
-    shift
-elif [[ "${1,,}" == "-r" || "${1,,}" == "--remove" ]]; then
-    MODE="remove"
-    shift
-elif [[ "${1,,}" == "-?" || "${1,,}" == "-h" || "${1,,}" == "--help" ]]; then
-    MODE="help"
-    shift
-fi
+case "${1,,}" in
+    -a|--all)
+        MODE="auto"
+        shift
+        ;;
+    -u|--update-all)
+        MODE="update"
+        shift
+        ;;
+    -r|--remove)
+        MODE="remove"
+        shift
+        ;;
+    -*)
+        MODE="help"
+        shift
+        ;;
+esac
 readonly MODE
 
 RPS_HOME="$HOME/RetroPie-Setup"
@@ -33,18 +38,16 @@ function startCmd() {
     if [[ ! -d "$RPS_HOME" ]]; then
         echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename $0) /home/pi/RetroPie-Setup\n\nUse '-h' for help. Aborting."
         exit
-    elif [[ "$MODE" == "auto" ]]; then
-        runAuto
-    elif [[ "$MODE" == "update" ]]; then
-        git pull #origin <-- for testing. Uncomment before release
-        runAuto
-    elif [[ "$MODE" == "remove" ]]; then
-        removeAll
-    elif [[ "$MODE" == "help" ]]; then
-        runHelp
-    else
-        runGUI
     fi
+
+    case "$MODE" in
+        help) runHelp ;;
+        auto) runAuto ;;
+        update) git pull && runAuto ;;
+#test   update) git pull origin && runAuto ;; <-- change this before release
+        remove) removeAll ;;
+        *) runGUI ;;
+    esac
 }
 
 function runHelp() {
