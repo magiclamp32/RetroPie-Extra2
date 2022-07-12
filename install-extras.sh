@@ -155,7 +155,7 @@ function chooseModules() {
         lastsection="$section"
     done < <(find scriptmodules -mindepth 2 -maxdepth 2 -type f | sort -u)
 
-    local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "Choose which modules to install:" 22 60 16)
+    local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "Choose which modules to install:" 22 66 16)
 
     local choices=($("${cmd[@]}" "${menu[@]}" 2>&1 >/dev/tty))
     if [[ -n "$choices" ]]; then
@@ -194,7 +194,7 @@ function copyModule() {
 }
 
 function updateExtras () {
-    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull origin" 20 60 2>&1 >/dev/tty
+    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull origin" 20 80 2>&1 >/dev/tty
 }
 
 # Run
