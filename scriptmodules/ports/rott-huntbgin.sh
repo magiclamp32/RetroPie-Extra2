@@ -44,10 +44,7 @@ function install_rott-huntbgin() {
     )
 }
 
-function configure_rott-huntbgin() {
-    mkRomDir "ports"
-    mkRomDir "ports/$md_id"
-
+function game_data_rott-huntbgin() {
     wget "http://icculus.org/rott/share/1rott13.zip" -O 1rott13.zip
     unzip -L -o 1rott13.zip rottsw13.shr
     unzip -L -o rottsw13.shr -d "$romdir/ports/$md_id" huntbgin.wad huntbgin.rtc huntbgin.rtl remote1.rts
@@ -55,8 +52,17 @@ function configure_rott-huntbgin() {
     mv  "$romdir/ports/$md_id/remote1.rts" "$romdir/ports/$md_id/REMOTE1.RTS"
     mv  "$romdir/ports/$md_id/huntbgin.wad" "$romdir/ports/$md_id/HUNTBGIN.WAD"
     mv  "$romdir/ports/$md_id/huntbgin.rtc" "$romdir/ports/$md_id/HUNTBGIN.RTC"
-    mv  "$romdir/ports/$md_id/huntbgin.rtl" "$romdir/ports/$md_id/HUNTBGIN.RTL"
+    mv  "$romdir/ports/$md_id/huntbgin.rtl" "$romdir/ports/$md_id/HUNTBGIN.RTL"  
+
+    chown -R $user:$user "$romdir/ports/$md_id"
+}
+
+function configure_rott-huntbgin() {
+    mkRomDir "ports"
+    mkRomDir "ports/$md_id"
     moveConfigDir "$home/.rott" "$md_conf_root/rott"
 
     addPort "$md_id" "rott-huntbgin" "Rise Of The Triad - The Hunt Begins (Shareware)" "XINIT: pushd $romdir/ports/rott-huntbgin/; $md_inst/rott-huntbgin; popd"
+
+    [[ "$md_mode" == "install" ]] && game_data_rott-huntbgin
 }
