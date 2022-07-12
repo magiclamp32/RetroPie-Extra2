@@ -1,3 +1,4 @@
 #!/bin/bash
 
-./install-extras.sh --update-all
+git pull #origin <-- uncomment before release
+./install-extras.sh "$@"
