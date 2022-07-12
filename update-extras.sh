@@ -1,4 +1,3 @@
 #!/bin/bash
 
-git pull #origin <-- uncomment before release
-./install-extras.sh "$@"
+git pull origin && ./install-extras.sh "$@"

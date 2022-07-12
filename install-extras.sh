@@ -43,8 +43,7 @@ function startCmd() {
     case "$MODE" in
         help) runHelp ;;
         auto) runAuto ;;
-        update) git pull && runAuto ;;
-#test   update) git pull origin && runAuto ;; <-- change this before release
+        update) git pull origin && runAuto ;;
         remove) removeAll ;;
         *) runGUI ;;
     esac
@@ -192,9 +191,7 @@ function copyModule() {
 }
 
 function updateExtras () {
-    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull" 20 60 2>&1 >/dev/tty
-# for testing.  Update before release:
-#   dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull origin" 20 60 2>&1 >/dev/tty
+    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull origin" 20 60 2>&1 >/dev/tty
 }
 
 # Run
