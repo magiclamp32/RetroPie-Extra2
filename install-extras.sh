@@ -45,7 +45,7 @@ function startCmd() {
         help) runHelp ;;
         auto) runAuto ;;
         remove) removeAll ;;
-        *) runGUI ;;
+        *) runGui ;;
     esac
 }
 
@@ -86,7 +86,7 @@ function removeAll() {
     exit
 }
 
-function runGUI() {
+function runGui() {
     while true; do
         local cmd=(dialog --clear --backtitle "$BACKTITLE" --cancel-label "Exit" --menu "Choose an option." 22 86 16)
         local options=(
