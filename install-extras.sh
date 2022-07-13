@@ -220,8 +220,10 @@ function viewModules() {
 
     local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "The following modules are installed:" 22 76 16)
 
-    local choices=($("${cmd[@]}" "${menu[@]}" 2>&1 >/dev/tty))
     local choice
+    local choices
+    choices=($("${cmd[@]}" "${menu[@]}" 2>&1 >/dev/tty)) || return 1
+
     local errormsg
 
     local keeps=()
