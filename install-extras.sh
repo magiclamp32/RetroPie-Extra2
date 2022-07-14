@@ -109,7 +109,7 @@ function runGui() {
                     updateExtras
                     ;;
                 4)
-                    if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Install all\n\nThis may severely impact the loading time of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
+                    if dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Install all\n\nThis may severely impact the loading time of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
                         local errormsg=$(mkdir -p "$RP_EXTRA" 2>&1 && cp -r "$SCRIPTDIR/scriptmodules/" "$RP_EXTRA" 2>&1)
                         if [[ -n "$errormsg" ]]; then
                             errormsg="Error: $errormsg"
@@ -124,7 +124,7 @@ function runGui() {
                 5)
                     if [ ! -d "$RP_EXTRA" ]; then
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "-- Remove All\n\nRetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
-                    elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Remove All\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
+                    elif dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Remove All\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Removing all RetroPie-Extra scriptmodules..." "rm -rf \"$RP_EXTRA\" && echo \"...done.\"" 20 60 2>&1 >/dev/tty
                     else
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
@@ -268,8 +268,11 @@ function deleteModules() {
         datadir="${module%.*}"
         rm -f "$module" 2>&1 \
           && [[ ! -d "$datadir" ]] || rm -rf "$datadir" 2>&1 \
-          && [[ ! -d "$target" ]] || [[ -n "$(ls -A "$target" 2>&1)" ]] || rmdir "$target" 2>&1
+          && [[ ! -d "$target" ]] || [[ -n "$(ls -A "$target" 2>&1)" ]] || rmdir "$target" 2>&1 \
+          || return 1
     done
+    [[ ! -d "$RP_EXTRA/scriptmodules" ]] || [[ -n "$(ls -A "$RP_EXTRA/scriptmodules" 2>&1)" ]] || rmdir "$RP_EXTRA/scriptmodules" 2>&1 \
+      && [[ ! -d "$RP_EXTRA" ]] || [[ -n "$(ls -A "$RP_EXTRA" 2>&1)" ]] || rmdir "$RP_EXTRA" 2>&1
 }
 
 function updateExtras () {
