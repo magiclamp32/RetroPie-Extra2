@@ -268,7 +268,7 @@ function deleteModules() {
         datadir="${module%.*}"
         rm -f "$module" 2>&1 \
           && [[ ! -d "$datadir" ]] || rm -rf "$datadir" 2>&1 \
-#          && [[ ! -d "$target" ]] || [[ -n "$(ls -A "$target" >/dev/null)" ]] || rmdir "$target" 2>&1
+          && [[ ! -d "$target" ]] || [[ -n "$(ls -A "$target" 2>&1)" ]] || rmdir "$target" 2>&1
     done
 }
 
