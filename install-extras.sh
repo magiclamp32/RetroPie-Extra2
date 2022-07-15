@@ -110,13 +110,8 @@ function runGui() {
                     ;;
                 4)
                     if dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Install all\n\nThis may severely impact the loading time of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
-                        local errormsg=$(mkdir -p "$RP_EXTRA" 2>&1 && cp -r "$SCRIPTDIR/scriptmodules/" "$RP_EXTRA" 2>&1)
-                        if [[ -n "$errormsg" ]]; then
-                            errormsg="Error: $errormsg"
-                        else
-                            errormsg="All scriptmodules copied to $RP_EXTRA"
-                        fi
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "$errormsg" 20 60 2>&1 >/dev/tty
+                        local errormsg="$(mkdir -p "$RP_EXTRA" 2>&1 && cp -r "$SCRIPTDIR/scriptmodules" "$RP_EXTRA" 2>&1)"
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 50 -s)
                     else
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
                     fi
