@@ -110,8 +110,8 @@ function runGui() {
                     ;;
                 4)
                     if dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Install all\n\nThis may severely impact the loading time of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
-                        local errormsg="$(mkdir -p "$RP_EXTRA" 2>&1 && cp -r "$SCRIPTDIR/scriptmodules" "$RP_EXTRA" 2>&1)"
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 50 -s)
+                        local errormsg="$(mkdir -p "$RP_EXTRA" 2>&1 && cp -rf "$SCRIPTDIR/scriptmodules" "$RP_EXTRA" 2>&1 && echo "All scriptmodules copied to $RP_EXTRA")"
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
                     else
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
                     fi
@@ -120,7 +120,8 @@ function runGui() {
                     if [ ! -d "$RP_EXTRA" ]; then
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "-- Remove All\n\nRetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
                     elif dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Remove All\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Removing all RetroPie-Extra scriptmodules..." "rm -rf \"$RP_EXTRA\" && echo \"...done.\"" 20 60 2>&1 >/dev/tty
+                        local errormsg="$(rm -rf "$RP_EXTRA" 2>&1 && echo "...done.")"
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox "Removing all RetroPie-Extra scriptmodules..." 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
                     else
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
                     fi
@@ -166,14 +167,16 @@ function chooseModules() {
     local choice
     local errormsg
 
-    local n=0
-    for choice in "${choices[@]}"; do
-        if [[ "$choice" =~ $re ]]; then
-            choice="${options[choice-1]}"
-            errormsg+=("$(copyModule "$choice")") || break
-            ((n++))
-        fi
-    done
+    errormsg="$(
+        for choice in "${choices[@]}"; do
+            if [[ "$choice" =~ $re ]]; then
+                choice="${options[choice-1]}"
+                copyModule "$choice"
+            fi
+        done
+    )"
+
+    n="${#choices[@]}"
     if [[ -n "$errormsg" ]]; then
         errormsg="Error: $errormsg"
     elif [[ $n -eq 0 ]]; then
@@ -181,7 +184,7 @@ function chooseModules() {
     else
         errormsg="$n selected scriptmodules have been copied to $RP_EXTRA"
     fi
-    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "$errormsg" 20 60 2>&1 >/dev/tty
+    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
 }
 
 function copyModule() {
@@ -217,7 +220,6 @@ function viewModules() {
         lastsection="$section"
     done < <(find "$RP_EXTRA/scriptmodules" -mindepth 2 -maxdepth 2 -type f | sort -u)
 
-
     if [[ -n "${options[@]}" ]]; then
         local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "The following modules are installed:" 22 76 16)
 
@@ -243,7 +245,20 @@ function viewModules() {
         [[ "${#removes[@]}" -eq 0 ]] && return
 
         if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "The following modules will be removed. Do you wish to continue?\n\n$(printf '    %s\n' "${removes[@]}")" 20 60 2>&1 >/dev/tty; then
-            dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox "Removing ${#removes[@]} selected scriptmodules." 20 60 2>&1 >/dev/tty < <(deleteModules "${removes[@]}" && echo "...done.")
+
+            errormsg="$(
+                for choice in "${removes[@]}"; do
+                    deleteModule "$choice"
+                done
+            )"
+
+            if [[ -n "$errormsg" ]]; then
+                errormsg="Error: $errormsg"
+            else
+                errormsg="${#removes[@]} selected scriptmodules removed."
+            fi
+
+            dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
         else
             dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
         fi
@@ -252,26 +267,21 @@ function viewModules() {
     fi
 }
 
-function deleteModules() {
-    local module
-    local target
-    local datadir
-
-    for module in "$@"; do
-        module="$RP_EXTRA/scriptmodules/$module"
-        target="$(dirname "$module")"
-        datadir="${module%.*}"
-        rm -f "$module" 2>&1 \
-          && [[ ! -d "$datadir" ]] || rm -rf "$datadir" 2>&1 \
-          && [[ ! -d "$target" ]] || [[ -n "$(ls -A "$target" 2>&1)" ]] || rmdir "$target" 2>&1 \
-          || return 1
-    done
-    [[ ! -d "$RP_EXTRA/scriptmodules" ]] || [[ -n "$(ls -A "$RP_EXTRA/scriptmodules" 2>&1)" ]] || rmdir "$RP_EXTRA/scriptmodules" 2>&1 \
+function deleteModule() {
+    local choice="$1"
+    local script="$RP_EXTRA/scriptmodules/$choice"
+    local section="$(dirname "$script")"
+    local datadir="${script%.*}"
+    rm -f "$script" 2>&1 \
+      && [[ ! -d "$datadir" ]] || rm -rf "$datadir" 2>&1 \
+      && [[ ! -d "$section" ]] || [[ -n "$(ls -A "$section" 2>&1)" ]] || rmdir "$section" 2>&1 \
+      && [[ ! -d "$RP_EXTRA/scriptmodules" ]] || [[ -n "$(ls -A "$RP_EXTRA/scriptmodules" 2>&1)" ]] || rmdir "$RP_EXTRA/scriptmodules" 2>&1 \
       && [[ ! -d "$RP_EXTRA" ]] || [[ -n "$(ls -A "$RP_EXTRA" 2>&1)" ]] || rmdir "$RP_EXTRA" 2>&1
 }
 
 function updateExtras () {
-    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --prgbox "Updating RetroPie-Extra" "git pull origin" 22 76 2>&1 >/dev/tty
+    local errormsg="$(git pull origin 2>&1)"
+    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox "Updating RetroPie-Extra" 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
 }
 
 # Run
