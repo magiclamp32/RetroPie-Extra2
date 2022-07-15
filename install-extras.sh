@@ -37,7 +37,7 @@ readonly BACKTITLE="Installation utility for RetroPie-Extra - Setup directory: $
 
 function startCmd() {
     if [[ ! -d "$RPS_HOME" ]]; then
-        echo -e "Error: RetroPie-Setup directory $RPS_HOME doesn't exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename "$0") /home/pi/RetroPie-Setup\n\nUse '-h' for help. Aborting."
+        echo -e "Error: RetroPie-Setup directory $RPS_HOME does not exist. Please input the location of RetroPie-Setup, ex:\n\n    ./$(basename "$0") /home/pi/RetroPie-Setup\n\nUse '-h' for help. Aborting."
         exit
     fi
 
@@ -77,7 +77,7 @@ function runAuto() {
 
 function removeAll() {
     if [ ! -d "$RP_EXTRA" ]; then
-        echo -e "RetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting."
+        echo -e "RetroPie-Extra directory $RP_EXTRA does not exist. Nothing to remove.\n\nAborting."
         exit
     fi
 
@@ -118,7 +118,7 @@ function runGui() {
                     ;;
                 5)
                     if [ ! -d "$RP_EXTRA" ]; then
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "-- Remove All\n\nRetroPie-Extra directory $RP_EXTRA doesn't exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "-- Remove All\n\nRetroPie-Extra directory $RP_EXTRA does not exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
                     elif dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Remove All\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
                         local errormsg="$(rm -rf "$RP_EXTRA" 2>&1 && echo "...done.")"
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox "Removing all RetroPie-Extra scriptmodules..." 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
