@@ -161,13 +161,11 @@ function chooseModules() {
 
     local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "Choose which modules to install:" 22 76 16)
 
+    local choice
     local choices
     choices=($("${cmd[@]}" "${menu[@]}" 2>&1 >/dev/tty)) || return 1
 
-    local choice
-    local errormsg
-
-    errormsg="$(
+    local errormsg="$(
         for choice in "${choices[@]}"; do
             if [[ "$choice" =~ $re ]]; then
                 choice="${options[choice-1]}"
@@ -176,7 +174,7 @@ function chooseModules() {
         done
     )"
 
-    n="${#choices[@]}"
+    local n="${#choices[@]}"
     if [[ -n "$errormsg" ]]; then
         errormsg="Error: $errormsg"
     elif [[ $n -eq 0 ]]; then
@@ -191,8 +189,8 @@ function copyModule() {
     local choice="$1"
     local section="$(dirname "$choice")"
     local script="scriptmodules/$choice"
-    local datadir="${script%.*}"
     local target="$RP_EXTRA/scriptmodules/$section"
+    local datadir="${script%.*}"
 
     mkdir -p "$target" 2>&1 \
       && cp -f "$script" "$target" 2>&1 \
@@ -227,8 +225,6 @@ function viewModules() {
         local choices
         choices=($("${cmd[@]}" "${menu[@]}" 2>&1 >/dev/tty)) || return 1
 
-        local errormsg
-
         local keeps=()
         for choice in "${choices[@]}"; do
             if [[ "$choice" =~ $re ]]; then
@@ -246,7 +242,7 @@ function viewModules() {
 
         if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "The following modules will be removed. Do you wish to continue?\n\n$(printf '    %s\n' "${removes[@]}")" 20 60 2>&1 >/dev/tty; then
 
-            errormsg="$(
+            local errormsg="$(
                 for choice in "${removes[@]}"; do
                     deleteModule "$choice"
                 done
