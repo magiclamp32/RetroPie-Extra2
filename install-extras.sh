@@ -157,30 +157,35 @@ function chooseModules() {
         lastsection="$section"
     done < <(find scriptmodules -mindepth 2 -maxdepth 2 -type f | sort -u)
 
-    local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "Choose which modules to install:" 22 76 16)
+    if [[ "${#options[@]}" -gt 0 ]]; then
+        local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "Choose which modules to install:" 22 76 16)
 
-    local choice
-    local choices
-    choices=($("${cmd[@]}" "${menu[@]}" 2>&1 >/dev/tty)) || return 1
+        local choice
+        local choices
+        choices=($("${cmd[@]}" "${menu[@]}" 2>&1 >/dev/tty)) || return 1
 
-    local errormsg="$(
-        for choice in "${choices[@]}"; do
-            if [[ "$choice" =~ $re ]]; then
-                choice="${options[choice-1]}"
-                copyModule "$choice"
-            fi
-        done
-    )"
+        local errormsg="$(
+            for choice in "${choices[@]}"; do
+                if [[ "$choice" =~ $re ]]; then
+                    choice="${options[choice-1]}"
+                    copyModule "$choice"
+                fi
+            done
+        )"
 
-    local n="${#choices[@]}"
-    if [[ -n "$errormsg" ]]; then
-        errormsg="Error: $errormsg"
-    elif [[ $n -eq 0 ]]; then
-        errormsg="Error: no scriptmodules selected"
+        local n="${#choices[@]}"
+        if [[ -n "$errormsg" ]]; then
+            errormsg="Error: $errormsg"
+        elif [[ $n -eq 0 ]]; then
+            errormsg="Error: no scriptmodules selected"
+        else
+            errormsg="$n selected scriptmodules have been copied to $RP_EXTRA"
+        fi
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+
     else
-        errormsg="$n selected scriptmodules have been copied to $RP_EXTRA"
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Error: no scriptmodules found in repository. Please update RetroPie-Extra. If error persists, please open a new issue at https://github.com/Exarkuniv/RetroPie-Extra/issues/new" 20 60 2>&1 >/dev/tty
     fi
-    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
 }
 
 function copyModule() {
