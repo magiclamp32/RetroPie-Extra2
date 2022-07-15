@@ -99,33 +99,11 @@ function runGui() {
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         if [[ -n "$choice" ]]; then
             case "$choice" in
-                1)
-                    chooseModules
-                    ;;
-                2)
-                    viewModules
-                    ;;
-                3)
-                    updateExtras
-                    ;;
-                4)
-                    if dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Install all\n\nThis may severely impact the loading time of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
-                        local errormsg="$(mkdir -p "$RP_EXTRA" 2>&1 && cp -rf "$SCRIPTDIR/scriptmodules" "$RP_EXTRA" 2>&1 && echo "All scriptmodules copied to $RP_EXTRA")"
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
-                    else
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
-                    fi
-                    ;;
-                5)
-                    if [ ! -d "$RP_EXTRA" ]; then
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "-- Remove All\n\nRetroPie-Extra directory $RP_EXTRA does not exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
-                    elif dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Remove All\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
-                        local errormsg="$(rm -rf "$RP_EXTRA" 2>&1 && echo "...done.")"
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox "Removing all RetroPie-Extra scriptmodules..." 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
-                    else
-                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
-                    fi
-                    ;;
+                1) chooseModules ;;
+                2) viewModules ;;
+                3) updateExtras ;;
+                4) guiAddAll ;;
+                5) guiRemoveAll ;;
             esac
         else
             break
@@ -133,6 +111,26 @@ function runGui() {
     done
 
     clear
+}
+
+function guiAddAll() {
+    if dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Install all\n\nThis may severely impact the loading time of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
+        local errormsg="$(mkdir -p "$RP_EXTRA" 2>&1 && cp -rf "$SCRIPTDIR/scriptmodules" "$RP_EXTRA" 2>&1 && echo "All scriptmodules copied to $RP_EXTRA")"
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+    else
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
+    fi
+}
+
+function guiRemoveAll() {
+    if [ ! -d "$RP_EXTRA" ]; then
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "-- Remove All\n\nRetroPie-Extra directory $RP_EXTRA does not exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
+    elif dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Remove All\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
+        local errormsg="$(rm -rf "$RP_EXTRA" 2>&1 && echo "...done.")"
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox "Removing all RetroPie-Extra scriptmodules..." 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+    else
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
+    fi
 }
 
 function chooseModules() {
@@ -149,7 +147,7 @@ function chooseModules() {
         module="${module/scriptmodules\//}"
         section="$(dirname "$module")"
         if [[ "$section" != "$lastsection" ]]; then
-            menu+=("---" "-----------[  $section  ]-----------" off)
+            menu+=("---" "-----------[  $section  ]-----------" on)
         fi
         installed="off"
         [[ -f "$RP_EXTRA/scriptmodules/$module" ]] && installed="on"
@@ -210,7 +208,7 @@ function viewModules() {
         module="${module/$RP_EXTRA\/scriptmodules\//}"
         section="$(dirname "$module")"
         if [[ "$section" != "$lastsection" ]]; then
-            menu+=("---" "-----------[  $section  ]-----------" on)
+            menu+=("---" "-----------[  $section  ]-----------" off)
         fi
         menu+=($i "$module" on)
         options+=("$module")
