@@ -118,7 +118,7 @@ function guiAddAll() {
         local errormsg="$(mkdir -p "$RP_EXTRA" 2>&1 && cp -rf "$SCRIPTDIR/scriptmodules" "$RP_EXTRA" 2>&1 && echo "All scriptmodules copied to $RP_EXTRA")"
         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
     else
-        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled." 8 24 2>&1 >/dev/tty
     fi
 }
 
@@ -129,7 +129,7 @@ function guiRemoveAll() {
         local errormsg="$(rm -rf "$RP_EXTRA" 2>&1 && echo "...done.")"
         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox "Removing all RetroPie-Extra scriptmodules..." 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
     else
-        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled." 8 24 2>&1 >/dev/tty
     fi
 }
 
@@ -147,7 +147,7 @@ function chooseModules() {
         module="${module/scriptmodules\//}"
         section="$(dirname "$module")"
         if [[ "$section" != "$lastsection" ]]; then
-            menu+=("---" "-----------[  $section  ]-----------" on)
+            menu+=("---" "-----------[  $section  ]-----------" off)
         fi
         installed="off"
         [[ -f "$RP_EXTRA/scriptmodules/$module" ]] && installed="on"
@@ -254,7 +254,7 @@ function viewModules() {
 
             dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
         else
-            dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled" 8 24 2>&1 >/dev/tty
+            dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled." 8 24 2>&1 >/dev/tty
         fi
     else
         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Error: no scriptmodules installed" 20 60 2>&1 >/dev/tty
