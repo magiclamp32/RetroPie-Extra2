@@ -76,7 +76,7 @@ function runAuto() {
 }
 
 function removeAll() {
-    if [ ! -d "$RP_EXTRA" ]; then
+    if [[ ! -d "$RP_EXTRA" ]]; then
         echo -e "RetroPie-Extra directory $RP_EXTRA does not exist. Nothing to remove.\n\nAborting."
         exit
     fi
@@ -123,7 +123,7 @@ function guiAddAll() {
 }
 
 function guiRemoveAll() {
-    if [ ! -d "$RP_EXTRA" ]; then
+    if [[ ! -d "$RP_EXTRA" ]]; then
         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "-- Remove All\n\nRetroPie-Extra directory $RP_EXTRA does not exist. Nothing to remove.\n\nAborting." 20 60 2>&1 >/dev/tty
     elif dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Remove All\n\nRemoving $RP_EXTRA and all of its contents. Do you wish to continue?" 20 60 2>&1 >/dev/tty; then
         local errormsg="$(rm -rf "$RP_EXTRA" 2>&1 && echo "...done.")"
