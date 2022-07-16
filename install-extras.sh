@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Installation utility for RetroPie-Extra
+#
+# This file is part of RetroPie-Extra, a supplement to RetroPie.
+# For more information, please visit:
+#
+# https://github.com/RetroPie/RetroPie-Setup
+# https://github.com/Exarkuniv/RetroPie-Extra
+#
+# See the LICENSE file distributed with this source and at
+# https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/LICENSE
+#
+
 SCRIPTDIR="$(dirname "$0")"
 SCRIPTDIR="$(cd "$SCRIPTDIR" && pwd)"
 readonly SCRIPTDIR
