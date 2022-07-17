@@ -194,9 +194,14 @@ function chooseModules() {
             errormsg="$n selected scriptmodules have been copied to $RP_EXTRA"
         fi
         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
-
-    else
-        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Error: no scriptmodules found in repository. Please update RetroPie-Extra. If error persists, please open a new issue at https://github.com/Exarkuniv/RetroPie-Extra/issues/new" 20 60 2>&1 >/dev/tty
+    elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "Error: no scriptmodules found in repository. You may attempt repair with 'git checkout -- scriptmodules'. If error persists, please open a new issue at https://github.com/Exarkuniv/RetroPie-Extra/issues/new\n\nWould you like to attempt repair now?" 20 60 2>&1 >/dev/tty; then
+        local errormsg="$(git checkout -- scriptmodules 2>&1)"
+        if [[ -n "$errormsg" ]]; then
+            errormsg="Error: $errormsg"
+        else
+            errormsg="The RetroPie-Extra scriptmodules directory has been restored."
+        fi
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
     fi
 }
 
