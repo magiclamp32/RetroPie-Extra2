@@ -12,6 +12,7 @@
 
 rp_module_id="ulmos-adventure"
 rp_module_desc="Ulmo's Adventure - Simple Adventure Game"
+rp_module_repo="git https://github.com/rm-hull/ulmos-adventure.git"
 rp_module_section="exp"
 rp_module_flags="!mali"
 
@@ -20,7 +21,7 @@ function depends_ulmos-adventure() {
 }
 
 function sources_ulmos-adventure() {
-    gitPullOrClone "$md_build" https://github.com/rm-hull/ulmos-adventure.git
+    gitPullOrClone
 }
 
 function install_ulmos-adventure() {

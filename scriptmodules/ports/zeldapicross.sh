@@ -14,6 +14,7 @@ rp_module_id="zeldapicross"
 rp_module_desc="zeldapicross - Zelda themed Picross fangame"
 rp_module_licence="Unknown"
 rp_module_help="You may need to disable the number pad on your keyboard if you are having trouble getting past the initial game screen when launched."
+rp_module_repo="git https://github.com/gameblabla/zeldapicross.git"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
@@ -22,7 +23,7 @@ function depends_zeldapicross() {
 }
 
 function sources_zeldapicross() {
-    gitPullOrClone "$md_build" https://github.com/gameblabla/zeldapicross.git
+    gitPullOrClone
 }
 
 function build_zeldapicross() {

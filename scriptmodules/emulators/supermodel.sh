@@ -76,10 +76,10 @@ function install_supermodel() {
 
 function configure_supermodel() {
     #Find out Screen Resolution
-    local Xaxis
-    local Yaxis
-    Xaxis=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
-    Yaxis=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
+    #local Xaxis
+    #local Yaxis
+    #Xaxis=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
+    #Yaxis=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
 
     mkRomDir "model3"
 
@@ -90,9 +90,9 @@ function configure_supermodel() {
     chown -R $user:$user "$md_conf_root/model3/Config"
     chown -R $user:$user "$home/.model3"
 
-    addEmulator 0 "$md_id-legacy3d" "model3" "$md_inst/supermodel.sh -res=$Xaxis,$Yaxis -fullscreen -legacy3d -quad-rendering %ROM%"
-    addEmulator 0 "$md_id-new3d" "model3" "$md_inst/supermodel.sh -res=$Xaxis,$Yaxis -fullscreen -quad-rendering %ROM%"
-    addEmulator 0 "$md_id-nv-optimus" "model3" "optirun $md_inst/supermodel.sh -res=$Xaxis,$Yaxis -fullscreen -quad-rendering %ROM%"
+    addEmulator 0 "$md_id-legacy3d" "model3" "XINIT: $md_inst/supermodel.sh -res=640,480 -fullscreen -legacy3d -quad-rendering %ROM%"
+    addEmulator 0 "$md_id-new3d" "model3" "XINIT: $md_inst/supermodel.sh -res=640,480 -fullscreen -quad-rendering %ROM%"
+    addEmulator 0 "$md_id-nv-optimus" "model3" "XINIT: optirun $md_inst/supermodel.sh -res=640,480 -fullscreen -quad-rendering %ROM%"
 
     addSystem "model3" "Sega Model 3" ".zip"
 

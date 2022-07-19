@@ -36,5 +36,5 @@ xterm -rv /usr/bin/weechat
 _EOF_
     chmod +x "$romdir/ports/weechat.sh"
 
-    addPort "$md_id" "weechat" "Weechat - Console IRC Client" "xinit $romdir/ports/weechat.sh"
+    addPort "$md_id" "weechat" "Weechat - Console IRC Client" "XINIT: $romdir/ports/weechat.sh"
 }

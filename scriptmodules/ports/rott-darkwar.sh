@@ -14,6 +14,7 @@ rp_module_id="rott-darkwar"
 rp_module_desc="rott-darkwar - Rise of the Triad - Dark War"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/zerojay/RoTT/master/COPYING"
 rp_module_help="Please add your full version ROTT files to $romdir/ports/$md_id/ to play."
+rp_module_repo="git https://github.com/zerojay/RoTT"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
@@ -22,7 +23,7 @@ function depends_rott-darkwar() {
 }
 
 function sources_rott-darkwar() {
-    gitPullOrClone "$md_build" https://github.com/zerojay/RoTT
+    gitPullOrClone
 }
 
 function build_rott-darkwar() {
@@ -47,5 +48,5 @@ function configure_rott-darkwar() {
     mkRomDir "ports/$md_id"
     moveConfigDir "$home/.rott" "$md_conf_root/rott"
 
-    addPort "$md_id" "rott-darkwar" "Rise Of The Triad - Dark War" "XINIT: pushd $romdir/ports/rott-darkwar; $md_inst/rott-darkwar; popd"
+    addPort "$md_id" "rott-darkwar" "Rise Of The Triad - Dark War" " XINIT: pushd $romdir/ports/rott-darkwar; $md_inst/rott-darkwar; popd"
 }

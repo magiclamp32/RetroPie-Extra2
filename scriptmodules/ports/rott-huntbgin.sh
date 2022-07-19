@@ -45,14 +45,12 @@ function install_rott-huntbgin() {
 }
 
 function game_data_rott-huntbgin() {
-    wget "http://icculus.org/rott/share/1rott13.zip" -O 1rott13.zip
-    unzip -L -o 1rott13.zip rottsw13.shr
-    unzip -L -o rottsw13.shr -d "$romdir/ports/$md_id" huntbgin.wad huntbgin.rtc huntbgin.rtl remote1.rts
-    rm "$md_inst/1rott13.zip"
-    mv  "$romdir/ports/$md_id/remote1.rts" "$romdir/ports/$md_id/REMOTE1.RTS"
-    mv  "$romdir/ports/$md_id/huntbgin.wad" "$romdir/ports/$md_id/HUNTBGIN.WAD"
-    mv  "$romdir/ports/$md_id/huntbgin.rtc" "$romdir/ports/$md_id/HUNTBGIN.RTC"
-    mv  "$romdir/ports/$md_id/huntbgin.rtl" "$romdir/ports/$md_id/HUNTBGIN.RTL"  
+    if [[ ! -f "$romdir/ports/rott-huntbgin/HUNTBGIN.WAD" ]]; then
+        downloadAndExtract "https://github.com/Exarkuniv/game-data/raw/main/HUNTBGIN.zip" "$romdir/ports/rott-huntbgin"
+    mv "$romdir/ports/$md_id/HUNTBGIN/"* "$romdir/ports/$md_id/"
+    rmdir "$romdir/ports/$md_id/HUNTBGIN/"
+    chown -R $user:$user "$romdir/ports/$md_id"
+    fi
 
     chown -R $user:$user "$romdir/ports/$md_id"
 }

@@ -68,6 +68,5 @@ vid_is_windowed "0"
 
 _EOF_
 
-
     [[ "$md_mode" == "install" ]] && game_data_bstone
 }

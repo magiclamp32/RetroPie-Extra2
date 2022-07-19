@@ -14,6 +14,7 @@ rp_module_id="gearboy"
 rp_module_desc="Gearboy - Gameboy & Gameboy Color Emulator"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/drhelius/Gearboy/master/LICENSE"
 rp_module_section="exp"
+rp_module_repo="git https://github.com/DrHelius/GearBoy.git"
 rp_module_flags="!x86 !mali"
 
 function depends_gearboy() {
@@ -26,7 +27,7 @@ function depends_gearboy() {
 }
 
 function sources_gearboy() {
-    gitPullOrClone "$md_build" https://github.com/DrHelius/GearBoy.git
+    gitPullOrClone
 }
 
 function build_gearboy() {
@@ -71,7 +72,13 @@ function install_gearboy() {
 }
 
 function configure_gearboy() {
-    mkRomDir "gameboy"
+    mkRomDir "gbc"
+    mkRomDir "gb"
+    defaultRAConfig "gb"
+    defaultRAConfig "gbc"
+    addEmulator 1 "$md_id" "gb" "$md_inst/gearboy %ROM%"
+    addEmulator 1 "$md_id" "gbc" "$md_inst/gearboy %ROM%"
+    addSystem "gb"
+    addSystem "gbc"
     moveConfigFile "$home/gearboy.cfg" "$md_conf_root/gearboy/gearboy.cfg"
-    addSystem 0 "$md_id" "gearboy" "$md_inst/gearboy %ROM%"
 }

@@ -13,6 +13,7 @@
 rp_module_id="sdl-bomber"
 rp_module_desc="sdl-bomber - Atomic Bomberman Clone"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/HerbFargus/SDL-Bomber/master/COPYING"
+rp_module_repo="git https://github.com/HerbFargus/SDL-Bomber.git"
 rp_module_section="exp"
 rp_module_flags="!mali"
 
@@ -21,7 +22,7 @@ function depends_sdl-bomber() {
 }
 
 function sources_sdl-bomber() {
-    gitPullOrClone "$md_build" https://github.com/HerbFargus/SDL-Bomber.git
+    gitPullOrClone
 }
 
 function build_sdl-bomber() {

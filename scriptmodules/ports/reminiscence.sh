@@ -16,7 +16,7 @@ rp_module_licence="GPL3https://raw.githubusercontent.com/Cheeseness/REminiscence
 rp_module_help="Pleasecopy your Flashback data files to $romdir/ports/$md_id before running REminiscence."
 rp_module_repo="file http://cyxdown.free.fr/reminiscence/REminiscence-0.2.1.tar.bz2"
 rp_module_section="exp"
-rp_module_flags="!mali!x86"
+rp_module_flags="!mali !x86"
 
 functiondepends_reminiscence() {
     getDepends libsdl1.2-dev

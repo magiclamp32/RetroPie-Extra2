@@ -14,6 +14,7 @@ rp_module_id="zeldansq"
 rp_module_desc="zeldansq - Zelda Navi's Quest fangame"
 rp_module_licence="Unknown"
 rp_module_help=""
+rp_module_repo="file http://www.zeldaroth.fr/fichier/NSQ/linux/ZeldaNSQ-src-linux.zip"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
@@ -22,8 +23,7 @@ function depends_zeldansq() {
 }
 
 function sources_zeldansq() {
-    wget http://www.zeldaroth.fr/fichier/NSQ/linux/ZeldaNSQ-src-linux.zip
-    unzip ZeldaNSQ-src-linux.zip
+    downloadAndExtract "$md_repo_url" "$md_build"
 }
 
 function build_zeldansq() {

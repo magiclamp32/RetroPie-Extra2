@@ -13,6 +13,7 @@
 rp_module_id="rickyd"
 rp_module_desc="rickyd - Port of Rick Dangerous"
 rp_module_licence="GPL https://sourceforge.net/p/rickyd/code/ci/master/tree/COPYING"
+rp_module_repo="git git://git.code.sf.net/p/rickyd/code"
 rp_module_section="exp"
 rp_module_flags="!mali !kms"
 
@@ -21,7 +22,7 @@ function depends_rickyd() {
 }
 
 function sources_rickyd() {
-    gitPullOrClone "$md_build" git://git.code.sf.net/p/rickyd/code
+    gitPullOrClone
 }
 
 function build_rickyd() {

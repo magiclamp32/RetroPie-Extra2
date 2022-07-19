@@ -31,13 +31,14 @@ function sources_openra() {
 }
 
 function build_openra() {
-    curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --version 5.0.203
-    echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
-    echo 'export PATH=$PATH:$HOME/.dotnet' >> ~/.bashrc
-    source ~/.bashrc
+        curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --version 5.0.203
+	echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
+	echo 'export PATH=$PATH:$HOME/.dotnet' >> ~/.bashrc
+	source ~/.bashrc
 
-    cd openra
-    make
+		cd openra
+
+	make
     md_ret_require="$md_build/openra"
 }
 

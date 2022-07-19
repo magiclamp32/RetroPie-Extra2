@@ -44,7 +44,16 @@ function install_rigelengine() {
     )
 }
 
+function game_data_duke2() {
+    if [[ ! -f "$romdir/ports/duke2/NUKEM2.EXE" ]]; then
+        downloadAndExtract "https://github.com/Exarkuniv/game-data/raw/main/Duke2.zip" "$romdir/ports/duke2/"
+    #mv "$romdir/ports/duke2/Duke2"* "$romdir/ports/duke2/"
+    chown -R $user:$user "$romdir/ports/duke2"
+    fi
+}
+
 function configure_rigelengine() {
     addPort "$md_id" "rigelengine" "RigelEngine - Duke Nukem 2 source port" "$md_inst/RigelEngine /home/pi/RetroPie/roms/ports/duke2"
     mkRomDir "ports/duke2"
+    [[ "$md_mode" == "install" ]] && game_data_duke2
 }

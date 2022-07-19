@@ -36,5 +36,5 @@ matchbox-window-manager -use_titlebar no &
 _EOF_
     chmod +x "$md_inst/firefox-esr.sh"
 
-    addPort "$md_id" "firefox-esr" "FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser" "xinit $md_inst/firefox-esr.sh"
+    addPort "$md_id" "firefox-esr" "FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser" "XINIT: $md_inst/firefox-esr.sh"
 }

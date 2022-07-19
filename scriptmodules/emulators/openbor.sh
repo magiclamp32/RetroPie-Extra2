@@ -14,6 +14,7 @@ rp_module_id="openbor-v6510"
 rp_module_desc="OpenBOR - Beat 'em Up Game Engine v6510-dev (official!)"
 rp_module_help="Place your .pak files in $romdir/openbor."
 rp_module_licence="BSD https://raw.githubusercontent.com/crcerror/OpenBOR-Raspberry/master/LICENSE"
+rp_module_repo="git https://github.com/crcerror/OpenBOR-Raspberry.git"
 rp_module_section="exp"
 rp_module_flags="!mali !x11"
 
@@ -22,7 +23,7 @@ function depends_openbor-v6510() {
 }
 
 function sources_openbor-v6510() {
-    gitPullOrClone "$md_build" https://github.com/crcerror/OpenBOR-Raspberry.git
+    gitPullOrClone
 }
 
 function build_openbor-v6510() {
@@ -57,7 +58,7 @@ function install_openbor-v6510() {
 }
 
 function configure_openbor-v6510() {
-    mkRomDir "ports/$md_id"
+    mkRomDir "openbor"
 
     local dir
     for dir in ScreenShots Saves; do
@@ -68,5 +69,6 @@ function configure_openbor-v6510() {
     ln -snf "$romdir/ports/$md_id" "$md_inst/Paks"
     ln -snf "/dev/shm" "$md_inst/Logs"
     addEmulator 0 "$md_id" "openbor" "$md_inst/OpenBOR %ROM%"
+
     addSystem "openbor" "OpenBOR" ".zip .ZIP .pak .PAK"
 }

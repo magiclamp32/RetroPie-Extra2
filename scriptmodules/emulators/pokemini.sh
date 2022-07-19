@@ -15,6 +15,7 @@ rp_module_id="pokemini"
 rp_module_desc="Pokemini - Pokemon Mini emulator"
 rp_module_help="ROM Extensions: .min .MIN\n\nYou will need to add the ROM extensions above to your /etc/emulationstation/es_systems.cfg file manually."
 rp_module_licence="GPL https://sourceforge.net/p/pokemini/code/ci/master/tree/LICENSE"
+rp_module_repo="git https://git.code.sf.net/p/pokemini/code"
 rp_module_section="exp"
 rp_module_flags="!mali !kms"
 
@@ -23,7 +24,7 @@ function depends_pokemini() {
 }
 
 function sources_pokemini() {
-    gitPullOrClone "$md_build"  https://git.code.sf.net/p/pokemini/code
+    gitPullOrClone
 }
 
 function build_pokemini() {

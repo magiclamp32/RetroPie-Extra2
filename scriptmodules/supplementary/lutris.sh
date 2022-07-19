@@ -10,31 +10,29 @@
 # https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/LICENSE
 #
 
-rp_module_id="filezilla"
-rp_module_desc="A cross platform FTP application"
-rp_module_licence="https://filezilla-project.org"
+rp_module_id="lutris"
+rp_module_desc="lutris - Game engine for linux"
+rp_module_licence="GGPL https://github.com/lutris/lutris/blob/master/LICENSE"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
-function depends_filezilla() {
-    getDepends xorg matchbox
+function depends_lutris() {
+        getDepends git matchbox xorg
 }
 
-function install_bin_filezilla() {
-    aptInstall filezilla
+function sources_lutris() {
+    apt-get install lutris
 }
 
-function configure_filezilla() {
+function configure_lutris() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
-    moveConfigDir "$home/.config" "$md_conf_root/$md_id"
-    cat >"$md_inst/filezilla.sh" << _EOF_
+    moveConfigDir "$home/.config/$md_id" "$md_conf_root/$md_id"
+    cat >"$md_inst/lutris.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no &
-/usr/bin/filezilla
+/usr/bin/lutris
 _EOF_
-    chmod +x "$md_inst/filezilla.sh"
 
-    addPort "$md_id" "filezilla" "FileZilla cross platform FTP application" "XINIT: $md_inst/filezilla.sh"
 }

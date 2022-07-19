@@ -13,6 +13,7 @@
 rp_module_id="deadbeef"
 rp_module_desc="deadbeef - Music Player"
 rp_module_licence="MIT https://raw.githubusercontent.com/Alexey-Yakovenko/deadbeef/master/COPYING"
+rp_module_repo="git https://github.com/Alexey-Yakovenko/deadbeef.git"
 rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
@@ -21,11 +22,10 @@ function depends_deadbeef() {
 }
 
 function sources_deadbeef() {
-    git clone https://github.com/Alexey-Yakovenko/deadbeef.git
+    gitPullOrClone
 }
 
 function build_deadbeef() {
-    cd "$md_build/deadbeef"
     ./autogen.sh
     ./configure --prefix="$md_inst"
     make
@@ -49,5 +49,5 @@ matchbox-window-manager -use_titlebar no &
 _EOF_
     chmod +x "$md_inst/deadbeef.sh"
 
-    addPort "$md_id" "deadbeef" "deadbeef - Music Player" "xinit $md_inst/deadbeef.sh"
+    addPort "$md_id" "deadbeef" "deadbeef - Music Player" "XINIT: $md_inst/deadbeef.sh"
 }

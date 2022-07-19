@@ -14,6 +14,7 @@ rp_module_id="rtcw"
 rp_module_desc="RTCW - IORTCW source port of Return to Castle Wolfenstein."
 rp_module_licence="GPL3 https://raw.githubusercontent.com/iortcw/iortcw/master/SP/COPYING.txt"
 rp_module_help="IORTCW requires the pak files of the full game to play. Add all your singleplayer and multiplayer pak files (mp_bin.pk3, mp_pak0.pk3, mp_pak1.pk3, mp_pak2.pk3, mp_pak3.pk3, mp_pak4.pk3, mp_pak5.pk3, mp_pakmaps0.pk3, mp_pakmaps1.pk3, mp_pakmaps2.pk3, mp_pakmaps3.pk3, mp_pakmaps4.pk3, mp_pakmaps5.pk3, mp_pakmaps6.pk3, pak0.pk3, sp_pak1.pk3, sp_pak2.pk3, sp_pak3.pk3 and sp_pak4.pk3) from your RTCW installation to $romdir/ports/rtcw."
+rp_module_repo="git https://github.com/iortcw/iortcw.git"
 rp_module_section="exp"
 rp_module_flags=""
 
@@ -28,7 +29,7 @@ function depends_rtcw() {
 }
 
 function sources_rtcw() {
-    gitPullOrClone "$md_build" https://github.com/iortcw/iortcw.git
+    gitPullOrClone
 }
 
 function build_rtcw() {
