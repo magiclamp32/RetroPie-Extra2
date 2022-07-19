@@ -16,7 +16,7 @@ rp_module_help="ROM Extensions: .iso .pbp .cso\n\nCopy your PlayStation Portable
 rp_module_licence="GPL2 https://raw.githubusercontent.com/RetroPie/ppsspp/master/LICENSE.TXT"
 rp_module_repo="git https://github.com/hrydgard/ppsspp.git master"
 rp_module_section="exp"
-rp_module_flags="!videocore"
+rp_module_flags=""
 
 function depends_lr-ppsspp-dev() {
     depends_ppsspp-dev

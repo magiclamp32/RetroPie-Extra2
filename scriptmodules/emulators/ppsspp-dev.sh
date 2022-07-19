@@ -16,7 +16,7 @@ rp_module_help="ROM Extensions: .iso .pbp .cso\n\nCopy your PlayStation Portable
 rp_module_licence="GPL2 https://raw.githubusercontent.com/hrydgard/ppsspp/master/LICENSE.TXT"
 rp_module_repo="git https://github.com/hrydgard/ppsspp.git master"
 rp_module_section="exp"
-rp_module_flags="!videocore"
+rp_module_flags=""
 
 function depends_ppsspp-dev() {
     local depends=(cmake libsdl2-dev libsnappy-dev libzip-dev zlib1g-dev)
