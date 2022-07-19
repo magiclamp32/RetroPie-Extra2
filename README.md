@@ -17,7 +17,7 @@ I have changed the list below to show what has been tested to at least to instal
 
 Pull requests and issue reports are accepted and encouraged as well as requests. Feel free to use the issue tracker to send me any personal requests for new scripts that you may have.
 
-## Installation 
+## Installation with GUI menu
 
 The following commands will clone the repo to your device and then run the installer where you may select which of the scripts will be copied into the `RetroPie-Setup` directory.
 
@@ -27,6 +27,16 @@ git clone https://github.com/Exarkuniv/RetroPie-Extra.git
 cd RetroPie-Extra/
 ./install-extras.sh
 ```
+
+## or old install way
+
+```bash
+cd ~
+git clone https://github.com/Exarkuniv/RetroPie-Extra.git
+cd RetroPie-Extra/
+./mass-install-extras.sh
+```
+
 The installation script assumes that RetroPie is installed to `$HOME/RetroPie-Setup`. You may specify another location on command-line, for example:
 
     ./install/extras.sh /games/RetroPie
