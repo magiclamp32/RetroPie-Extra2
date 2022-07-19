@@ -1,3 +1,4 @@
 #!/bin/bash
 
-git pull origin && ./install-extras.sh "$@"
+git pull origin
+./install-extras.sh
