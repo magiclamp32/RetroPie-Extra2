@@ -27,9 +27,7 @@ git clone https://github.com/Exarkuniv/RetroPie-Extra.git
 cd RetroPie-Extra/
 ./install-extras.sh
 ```
-<<<<<<< HEAD
-
-## or old install way
+## Or old install way
 
 ```bash
 cd ~
@@ -41,9 +39,10 @@ cd RetroPie-Extra/
 The installation script assumes that RetroPie is installed to `$HOME/RetroPie-Setup`. You may specify another location on command-line, for example:
 
     ./install/extras.sh /games/RetroPie
+    
 =======
+
 The installation script assumes that you are running it on a Raspberry Pi with the `RetroPie-Setup/` folder being stored in `/home/pi/RetroPie-Setup`. If your setup differs, just copy the scripts directly to the folder they need to be in.
->>>>>>> parent of bdd3913 (Merge pull request #73 from s1eve-mcdichae1/gui)
 
 ## Usage
 
@@ -78,16 +77,15 @@ Scripts that are unfinished/untested/unpolished/or broken will not be located in
 
 The installation script assumes that you are running it on a Raspberry Pi with the `RetroPie-Setup/` folder being stored in `/home/pi/RetroPie-Setup`. If your setup differs, just copy the scripts directly to the folder they need to be in.
 
-### Master Branch
 If there is a [X] that means it Installs and Plays. 
 I'll have a note at the end with some Info about it. if there is NO note or [X] **PLEASE LET ME KNOW** if it works for you 
 #### Emulators
 
 - [X] - `gearboy.sh` - Gameboy emulator - **Installs Plays fine, Need to clean up the controls**
-- []- `kat5200.sh` - Atari 8-bit/5200 emulator - **x86 only**
+- [ ]- `kat5200.sh` - Atari 8-bit/5200 emulator - **x86 only**
 - [X] - `openbor.sh` - Beat 'em Up Game Engine (newest version) - **Tested only on Pi4 so far, installs as a system instead of as a port, direct launching of games from emulationstation supported!**
 - [x] - `pico8.sh` - Fantasy Game Emulator - Adds as a new system in RetroPie so you can directly launch carts. **Was told that it works fine, so I'll go with that**
-- [] - `pokemini.sh` - Pokemon Mini emulator  - **x86 only**
+- [ ] - `pokemini.sh` - Pokemon Mini emulator  - **x86 only**
 - [X] - `ppsspp-dev.sh` - PlayStation Portable emulator PPSSPP - latest development version - **black screen on videocore, tested and works on RPi4 (May 2022)**
 - [X] - `supermodel.sh` - Sega Model 3 Arcade emulator  - **Installs Does play, test game are slow**
 #### Libretrocores
@@ -95,27 +93,27 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-2048.sh` - 2048 engine - 2048 port for libretro - **Installs, Plays, Runs well **
 - [X] - `lr-beetle-pce.sh` - PCEngine emu - Mednafen PCE port for libretro**Installs, Plays, Runs well **
 - [X] - `lr-bk.sh` -  Elektronika БК-0010/0011/Terak 8510a emulator - BK port for libretro - **Installs Plays not sure well or not **
-- [] - `lr-blastem.sh` - Sega Genesis emu - BlastEm port for libretro - **x86 only**
-- [] - `lr-boom3.sh` -  Doom 3 port for libretro - **x86 only**
-- [] - `lr-canary.sh` - Citra Canary for libretro - **x86 only**
+- [ ] - `lr-blastem.sh` - Sega Genesis emu - BlastEm port for libretro - **x86 only**
+- [ ] - `lr-boom3.sh` -  Doom 3 port for libretro - **x86 only**
+- [ ] - `lr-canary.sh` - Citra Canary for libretro - **x86 only**
 - [X] - `lr-cannonball.sh` - An Enhanced OutRun engine for libretro - **Installs, Plays, Runs well **
 - [X] - `lr-chailove.sh` - 2D Game Framework with ChaiScript roughly inspired by the LÖVE API to libretro - **Installs Plays fine, the one game i could find for it**
-- [] - `lr-citra.sh` - Citra port for libretro - **x86 only**
+- [ ] - `lr-citra.sh` - Citra port for libretro - **x86 only**
 - [X] - `lr-crocods.sh` - CrocoDS port for libretro  - **Installs Starts but will not finish loading game**
-- [] - `lr-daphne.sh` - Daphne port to libretro - laserdisk arcade games. - **Installs dont have any games to test**
+- [ ] - `lr-daphne.sh` - Daphne port to libretro - laserdisk arcade games. - **Installs dont have any games to test**
 - [X] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack. - **Installs, Plays, Runs well **
 - [X] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games. - **Installs, Plays, Runs well **
 - [X] - `lr-gearboy.sh` - Game Boy (Color) emulator - Gearboy port for libretro. - **Installs, Plays, Runs well **
 - [X] - `lr-gearcoleco.sh` - ColecoVision emulator - GearColeco port for libretro. - **Installs, Plays, Runs well **
 - [X] - `lr-lutro.sh` - Lua engine - lua game framework (WIP) for libretro following the LÖVE API - **Installs, Plays, Runs well **
-- [] - `lr-mame2003_midway.sh` - MAME 0.78 core with Midway games optimizations. - **Installs, doesnt start my games**
+- [ ] - `lr-mame2003_midway.sh` - MAME 0.78 core with Midway games optimizations. - **Installs, doesnt start my games**
 - [X] - `lr-melonds.sh` - NDS emu - MelonDS port for libretro - **Installs, Plays, Runs**
 - [X] - `lr-mesen-s.sh` - Super Nintendo emu - Mesen-S port for libretro - **Installs, Plays, Runs well **
-- [] - `lr-mess-jaguar.sh` - Add support for using lr-mess for Jaguar games, uses atarijaguar system name to match lr-virtualjaguar. - **did not test due to not having mess installed yet**
+- [ ] - `lr-mess-jaguar.sh` - Add support for using lr-mess for Jaguar games, uses atarijaguar system name to match lr-virtualjaguar. - **did not test due to not having mess installed yet**
 - [X] - `lr-mu.sh` - Palm OS emu - Mu port for libretro - **Installs, Plays, Runs **
 - [X] - `lr-oberon.sh` - Oberon RISC emulator for libretro - **Installs**
-- [] - `lr-openlara.sh` - Tomb Raider engine - OpenLara port for libretro - **Installs Might work, dont have correct files to test**
-- [] - `lr-play.sh` - PlayStation 2 emulator - Play port for libretro - **x86 only**
+- [ ] - `lr-openlara.sh` - Tomb Raider engine - OpenLara port for libretro - **Installs Might work, dont have correct files to test**
+- [ ] - `lr-play.sh` - PlayStation 2 emulator - Play port for libretro - **x86 only**
 - [X] - `lr-potator.sh` -  Watara Supervision emulator based on Normmatt version - Potator port for libretro - **Installs, Plays, Runs well **
 - [X] - `lr-ppsspp-dev.sh` - PlayStation Portable emu - PPSSPP port for libretro - latest development version - **bkackbscreen on videocore, tested and works on RPi4 (May 2022)**
 - [X] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port.  - **Installs Plays fine**
@@ -127,8 +125,8 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-thepowdertoy.sh` - Sandbox physics game for libretro - **Installs Plays fine**
 - [X] - `lr-uzem.sh` - Uzebox engine - Uzem port for libretro - **Installs, Plays well**
 - [X] - `lr-vemulator.sh` - SEGA VMU emulator - VeMUlator port for libretro - **Installs Plays fine**
-- [] - `lr-vitaquake2.sh` - Quake 2 engine - vitaQuake II port for libretro **PSVita only**
-- [] - `lr-vitaquake3.sh` - Quake 3 engine - vitaQuake III (ioquake3) port for libretro **PSVita only**
+- [ ] - `lr-vitaquake2.sh` - Quake 2 engine - vitaQuake II port for libretro **PSVita only**
+- [ ] - `lr-vitaquake3.sh` - Quake 3 engine - vitaQuake III (ioquake3) port for libretro **PSVita only**
 - [X] - `lr-yabasanshiro.sh` - Saturn & ST-V emulator - Yabasanshiro port for libretro - **Installs Plays fine**
 
 #### Ports
@@ -259,11 +257,11 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 
 ### Removed broken scripts to RetroPie-Extra-unstable
 
-- [] - `lr-craft.sh` - Minecraft engine  - **Installs Fails to start**
-- [] - `lr-easyrpg.sh` - RPG Maker 2000/2003 engine - EasyRPG Player interpreter port for libretro - **Fail**
-- [] - `lr-ecwolf.sh` - Wolfestein 3D engine - ECWolf port based of Wolf4SDL for libretro - **Installs Fails to start games**
-- [] - `lr-pocketcdg.sh` - A MP3 karaoke music player. - **Installs, Fails to load files **
-- [] - `lr-minivmac.sh` -  Macintosh Plus Emulator - Mini vMac port for libretro - **Installs, Black screen when starting games**
+- [ ] - `lr-craft.sh` - Minecraft engine  - **Installs Fails to start**
+- [ ] - `lr-easyrpg.sh` - RPG Maker 2000/2003 engine - EasyRPG Player interpreter port for libretro - **Fail**
+- [ ] - `lr-ecwolf.sh` - Wolfestein 3D engine - ECWolf port based of Wolf4SDL for libretro - **Installs Fails to start games**
+- [ ] - `lr-pocketcdg.sh` - A MP3 karaoke music player. - **Installs, Fails to load files **
+- [ ] - `lr-minivmac.sh` -  Macintosh Plus Emulator - Mini vMac port for libretro - **Installs, Black screen when starting games**
 
 ## Hall of Fame - Scripts accepted into RetroPie-Setup
 
