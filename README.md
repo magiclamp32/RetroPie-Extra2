@@ -117,7 +117,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [] - `lr-openlara.sh` - Tomb Raider engine - OpenLara port for libretro - **Installs Might work, dont have correct files to test**
 - [] - `lr-play.sh` - PlayStation 2 emulator - Play port for libretro - **x86 only**
 - [X] - `lr-potator.sh` -  Watara Supervision emulator based on Normmatt version - Potator port for libretro - **Installs, Plays, Runs well **
-- [X] - `lr-ppsspp-dev.sh` - PlayStation Portable emu - PPSSPP port for libretro - latest development version - **bkackbscreen on videocore, tested and works on RPi4 (May 2022)**
+- [X] - `lr-ppsspp-dev.sh` - PlayStation Portable emu - PPSSPP port for libretro - latest development version - **Blackscreen on videocore, tested and works on RPi4 (May 2022)**
 - [X] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port.  - **Installs Plays fine**
 - [X] - `lr-race.sh` - Neo Geo Pocket (Color) emulator - RACE! port for libretro. - **Installs, Plays, Runs well **
 - [X] - `lr-reminiscence.sh` - Flashback engine - Gregory Montoir’s Flashback emulator port for libretro - **Installs, Plays, Runs fine**
