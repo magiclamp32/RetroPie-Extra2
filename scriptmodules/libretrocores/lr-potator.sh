@@ -37,12 +37,9 @@ function install_lr-potator() {
 }
 
 function configure_lr-potator() {
-    local system
-    for system in svision; do
-        mkRomDir "$system"
-        ensureSystemretroconfig "$system"
+        mkRomDir "potator"
+        ensureSystemretroconfig "potator"
 
-        addEmulator 1 "$md_id" "$system" "$md_inst/potator_libretro.so"
-        addSystem "$system"
-    done
+        addEmulator 1 "$md_id" "potator" "$md_inst/potator_libretro.so"
+        addSystem "potator" "Watara Supervision" ".zip .ZIP .bin .BIN"
 }

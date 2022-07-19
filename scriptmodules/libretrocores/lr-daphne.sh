@@ -14,10 +14,11 @@ rp_module_id="lr-daphne"
 rp_module_desc="lr-daphne - Daphne port for libretro - laserdisk games"
 rp_module_help="ROM Extension: .zip\n\nCopy your Daphne roms to $romdir/daphne. See readme file for directory structure."
 rp_module_licence="NONCOM https://raw.githubusercontent.com/libretro/daphne/master/docs/mame.txt"
+rp_module_repo="git https://github.com/libretro/daphne.git"
 rp_module_section="exp"
 
 function sources_lr-daphne() {
-    gitPullOrClone "$md_build" https://github.com/libretro/daphne.git
+    gitPullOrClone
 }
 
 function build_lr-daphne() {

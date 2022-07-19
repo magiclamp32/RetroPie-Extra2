@@ -39,5 +39,5 @@ function configure_lr-lutro() {
     ensureSystemretroconfig "lutro"
 
     addEmulator 1 "$md_id" "lutro" "$md_inst/lutro_libretro.so"
-    addSystem "lutro"
+    addSystem "lutro" "lutro" ".lutro"
 }

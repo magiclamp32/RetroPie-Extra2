@@ -40,7 +40,7 @@ function configure_lr-bk() {
     ensureSystemretroconfig "bk"
 
     addEmulator 1 "$md_id" "bk" "$md_inst/bk_libretro.so"
-    addSystem "bk"
+    addSystem "bk" "BK" ".bin"
 
     mkdir -p "$biosdir/bk"
     chown $user:$user -R "$biosdir/bk"

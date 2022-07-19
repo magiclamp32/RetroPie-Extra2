@@ -40,5 +40,5 @@ function configure_lr-vemulator() {
     ensureSystemretroconfig "vmu"
 
     addEmulator 1 "$md_id" "vmu" "$md_inst/vemulator_libretro.so"
-    addSystem "vmu" "Visual Memory Unit" ".dci .vms .bin"
+    addSystem "vmu" "Visual Memory Unit" ".dci .vms .bin .zip"
 }

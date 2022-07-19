@@ -41,5 +41,5 @@ function configure_lr-mu() {
     ensureSystemretroconfig "palm"
 
     addEmulator 1 "$md_id" "palm" "$md_inst/mu_libretro.so"
-    addSystem "palm"
+    addSystem "palm" "palm" ".prc .pqa .img .zip .rom"
 }

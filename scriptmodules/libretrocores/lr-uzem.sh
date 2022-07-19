@@ -39,5 +39,5 @@ function configure_lr-uzem() {
     ensureSystemretroconfig "uzebox"
 
     addEmulator 1 "$md_id" "uzebox" "$md_inst/uzem_libretro.so"
-    addSystem "uzebox"
+    addSystem "uzebox" "Uzem" ".uze .zip"
 }

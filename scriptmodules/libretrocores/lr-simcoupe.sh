@@ -42,5 +42,5 @@ function configure_lr-simcoupe() {
     ensureSystemretroconfig "samcoupe"
 
     addEmulator 1 "$md_id" "samcoupe" "$md_inst/simcp_libretro.so"
-    addSystem "samcoupe"
+    addSystem "samcoupe" "Samcoupe" ".dsk .mgt .sbt .sad .zip"
 }
