@@ -88,7 +88,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `openbor.sh` - Beat 'em Up Game Engine (newest version) - **Tested only on Pi4 so far, installs as a system instead of as a port, direct launching of games from emulationstation supported!**
 - [x] - `pico8.sh` - Fantasy Game Emulator - Adds as a new system in RetroPie so you can directly launch carts. **Was told that it works fine, so I'll go with that**
 - [ ] - `pokemini.sh` - Pokemon Mini emulator  - **x86 only**
-- [X] - `ppsspp-dev.sh` - PlayStation Portable emulator PPSSPP - latest development version - **black screen on videocore, tested and works on RPi4 (May 2022)**
+- [X] - `ppsspp-dev.sh` - PlayStation Portable emulator PPSSPP - latest development version - **Tested and works on RPi4 (May 2022)**
 - [X] - `supermodel.sh` - Sega Model 3 Arcade emulator  - **Installs Does play, test game are slow**
 #### Libretrocores
 
@@ -117,7 +117,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `lr-openlara.sh` - Tomb Raider engine - OpenLara port for libretro - **Installs Might work, dont have correct files to test**
 - [ ] - `lr-play.sh` - PlayStation 2 emulator - Play port for libretro - **x86 only**
 - [X] - `lr-potator.sh` -  Watara Supervision emulator based on Normmatt version - Potator port for libretro - **Installs, Plays, Runs well **
-- [X] - `lr-ppsspp-dev.sh` - PlayStation Portable emu - PPSSPP port for libretro - latest development version - **Blackscreen on videocore, tested and works on RPi4 (May 2022)**
+- [X] - `lr-ppsspp-dev.sh` - PlayStation Portable emu - PPSSPP port for libretro - latest development version - **Tested and works on RPi4 (May 2022)**
 - [X] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port.  - **Installs Plays fine**
 - [X] - `lr-race.sh` - Neo Geo Pocket (Color) emulator - RACE! port for libretro. - **Installs, Plays, Runs well **
 - [X] - `lr-reminiscence.sh` - Flashback engine - Gregory Montoir’s Flashback emulator port for libretro - **Installs, Plays, Runs fine**
