@@ -27,7 +27,6 @@ git clone https://github.com/Exarkuniv/RetroPie-Extra.git
 cd RetroPie-Extra/
 ./install-extras.sh
 ```
-<<<<<<< HEAD
 
 ## or old install way
 
@@ -41,9 +40,10 @@ cd RetroPie-Extra/
 The installation script assumes that RetroPie is installed to `$HOME/RetroPie-Setup`. You may specify another location on command-line, for example:
 
     ./install/extras.sh /games/RetroPie
+    
 =======
+
 The installation script assumes that you are running it on a Raspberry Pi with the `RetroPie-Setup/` folder being stored in `/home/pi/RetroPie-Setup`. If your setup differs, just copy the scripts directly to the folder they need to be in.
->>>>>>> parent of bdd3913 (Merge pull request #73 from s1eve-mcdichae1/gui)
 
 ## Usage
 
@@ -78,9 +78,9 @@ Scripts that are unfinished/untested/unpolished/or broken will not be located in
 
 The installation script assumes that you are running it on a Raspberry Pi with the `RetroPie-Setup/` folder being stored in `/home/pi/RetroPie-Setup`. If your setup differs, just copy the scripts directly to the folder they need to be in.
 
-### Master Branch
 If there is a [X] that means it Installs and Plays. 
 I'll have a note at the end with some Info about it. if there is NO note or [X] **PLEASE LET ME KNOW** if it works for you 
+
 #### Emulators
 
 - [X] - `gearboy.sh` - Gameboy emulator - **Installs Plays fine, Need to clean up the controls**
