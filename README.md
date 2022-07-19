@@ -19,7 +19,7 @@ Pull requests and issue reports are accepted and encouraged as well as requests.
 
 ## Installation with GUI menu
 
-The following commands will clone the repo to your device and then run the installer where you may select which of the scripts will be copied into the `RetroPie-Setup` directory.
+The following commands clone the repo to your Raspberry Pi and then run `install-scripts.sh` to install the scripts in the `master` branch directly to the proper directories in the `RetroPie-Setup/` folder.
 
 ```bash
 cd ~
@@ -27,6 +27,7 @@ git clone https://github.com/Exarkuniv/RetroPie-Extra.git
 cd RetroPie-Extra/
 ./install-extras.sh
 ```
+<<<<<<< HEAD
 
 ## or old install way
 
@@ -40,6 +41,9 @@ cd RetroPie-Extra/
 The installation script assumes that RetroPie is installed to `$HOME/RetroPie-Setup`. You may specify another location on command-line, for example:
 
     ./install/extras.sh /games/RetroPie
+=======
+The installation script assumes that you are running it on a Raspberry Pi with the `RetroPie-Setup/` folder being stored in `/home/pi/RetroPie-Setup`. If your setup differs, just copy the scripts directly to the folder they need to be in.
+>>>>>>> parent of bdd3913 (Merge pull request #73 from s1eve-mcdichae1/gui)
 
 ## Usage
 
@@ -71,6 +75,8 @@ cd RetroPie-Extra/
 ```
 
 Scripts that are unfinished/untested/unpolished/or broken will not be located in this repository and instead have been moved to [RetroPie-Extra-unstable](https://github.com/Exarkuniv/RetroPie-Extra-unstable).
+
+The installation script assumes that you are running it on a Raspberry Pi with the `RetroPie-Setup/` folder being stored in `/home/pi/RetroPie-Setup`. If your setup differs, just copy the scripts directly to the folder they need to be in.
 
 ### Master Branch
 If there is a [X] that means it Installs and Plays. 
