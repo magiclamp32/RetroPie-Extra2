@@ -19,7 +19,7 @@ Pull requests and issue reports are accepted and encouraged as well as requests.
 
 ## Installation with GUI menu
 
-The following commands clone the repo to your Raspberry Pi and then run `install-scripts.sh` to install the scripts in the `master` branch directly to the proper directories in the `RetroPie-Setup/` folder.
+The following commands will clone the repo to your system and then run the GUI installer where you may select which of the scriptmodules will be copied into the `RetroPie-Setup` folder.
 
 ```bash
 cd ~
@@ -27,6 +27,9 @@ git clone https://github.com/Exarkuniv/RetroPie-Extra.git
 cd RetroPie-Extra/
 ./install-extras.sh
 ```
+
+The installation script assumes that RetroPie-Setup is installed to `$HOME/RetroPie-Setup`. You may specify an alternate location on command-line, ex:
+    ./install-extras.sh /games/rp-setup
 
 ## or old install way
 
@@ -36,8 +39,6 @@ git clone https://github.com/Exarkuniv/RetroPie-Extra.git
 cd RetroPie-Extra/
 ./mass-install-extras.sh
 ```
-
-The installation script assumes that you are running it on a Raspberry Pi with the RetroPie-Setup/ folder being stored in /home/pi/RetroPie-Setup. If your setup differs, just copy the scripts directly to the folder they need to be in.
 
 ## Usage
 
@@ -50,7 +51,7 @@ sudo ./retropie_setup.sh
 
 ## Updating
 
-The following commands update your Raspberry Pi to the latest repo and then run `update-extras.sh` to install the scripts in the `master` branch directly to the proper directories in the `RetroPie-Setup/` folder.
+The following commands will update RetroPie-Extra to the latest repo and then re-run the installer (your installed scripts will be pre-selected. Just install them again to receive the latest updates.)
 
 ```bash
 cd ~
@@ -60,7 +61,7 @@ cd RetroPie-Extra/
 
 ## Remove
 
-The following commands remove RetroPie-Extra your Raspberry Pi
+The following commands will remove RetroPie-Extra from your system.
 
 ```bash
 cd ~
@@ -69,8 +70,6 @@ cd RetroPie-Extra/
 ```
 
 Scripts that are unfinished/untested/unpolished/or broken will not be located in this repository and instead have been moved to [RetroPie-Extra-unstable](https://github.com/Exarkuniv/RetroPie-Extra-unstable).
-
-The installation script assumes that you are running it on a Raspberry Pi with the `RetroPie-Setup/` folder being stored in `/home/pi/RetroPie-Setup`. If your setup differs, just copy the scripts directly to the folder they need to be in.
 
 If there is a [X] that means it Installs and Plays. 
 I'll have a note at the end with some Info about it. if there is NO note or [X] **PLEASE LET ME KNOW** if it works for you 
