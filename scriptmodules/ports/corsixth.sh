@@ -20,7 +20,6 @@ rp_module_flags="!x86 !mali"
 
 function depends_corsixth() {
     getDepends cmake liblua5.2-0 liblua5.2-dev libsdl2-dev libsdl2-mixer-dev timidity libfreetype6-dev lua-filesystem lua-lpeg libavcodec-dev libavformat-dev libavresample-dev libavutil-dev libavdevice-dev libswscale-dev libpostproc-dev libavfilter-dev matchbox freepats
-
 }
 
 function sources_corsixth() {
