@@ -37,13 +37,7 @@ cd RetroPie-Extra/
 ./mass-install-extras.sh
 ```
 
-The installation script assumes that RetroPie is installed to `$HOME/RetroPie-Setup`. You may specify another location on command-line, for example:
-
-    ./install/extras.sh /games/RetroPie
-    
-=======
-
-The installation script assumes that you are running it on a Raspberry Pi with the `RetroPie-Setup/` folder being stored in `/home/pi/RetroPie-Setup`. If your setup differs, just copy the scripts directly to the folder they need to be in.
+The installation script assumes that you are running it on a Raspberry Pi with the RetroPie-Setup/ folder being stored in /home/pi/RetroPie-Setup. If your setup differs, just copy the scripts directly to the folder they need to be in.
 
 ## Usage
 
