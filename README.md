@@ -137,7 +137,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `chocolate-doom.sh`- DOOM source port - **Installs, plays great**
 - [X] - `chocolate-doom-system.sh`- For setting up DOOM as an emulated system, not port. - **Installs Plays great**
 - [X] - `chopper258.sh` - Chopper Commando Revisited - A modern port of Chopper Commando (DOS, 1990) - **Installs, Plays fine, needs keyboard**
-- [X] - `corsixth.sh` - Theme Hospital engine clone - **Installs, plays fine with demo**
+- [ ] - `corsixth.sh` - Theme Hospital engine clone - **Installs, Lua error, will not play**
 - [X] - `crack-attack.sh` - Tetris Attack clone - **Installs works, but you need to need to drop the resolutions to 640-480 **
 - [X] - `crispy-doom.sh` - DOOM source port - **Installs, Plays great**
 - [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port. - **Installs, Plays great**
