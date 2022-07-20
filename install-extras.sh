@@ -104,18 +104,20 @@ function runGui() {
         local options=(
             1 "Choose which modules to install"
             2 "View or remove installed modules"
-            3 "Update RetroPie-Extra"
-            4 "Install all RetroPie-Extra modules"
-            5 "Remove all RetroPie-Extra modules"
+            3 "Install by section"
+            4 "Update RetroPie-Extra"
+            5 "Install all RetroPie-Extra modules"
+            6 "Remove all RetroPie-Extra modules"
         )
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         if [[ -n "$choice" ]]; then
             case "$choice" in
                 1) chooseModules ;;
                 2) viewModules ;;
-                3) updateExtras ;;
-                4) guiAddAll ;;
-                5) guiRemoveAll ;;
+                3) installBySection ;;
+                4) updateExtras ;;
+                5) guiAddAll ;;
+                6) guiRemoveAll ;;
             esac
         else
             break
@@ -123,6 +125,30 @@ function runGui() {
     done
 
     clear
+}
+
+function installBySection() {
+    local cmd=(dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --menu "Install by section:" 22 76 16)
+    local options=(
+        1 "Install all emulators"
+        2 "Install all libretrocores"
+        3 "Install all ports"
+        4 "Install all supplementary"
+    )
+
+    local section
+    local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+    if [[ -n "$choice" ]]; then
+        case "$choice" in
+            1) section="emulators" ;;
+            2) section="libretrocores" ;;
+            3) section="ports" ;;
+            4) section="supplementary" ;;
+        esac
+
+        local errormsg="$(mkdir -p "$RP_EXTRA/scriptmodules/$section" 2>&1 && cp -rf "$SCRIPTDIR/scriptmodules/$section" "$RP_EXTRA/scriptmodules" 2>&1 && echo "All $section copied to $RP_EXTRA")"
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+    fi
 }
 
 function guiAddAll() {
