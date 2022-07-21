@@ -145,8 +145,8 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `dunedynasty.sh` - Dune Dynasty - Dune 2 Building of a Dynasty port - **Installs**
 - [X] - `dunelegacy.sh` - Dune Legacy - Dune 2 Building of a Dynasty port - **Installs**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Installs and launches**
-- [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great, PATCH is not applyed, getting error**
-- [X] - `fofix.sh` - FoFix - Guitar Hero and Rock Band clone - **Installs**
+- [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great, PATCH is not applyed, getting error*
+
 - [X] - `freeciv.sh` - Civilization online clone - **Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.**
 - [X] - `freedink.sh` - Dink Smallwood engine - **Installs**
 - [X] - `freesynd.sh` - Syndicate clone - **Installs**
@@ -251,11 +251,12 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 
 ### Removed broken scripts to RetroPie-Extra-unstable
 
-- [] - `lr-craft.sh` - Minecraft engine  - **Installs Fails to start**
-- [] - `lr-easyrpg.sh` - RPG Maker 2000/2003 engine - EasyRPG Player interpreter port for libretro - **Fail**
-- [] - `lr-ecwolf.sh` - Wolfestein 3D engine - ECWolf port based of Wolf4SDL for libretro - **Installs Fails to start games**
-- [] - `lr-pocketcdg.sh` - A MP3 karaoke music player. - **Installs, Fails to load files **
-- [] - `lr-minivmac.sh` -  Macintosh Plus Emulator - Mini vMac port for libretro - **Installs, Black screen when starting games**
+- [ ] - `lr-craft.sh` - Minecraft engine  - **Installs Fails to start**
+- [ ] - `lr-easyrpg.sh` - RPG Maker 2000/2003 engine - EasyRPG Player interpreter port for libretro - **Fail**
+- [ ] - `lr-ecwolf.sh` - Wolfestein 3D engine - ECWolf port based of Wolf4SDL for libretro - **Installs Fails to start games**
+- [ ] - `lr-pocketcdg.sh` - A MP3 karaoke music player. - **Installs, Fails to load files **
+- [ ] - `lr-minivmac.sh` -  Macintosh Plus Emulator - Mini vMac port for libretro - **Installs, Black screen when starting games**
+- [ ] - `fofix.sh` - FoFix - Guitar Hero and Rock Band clone - **fails**
 
 ## Hall of Fame - Scripts accepted into RetroPie-Setup
 
