@@ -28,8 +28,9 @@ function sources_ecwolf() {
 
 function build_ecwolf() {
     cd "$md_build"
-    wget -N -q https://raw.githubusercontent.com/tpo1990/ECWolf-RPI/master/ecwolf_keyboardpatch.diff
-    applyPatch ecwolf_keyboardpatch.diff
+	#the patch files is not working, it will not be applyed till it gets fixed, the rest of the script works fine
+    #wget -N -q https://raw.githubusercontent.com/tpo1990/ECWolf-RPI/master/ecwolf_keyboardpatch.diff
+    #applyPatch ecwolf_keyboardpatch.diff
     cmake . -DCMAKE_BUILD_TYPE=Release -DGPL=ON
     make
     md_ret_require="$md_build"
