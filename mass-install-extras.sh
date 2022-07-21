@@ -13,8 +13,4 @@ fi
 
 echo -e "Placing scriptmodules in $RP_EXTRA"
 mkdir -p "$RP_EXTRA"
-<<<<<<< HEAD
 cp -R scriptmodules "$RP_EXTRA" && echo -e "...done."
-=======
-cp -R scriptmodules "$RP_EXTRA" && echo -e "...done."
->>>>>>> 75fa56488c4d1e9f6fa6c0e07e88a2106ba55004
