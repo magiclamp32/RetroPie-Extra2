@@ -127,30 +127,6 @@ function runGui() {
     clear
 }
 
-function installBySection() {
-    local cmd=(dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --menu "Install by section:" 22 76 16)
-    local options=(
-        1 "Install all emulators"
-        2 "Install all libretrocores"
-        3 "Install all ports"
-        4 "Install all supplementary"
-    )
-
-    local section
-    local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
-    if [[ -n "$choice" ]]; then
-        case "$choice" in
-            1) section="emulators" ;;
-            2) section="libretrocores" ;;
-            3) section="ports" ;;
-            4) section="supplementary" ;;
-        esac
-
-        local errormsg="$(mkdir -p "$RP_EXTRA/scriptmodules/$section" 2>&1 && cp -rf "$SCRIPTDIR/scriptmodules/$section" "$RP_EXTRA/scriptmodules" 2>&1 && echo "All $section copied to $RP_EXTRA")"
-        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
-    fi
-}
-
 function guiAddAll() {
     if dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Install all\n\nThis may severely impact the loading time of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
         local errormsg="$(mkdir -p "$RP_EXTRA" 2>&1 && cp -rf "$SCRIPTDIR/scriptmodules" "$RP_EXTRA" 2>&1 && echo "All scriptmodules copied to $RP_EXTRA")"
@@ -196,7 +172,7 @@ function chooseModules() {
     done < <(find scriptmodules -mindepth 2 -maxdepth 2 -type f | sort -u)
 
     if [[ "${#options[@]}" -gt 0 ]]; then
-        local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "Choose which modules to install:" 22 76 16)
+        local cmd=(dialog --clear --backtitle "$BACKTITLE" --cancel-label "Back" --checklist "Choose which modules to install:" 22 76 16)
 
         local choice
         local choices
@@ -265,7 +241,7 @@ function viewModules() {
     done < <(find "$RP_EXTRA/scriptmodules" -mindepth 2 -maxdepth 2 -type f | sort -u)
 
     if [[ -n "${options[@]}" ]]; then
-        local cmd=(dialog --clear --backtitle "$BACKTITLE" --checklist "The following modules are installed:" 22 76 16)
+        local cmd=(dialog --clear --backtitle "$BACKTITLE" --cancel-label "Back" --checklist "The following modules are installed:" 22 76 16)
 
         local choice
         local choices
@@ -287,7 +263,6 @@ function viewModules() {
         [[ "${#removes[@]}" -eq 0 ]] && return
 
         if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "The following modules will be removed. Do you wish to continue?\n\n$(printf '    %s\n' "${removes[@]}")" 20 60 2>&1 >/dev/tty; then
-
             local errormsg="$(
                 for choice in "${removes[@]}"; do
                     deleteModule "$choice"
@@ -321,9 +296,207 @@ function deleteModule() {
       && [[ ! -d "$RP_EXTRA" ]] || [[ -n "$(ls -A "$RP_EXTRA" 2>&1)" ]] || rmdir "$RP_EXTRA" 2>&1
 }
 
+function installBySection() {
+    while true; do
+        local cmd=(dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --cancel-label "Back" --menu "Install by section:" 22 76 16)
+        local options=(
+            1 "Emulators"
+            2 "Libretrocores"
+            3 "Ports"
+            4 "Supplementary"
+        )
+
+        local section
+        local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+        if [[ -n "$choice" ]]; then
+            case "$choice" in
+                1) section="emulators" ;;
+                2) section="libretrocores" ;;
+                3) section="ports" ;;
+                4) section="supplementary" ;;
+            esac
+
+            guiSection "$section"
+
+        else
+            break
+        fi
+    done
+}
+
+function guiSection() {
+    while true; do
+        local section="$1"
+        local cmd=(dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --cancel-label "Back" --menu "${section^}:" 20 60 16)
+
+        local options=(
+            1 "Choose which $section to install"
+            2 "View or remove installed $section"
+            3 "Install all $section"
+            4 "Remove all $section"
+        )
+
+        local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+        if [[ -n "$choice" ]]; then
+            case "$choice" in
+                1)
+                    chooseBySection "$section"
+                    ;;
+                2)
+                    viewBySection "$section"
+                    ;;
+                3)
+                    if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "All $section will be copied to $RP_EXTRA\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
+                        local errormsg="$(mkdir -p "$RP_EXTRA/scriptmodules/$section" 2>&1 && cp -rf "$SCRIPTDIR/scriptmodules/$section" "$RP_EXTRA/scriptmodules" 2>&1 && echo "All $section copied to $RP_EXTRA")"
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+                    else
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled." 8 24 2>&1 >/dev/tty
+                    fi
+                    ;;
+                4)
+                    if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "Removing directory $RP_EXTRA/scriptmodules/$section and all of its contents.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
+                        local errormsg="$(
+                            rm -rf "$RP_EXTRA/scriptmodules/$section" \
+                              && [[ ! -d "$RP_EXTRA/scriptmodules" ]] || [[ -n "$(ls -A "$RP_EXTRA/scriptmodules" 2>&1)" ]] || rmdir "$RP_EXTRA/scriptmodules" 2>&1 \
+                              && [[ ! -d "$RP_EXTRA" ]] || [[ -n "$(ls -A "$RP_EXTRA" 2>&1)" ]] || rmdir "$RP_EXTRA" 2>&1 \
+                              && echo "...done"
+                        )"
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox "Removing $section..." 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+                    else
+                        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled." 8 24 2>&1 >/dev/tty
+                    fi
+                    ;;
+            esac
+        else
+            break
+        fi
+    done
+}
+
+function chooseBySection() {
+    local section="$1"
+
+    local menu=()
+    local options=()
+    local module
+    local installed
+    local re='^[0-9]+$'
+
+    local i=1
+    while read module; do
+        module="$(basename "$module")"
+        installed="off"
+        [[ -f "$RP_EXTRA/scriptmodules/$section/$module" ]] && installed="on"
+        menu+=($i "$module" "$installed")
+        options+=("$module")
+        ((i++))
+    done < <(find "scriptmodules/$section" -mindepth 1 -maxdepth 1 -type f | sort -u)
+
+    if [[ "${#options[@]}" -gt 0 ]]; then
+        local cmd=(dialog --clear --backtitle "$BACKTITLE" --cancel-label "Back" --checklist "Choose which $section to install:" 22 76 16)
+
+        local choice
+        local choices
+        choices=($("${cmd[@]}" "${menu[@]}" 2>&1 >/dev/tty)) || return 1
+
+        local errormsg="$(
+            for choice in "${choices[@]}"; do
+                if [[ "$choice" =~ $re ]]; then
+                    choice="${options[choice-1]}"
+                    copyModule "$section/$choice"
+                fi
+            done
+        )"
+
+        local n="${#choices[@]}"
+        if [[ -n "$errormsg" ]]; then
+            errormsg="Error: $errormsg"
+        elif [[ $n -eq 0 ]]; then
+            errormsg="Error: no scriptmodules selected"
+        else
+            errormsg="$n selected $section have been copied to $RP_EXTRA"
+        fi
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+    elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "Error: no scriptmodules found in repository. You may attempt repair with 'git checkout -- scriptmodules'. If error persists, please open a new issue at https://github.com/Exarkuniv/RetroPie-Extra/issues/new\n\nWould you like to attempt repair now?" 20 60 2>&1 >/dev/tty; then
+        local errormsg="$(git checkout -- scriptmodules 2>&1)"
+        if [[ -n "$errormsg" ]]; then
+            errormsg="Error: $errormsg"
+        else
+            errormsg="The RetroPie-Extra scriptmodules directory has been restored."
+        fi
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+    fi
+}
+
+function viewBySection() {
+    local section="$1"
+
+    local menu=()
+    local options=()
+    local module
+    local re='^[0-9]+$'
+
+    while true; do
+        local i=1
+        while read module; do
+            module="$(basename "$module")"
+            menu+=($i "$module" on)
+            options+=("$module")
+            ((i++))
+        done < <(find "$RP_EXTRA/scriptmodules/$section" -mindepth 1 -maxdepth 1 -type f | sort -u)
+
+        if [[ -n "${options[@]}" ]]; then
+            local cmd=(dialog --clear --backtitle "$BACKTITLE" --cancel-label "Back" --checklist "The following $section are installed:" 22 76 16)
+
+            local choice
+            local choices
+            choices=($("${cmd[@]}" "${menu[@]}" 2>&1 >/dev/tty)) || return 1
+
+            local keeps=()
+            for choice in "${choices[@]}"; do
+                if [[ "$choice" =~ $re ]]; then
+                    choice="${options[choice-1]}"
+                    keeps+=("$choice")
+                fi
+            done
+
+            local removes=()
+            for choice in "${options[@]}"; do
+                [[ " ${keeps[*]} " =~ " $choice " ]] || removes+=("$choice")
+            done
+
+            [[ "${#removes[@]}" -eq 0 ]] && return
+
+            if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "The following $section will be removed. Do you wish to continue?\n\n$(printf '    %s\n' "${removes[@]}")" 20 60 2>&1 >/dev/tty; then
+                local errormsg="$(
+                    for choice in "${removes[@]}"; do
+                        deleteModule "$section/$choice"
+                    done
+                )"
+
+                if [[ -n "$errormsg" ]]; then
+                    errormsg="Error: $errormsg"
+                else
+                    errormsg="${#removes[@]} selected $section removed."
+                fi
+
+                dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+            else
+                dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled." 8 24 2>&1 >/dev/tty
+            fi
+        else
+            dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Error: no $section installed" 20 60 2>&1 >/dev/tty
+        fi
+    done
+}
+
 function updateExtras () {
-    local errormsg="$(git pull origin 2>&1)"
-    dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox "Updating RetroPie-Extra" 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+    if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "Running 'git pull origin'\n\nWould you like to continue?" 20 60 2>&1 >/dev/tty; then
+        local errormsg="$(git pull origin 2>&1)"
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox "Updating RetroPie-Extra" 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
+    else
+        dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --msgbox "Operation canceled." 8 24 2>&1 >/dev/tty
+    fi
 }
 
 # Run
