@@ -28,9 +28,6 @@ cd RetroPie-Extra/
 ./install-extras.sh
 ```
 
-The installation script assumes that RetroPie-Setup is installed to `$HOME/RetroPie-Setup`. You may specify an alternate location on command-line, ex:
-    ./install-extras.sh /games/rp-setup
-
 ## or old install way
 
 ```bash
@@ -39,7 +36,9 @@ git clone https://github.com/Exarkuniv/RetroPie-Extra.git
 cd RetroPie-Extra/
 ./mass-install-extras.sh
 ```
-
+The installation script assumes that RetroPie-Setup is installed to `$HOME/RetroPie-Setup`. You may specify an alternate location on command-line, ex:
+    ./install-extras.sh /games/rp-setup
+    
 ## Usage
 
 After installing **RetroPie-Extra**, the extra scripts will be installed directly in the **RetroPie Setup script** (generally in the experimental section), which you can run from either the command line or from the menu within Emulation Station.
