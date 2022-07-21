@@ -70,8 +70,8 @@ Usage:
     ./$(basename "$0") [-u|--update] [option] [rp_setup_directory]
 
 Options:
-    -a  --all       Add all RetroPie-Extra modules (may significantly impact
-                    loading times of RetroPie-Setup and retropiemenu configuration
+    -a  --all       Add all RetroPie-Extra modules (may severely impact the
+                    loading time of RetroPie-Setup and retropiemenu configuration
                     items, especially on slower hardware)
     -r  --remove    Remove all RetroPie-Extra modules (does not "uninstall" the modules
                     in RP-Setup)
@@ -128,7 +128,7 @@ function runGui() {
 }
 
 function guiAddAll() {
-    if dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Install all\n\nThis may severely impact the loading time of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
+    if dialog --clear --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "-- Install all\n\nThis may severely impact the loading times of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
         local errormsg="$(mkdir -p "$RP_EXTRA" 2>&1 && cp -rf "$SCRIPTDIR/scriptmodules" "$RP_EXTRA" 2>&1 && echo "All scriptmodules copied to $RP_EXTRA")"
         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
     else
@@ -346,7 +346,7 @@ function guiSection() {
                     viewBySection "$section"
                     ;;
                 3)
-                    if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "All $section will be copied to $RP_EXTRA\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
+                    if dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "All $section will be copied to $RP_EXTRA\n\nThis may significantly impact the loading time of RetroPie-Setup and retropiemenu configuration items, especially on slower hardware.\n\nDo you wish to continue?" 20 60 2>&1 >/dev/tty; then
                         local errormsg="$(mkdir -p "$RP_EXTRA/scriptmodules/$section" 2>&1 && cp -rf "$SCRIPTDIR/scriptmodules/$section" "$RP_EXTRA/scriptmodules" 2>&1 && echo "All $section copied to $RP_EXTRA")"
                         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
                     else
