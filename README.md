@@ -145,14 +145,10 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `dunedynasty.sh` - Dune Dynasty - Dune 2 Building of a Dynasty port - **Installs**
 - [X] - `dunelegacy.sh` - Dune Legacy - Dune 2 Building of a Dynasty port - **Installs**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Installs and launches**
-- [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great, PATCH is not applyed, getting error*
-
+- [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great, PATCH is not applyed, getting error**
 - [X] - `freeciv.sh` - Civilization online clone - **Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.**
-- [X] - `freedink.sh` - Dink Smallwood engine - **Installs**
-- [X] - `freesynd.sh` - Syndicate clone - **Installs**
-- [X] - `funnyboat.sh` - Funny Boat. A side scrolling boat shooter with waves - **Installs**
-- [ ] - `gamemaker.sh` - Install the 3 gamemaker games - **Failed**
-- [X] - `ganbare.sh` - Japanese 2D Platformer - **Installs**
+- [X] - `freedink.sh` - Dink Smallwood engine - **Installs, Plays great**
+- [X] - `freesynd.sh` - Syndicate clone - **Installs, Plays great**
 - [X] - `gmloader.sh` - GMLoader - play GameMaker Studio games for Android on non-Android operating systems - **Installs**
 - [X] - `gnukem.sh` - Dave Gnukem - Duke Nukem 1 look-a-like - **Installs**
 - [X] - `gtkboard.sh` - Board games system - **Installs Runs fine**
@@ -172,8 +168,6 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lmarbles.sh` - Open Source Atomix game - **Installs**
 - [X] - `ltris.sh` - Open Source Tetris game - **Installs**
 - [X] - `lutris.sh` - lutris - Game engine for linux - **Installs**
-- [ ] - `maelstrom.sh` - Maelstrom - Classic Mac Asteroids Remake - **Failed**
-- [ ] - `manaplus.sh` - 2D MMORPG client - **Failed**
 - [X] - `meritous.sh` - Port of an action-adventure dungeon crawl game - **Installs**
 - [X] - `nblood.sh` - Blood source port - **Installs**
 - [ ] - `nkaruga.sh` - Ikaruga demake. - ** Blocked from installing on Pi4**
@@ -184,7 +178,6 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `openmw.sh` - Morrowind source port - **Installs**
 - [X] - `openra.sh` - Real Time Strategy game engine supporting early Westwood classics - **Installs**
 - [X] - `openrct2.sh` - RollerCoaster Tycoon 2 port - **Installs**
-- [ ] - `openxcom.sh` - Open Source X-COM Engine - **Failed**
 - [X] - `pcexhumed.sh` - PCExhumed - Powerslave source port - **Installs Runs fine**
 - [X] - `piegalaxy.sh` - Pie Galaxy - Download and install GOG.com games in RetroPie - **Installs Runs, Cant login to test**
 - [X] - `pingus.sh` - Lemmings clone - **Installs**
@@ -256,7 +249,13 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `lr-ecwolf.sh` - Wolfestein 3D engine - ECWolf port based of Wolf4SDL for libretro - **Installs Fails to start games**
 - [ ] - `lr-pocketcdg.sh` - A MP3 karaoke music player. - **Installs, Fails to load files **
 - [ ] - `lr-minivmac.sh` -  Macintosh Plus Emulator - Mini vMac port for libretro - **Installs, Black screen when starting games**
-- [ ] - `fofix.sh` - FoFix - Guitar Hero and Rock Band clone - **fails**
+- [ ] - `fofix.sh` - FoFix - Guitar Hero and Rock Band clone - **Bin file is nolonger able to download**
+- [ ] - `funnyboat.sh` - Funny Boat. A side scrolling boat shooter with waves - **Installs, Plays in small window**
+- [ ] - `ganbare.sh` - Japanese 2D Platformer - **Installs, Plays in small window**
+- [ ] - `gamemaker.sh` - Install the 3 gamemaker games - **Failed to build**
+- [ ] - `maelstrom.sh` - Maelstrom - Classic Mac Asteroids Remake - **Failed to build**
+- [ ] - `manaplus.sh` - 2D MMORPG client - **Failed to build**
+- [ ] - `openxcom.sh` - Open Source X-COM Engine - **Failed to build**
 
 ## Hall of Fame - Scripts accepted into RetroPie-Setup
 

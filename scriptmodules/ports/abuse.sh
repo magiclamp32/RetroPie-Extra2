@@ -23,7 +23,7 @@ function depends_abuse() {
 }
 
 function sources_abuse() {
-     downloadAndExtract
+     downloadAndExtract "$md_repo_url" "$md_build"
 	#wget http://abuse.zoy.org/raw-attachment/wiki/download/abuse-0.8.tar.gz
 	#tar -xf abuse-0.8.tar.gz
 }

@@ -19,7 +19,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
 function depends_freesynd() {
-    getDepends cmake libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libpng-dev
+    getDepends cmake libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev libpng-dev xorg
 }
 
 function sources_freesynd() {
@@ -48,5 +48,5 @@ function configure_freesynd() {
     sed -i "s/fullscreen = false/fullscreen = true/" "$md_conf_root/$md_id/freesynd.ini"
     sed -i "s/#freesynd_data_dir = \/usr\/share\/freesynd\/data/freesynd_data_dir = \/opt\/retropie\/ports\/freesynd\/data/" "$md_conf_root/$md_id/freesynd.ini"
     sed -i "s/#data_dir = \/home\/username\/dosbox\/synd\/DATA/data_dir = \/home\/pi\/RetroPie\/roms\/ports\/freesynd/" "$md_conf_root/$md_id/freesynd.ini"
-    addPort "$md_id" "freesynd" "FreeSynd - Syndicate Engine" "$md_inst/freesynd"
+    addPort "$md_id" "freesynd" "FreeSynd - Syndicate Engine" "XINIT: $md_inst/freesynd"
 }

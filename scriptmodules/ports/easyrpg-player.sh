@@ -19,7 +19,7 @@ rp_module_section="exp"
 rp_module_flags="!mali"
 
 function depends_easyrpg-player() {
-    getDepends cmake autoconf automake libtool doxygen libsdl2-dev libsdl2-mixer-dev libpng-dev libfreetype6-dev libboost-dev libpixman-1-dev libmpg123-dev libwildmidi-dev libvorbis-dev libopusfile-dev libsndfile1-dev libxmp-dev libspeexdsp-dev libharfbuzz-dev libfmt-dev zlib1g-dev libraspberrypi-dev libraspberrypi-bin
+    getDepends cmake autoconf automake libtool doxygen libsdl2-dev libsdl2-mixer-dev libpng-dev libfreetype6-dev libboost-dev libpixman-1-dev libmpg123-dev libwildmidi-dev libvorbis-dev libopusfile-dev libsndfile1-dev libxmp-dev libspeexdsp-dev libharfbuzz-dev libfmt-dev zlib1g-dev libraspberrypi-dev libraspberrypi-bin expat libexpat1-dev libexpat-ocaml-dev
 }
 
 function sources_easyrpg-player() {
@@ -27,9 +27,8 @@ function sources_easyrpg-player() {
 }
 
 function build_easyrpg-player() {
-    sed -i 's#APPEND_STRING PROPERTY#APPEND PROPERTY#' "/home/pi/RetroPie-Setup/tmp/build/easyrpg-player/builds/cmake/Modules/FindSDL2.cmake"
+     sed -i 's#APPEND_STRING PROPERTY#APPEND PROPERTY#' "/home/pi/RetroPie-Setup/tmp/build/easyrpg-player/builds/cmake/Modules/FindSDL2.cmake"
     sed -i 's#INTERFACE_LINK_LIBRARIES "${SDL2PC_STATIC_LIBRARIES}")#INTERFACE_INCLUDE_DIRECTORIES "${SDL2PC_STATIC_LIBRARY_DIRS}")#' "/home/pi/RetroPie-Setup/tmp/build/easyrpg-player/builds/cmake/Modules/FindSDL2.cmake"
-
     cmake . -DCMAKE_BUILD_TYPE=Release -DPLAYER_BUILD_LIBLCF=ON
     cmake --build .
 

@@ -14,6 +14,7 @@ rp_module_id="breaker"
 rp_module_desc="breaker - Arkanoid Clone"
 rp_module_licence="GPL2 https://ayera.dl.sourceforge.net/project/breaker10/source/GNU-GPL-2.0.txt"
 rp_module_repo="file http://oldschoolprg.x10.mx/downloads/_sf_breaker_215.tar.gz"
+rp_module_help="Because this uses X, you may find that you are unable to control the game and the game appears in a small window in the top left. Use the Runcommand option to set the resolution to CEA-4 or similarly smaller sizes. This will allow you to control the game as the window will have focus and also fill up more of the screen."
 rp_module_section="exp"
 rp_module_flags="!x86 !mali"
 
