@@ -140,12 +140,12 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `crispy-doom.sh` - DOOM source port - **Installs, Plays great**
 - [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port. - **Installs, Plays great**
 - [X] - `cytadela.sh` - Cytadela project - a conversion of an Amiga first person shooter - **Installs**
-- [X] - `devilutionx.sh` - Diablo source port - **Installs**
-- [X] - `dhewm3.sh` - dhewm3 - Doom 3 port - **Installs**
+- [X] - `devilutionx.sh` - Diablo source port - **Installs, Plays great /with DEMO**
+- [X] - `dhewm3.sh` - dhewm3 - Doom 3 port - **Installs, Plays great /with DEMO**
 - [X] - `dunedynasty.sh` - Dune Dynasty - Dune 2 Building of a Dynasty port - **Installs**
 - [X] - `dunelegacy.sh` - Dune Legacy - Dune 2 Building of a Dynasty port - **Installs**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Installs and launches**
-- [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs**
+- [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great, PATCH is not applyed, getting error**
 - [X] - `fofix.sh` - FoFix - Guitar Hero and Rock Band clone - **Installs**
 - [X] - `freeciv.sh` - Civilization online clone - **Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.**
 - [X] - `freedink.sh` - Dink Smallwood engine - **Installs**
