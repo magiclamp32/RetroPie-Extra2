@@ -198,7 +198,7 @@ function chooseModules() {
         fi
         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
     elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "Error: no scriptmodules found in repository. You may attempt repair with 'git checkout -- $SCRIPTDIR/scriptmodules'. If error persists, please open a new issue at https://github.com/Exarkuniv/RetroPie-Extra/issues/new\n\nWould you like to attempt repair now?" 20 60 2>&1 >/dev/tty; then
-        local errormsg="$(git checkout -- $SCRIPTDIR/scriptmodules 2>&1)"
+        local errormsg="$(git checkout -- "$SCRIPTDIR/scriptmodules" 2>&1)"
         if [[ -n "$errormsg" ]]; then
             errormsg="Error: $errormsg"
         else
@@ -416,7 +416,7 @@ function chooseBySection() {
         fi
         dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --programbox 20 60 2>&1 >/dev/tty < <(echo "$errormsg" | fold -w 56 -s)
     elif dialog --backtitle "$BACKTITLE" --cr-wrap --no-collapse --defaultno --yesno "Error: no scriptmodules found in repository. You may attempt repair with 'git checkout -- $SCRIPTDIR/scriptmodules'. If error persists, please open a new issue at https://github.com/Exarkuniv/RetroPie-Extra/issues/new\n\nWould you like to attempt repair now?" 20 60 2>&1 >/dev/tty; then
-        local errormsg="$(git checkout -- $SCRIPTDIR/scriptmodules 2>&1)"
+        local errormsg="$(git checkout -- "$SCRIPTDIR/scriptmodules" 2>&1)"
         if [[ -n "$errormsg" ]]; then
             errormsg="Error: $errormsg"
         else
