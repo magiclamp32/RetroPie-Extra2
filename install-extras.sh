@@ -226,17 +226,19 @@ function viewModules() {
     local menu=()
     local options=()
     local module
+    local name
     local section
     local lastsection
 
     local i=1
     while read module; do
         section="$(basename "$(dirname "$module")")"
-        module="$(basename "$module")"
+        name="$(basename "$module")"
+        module="$section/$name"
         if [[ "$section" != "$lastsection" ]]; then
             menu+=("---" "--- $section ---" off)
         fi
-        menu+=($i "$module" on)
+        menu+=($i "$name" on)
         options+=("$module")
         ((i++))
         lastsection="$section"
