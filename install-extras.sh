@@ -152,6 +152,7 @@ function chooseModules() {
     local menu=()
     local options=()
     local module
+    local name
     local section
     local lastsection
     local installed
@@ -159,7 +160,8 @@ function chooseModules() {
     local i=1
     while read module; do
         section="$(basename "$(dirname "$module")")"
-        module="$(basename "$module")"
+        name="$(basename "$module")"
+        module="$section/$name"
 
         if [[ "$section" != "$lastsection" ]]; then
             menu+=("---" "--- $section ---" off)
@@ -167,7 +169,7 @@ function chooseModules() {
 
         installed="off"
         [[ -f "$RP_EXTRA/scriptmodules/$module" ]] && installed="on"
-        menu+=($i "$module" "$installed")
+        menu+=($i "$name" "$installed")
         options+=("$module")
         ((i++))
         lastsection="$section"
