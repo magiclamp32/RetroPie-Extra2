@@ -14,7 +14,6 @@ rp_module_id="openra"
 rp_module_desc="Open RA - Real Time Strategy game engine supporting early Westwood classics"
 rp_module_licence="GPL3 https://github.com/OpenRA/OpenRA/blob/bleed/COPYING"
 rp_module_help="Currently working on how to pull the Data files No ETA"
-rp_module_repo="file https://github.com/OpenRA/OpenRA/releases/download/release-20210321/OpenRA-release-20210321-source.tar.bz2"
 rp_module_section="exp"
 rp_module_flags="!mali"
 
@@ -27,7 +26,11 @@ function depends_openra() {
 }
 
 function sources_openra() {
-    downloadAndExtract "$md_repo_url" "$md_build" 
+    
+       mkdir -p openra
+
+	wget https://github.com/OpenRA/OpenRA/releases/download/release-20210321/OpenRA-release-20210321-source.tar.bz2
+	tar xvjf OpenRA-release-20210321-source.tar.bz2 -C /home/pi/RetroPie-Setup/tmp/build/openra/openra 	
 }
 
 function build_openra() {
