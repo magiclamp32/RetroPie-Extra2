@@ -135,81 +135,66 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `chocolate-doom.sh`- DOOM source port - **Installs, plays great**
 - [X] - `chocolate-doom-system.sh`- For setting up DOOM as an emulated system, not port. - **Installs Plays great**
 - [X] - `chopper258.sh` - Chopper Commando Revisited - A modern port of Chopper Commando (DOS, 1990) - **Installs, Plays fine, needs keyboard**
-- [ ] - `corsixth.sh` - Theme Hospital engine clone - **Installs, Lua error, will not play**
 - [X] - `crack-attack.sh` - Tetris Attack clone - **Installs works, but you need to need to drop the resolutions to 640-480 **
 - [X] - `crispy-doom.sh` - DOOM source port - **Installs, Plays great**
 - [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port. - **Installs, Plays great**
-- [X] - `cytadela.sh` - Cytadela project - a conversion of an Amiga first person shooter - **Installs**
-- [X] - `devilutionx.sh` - Diablo source port - **Installs, Plays great /with DEMO**
-- [X] - `dhewm3.sh` - dhewm3 - Doom 3 port - **Installs, Plays great /with DEMO**
-- [X] - `dunedynasty.sh` - Dune Dynasty - Dune 2 Building of a Dynasty port - **Installs**
-- [X] - `dunelegacy.sh` - Dune Legacy - Dune 2 Building of a Dynasty port - **Installs**
+- [X] - `devilutionx.sh` - Diablo source port - **Installs, Plays great w/ DEMO**
+- [X] - `dhewm3.sh` - dhewm3 - Doom 3 port - **Installs, Plays great w/ DEMO**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Installs and launches**
 - [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great, PATCH is not applyed, getting error**
 - [X] - `freeciv.sh` - Civilization online clone - **Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.**
 - [X] - `freedink.sh` - Dink Smallwood engine - **Installs, Plays great**
 - [X] - `freesynd.sh` - Syndicate clone - **Installs, Plays great**
-- [X] - `gmloader.sh` - GMLoader - play GameMaker Studio games for Android on non-Android operating systems - **Installs**
-- [X] - `gnukem.sh` - Dave Gnukem - Duke Nukem 1 look-a-like - **Installs**
+- [X] - `gmloader.sh` - GMLoader - play GameMaker Studio games for Android on non-Android operating systems - **Installs, Plays great W/games**
+- [X] - `gnukem.sh` - Dave Gnukem - Duke Nukem 1 look-a-like - **Installs, Plays great**
 - [X] - `gtkboard.sh` - Board games system - **Installs Runs fine**
-- [X] - `hcl.sh` - Hydra Castle Labrinth - **Installs**
-- [X] - `heboris.sh` - Tetris The Grand Master clone - **Installs**
-- [X] - `hexen2.sh` - Hexen II - Hammer of Thyrion source port - **Installs**
-- [X] - `hheretic.sh` - Heretic GL-port - **Installs**
-- [X] - `hhexen.sh` - Hexen GL-port - **Installs**
-- [X] - `hurrican.sh` - Turrican clone. - **Installs**
+- [X] - `hcl.sh` - Hydra Castle Labrinth - **Installs, Plays great**
+- [X] - `heboris.sh` - Tetris The Grand Master clone - **Installs, Plays great, Needs correct script to remove xinit errors**
+- [X] - `hexen2.sh` - Hexen II - Hammer of Thyrion source port - **Installs, Plays great w/demo**
+- [X] - `hurrican.sh` - Turrican clone. - **Installs, Plays great**
 - [X] - `jfsw.sh` - Shadow warrior port - **Installs and runs on rpi4**
-- [X] - `julius.sh` - Julius - Caesar III source port - **Installs**
-- [X] - `kaiten-patissier.sh` - Japanese 2D Platformer - **Installs**
-- [X] - `kaiten-patissier-ura.sh` - Japanese 2D Platformer - **Installs**
+- [X] - `julius.sh` - Julius - Caesar III source port - **Installs, Plays great**
 - [X] - `kraptor.sh` - Shoot em up scroller game - **Installs Runs fine**
-- [X] - `lbreakout2.sh` - Open Source Breakout game - **Installs**
-- [X] - `lgeneral.sh` - Open Source strategy game - **Installs**
-- [X] - `lmarbles.sh` - Open Source Atomix game - **Installs**
-- [X] - `ltris.sh` - Open Source Tetris game - **Installs**
-- [X] - `lutris.sh` - lutris - Game engine for linux - **Installs**
-- [X] - `meritous.sh` - Port of an action-adventure dungeon crawl game - **Installs**
-- [X] - `nblood.sh` - Blood source port - **Installs**
+- [X] - `lbreakout2.sh` - Open Source Breakout game - **Installs Runs fine**
+- [X] - `lgeneral.sh` - Open Source strategy game - **Installs Runs fine**
+- [X] - `lmarbles.sh` - Open Source Atomix game - **Installs Runs fine, screen is alitte off center**
+- [X] - `ltris.sh` - Open Source Tetris game - **Installs, Plays great**
+- [X] - `meritous.sh` - Port of an action-adventure dungeon crawl game - **Installs, Plays great**
+- [X] - `nblood.sh` - Blood source port - **Installs, Plays great**
 - [ ] - `nkaruga.sh` - Ikaruga demake. - ** Blocked from installing on Pi4**
 - [X] - `nxengine-evo.sh` - The standalone version of the open-source clone/rewrite of Cave Story - **Installs Plays fine on Pi4. Need to bind controller in options**
-- [X] - `openjazz.sh` - An enhanced Jazz Jackrabbit source port - **Installs**
-- [X] - `openjk_ja.sh` - OpenJK: JediAcademy (SP + MP) - **Installs**
-- [X] - `openjk_jo.sh` - OpenJK: Jedi Outcast (SP) - **Installs**
-- [X] - `openmw.sh` - Morrowind source port - **Installs**
-- [X] - `openra.sh` - Real Time Strategy game engine supporting early Westwood classics - **Installs**
-- [X] - `openrct2.sh` - RollerCoaster Tycoon 2 port - **Installs**
-- [X] - `pcexhumed.sh` - PCExhumed - Powerslave source port - **Installs Runs fine**
+- [ ] - `opendune.sh` - Dune 2 source port - **Installs, but doesnt install config file**
+- [X] - `openjazz.sh` - An enhanced Jazz Jackrabbit source port - **Installs, Plays great**
+- [X] - `openjk_ja.sh` - OpenJK: JediAcademy (SP + MP) - **Installs, Plays great, didnt test MP**
+- [X] - `openjk_jo.sh` - OpenJK: Jedi Outcast (SP) - **Installs, Plays great**
+- [X] - `openmw.sh` - Morrowind source port - **Installs, Plays great, Black screen on EXIT**
+- [X] - `openmwdriver.sh` - Driver for Morrowind source port ** Installs correctly**
+- [X] - `openra.sh` - Real Time Strategy game engine supporting early Westwood classics - **Installs, Plays great**
+- [X] - `openrct2.sh` - RollerCoaster Tycoon 2 port - **Installs, Plays great**
 - [X] - `piegalaxy.sh` - Pie Galaxy - Download and install GOG.com games in RetroPie - **Installs Runs, Cant login to test**
-- [X] - `pingus.sh` - Lemmings clone - **Installs**
-- [X] - `pokerth.sh` - open source online poker  - **Installs**
-- [X] - `prboom-plus.sh` - Enhanced DOOM source port - **Installs**
+- [X] - `pingus.sh` - Lemmings clone - **Installs, Plays great**
+- [X] - `pokerth.sh` - open source online poker  - **Installs, Plays fine**
+- [X] - `prboom-plus.sh` - Enhanced DOOM source port - **Installs Plays great****
 - [X] - `prototype.sh` - Free R-Type remake by Ron Bunce - Gamepad support incomplete. **Installs, Plays fine, needs keyboard**
-- [X] - `pydance.sh` - Open Source Dancing Game  - **Installs**
-- [X] - `quakespasm.sh` - Another enhanced engine for quake  - **Installs**
-- [X] - `rawgl.sh` - Another World Engine  - **Installs**
-- [ ] - `refkeen.sh` - port for Keen Dreams, The Catacomb Adventure Series and Wolf3d  - **Does not install now**
-- [X] - `reminiscence.sh` - Flashback engine clone - **Installs**
-- [ ] - `rickyd.sh` - Rick Dangerous clone - **Blocked from installing on Pi4
-- [X] - `rigelengine.sh` - RigelEngine - Duke Nukem 2 source port - **Installs**
-- [X] - `rocksndiamonds.sh` - Rocks'n'Diamonds - Emerald Mine Clone - **Installs**
+- [X] - `pydance.sh` - Open Source Dancing Game  - **Installs, Plays fine**
+- [X] - `quakespasm.sh` - Another enhanced engine for quake  - **Installs, Plays fine Need to keep the resolution low for smooth play and full screen**
+- [X] - `rawgl.sh` - Another World Engine  - **Installs, Plays great**
+- [X] - `relive.sh` - Oddworld engine for Abe's Oddysee and Abe's Exoddus **Installs Plays well, some graphic glitches**
+- [X] - `reminiscence.sh` - Flashback engine clone - **Installs, Plays fine**
+- [ ] - `rickyd.sh` - Rick Dangerous clone - **Blocked from installing on Pi4**
+- [X] - `rigelengine.sh` - RigelEngine - Duke Nukem 2 source port - **Installs, Plays great**
+- [X] - `rocksndiamonds.sh` - Rocks'n'Diamonds - Emerald Mine Clone - **Installs, Plays great**
 - [X] - `rott-darkwar.sh` - Rise of the Triad source port with joystick support - **Installs**
-- [X] - `rott-huntbgin.sh` - Rise of the Triad (shareware version) source port with joystick support. - **Installs**
+- [X] - `rott-huntbgin.sh` - Rise of the Triad (shareware version) source port with joystick support. - **Installs, Plays great**
 - [X] - `rtcw.sh`- IORTCW source port of Return to Castle Wolfenstein. - **Installs, and plays great**
-- [X] - `score.sh` - score - Septerra Core: Legacy of the Creator port - **Installs**
-- [X] - `sdl-bomber.sh` - Simple Bomberman clone - **Installs**
-- [X] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.  - **Installs**
+- [X] - `sdl-bomber.sh` - Simple Bomberman clone - **Installs, Plays great**
+- [X] - `seahorse.sh` - a side scrolling platform game **Installs Plays fine**
 - [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4. **Installs Plays great**
-- [X] - `sorr.sh` - Streets of Rage Remake port - **Installs**
-- [X] - `texmaster2009.sh` - Tetris TGM clone - **Installs**
-- [X] - `tinyfugue.sh` - MUD client - **Installs**
-- [X] - `ulmos-adventure.sh` - Simple Adventure Game - **Installs**
-- [X] - `vanillacc.sh` - Vanilla-Command and Conquer - **Installs**
-- [X] - `vorton.sh` - Highway Encounter Remake in Spanish - **Installs**
+- [X] - `sorr.sh` - Streets of Rage Remake port - **Installs, Plays great**
+- [X] - `supertuxkart.sh` - a free kart-racing game - **Installs, Plays great at lower resolution**
 - [X] - `warmux.sh` - Worms Clone - **Installs**
-- [X] - `wizznic.sh` - Puzznic clone - **Installs**
 - [X] - `xash3d-fwgs.sh` - Half-Life engine source port. - **Installs**
-- [X] - `zeldansq.sh` - Zelda: Navi's Quest fangame - **Installs**
-- [X] - `zeldapicross.sh` - Zelda themed Picross fangame - **Installs**
+- [X] - `zeldansq.sh` - Zelda: Navi's Quest fangame - **Installs, Plays great, Needs correct script to remove xinit errors**
 
 #### Drivers
 - [X] - `openmwdriver.sh` - The OpenSceneGraph is an open source high performance 3D graphics toolkit. - **Installs works as needed**
@@ -230,6 +215,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `kweb.sh` - Minimal kiosk web browser - **Installs**
 - [X] - `librecad.sh` - librecad open-source 2d cad - **Installs Runs fine**
 - [X] - `libreoffice.sh` - Open source office suite - **Installs Runs fine**
+- [X] - `lutris.sh` - lutris - Game engine for linux - **Installs**
 - [ ] - `mame-tools.sh` - Additional tools for MAME/MESS **Failed**
 - [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs**
 - [X] - `mixx.sh` - Mixxx DJ Mixing Software App - **Installs Runs fine**
@@ -249,6 +235,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `lr-ecwolf.sh` - Wolfestein 3D engine - ECWolf port based of Wolf4SDL for libretro - **Installs Fails to start games**
 - [ ] - `lr-pocketcdg.sh` - A MP3 karaoke music player. - **Installs, Fails to load files **
 - [ ] - `lr-minivmac.sh` -  Macintosh Plus Emulator - Mini vMac port for libretro - **Installs, Black screen when starting games**
+- [ ] - `corsixth.sh` - Theme Hospital engine clone - **Installs, Lua error, will not play**
 - [ ] - `fofix.sh` - FoFix - Guitar Hero and Rock Band clone - **Bin file is nolonger able to download**
 - [ ] - `funnyboat.sh` - Funny Boat. A side scrolling boat shooter with waves - **Installs, Plays in small window**
 - [ ] - `ganbare.sh` - Japanese 2D Platformer - **Installs, Plays in small window**
@@ -256,7 +243,16 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `maelstrom.sh` - Maelstrom - Classic Mac Asteroids Remake - **Failed to build**
 - [ ] - `manaplus.sh` - 2D MMORPG client - **Failed to build**
 - [ ] - `openxcom.sh` - Open Source X-COM Engine - **Failed to build**
-
+- [ ] - `kaiten-patissier.sh` - Japanese 2D Platformer - **Installs Plays in small window**
+- [ ] - `kaiten-patissier-ura.sh` - Japanese 2D Platformer - **Installs Plays in small window**
+- [ ] - `refkeen.sh` - port for Keen Dreams, The Catacomb Adventure Series and Wolf3d  - **Does not install now**
+- [ ] - `shiromino.sh` - Tetris the Grand Master Clone - Requires keyboard to restart/quit.  - **Installs, cant find the config file, fails to start **
+- [ ] - `texmaster2009.sh` - Tetris TGM clone - **Plays in small screen**
+- [ ] - `tinyfugue.sh` - MUD client - **fails to start**
+- [ ] - `ulmos-adventure.sh` - Simple Adventure Game - **Installs Small screen**
+- [ ] - `vorton.sh` - Highway Encounter Remake in Spanish - **Installs small screen**
+- [ ] - `wizznic.sh` - Puzznic clone - **Installs Plays, screen is small**
+- [ ] - `zeldapicross.sh` - Zelda themed Picross fangame - **Installs starts but will not go past first screen**
 ## Hall of Fame - Scripts accepted into RetroPie-Setup
 
 - [X] - LXDE - LXDE Desktop.
