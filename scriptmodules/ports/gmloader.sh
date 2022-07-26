@@ -13,7 +13,7 @@
 rp_module_id="gmloader"
 rp_module_desc="GMLoader - play GameMaker Studio games for Android on non-Android operating systems"
 rp_module_help="ROM Extensions: .apk .APK\n\nIncludes free games Maldita Castilla and Spelunky Classic HD. Use launch scripts as template for additional games."
-rp_module_repo="git https://github.com/s1eve-mcdichae1/droidports.git patch-config-dir cc31738"
+rp_module_repo="git https://github.com/JohnnyonFlame/droidports.git master faf3970"
 rp_module_licence="GPL3 https://raw.githubusercontent.com/JohnnyonFlame/droidports/master/LICENSE.md"
 rp_module_section="exp"
 rp_module_flags="!all rpi4"
@@ -24,6 +24,8 @@ function depends_gmloader() {
 
 function sources_gmloader() {
     gitPullOrClone
+    # group config dirs in parent gmloader dir
+    applyPatch "$md_data/01_config_dir.patch"
 }
 
 function build_gmloader() {
