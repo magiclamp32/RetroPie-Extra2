@@ -41,5 +41,5 @@ function install_sdl-bomber() {
 function configure_sdl-bomber() {
     setConfigRoot "ports"
 
-    addPort "$md_id" "sdl-bomber" "SDL-Bomber" "pushd $md_inst; ./bomber; popd"
+    addPort "$md_id" "sdl-bomber" "SDL-Bomber" "XINIT: pushd $md_inst; ./bomber; popd"
 }

@@ -19,7 +19,7 @@ rp_module_section="exp"
 rp_module_flags="!mali"
 
 function depends_pydance() {
-    getDepends python python-pygame libsdl-mixer1.2-dev libsdl-mixer1.2 libvorbis-dev libsmpeg-dev
+    getDepends python python-pygame libsdl-mixer1.2-dev libsdl-mixer1.2 libvorbis-dev libsmpeg-dev xorg
 }
 
 function sources_pydance() {
@@ -86,5 +86,5 @@ function configure_pydance() {
         mv pydance-cdtitle.png pydance.png
     fi
     chown -R $user:$user /opt/retropie/ports/pydance
-    addPort "$md_id" "pydance" "pydance - Open Source Dancing Game" "pushd $md_inst; python games/pydance; popd"
+    addPort "$md_id" "pydance" "pydance - Open Source Dancing Game" "XINIT: pushd $md_inst; python games/pydance; popd"
 }
