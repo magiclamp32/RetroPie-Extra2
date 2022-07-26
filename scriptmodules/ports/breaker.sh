@@ -28,7 +28,7 @@ function sources_breaker() {
 
 function build_breaker() {
   cd "$md_build/source"
-  sed -i "s/-lSDL/-lSDL -lm/" "$md_build/source/Makefile"
+ sed -i "s/-lSDL/-lSDL -lm/" "$md_build/source/Makefile"
   make
   md_ret_require="$md_build/source/breaker"
 }
@@ -37,10 +37,21 @@ function install_breaker() {
     md_ret_files=(
 	'source/breaker'
 	'source/gfx'
+	'source/sfx'
     )
 }
 
 function configure_breaker() {
+    local script="$md_inst/$md_id.sh"
     mkRomDir "ports"
-    addPort "$md_id" "breaker" "breaker - Arkanoid Clone" "XINIT: pushd $md_inst; ./breaker; popd"
+	#create buffer script for launch
+	 cat > "$script" << _EOF_
+#!/bin/bash
+pushd "$md_inst"
+"./breaker" \$*
+popd
+_EOF_
+    
+	chmod +x "$script"
+    addPort "$md_id" "breaker" "breaker - Arkanoid Clone" "XINIT:$script"
 }
