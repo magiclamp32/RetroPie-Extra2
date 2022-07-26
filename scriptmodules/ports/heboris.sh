@@ -47,11 +47,6 @@ function configure_heboris() {
     moveConfigDir "$md_inst/config" "$md_conf_root/$md_id/config"
     moveConfigDir "$md_inst/replay" "$md_conf_root/$md_id/replay"
     moveConfigFile "$md_inst/heboris.ini" "$md_conf_root/$md_id/heboris.ini"
-<<<<<<< Updated upstream
-
-    addPort "$md_id" "heboris" "HeborisC7EX - Tetris The Grand Master Clone" "XINIT: pushd $md_inst; ./heboris; popd"
-}
-=======
 		#create buffer script for launch
 	 cat > "$script" << _EOF_
 #!/bin/bash
@@ -63,4 +58,3 @@ _EOF_
 	chmod +x "$script"
     addPort "$md_id" "heboris" "HeborisC7EX - Tetris The Grand Master Clone" "XINIT:$script"
 }
->>>>>>> Stashed changes
