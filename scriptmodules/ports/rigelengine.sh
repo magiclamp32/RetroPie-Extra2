@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-# This file is part of RetroPie-Extra, a supplement to RetroPie.
-# For more information, please visit:
+# This file is part of The RetroPie Project
 #
-# https://github.com/RetroPie/RetroPie-Setup
-# https://github.com/Exarkuniv/RetroPie-Extra
+# The RetroPie Project is the legal property of its developers, whose names are
+# too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
 #
-# See the LICENSE file distributed with this source and at
-# https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/LICENSE
+# See the LICENSE.md file at the top-level directory of this distribution and
+# at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
 rp_module_id="rigelengine"
@@ -44,16 +43,7 @@ function install_rigelengine() {
     )
 }
 
-function game_data_duke2() {
-    if [[ ! -f "$romdir/ports/duke2/NUKEM2.EXE" ]]; then
-        downloadAndExtract "https://github.com/Exarkuniv/game-data/raw/main/Duke2.zip" "$romdir/ports/duke2/"
-    #mv "$romdir/ports/duke2/Duke2"* "$romdir/ports/duke2/"
-    chown -R $user:$user "$romdir/ports/duke2"
-    fi
-}
-
 function configure_rigelengine() {
     addPort "$md_id" "rigelengine" "RigelEngine - Duke Nukem 2 source port" "$md_inst/RigelEngine /home/pi/RetroPie/roms/ports/duke2"
     mkRomDir "ports/duke2"
-    [[ "$md_mode" == "install" ]] && game_data_duke2
 }
