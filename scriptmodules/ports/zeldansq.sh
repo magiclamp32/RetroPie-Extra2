@@ -42,9 +42,19 @@ function install_zeldansq() {
 }
 
 function configure_zeldansq() {
+     local script="$md_inst/$md_id.sh"
     mkRomDir "ports"
     chmod -R 777 "$md_inst/data"
     moveConfigDir "$md_inst/config" "$md_conf_root/$md_id/config"
     moveConfigDir "$md_inst/saves" "$md_conf_root/$md_id/saves"
-    addPort "$md_id" "zeldansq" "zeldansq - Zelda Navi's Quest fangame" "pushd $md_inst; $md_inst/ZeldaNSQ; popd"
+			#create buffer script for launch
+	 cat > "$script" << _EOF_
+#!/bin/bash
+pushd "$md_inst"
+"./ZeldaNSQ" \$*
+popd
+_EOF_
+    
+	chmod +x "$script"
+    addPort "$md_id" "zeldansq" "zeldansq - Zelda Navi's Quest fangame" "XINIT:$script"
 }
