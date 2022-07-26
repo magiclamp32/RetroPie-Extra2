@@ -84,34 +84,34 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `supermodel.sh` - Sega Model 3 Arcade emulator  - **Installs Does play, test game are slow**
 #### Libretrocores
 
-- [X] - `lr-2048.sh` - 2048 engine - 2048 port for libretro - **Installs, Plays, Runs well **
-- [X] - `lr-beetle-pce.sh` - PCEngine emu - Mednafen PCE port for libretro**Installs, Plays, Runs well **
-- [X] - `lr-bk.sh` -  Elektronika БК-0010/0011/Terak 8510a emulator - BK port for libretro - **Installs Plays not sure well or not **
+- [X] - `lr-2048.sh` - 2048 engine - 2048 port for libretro - **Installs, Plays, Runs well**
+- [X] - `lr-beetle-pce.sh` - PCEngine emu - Mednafen PCE port for libretro**Installs, Plays, Runs well**
+- [X] - `lr-bk.sh` -  Elektronika БК-0010/0011/Terak 8510a emulator - BK port for libretro - **Installs Plays not sure well or not**
 - [ ] - `lr-blastem.sh` - Sega Genesis emu - BlastEm port for libretro - **x86 only**
 - [ ] - `lr-boom3.sh` -  Doom 3 port for libretro - **x86 only**
 - [ ] - `lr-canary.sh` - Citra Canary for libretro - **x86 only**
-- [X] - `lr-cannonball.sh` - An Enhanced OutRun engine for libretro - **Installs, Plays, Runs well **
+- [X] - `lr-cannonball.sh` - An Enhanced OutRun engine for libretro - **Installs, Plays, Runs well**
 - [X] - `lr-chailove.sh` - 2D Game Framework with ChaiScript roughly inspired by the LÖVE API to libretro - **Installs Plays fine, the one game i could find for it**
 - [ ] - `lr-citra.sh` - Citra port for libretro - **x86 only**
 - [X] - `lr-crocods.sh` - CrocoDS port for libretro  - **Installs Starts but will not finish loading game**
 - [ ] - `lr-daphne.sh` - Daphne port to libretro - laserdisk arcade games. - **Installs dont have any games to test**
-- [X] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack. - **Installs, Plays, Runs well **
-- [X] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games. - **Installs, Plays, Runs well **
-- [X] - `lr-gearboy.sh` - Game Boy (Color) emulator - Gearboy port for libretro. - **Installs, Plays, Runs well **
-- [X] - `lr-gearcoleco.sh` - ColecoVision emulator - GearColeco port for libretro. - **Installs, Plays, Runs well **
-- [X] - `lr-lutro.sh` - Lua engine - lua game framework (WIP) for libretro following the LÖVE API - **Installs, Plays, Runs well **
+- [X] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack. - **Installs, Plays, Runs well**
+- [X] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games. - **Installs, Plays, Runs well**
+- [X] - `lr-gearboy.sh` - Game Boy (Color) emulator - Gearboy port for libretro. - **Installs, Plays, Runs well**
+- [X] - `lr-gearcoleco.sh` - ColecoVision emulator - GearColeco port for libretro. - **Installs, Plays, Runs well**
+- [X] - `lr-lutro.sh` - Lua engine - lua game framework (WIP) for libretro following the LÖVE API - **Installs, Plays, Runs well**
 - [ ] - `lr-mame2003_midway.sh` - MAME 0.78 core with Midway games optimizations. - **Installs, doesnt start my games**
 - [X] - `lr-melonds.sh` - NDS emu - MelonDS port for libretro - **Installs, Plays, Runs**
-- [X] - `lr-mesen-s.sh` - Super Nintendo emu - Mesen-S port for libretro - **Installs, Plays, Runs well **
+- [X] - `lr-mesen-s.sh` - Super Nintendo emu - Mesen-S port for libretro - **Installs, Plays, Runs well**
 - [] - `lr-mess-jaguar.sh` - Add support for using lr-mess for Jaguar games, uses atarijaguar system name to match lr-virtualjaguar. - **did not test due to not having mess installed yet**
-- [X] - `lr-mu.sh` - Palm OS emu - Mu port for libretro - **Installs, Plays, Runs **
+- [X] - `lr-mu.sh` - Palm OS emu - Mu port for libretro - **Installs, Plays, Runs**
 - [X] - `lr-oberon.sh` - Oberon RISC emulator for libretro - **Installs**
 - [ ] - `lr-openlara.sh` - Tomb Raider engine - OpenLara port for libretro - **Installs Might work, dont have correct files to test**
 - [ ] - `lr-play.sh` - PlayStation 2 emulator - Play port for libretro - **x86 only**
-- [X] - `lr-potator.sh` -  Watara Supervision emulator based on Normmatt version - Potator port for libretro - **Installs, Plays, Runs well **
+- [X] - `lr-potator.sh` -  Watara Supervision emulator based on Normmatt version - Potator port for libretro - **Installs, Plays, Runs well**
 - [X] - `lr-ppsspp-dev.sh` - PlayStation Portable emu - PPSSPP port for libretro - latest development version - **Tested and works on RPi4 (May 2022)**
 - [X] - `lr-prboom-system.sh` - For setting up DOOM as an emulated system, not a port.  - **Installs Plays fine**
-- [X] - `lr-race.sh` - Neo Geo Pocket (Color) emulator - RACE! port for libretro. - **Installs, Plays, Runs well **
+- [X] - `lr-race.sh` - Neo Geo Pocket (Color) emulator - RACE! port for libretro. - **Installs, Plays, Runs well**
 - [X] - `lr-reminiscence.sh` - Flashback engine - Gregory Montoir’s Flashback emulator port for libretro - **Installs, Plays, Runs fine**
 - [X] - `lr-sameboy.sh` - Game Boy and Game Boy Color, emulator - SameBoy Port for libretro - **Installs Plays, runs well**
 - [X] - `lr-simcoupe.sh` - SAM Coupe emulator - SimCoupe port for libretro - **Installs, Might run games, cant get one to work**
@@ -142,7 +142,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `dhewm3.sh` - dhewm3 - Doom 3 port - **Installs, Plays great w/ DEMO**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Installs and launches**
 - [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great, PATCH is not applyed, getting error**
-- [X] - `freeciv.sh` - Civilization online clone - **Tested and works well, I may soon replace it to compile latest freeciv so that players can play with newer clients.**
+- [X] - `freeciv.sh` - Civilization online clone - **Tested and works well**
 - [X] - `freedink.sh` - Dink Smallwood engine - **Installs, Plays great**
 - [X] - `freesynd.sh` - Syndicate clone - **Installs, Plays great**
 - [X] - `gmloader.sh` - GMLoader - play GameMaker Studio games for Android on non-Android operating systems - **Installs, Plays great W/games**
@@ -161,7 +161,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `ltris.sh` - Open Source Tetris game - **Installs, Plays great**
 - [X] - `meritous.sh` - Port of an action-adventure dungeon crawl game - **Installs, Plays great**
 - [X] - `nblood.sh` - Blood source port - **Installs, Plays great**
-- [ ] - `nkaruga.sh` - Ikaruga demake. - ** Blocked from installing on Pi4**
+- [ ] - `nkaruga.sh` - Ikaruga demake. - **Blocked from installing on Pi4**
 - [X] - `nxengine-evo.sh` - The standalone version of the open-source clone/rewrite of Cave Story - **Installs Plays fine on Pi4. Need to bind controller in options**
 - [ ] - `opendune.sh` - Dune 2 source port - **Installs, but doesnt install config file**
 - [X] - `openjazz.sh` - An enhanced Jazz Jackrabbit source port - **Installs, Plays great**
@@ -174,7 +174,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `piegalaxy.sh` - Pie Galaxy - Download and install GOG.com games in RetroPie - **Installs Runs, Cant login to test**
 - [X] - `pingus.sh` - Lemmings clone - **Installs, Plays great**
 - [X] - `pokerth.sh` - open source online poker  - **Installs, Plays fine**
-- [X] - `prboom-plus.sh` - Enhanced DOOM source port - **Installs Plays great****
+- [X] - `prboom-plus.sh` - Enhanced DOOM source port - **Installs Plays great**
 - [X] - `prototype.sh` - Free R-Type remake by Ron Bunce - Gamepad support incomplete. **Installs, Plays fine, needs keyboard**
 - [X] - `pydance.sh` - Open Source Dancing Game  - **Installs, Plays fine**
 - [X] - `quakespasm.sh` - Another enhanced engine for quake  - **Installs, Plays fine Need to keep the resolution low for smooth play and full screen**
