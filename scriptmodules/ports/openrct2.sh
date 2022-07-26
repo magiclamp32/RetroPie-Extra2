@@ -60,7 +60,7 @@ function install_openrct2() {
 }
 
 function configure_openrct2() {
-#chmod +x "/home/pi/.config/OpenRCT2/config.ini"
+chown -R pi:pi "/home/pi/.config/OpenRCT2"
 
 	cat >"$md_inst/rct.sh" << _EOF_
 
