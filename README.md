@@ -135,7 +135,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `chocolate-doom.sh`- DOOM source port - **Installs, plays great**
 - [X] - `chocolate-doom-system.sh`- For setting up DOOM as an emulated system, not port. - **Installs Plays great**
 - [X] - `chopper258.sh` - Chopper Commando Revisited - A modern port of Chopper Commando (DOS, 1990) - **Installs, Plays fine, needs keyboard**
-- [X] - `crack-attack.sh` - Tetris Attack clone - **Installs works, but you need to need to drop the resolutions to 640-480 **
+- [X] - `crack-attack.sh` - Tetris Attack clone - **Installs works, but you need to need to drop the resolutions to 640-480**
 - [X] - `crispy-doom.sh` - DOOM source port - **Installs, Plays great**
 - [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port. - **Installs, Plays great**
 - [X] - `devilutionx.sh` - Diablo source port - **Installs, Plays great w/ DEMO**
@@ -149,7 +149,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `gnukem.sh` - Dave Gnukem - Duke Nukem 1 look-a-like - **Installs, Plays great**
 - [X] - `gtkboard.sh` - Board games system - **Installs Runs fine**
 - [X] - `hcl.sh` - Hydra Castle Labrinth - **Installs, Plays great**
-- [X] - `heboris.sh` - Tetris The Grand Master clone - **Installs, Plays great, Needs correct script to remove xinit errors**
+- [X] - `heboris.sh` - Tetris The Grand Master clone - **Installs, Plays great,**
 - [X] - `hexen2.sh` - Hexen II - Hammer of Thyrion source port - **Installs, Plays great w/demo**
 - [X] - `hurrican.sh` - Turrican clone. - **Installs, Plays great**
 - [X] - `jfsw.sh` - Shadow warrior port - **Installs and runs on rpi4**
@@ -168,7 +168,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `openjk_ja.sh` - OpenJK: JediAcademy (SP + MP) - **Installs, Plays great, didnt test MP**
 - [X] - `openjk_jo.sh` - OpenJK: Jedi Outcast (SP) - **Installs, Plays great**
 - [X] - `openmw.sh` - Morrowind source port - **Installs, Plays great, Black screen on EXIT**
-- [X] - `openmwdriver.sh` - Driver for Morrowind source port ** Installs correctly**
+- [X] - `openmwdriver.sh` - Driver for Morrowind source port **Installs correctly**
 - [X] - `openra.sh` - Real Time Strategy game engine supporting early Westwood classics - **Installs, Plays great**
 - [X] - `openrct2.sh` - RollerCoaster Tycoon 2 port - **Installs, Plays great**
 - [X] - `piegalaxy.sh` - Pie Galaxy - Download and install GOG.com games in RetroPie - **Installs Runs, Cant login to test**
@@ -253,6 +253,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `vorton.sh` - Highway Encounter Remake in Spanish - **Installs small screen**
 - [ ] - `wizznic.sh` - Puzznic clone - **Installs Plays, screen is small**
 - [ ] - `zeldapicross.sh` - Zelda themed Picross fangame - **Installs starts but will not go past first screen**
+
 ## Hall of Fame - Scripts accepted into RetroPie-Setup
 
 - [X] - LXDE - LXDE Desktop.
