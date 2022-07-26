@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!mali"
 
 function depends_lbreakout2() {
-    getDepends xorg
+    getDepends xorg matchbox
 }
 
 function install_bin_lbreakout2() {
@@ -27,5 +27,13 @@ function install_bin_lbreakout2() {
 function configure_lbreakout2() {
     mkRomDir "ports"
     moveConfigFile "$home/.lgames/lbreakout2.conf" "$md_conf_root/lbreakout2/lbreakout2.conf"
-    addPort "$md_id" "lbreakout2" "lbreakout2 - Open Source Breakout game" "XINIT: /usr/games/lbreakout2"
+    cat >"$md_inst/lbreakout2.sh" << _EOF_
+#!/bin/bash
+xset -dpms s off s noblank
+matchbox-window-manager -use_titlebar no &
+/usr/games/lbreakout2 -fullscreen -1024x768
+_EOF_
+    chmod +x "$md_inst/lbreakout2.sh"
+    addPort "$md_id" "lbreakout2" "lbreakout2 - Open Source Breakout game" "XINIT: $md_inst/lbreakout2.sh"
 }
+

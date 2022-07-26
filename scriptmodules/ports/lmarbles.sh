@@ -16,6 +16,10 @@ rp_module_licence="GPL2 https://sourceforge.net/p/lgames/code/HEAD/tree/trunk/lm
 rp_module_section="exp"
 rp_module_flags="!mali"
 
+function depends_lmarbles() {
+    getDepends xorg
+}
+
 function install_bin_lmarbles() {
      aptInstall lmarbles
 }
@@ -23,5 +27,5 @@ function install_bin_lmarbles() {
 function configure_lmarbles() {
     mkRomDir "ports"
     moveConfigFile "$home/.lgames/lmarbles.conf" "$md_conf_root/lmarbles/lmarbles.conf"
-    addPort "$md_id" "lmarbles" "lmarbles - Open Source Atomix game" "/usr/games/lmarbles"
+    addPort "$md_id" "lmarbles" "lmarbles - Open Source Atomix game" "XINIT: /usr/games/lmarbles"
 }

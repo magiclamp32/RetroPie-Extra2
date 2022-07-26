@@ -17,12 +17,12 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function install_bin_pingus() {
-    aptInstall pingus pingus-data
+    aptInstall pingus pingus-data xorg
 }
 
 function configure_pingus() {
     mkRomDir "ports"
 
     moveConfigDir "$home/.pingus" "$md_conf_root/$md_id"
-    addPort "$md_id" "pingus" "Pingus" "pingus"
+    addPort "$md_id" "pingus" "Pingus" "XINIT: pingus"
 }

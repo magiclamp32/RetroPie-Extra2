@@ -16,12 +16,16 @@ rp_module_licence="GPL2 https://sourceforge.net/p/lgames/code/HEAD/tree/trunk/lg
 rp_module_section="exp"
 rp_module_flags="!mali"
 
+function depends_lbreakout2() {
+    getDepends xorg
+}
+
 function install_bin_lgeneral() {
-     aptInstall lgeneral
+     aptInstall lgeneral 
 }
 
 function configure_lgeneral() {
     mkRomDir "ports"
     moveConfigFile "$home/.lgames/lgeneral.conf" "$md_conf_root/lgeneral/lgeneral.conf"
-    addPort "$md_id" "lgeneral" "lgeneral - Open Source strategy game" "/usr/games/lgeneral"
+    addPort "$md_id" "lgeneral" "lgeneral - Open Source strategy game" "XINIT: /usr/games/lgeneral"
 }
