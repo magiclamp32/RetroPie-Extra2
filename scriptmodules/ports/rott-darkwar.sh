@@ -44,9 +44,18 @@ function install_rott-darkwar() {
 }
 
 function configure_rott-darkwar() {
+    local script="$md_inst/$md_id.sh"
     mkRomDir "ports"
     mkRomDir "ports/$md_id"
     moveConfigDir "$home/.rott" "$md_conf_root/rott"
-
-    addPort "$md_id" "rott-darkwar" "rott - Rise of the Triad Dark War" "pushd $romdir/ports/rott-darkwar; $md_inst/rott-darkwar; popd"
+	#create buffer script for launch
+ cat > "$script" << _EOF_
+#!/bin/bash
+pushd "$romdir/ports/rott-darkwar"
+"$md_inst/rott-darkwar" \$*
+popd
+_EOF_
+    
+	chmod +x "$script"
+    addPort "$md_id" "rott-darkwar" "Rise Of The Triad - Dark War" "XINIT:$script"
 }

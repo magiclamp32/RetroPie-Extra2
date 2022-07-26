@@ -56,11 +56,20 @@ function game_data_rott-huntbgin() {
 }
 
 function configure_rott-huntbgin() {
+    local script="$md_inst/$md_id.sh"
     mkRomDir "ports"
     mkRomDir "ports/$md_id"
     moveConfigDir "$home/.rott" "$md_conf_root/rott"
-
-    addPort "$md_id" "rott-huntbgin" "Rise Of The Triad - The Hunt Begins (Shareware)" "XINIT: pushd $romdir/ports/rott-huntbgin/; $md_inst/rott-huntbgin; popd"
+	#create buffer script for launch
+ cat > "$script" << _EOF_
+#!/bin/bash
+pushd "$romdir/ports/rott-huntbgin"
+"$md_inst/rott-huntbgin" \$*
+popd
+_EOF_
+    
+	chmod +x "$script"
+    addPort "$md_id" "rott-huntbgin" "Rise Of The Triad - The Hunt Begins (Shareware)" "XINIT:$script"
 
     [[ "$md_mode" == "install" ]] && game_data_rott-huntbgin
 }

@@ -39,7 +39,16 @@ function install_sdl-bomber() {
 }
 
 function configure_sdl-bomber() {
+    local script="$md_inst/$md_id.sh"
     setConfigRoot "ports"
-
+#create buffer script for launch
+ cat > "$script" << _EOF_
+#!/bin/bash
+pushd "$md_inst"
+"./bomber" \$*
+popd
+_EOF_
+    
+	chmod +x "$script"
     addPort "$md_id" "sdl-bomber" "SDL-Bomber" "XINIT: pushd $md_inst; ./bomber; popd"
 }

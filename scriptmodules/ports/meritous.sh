@@ -38,8 +38,17 @@ function install_meritous() {
 }
 
 function configure_meritous() {
+    local script="$md_inst/$md_id.sh"
     chown pi:pi "$md_inst"
     mkRomDir "ports"
-
-    addPort "$md_id" "meritous" "Meritous 1.2" "XINIT: pushd $md_inst; $md_inst/meritous; popd"
+	#create buffer script for launch
+ cat > "$script" << _EOF_
+#!/bin/bash
+pushd "$md_inst"
+"./meritous" \$*
+popd
+_EOF_
+    
+	chmod +x "$script"
+    addPort "$md_id" "meritous" "Meritous 1.2" "XINIT:$script"
 }

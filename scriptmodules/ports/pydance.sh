@@ -35,6 +35,7 @@ function install_pydance() {
 }
 
 function configure_pydance() {
+    local script="$md_inst/$md_id.sh"
     moveConfigDir "$home/.pydance" "$md_conf_root/$md_id"
     mkdir "$md_conf_root/$md_id/cdtitles"
     mkdir "$md_conf_root/$md_id/songs"
@@ -86,5 +87,12 @@ function configure_pydance() {
         mv pydance-cdtitle.png pydance.png
     fi
     chown -R $user:$user /opt/retropie/ports/pydance
-    addPort "$md_id" "pydance" "pydance - Open Source Dancing Game" "XINIT: pushd $md_inst; python games/pydance; popd"
+	#create buffer script for launch
+ cat > "$script" << _EOF_
+#!/bin/bash
+"/opt/retropie/ports/pydance/games/pydance"
+_EOF_
+    
+	chmod +x "$script"
+    addPort "$md_id" "pydance" "pydance - Open Source Dancing Game" "XINIT:$script"
 }
