@@ -43,18 +43,21 @@ function install_heboris() {
 
 function configure_heboris() {
     local script="$md_inst/$md_id.sh"
-    chown pi:pi "$md_inst/heboris"
-    moveConfigDir "$md_inst/config" "$md_conf_root/$md_id/config"
-    moveConfigDir "$md_inst/replay" "$md_conf_root/$md_id/replay"
-    moveConfigFile "$md_inst/heboris.ini" "$md_conf_root/$md_id/heboris.ini"
-		#create buffer script for launch
-	 cat > "$script" << _EOF_
+    local conf
+
+    for conf in config replay res heboris.ini; do
+        chown -R $user:$user "$md_inst/$conf"
+        moveConfigDir "$md_inst/$conf" "md_conf_root/$md_id"
+    done
+
+    #create buffer script for launch
+    cat > "$script" << _EOF_
 #!/bin/bash
 pushd "$md_inst"
 "./heboris" \$*
 popd
 _EOF_
-    
-	chmod +x "$script"
+
+    chmod +x "$script"
     addPort "$md_id" "heboris" "HeborisC7EX - Tetris The Grand Master Clone" "XINIT:$script"
 }
