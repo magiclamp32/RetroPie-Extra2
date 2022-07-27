@@ -45,10 +45,13 @@ function configure_heboris() {
     local script="$md_inst/$md_id.sh"
     local conf
 
-    for conf in config replay res heboris.ini; do
+    for conf in config replay res; do
         chown -R $user:$user "$md_inst/$conf"
-        moveConfigDir "$md_inst/$conf" "md_conf_root/$md_id"
+        moveConfigDir "$md_inst/$conf" "$md_conf_root/$md_id/$conf"
     done
+
+    chown $user:$user "$md_inst/heboris.ini"
+    moveConfigFile "$md_inst/heboris.ini" "$md_conf_root/$md_id/heboris.ini"
 
     #create buffer script for launch
     cat > "$script" << _EOF_
