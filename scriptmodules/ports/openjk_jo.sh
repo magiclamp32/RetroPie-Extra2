@@ -13,7 +13,7 @@
 rp_module_id="openjk_jo"
 rp_module_desc="openjk_jo - OpenJK: Jedi Outcast (SP)"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/JACoders/OpenJK/master/LICENSE.txt"
-rp_module_help="Copy assets0.pk3  assets1.pk3  assets2.pk3  assets5.pk3 into $romdir/jedioutcast/"
+rp_module_help="Copy assets0.pk3  assets1.pk3  assets2.pk3  assets5.pk3 into $romdir/jedioutcast/\n\jospgamearm.so needs to stay in the base folder"
 rp_module_section="exp"
 rp_module_flags=""
 
@@ -63,7 +63,8 @@ function configure_openjk_jo() {
     addPort "$md_id" "jedioutcast_sp" "Star Wars - Jedi Knight - Jedi Outcast (SP)" "${launcher_jo_sp[*]}"
 
     mkRomDir "ports/jedioutcast"
-
+    mkRomDir "ports/jedioutcast/base"
+    cp -r "$md_inst/jospgame$(_arch_openjk_jo).so" "$romdir/ports/jedioutcast/base"
     moveConfigDir "$md_inst/base" "$romdir/ports/jedioutcast"
     moveConfigDir "$home/.local/share/openjo" "${md_conf_root}/jedioutcast/openjo"
 }
