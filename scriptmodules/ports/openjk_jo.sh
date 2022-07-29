@@ -64,7 +64,7 @@ function configure_openjk_jo() {
 
     mkRomDir "ports/jedioutcast"
     mkRomDir "ports/jedioutcast/base"
-    cp -r "$md_inst/jospgame$(_arch_openjk_jo).so" "$romdir/ports/jedioutcast/base"
+    cp "$md_inst/jospgame$(_arch_openjk_jo).so" "$romdir/ports/jedioutcast/base"
     moveConfigDir "$md_inst/base" "$romdir/ports/jedioutcast"
     moveConfigDir "$home/.local/share/openjo" "${md_conf_root}/jedioutcast/openjo"
 }
