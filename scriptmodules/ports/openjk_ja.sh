@@ -39,15 +39,7 @@ function build_openjk_ja() {
     make
 
     md_ret_require=(
-        "$md_build/build/openjkded.$(_arch_openjk_ja)"
-        "$md_build/build/openjk_sp.$(_arch_openjk_ja)"
         "$md_build/build/openjk.$(_arch_openjk_ja)"
-        "$md_build/build/code/game/jagame$(_arch_openjk_ja).so"
-        "$md_build/build/code/rd-vanilla/rdsp-vanilla_$(_arch_openjk_ja).so"
-        "$md_build/build/codemp/game/jampgame$(_arch_openjk_ja).so"
-        "$md_build/build/codemp/cgame/cgame$(_arch_openjk_ja).so"
-        "$md_build/build/codemp/ui/ui$(_arch_openjk_ja).so"
-        "$md_build/build/codemp/rd-vanilla/rd-vanilla_$(_arch_openjk_ja).so"
     )
 }
 
