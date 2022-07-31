@@ -66,11 +66,11 @@ function configure_openjk_jo() {
 
     mkRomDir "ports/jedioutcast"
 
-    moveConfigDir "$md_inst/base" "$romdir/ports/jedioutcast"
     moveConfigDir "$home/.local/share/openjo" "$md_conf_root/jedioutcast/openjo"
 
     if [[ "$md_mode" == "install" ]]; then
-    cat > "$script" << _EOF_
+        ln -snf "$romdir/ports/jedioutcast" "$md_inst/base"
+        cat > "$script" << _EOF_
 #!/bin/bash
 mode="\$1"
 shift

@@ -78,10 +78,10 @@ function configure_openjk_ja() {
 
     mkRomDir "ports/jediacademy"
 
-    moveConfigDir "$md_inst/base" "$romdir/ports/jediacademy"
     moveConfigDir "$home/.local/share/openjk" "$md_conf_root/jediacademy/openjk"
 
     if [[ "$md_mode" == "install" ]]; then
+        ln -snf "$romdir/ports/jediacademy" "$md_inst/base"
         cat > "$script" << _EOF_
 #!/bin/bash
 mode="\$1"
