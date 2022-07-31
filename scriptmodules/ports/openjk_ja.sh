@@ -24,8 +24,7 @@ function _arch_openjk_ja() {
 }
 
 function depends_openjk_ja() {
-    getDepends build-essential cmake libjpeg-dev libpng-dev zlib1g-dev libsdl2-dev
-
+    getDepends cmake libjpeg-dev libpng-dev zlib1g-dev libsdl2-dev
 }
 
 function sources_openjk_ja() {
@@ -66,29 +65,36 @@ function install_openjk_ja() {
     )
 }
 
-function game_data_openjk_ja() {
-    for lib in ui cgame jagame jampgame
-    do
-        cp "${md_inst}/${lib}$(_arch_openjk_ja).so" "${romdir}/ports/jediacademy/${lib}$(_arch_openjk_ja).so"
-    done
-}
-
 function configure_openjk_ja() {
-    local launcher_sp=("${md_inst}/openjk_sp.$(_arch_openjk_ja) +set fs_basepath /home/pi/RetroPie/roms/ports/jediacademy")
-    local launcher_mp=("${md_inst}/openjk.$(_arch_openjk_ja) +set fs_basepath /home/pi/RetroPie/roms/ports/jediacademy")
-	isPlatform "mesa" && launcher_sp+=("+set cl_renderer opengl1")
-    	isPlatform "kms" && launcher_sp+=("+set r_mode -1" "+set r_customwidth %XRES%" "+set r_customheight %YRES%" "+set r_swapInterval 1")
-	isPlatform "mesa" && launcher_mp+=("+set cl_renderer opengl1")
-    	isPlatform "kms" && launcher_mp+=("+set r_mode -1" "+set r_customwidth %XRES%" "+set r_customheight %YRES%" "+set r_swapInterval 1")
+    local launcher_sp="${md_inst}/openjk_sp.$(_arch_openjk_ja)"
+    local launcher_mp="${md_inst}/openjk.$(_arch_openjk_ja)"
+    local params=("+set fs_basepath $md_inst")
+    isPlatform "mesa" && params+=("+set cl_renderer opengl1")
+    isPlatform "kms" && params+=("+set r_mode -1" "+set r_customwidth %XRES%" "+set r_customheight %YRES%" "+set r_swapInterval 1")
+    local script="$md_inst/launch-$md_id.sh"
 
-
-    addPort "${md_id}" "jediacademy_sp" "Star Wars - Jedi Knight - Jedi Academy (SP)" "${launcher_sp[*]}"
-    addPort "${md_id}" "jediacademy_mp" "Star Wars - Jedi Knight - Jedi Academy (MP)" "${launcher_mp[*]}"
+    addPort "${md_id}" "jediacademy" "Star Wars - Jedi Knight - Jedi Academy (SP)" "$script %ROM% ${params[*]}" "sp"
+    addPort "${md_id}" "jediacademy" "Star Wars - Jedi Knight - Jedi Academy (MP)" "$script %ROM% ${params[*]}" "mp"
 
     mkRomDir "ports/jediacademy"
 
     moveConfigDir "${md_inst}/base" "$romdir/ports/jediacademy"
     moveConfigDir "$home/.local/share/openjk" "${md_conf_root}/jediacademy/openjk"
 
-    [[ "$md_mode" == "install" ]] && game_data_openjk_ja
+    if [[ "$md_mode" == "install" ]]; then
+        cat > "$script" << _EOF_
+#!/bin/bash
+mode="\$1"
+shift
+
+case "\$mode" in
+    sp) launcher="$launcher_sp" ;;
+    mp) launcher="$launcher_mp" ;;
+esac
+
+[[ -n "\$launcher" ]] && "\$launcher" "\$@"
+_EOF_
+
+    chmod +x "$script"
+    fi
 }
