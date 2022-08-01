@@ -60,7 +60,7 @@ function install_openjk_ja() {
 function configure_openjk_ja() {
     local launcher_sp="$md_inst/openjk_sp.$(_arch_openjk_ja)"
     local launcher_mp="$md_inst/openjk.$(_arch_openjk_ja)"
-    local params=("+set fs_basepath $md_inst")
+    local params=()
     isPlatform "mesa" && params+=("+set cl_renderer opengl1")
     isPlatform "kms" && params+=("+set r_mode -1" "+set r_customwidth %XRES%" "+set r_customheight %YRES%" "+set r_swapInterval 1")
     local script="$md_inst/launch-$md_id.sh"
@@ -72,9 +72,18 @@ function configure_openjk_ja() {
 
     moveConfigDir "$home/.local/share/openjk" "$md_conf_root/jediacademy/openjk"
 
-    if [[ "$md_mode" == "install" ]]; then
-        ln -snf "$romdir/ports/jediacademy" "$md_inst/base"
-        cat > "$script" << _EOF_
+    [[ "$md_mode" == "remove" ]] && return
+
+    # link game data to install dir
+    ln -snf "$romdir/ports/jediacademy" "$md_inst/base"
+
+    # link required libs to game dir (required for multiplayer)
+    for lib in ui cgame; do
+        ln -sf "$md_inst/$lib$(_arch_openjk_ja).so" "$romdir/ports/jediacademy/$lib$(_arch_openjk_ja).so"
+        chown -h $user:$user "$romdir/ports/jediacademy/$lib$(_arch_openjk_ja).so"
+    done
+
+    cat > "$script" << _EOF_
 #!/bin/bash
 mode="\$1"
 shift
@@ -88,5 +97,4 @@ esac
 _EOF_
 
     chmod +x "$script"
-    fi
 }
