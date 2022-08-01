@@ -78,7 +78,7 @@ function configure_openjk_ja() {
     ln -snf "$romdir/ports/jediacademy" "$md_inst/base"
 
     # link required libs to game dir (required for multiplayer)
-    for lib in ui cgame; do
+    for lib in ui cgame jampgame; do
         ln -sf "$md_inst/$lib$(_arch_openjk_ja).so" "$romdir/ports/jediacademy/$lib$(_arch_openjk_ja).so"
         chown -h $user:$user "$romdir/ports/jediacademy/$lib$(_arch_openjk_ja).so"
     done
