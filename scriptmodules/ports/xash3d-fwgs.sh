@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-# This file is part of RetroPie-Extra, a supplement to RetroPie.
-# For more information, please visit:
-#
-# https://github.com/RetroPie/RetroPie-Setup
-# https://github.com/Exarkuniv/RetroPie-Extra
-#
-# See the LICENSE file distributed with this source and at
-# https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/LICENSE
+# This file is part of The RetroPie Project
+# 
+# The RetroPie Project is the legal property of its developers, whose names are
+# too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
+# 
+# See the LICENSE.md file at the top-level directory of this distribution and 
+# at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
 rp_module_id="xash3d-fwgs"
@@ -22,9 +21,9 @@ function depends_xash3d-fwgs() {
 
 function sources_xash3d-fwgs() {
     gitPullOrClone "$md_build/$md_id" https://github.com/FWGS/xash3d-fwgs.git
-    gitPullOrClone "$md_build/hlsdk" https://github.com/FWGS/hlsdk-xash3d.git
-    gitPullOrClone "$md_build/bshiftsdk" https://github.com/FWGS/hlsdk-xash3d.git "bshift"
-    gitPullOrClone "$md_build/opforsdk" https://github.com/FWGS/hlsdk-xash3d.git "opfor"
+    gitPullOrClone "$md_build/hlsdk" https://github.com/FWGS/hlsdk-portable.git
+    gitPullOrClone "$md_build/bshiftsdk" https://github.com/FWGS/hlsdk-portable.git "bshift"
+    gitPullOrClone "$md_build/opforsdk" https://github.com/FWGS/hlsdk-portable.git "opfor"
 }
 
 function build_xash3d-fwgs() {
@@ -46,6 +45,7 @@ function build_xash3d-fwgs() {
         "$md_build/$md_id/build/mainui/libmenu.so"
         "$md_build/$md_id/build/ref_soft/libref_soft.so"
         "$md_build/$md_id/build/ref_gl/libref_gl.so"
+	"$md_build/$md_id/build/filesystem/filesystem_stdio.so"
     )
 }
 
@@ -56,6 +56,7 @@ function install_xash3d-fwgs() {
         "$md_id/build/mainui/libmenu.so"
         "$md_id/build/ref_soft/libref_soft.so"
         "$md_id/build/ref_gl/libref_gl.so"
+	"$md_id/build/filesystem/filesystem_stdio.so"
     )
 
 }
