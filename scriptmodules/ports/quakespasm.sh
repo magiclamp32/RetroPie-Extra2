@@ -44,7 +44,5 @@ function configure_quakespasm() {
         addPort "$md_id" "quakespasm" "Quakespasm - Quake engine" "$md_inst/quakespasm -basedir /home/pi/RetroPie/roms/ports/quake"
 
     mkRomDir "ports/quake"
-
-
-
+    [[ "$md_mode" == "install" ]] && game_data_lr-tyrquake
 }
