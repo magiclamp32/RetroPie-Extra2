@@ -197,33 +197,33 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `openmwdriver.sh` - The OpenSceneGraph is an open source high performance 3D graphics toolkit. - **Installs works as needed**
 
 #### Supplementary
-- [X] - `audacity.sh` - Audacity open-source digital audio editor - **Installs Runs fine**
-- [X] - `bezelproject.sh` - Easily set up the Bezel Project
+- [ ] - `audacity.sh` - Audacity open-source digital audio editor - **Installs Runs fine**
+- [ ] - `bezelproject.sh` - Easily set up the Bezel Project
 - [X] - `bgm123.sh` - Straighforward background music player using mpg123. **Currently limited to RPi into HDMI. Testers / collaborators welcome to help expand this functionality.**
-- [X] - `chromium.sh` - Open Source Web Browser - **Installs, Work well**
-- [X] - `deadbeef.sh` - Music and ripped game music player - **Installs**
-- [X] - `epiphany-browser.sh` - epiphany lightweight web browser - **Installs Runs fine **
-- [X] - `filezilla.sh` - A cross platform FTP application - **Installs**
-- [X] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser - **Installs**
+- [ ] - `chromium.sh` - Open Source Web Browser - **Installs, Work well**
+- [ ] - `deadbeef.sh` - Music and ripped game music player - **Installs**
+- [ ] - `epiphany-browser.sh` - epiphany lightweight web browser - **Installs Runs fine **
+- [ ] - `filezilla.sh` - A cross platform FTP application - **Installs**
+- [ ] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser - **Installs**
 - [ ] - `fun-facts-splashscreens.sh` - Set up some loading splashscreens with fun facts. **Cant test dont have the right system x86**
-- [X] - `gparted.sh` - partition editing application
-- [X] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
-- [X] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Installs**
-- [X] - `kweb.sh` - Minimal kiosk web browser - **Installs**
-- [X] - `librecad.sh` - librecad open-source 2d cad - **Installs Runs fine**
-- [X] - `libreoffice.sh` - Open source office suite - **Installs Runs fine**
-- [X] - `lutris.sh` - lutris - Game engine for linux - **Installs**
+- [ ] - `gparted.sh` - partition editing application
+- [ ] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
+- [ ] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Installs, works great**
+- [ ] - `kweb.sh` - Minimal kiosk web browser - **Installs**
+- [ ] - `librecad.sh` - librecad open-source 2d cad - **Installs Runs fine**
+- [ ] - `libreoffice.sh` - Open source office suite - **Installs Runs fine**
+- [ ] - `lutris.sh` - lutris - Game engine for linux - **Installs**
 - [ ] - `mame-tools.sh` - Additional tools for MAME/MESS **Failed**
-- [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs**
-- [X] - `mixx.sh` - Mixxx DJ Mixing Software App - **Installs Runs fine**
-- [X] - `mypaint.sh` - mypaint easy-to-use painting program - **Installs Runs fine**
-- [X] - `omxplayer.sh` - Video Player - **Installs**
-- [X] - `putty.sh` - SSH and telnet client - **Installs Runs fine**
-- [X] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
-- [X] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
-- [X] - `vgmplay.sh` - Music Player - **Installs**
-- [X] - `videolan.sh` - VLC media player - **Installs Runs fine**
-- [X] - `weechat.sh` - Console IRC Client - **Installs**
+- [ ] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs**
+- [ ] - `mixx.sh` - Mixxx DJ Mixing Software App - **Installs Runs fine**
+- [ ] - `mypaint.sh` - mypaint easy-to-use painting program - **Installs Runs fine**
+- [ ] - `omxplayer.sh` - Video Player - **Installs**
+- [ ] - `putty.sh` - SSH and telnet client - **Installs Runs fine**
+- [ ] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
+- [ ] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
+- [ ] - `vgmplay.sh` - Music Player - **Installs**
+- [ ] - `videolan.sh` - VLC media player - **Installs Runs fine**
+- [ ] - `weechat.sh` - Console IRC Client - **Installs**
 
 ### Removed broken scripts to RetroPie-Extra-unstable
 
