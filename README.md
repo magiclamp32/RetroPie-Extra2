@@ -119,8 +119,6 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-thepowdertoy.sh` - Sandbox physics game for libretro - **Installs Plays fine**
 - [X] - `lr-uzem.sh` - Uzebox engine - Uzem port for libretro - **Installs, Plays well**
 - [X] - `lr-vemulator.sh` - SEGA VMU emulator - VeMUlator port for libretro - **Installs Plays fine**
-- [ ] - `lr-vitaquake2.sh` - Quake 2 engine - vitaQuake II port for libretro **PSVita only**
-- [ ] - `lr-vitaquake3.sh` - Quake 3 engine - vitaQuake III (ioquake3) port for libretro **PSVita only**
 - [X] - `lr-yabasanshiro.sh` - Saturn & ST-V emulator - Yabasanshiro port for libretro - **Installs Plays fine**
 
 #### Ports
@@ -163,12 +161,11 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `nblood.sh` - Blood source port - **Installs, Plays great**
 - [ ] - `nkaruga.sh` - Ikaruga demake. - **Blocked from installing on Pi4**
 - [X] - `nxengine-evo.sh` - The standalone version of the open-source clone/rewrite of Cave Story - **Installs Plays fine on Pi4. Need to bind controller in options**
-- [ ] - `opendune.sh` - Dune 2 source port - **Installs, but doesnt install config file**
+- [X] - `opendune.sh` - Dune 2 source port - **Installs Play sgreat,/W game, need to need to drop resolutions to lower for full screen**
 - [X] - `openjazz.sh` - An enhanced Jazz Jackrabbit source port - **Installs, Plays great**
 - [X] - `openjk_ja.sh` - OpenJK: JediAcademy (SP + MP) - **Installs, Plays great, didnt test MP**
 - [X] - `openjk_jo.sh` - OpenJK: Jedi Outcast (SP) - **Installs, Plays great**
-- [X] - `openmw.sh` - Morrowind source port - **Installs, Plays great, Black screen on EXIT**
-- [X] - `openmwdriver.sh` - Driver for Morrowind source port **Installs correctly**
+- [X] - `openmw.sh` - Morrowind source port - **Installs, Plays great**
 - [X] - `openra.sh` - Real Time Strategy game engine supporting early Westwood classics - **Installs, Plays great**
 - [X] - `openrct2.sh` - RollerCoaster Tycoon 2 port - **Installs, Plays great**
 - [X] - `piegalaxy.sh` - Pie Galaxy - Download and install GOG.com games in RetroPie - **Installs Runs, Cant login to test**
@@ -182,7 +179,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `relive.sh` - Oddworld engine for Abe's Oddysee and Abe's Exoddus **Installs Plays well, some graphic glitches**
 - [X] - `reminiscence.sh` - Flashback engine clone - **Installs, Plays fine**
 - [ ] - `rickyd.sh` - Rick Dangerous clone - **Blocked from installing on Pi4**
-- [X] - `rigelengine.sh` - RigelEngine - Duke Nukem 2 source port - **Installs, Plays great**
+- [X] - `rigelengine.sh` - RigelEngine - Duke Nukem 2 source port - **Installs, Plays great/ with Demo**
 - [X] - `rocksndiamonds.sh` - Rocks'n'Diamonds - Emerald Mine Clone - **Installs, Plays great**
 - [X] - `rott-darkwar.sh` - Rise of the Triad source port with joystick support - **Installs**
 - [X] - `rott-huntbgin.sh` - Rise of the Triad (shareware version) source port with joystick support. - **Installs, Plays great**
