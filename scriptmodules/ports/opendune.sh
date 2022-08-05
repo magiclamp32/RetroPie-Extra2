@@ -43,21 +43,21 @@ function install_opendune() {
 }
 
 function game_data_opendune() {
+
     if [[ ! -f "$romdir/ports/opendune/DUNE2.EXE" ]]; then
-        downloadAndExtract "https://github.com/Exarkuniv/game-data/raw/main/Dune-II-The-Building-of-a-Dynasty_DOS_EN.zip" "$romdir/ports/opendune"
+        downloadAndExtract "https://github.com/Exarkuniv/game-data/raw/main/dune-II.zip" "$romdir/ports/opendune"
     mv "$romdir/ports/opendune/dune-ii-the-building-of-a-dynasty/"* "$romdir/ports/opendune/"
     rmdir "$romdir/ports/opendune/dune-ii-the-building-of-a-dynasty/"
     chown -R $user:$user "$romdir/ports/opendune"
     fi
-
-    cp $md_inst/opendune.ini.sample "/home/pi/.config/opendune/opendune.ini"
-    sed -i "/.*;datadir=$usr$local$opendune.*/c\\datadir=/home/pi/RetroPie/roms/ports/opendune" /home/pi/.config/opendune/opendune.ini
-    sed -i "/.*;fullscreen=1.*/c\\fullscreen=1" /home/pi/.config/opendune/opendune.ini
-    sed -i "/.*;language=french.*/c\\language=english" /home/pi/.config/opendune/opendune.ini
+    #changing the config to work with RetroPie
+    sed -i -e "/;datadir=$usr$local$opendune/c\\datadir=$romdir/ports/opendune" -e "/;fullscreen=1/c\\fullscreen=1" -e "/;language=french/c\\language=english" -e "10d" -e "/save/a savedir=$md_conf_root/opendune" $home/.config/opendune/opendune.ini
 }
 
 function configure_opendune() {
     mkRomDir "ports/opendune"
+    moveConfigDir "$home/.config/opendune" "$md_conf_root/opendune"
+    cp $md_inst/opendune.ini.sample "$md_conf_root/opendune/opendune.ini"
     addPort "$md_id" "opendune" "OpenDune - Dune 2 port" "XINIT: $md_inst/opendune"
 
     [[ "$md_mode" == "install" ]] && game_data_opendune
