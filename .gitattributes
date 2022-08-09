@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# don't convert .diff or .patch files
+*.diff binary
+*.patch binary
