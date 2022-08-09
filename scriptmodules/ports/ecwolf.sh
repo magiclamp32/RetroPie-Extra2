@@ -28,8 +28,8 @@ function sources_ecwolf() {
 
 function build_ecwolf() {
     cd "$md_build"
-    #wget -N -q https://raw.githubusercontent.com/tpo1990/ECWolf-RPI/master/ecwolf_keyboardpatch.diff
-    #applyPatch ecwolf_keyboardpatch.diff
+    # add Escape to controller bindable keys to access main menu
+    applyPatch "$md_data/01_keyboard_patch.diff"
     cmake . -DCMAKE_BUILD_TYPE=Release -DGPL=ON
     make
     md_ret_require="$md_build"
