@@ -193,9 +193,6 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `xash3d-fwgs.sh` - Half-Life engine source port. - **Installs**
 - [X] - `zeldansq.sh` - Zelda: Navi's Quest fangame - **Installs, Plays great, Needs correct script to remove xinit errors**
 
-#### Drivers
-- [X] - `openmwdriver.sh` - The OpenSceneGraph is an open source high performance 3D graphics toolkit. - **Installs works as needed**
-
 #### Supplementary
 - [X] - `audacity.sh` - Audacity open-source digital audio editor - **Installs Runs fine**
 - [X] - `bezelproject.sh` - Easily set up the Bezel Project **Installs Runs fine**
