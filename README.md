@@ -197,33 +197,29 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `openmwdriver.sh` - The OpenSceneGraph is an open source high performance 3D graphics toolkit. - **Installs works as needed**
 
 #### Supplementary
-- [ ] - `audacity.sh` - Audacity open-source digital audio editor - **Installs Runs fine**
-- [ ] - `bezelproject.sh` - Easily set up the Bezel Project
+- [X] - `audacity.sh` - Audacity open-source digital audio editor - **Installs Runs fine**
+- [X] - `bezelproject.sh` - Easily set up the Bezel Project **Installs Runs fine**
 - [X] - `bgm123.sh` - Straighforward background music player using mpg123. **Currently limited to RPi into HDMI. Testers / collaborators welcome to help expand this functionality.**
-- [ ] - `chromium.sh` - Open Source Web Browser - **Installs, Work well**
-- [ ] - `deadbeef.sh` - Music and ripped game music player - **Installs**
-- [ ] - `epiphany-browser.sh` - epiphany lightweight web browser - **Installs Runs fine **
-- [ ] - `filezilla.sh` - A cross platform FTP application - **Installs**
-- [ ] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser - **Installs**
+- [X] - `chromium.sh` - Open Source Web Browser - **Installs, Work well**
+- [X] - `epiphany.sh` - epiphany lightweight web browser - **Installs Runs fine **
+- [X] - `filezilla.sh` - A cross platform FTP application - **Installs Runs fine**
+- [X] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser - **Installs Runs fine**
 - [ ] - `fun-facts-splashscreens.sh` - Set up some loading splashscreens with fun facts. **Cant test dont have the right system x86**
-- [ ] - `gparted.sh` - partition editing application
-- [ ] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
-- [ ] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Installs, works great**
-- [ ] - `kweb.sh` - Minimal kiosk web browser - **Installs**
-- [ ] - `librecad.sh` - librecad open-source 2d cad - **Installs Runs fine**
-- [ ] - `libreoffice.sh` - Open source office suite - **Installs Runs fine**
-- [ ] - `lutris.sh` - lutris - Game engine for linux - **Installs**
-- [ ] - `mame-tools.sh` - Additional tools for MAME/MESS **Failed**
-- [ ] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs**
-- [ ] - `mixx.sh` - Mixxx DJ Mixing Software App - **Installs Runs fine**
-- [ ] - `mypaint.sh` - mypaint easy-to-use painting program - **Installs Runs fine**
-- [ ] - `omxplayer.sh` - Video Player - **Installs**
-- [ ] - `putty.sh` - SSH and telnet client - **Installs Runs fine**
-- [ ] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
-- [ ] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
-- [ ] - `vgmplay.sh` - Music Player - **Installs**
-- [ ] - `videolan.sh` - VLC media player - **Installs Runs fine**
-- [ ] - `weechat.sh` - Console IRC Client - **Installs**
+- [X] - `gparted.sh` - partition editing application **Installs Runs fine**
+- [X] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
+- [X] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Installs, works great**
+- [X] - `kweb.sh` - Minimal kiosk web browser - **Installs**
+- [X] - `librecad.sh` - librecad open-source 2d cad - **Installs Runs fine**
+- [X] - `libreoffice.sh` - Open source office suite - **Installs Runs fine**
+- [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs Runs fine**
+- [X] - `mixx.sh` - Mixxx DJ Mixing Software App - **Installs Runs fine**
+- [X] - `mypaint.sh` - mypaint easy-to-use painting program - **Installs Runs fine**
+- [X] - `omxplayer.sh` - Video Player - **Installs Runs fine**
+- [X] - `putty.sh` - SSH and telnet client - **Installs Runs fine**
+- [X] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
+- [X] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
+- [X] - `videolan.sh` - VLC media player - **Installs Runs fine**
+- [X] - `weechat.sh` - Console IRC Client - **Installs Runs fine**
 
 ### Removed broken scripts to RetroPie-Extra-unstable
 
@@ -232,12 +228,15 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `lr-ecwolf.sh` - Wolfestein 3D engine - ECWolf port based of Wolf4SDL for libretro - **Installs Fails to start games**
 - [ ] - `lr-pocketcdg.sh` - A MP3 karaoke music player. - **Installs, Fails to load files **
 - [ ] - `lr-minivmac.sh` -  Macintosh Plus Emulator - Mini vMac port for libretro - **Installs, Black screen when starting games**
+- [ ] - `deadbeef.sh` - Music and ripped game music player - **Installs**
 - [ ] - `corsixth.sh` - Theme Hospital engine clone - **Installs, Lua error, will not play**
 - [ ] - `fofix.sh` - FoFix - Guitar Hero and Rock Band clone - **Bin file is nolonger able to download**
 - [ ] - `funnyboat.sh` - Funny Boat. A side scrolling boat shooter with waves - **Installs, Plays in small window**
 - [ ] - `ganbare.sh` - Japanese 2D Platformer - **Installs, Plays in small window**
 - [ ] - `gamemaker.sh` - Install the 3 gamemaker games - **Failed to build**
+- [ ] - `lutris.sh` - lutris - Game engine for linux - **fails, missing package now**
 - [ ] - `maelstrom.sh` - Maelstrom - Classic Mac Asteroids Remake - **Failed to build**
+- [ ] - `mame-tools.sh` - Additional tools for MAME/MESS **Failed**
 - [ ] - `manaplus.sh` - 2D MMORPG client - **Failed to build**
 - [ ] - `openxcom.sh` - Open Source X-COM Engine - **Failed to build**
 - [ ] - `kaiten-patissier.sh` - Japanese 2D Platformer - **Installs Plays in small window**
@@ -248,6 +247,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `tinyfugue.sh` - MUD client - **fails to start**
 - [ ] - `ulmos-adventure.sh` - Simple Adventure Game - **Installs Small screen**
 - [ ] - `vorton.sh` - Highway Encounter Remake in Spanish - **Installs small screen**
+- [ ] - `vgmplay.sh` - Music Player - **Installs**
 - [ ] - `wizznic.sh` - Puzznic clone - **Installs Plays, screen is small**
 - [ ] - `zeldapicross.sh` - Zelda themed Picross fangame - **Installs starts but will not go past first screen**
 
