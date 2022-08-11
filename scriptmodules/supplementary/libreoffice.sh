@@ -27,7 +27,7 @@ function install_bin_libreoffice() {
 function configure_libreoffice() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
-    moveConfigDir "$home/.config" "$md_conf_root/$md_id"
+    moveConfigDir "$home/.config/$md_id" "$md_conf_root/ports/$md_id"
     cat >"$md_inst/libreoffice.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
@@ -37,4 +37,5 @@ _EOF_
     chmod +x "$md_inst/libreoffice.sh"
 
     addPort "$md_id" "libreoffice" "LibreOffice Open Source office suite" "XINIT: $md_inst/libreoffice.sh"
+    mv "$md_conf_root/$md_id" "$md_conf_root/ports"
 }

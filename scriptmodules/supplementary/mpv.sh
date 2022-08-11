@@ -24,8 +24,8 @@ function install_bin_mpv() {
 function configure_mpv() {
     mkRomDir "movies"
     mkRomDir "tvshows"
-    addEmulator 0 "$md_id" "movies" "$md_inst/mpv %ROM%" 
-    addEmulator 0 "$md_id" "tvshows" "$md_inst/mpv %ROM%" 
+    addEmulator 1 "$md_id" "movies" "/usr/bin/mpv %ROM%" 
+    addEmulator 1 "$md_id" "tvshows" "/usr/bin/mpv %ROM%" 
     addSystem "movies" "Movies" ".avi .m4v .mkv .mov .mp4 .mpg .wmv .AVI .M4V .MKV .MOV .MP4 .MPG .WMV"
     addSystem "tvshows" "TVshows" ".avi .m4v .mkv .mov .mp4 .mpg .wmv .AVI .M4V .MKV .MOV .MP4 .MPG .WMV"
 }

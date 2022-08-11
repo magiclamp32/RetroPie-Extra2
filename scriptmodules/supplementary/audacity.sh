@@ -26,15 +26,17 @@ function install_bin_audacity() {
 
 function configure_audacity() {
     mkRomDir "ports"
-    mkdir -p "$md_inst"
-    moveConfigDir "$home/.config" "$md_conf_root/$md_id"
+    moveConfigDir "$home/.config/$md_id" "$md_conf_root/ports/$md_id"
+    
     cat >"$md_inst/audacity.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no &
 /usr/bin/audacity
 _EOF_
+
     chmod +x "$md_inst/audacity.sh"
 
     addPort "$md_id" "audacity" "Audacity Open-Source Digital Audio Editor" "XINIT: $md_inst/audacity.sh"
+    mv "$md_conf_root/$md_id" "$md_conf_root/ports"
 }

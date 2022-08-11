@@ -27,7 +27,7 @@ function install_bin_putty() {
 function configure_putty() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
-    moveConfigDir "$home/.config" "$md_conf_root/$md_id"
+    moveConfigDir "$home/.config/$md_id" "$md_conf_root/ports/$md_id"
     cat >"$md_inst/putty.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
@@ -37,4 +37,5 @@ _EOF_
     chmod +x "$md_inst/putty.sh"
 
     addPort "$md_id" "putty" "Putty SSH and telnet client" "XINIT: $md_inst/putty.sh"
+    mv "$md_conf_root/$md_id" "$md_conf_root/ports"
 }

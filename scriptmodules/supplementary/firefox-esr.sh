@@ -27,7 +27,7 @@ function install_bin_firefox-esr() {
 function configure_firefox-esr() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
-    moveConfigDir "$home/.mozilla" "$md_conf_root/$md_id"
+    moveConfigDir "$home/.mozilla" "$md_conf_root/ports/$md_id"
     cat >"$md_inst/firefox-esr.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
@@ -37,4 +37,5 @@ _EOF_
     chmod +x "$md_inst/firefox-esr.sh"
 
     addPort "$md_id" "firefox-esr" "FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser" "XINIT: $md_inst/firefox-esr.sh"
+    mv "$md_conf_root/$md_id" "$md_conf_root/ports"
 }

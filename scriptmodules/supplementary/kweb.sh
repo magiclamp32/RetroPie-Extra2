@@ -37,4 +37,5 @@ function install_kweb() {
 function configure_kweb() {
     mkRomDir "ports"
     addPort "$md_id" "kweb" "kweb - Minimal Kiosk Web Browser" "XINIT: kweb"
+    mv "$md_conf_root/$md_id" "$md_conf_root/ports"
 }

@@ -26,15 +26,16 @@ function install_bin_weechat() {
 
 function configure_weechat() {
     mkRomDir "ports"
-    moveConfigDir "$home/.weechat" "$md_conf_root/weechat"
+    moveConfigDir "$home/.weechat" "$md_conf_root/ports/$md_id"
 
-    cat >"$romdir/ports/weechat.sh" << _EOF_
+    cat >"$md_inst/weechat.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
 matchbox-window-manager -use_titlebar no &
 xterm -rv /usr/bin/weechat
 _EOF_
-    chmod +x "$romdir/ports/weechat.sh"
+    chmod +x "$md_inst/weechat.sh"
 
-    addPort "$md_id" "weechat" "Weechat - Console IRC Client" "XINIT: $romdir/ports/weechat.sh"
+    addPort "$md_id" "weechat" "Weechat - Console IRC Client" "XINIT: $md_inst/weechat.sh"
+    mv "$md_conf_root/$md_id" "$md_conf_root/ports"
 }

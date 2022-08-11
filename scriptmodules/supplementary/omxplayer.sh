@@ -22,6 +22,7 @@ function install_bin_omxplayer() {
 }
 function configure_omxplayer() {
     mkRomDir "videos"
-    addEmulator 0 "$md_id" "videos" "omxplayer %ROM%"
+    moveConfigDir "$home/.config/$md_id" "$md_conf_root/ports/$md_id"
+    addEmulator 1 "$md_id" "videos" "omxplayer %ROM%"
     addSystem "videos" "Videos" ".mp4 .MP4 .mov .MOV .avi .AVI .mkv .MKV"
 }

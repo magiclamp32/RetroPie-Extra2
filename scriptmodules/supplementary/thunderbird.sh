@@ -27,7 +27,7 @@ function install_bin_thunderbird() {
 function configure_thunderbird() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
-    moveConfigDir "$home/.mozilla" "$md_conf_root/$md_id"
+    moveConfigDir "$home/.thunderbird" "$md_conf_root/ports/$md_id"
     cat >"$md_inst/thunderbird.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
@@ -37,4 +37,5 @@ _EOF_
     chmod +x "$md_inst/thunderbird.sh"
 
     addPort "$md_id" "thunderbird" "Mozilla - Thunderbird - Email Client" "XINIT: $md_inst/thunderbird.sh"
+    mv "$md_conf_root/$md_id" "$md_conf_root/ports"
 }

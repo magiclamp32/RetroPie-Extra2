@@ -27,7 +27,7 @@ function install_bin_mypaint() {
 function configure_mypaint() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
-    moveConfigDir "$home/.config" "$md_conf_root/$md_id"
+    moveConfigDir "$home/.config/$md_id" "$md_conf_root/ports/$md_id"
     cat >"$md_inst/mypaint.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
@@ -37,4 +37,5 @@ _EOF_
     chmod +x "$md_inst/mypaint.sh"
 
     addPort "$md_id" "mypaint" "MyPaint easy-to-use painting program" "XINIT: $md_inst/mypaint.sh"
+    mv "$md_conf_root/$md_id" "$md_conf_root/ports" 
 }

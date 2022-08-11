@@ -17,17 +17,18 @@ rp_module_section="exp"
 rp_module_flags="!mali !x86"
 
 function depends_chromium() {
-    getDepends git omxplayer libgnome-keyring-common libgnome-keyring0 libnspr4 libnss3 xdg-utils matchbox xorg gconf-service libgconf-2-4 rpi-chromium-mods
+    getDepends git omxplayer libgnome-keyring-common libgnome-keyring0 libnspr4 libnss3 xdg-utils matchbox xorg gconf-service libgconf-2-4
 }
 
-function sources_chromium() {
-    apt-get install chromium-browser
+function install_bin_chromium() {
+    aptInstall chromium-browser rpi-chromium-mods
 }
 
 function configure_chromium() {
     mkRomDir "ports"
     mkdir -p "$md_inst"
-    moveConfigDir "$home/.config/$md_id" "$md_conf_root/$md_id"
+    moveConfigDir "$home/.config/$md_id" "$md_conf_root/ports/$md_id"
+
     cat >"$md_inst/chromium.sh" << _EOF_
 #!/bin/bash
 xset -dpms s off s noblank
@@ -37,4 +38,5 @@ _EOF_
     chmod +x "$md_inst/chromium.sh"
 
     addPort "$md_id" "chromium" "Chromium - Open Source Web Browser" "XINIT: $md_inst/chromium.sh"
+    mv "$md_conf_root/$md_id" "$md_conf_root/ports"
 }
