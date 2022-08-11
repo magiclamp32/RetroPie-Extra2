@@ -201,14 +201,14 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `bezelproject.sh` - Easily set up the Bezel Project **Installs Runs fine**
 - [X] - `bgm123.sh` - Straighforward background music player using mpg123. **Currently limited to RPi into HDMI. Testers / collaborators welcome to help expand this functionality.**
 - [X] - `chromium.sh` - Open Source Web Browser - **Installs, Work well**
-- [X] - `epiphany.sh` - epiphany lightweight web browser - **Installs Runs fine **
+- [X] - `epiphany.sh` - epiphany lightweight web browser - **Installs Runs fine**
 - [X] - `filezilla.sh` - A cross platform FTP application - **Installs Runs fine**
 - [X] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser - **Installs Runs fine**
 - [ ] - `fun-facts-splashscreens.sh` - Set up some loading splashscreens with fun facts. **Cant test dont have the right system x86**
 - [X] - `gparted.sh` - partition editing application **Installs Runs fine**
-- [X] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4.
+- [X] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4. **Installs Does what it needs too**
 - [X] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Installs, works great**
-- [X] - `kweb.sh` - Minimal kiosk web browser - **Installs**
+- [X] - `kweb.sh` - Minimal kiosk web browser - **Installs Runs fine**
 - [X] - `librecad.sh` - librecad open-source 2d cad - **Installs Runs fine**
 - [X] - `libreoffice.sh` - Open source office suite - **Installs Runs fine**
 - [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs Runs fine**
@@ -247,7 +247,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `tinyfugue.sh` - MUD client - **fails to start**
 - [ ] - `ulmos-adventure.sh` - Simple Adventure Game - **Installs Small screen**
 - [ ] - `vorton.sh` - Highway Encounter Remake in Spanish - **Installs small screen**
-- [ ] - `vgmplay.sh` - Music Player - **Installs**
+- [ ] - `vgmplay.sh` - Music Player - **fails, missing package now**
 - [ ] - `wizznic.sh` - Puzznic clone - **Installs Plays, screen is small**
 - [ ] - `zeldapicross.sh` - Zelda themed Picross fangame - **Installs starts but will not go past first screen**
 
