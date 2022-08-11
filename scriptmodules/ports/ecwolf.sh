@@ -24,27 +24,27 @@ function depends_ecwolf() {
 
 function sources_ecwolf() {
     gitPullOrClone
+    # add Escape to controller bindable keys to access main menu
+    applyPatch "$md_data/01_keyboard_patch.diff"
 }
 
 function build_ecwolf() {
-    cd "$md_build"
-    # add Escape to controller bindable keys to access main menu
-    applyPatch "$md_data/01_keyboard_patch.diff"
-    cmake . -DCMAKE_BUILD_TYPE=Release -DGPL=ON
+    mkdir build
+    cd build
+    cmake -DCMAKE_BUILD_TYPE=Release -DGPL=ON ..
     make
-    md_ret_require="$md_build"
+    md_ret_require="$md_build/build/ecwolf"
 }
 
 function install_ecwolf() {
     md_ret_files=(
-       'ecwolf'
-       'ecwolf.pk3'
+       'build/ecwolf'
+       'build/ecwolf.pk3'
     )
 }
 
 function game_data_ecwolf() {
     if [[ -z $(ls "$romdir/ports/wolf3d") ]]; then
-        cd "$__tmpdir"
         downloadAndExtract "http://maniacsvault.net/ecwolf/files/shareware/wolf3d14.zip" "$romdir/ports/wolf3d/shareware"
         downloadAndExtract "http://maniacsvault.net/ecwolf/files/shareware/soddemo.zip" "$romdir/ports/wolf3d/shareware"
     fi
@@ -52,7 +52,7 @@ function game_data_ecwolf() {
 
 function _add_games_ecwolf(){
     local ecw_bin="$1"
-    local ext path game
+    local ext path game ecw
 
     declare -A games=(
         ['wl1']="Wolfenstein 3D (demo)"
