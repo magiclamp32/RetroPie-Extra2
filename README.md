@@ -139,7 +139,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `devilutionx.sh` - Diablo source port - **Installs, Plays great w/ DEMO**
 - [X] - `dhewm3.sh` - dhewm3 - Doom 3 port - **Installs, Plays great w/ DEMO**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Installs and launches**
-- [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great, PATCH is not applyed, getting error**
+- [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great**
 - [X] - `freeciv.sh` - Civilization online clone - **Tested and works well**
 - [X] - `freedink.sh` - Dink Smallwood engine - **Installs, Plays great**
 - [X] - `freesynd.sh` - Syndicate clone - **Installs, Plays great**
@@ -216,7 +216,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
 - [X] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
 - [X] - `videolan.sh` - VLC media player - **Installs Runs fine**
-- [X] - `weechat.sh` - Console IRC Client - **Installs Runs fine**
+- [X] - `weechat.sh` - Console IRC Client - **Installs Runs fine, dont know how to quit**
 
 ### Removed broken scripts to RetroPie-Extra-unstable
 
