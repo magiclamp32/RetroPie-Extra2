@@ -19,7 +19,7 @@ rp_module_section="exp"
 rp_module_flags=""
 
 function depends_ecwolf() {
-    getDepends libsdl2-dev libsdl2-mixer-dev libsdl2-net-dev zlib1g-dev libsdl1.2-dev libsdl-mixer1.2-dev libsdl-net1.2-dev
+    getDepends libsdl2-dev libsdl2-mixer-dev libsdl2-net-dev zlib1g-dev libsdl1.2-dev libsdl-mixer1.2-dev libsdl-net1.2-dev rename
 }
 
 function sources_ecwolf() {
@@ -44,61 +44,48 @@ function install_ecwolf() {
 }
 
 function game_data_ecwolf() {
-    if [[ -z $(ls "$romdir/ports/wolf3d") ]]; then
-        downloadAndExtract "http://maniacsvault.net/ecwolf/files/shareware/wolf3d14.zip" "$romdir/ports/wolf3d/shareware"
-        downloadAndExtract "http://maniacsvault.net/ecwolf/files/shareware/soddemo.zip" "$romdir/ports/wolf3d/shareware"
-    fi
+    game_data_wolf4sdl
 }
 
-function _add_games_ecwolf(){
-    local ecw_bin="$1"
-    local ext path game ecw
-
-    declare -A games=(
-        ['wl1']="Wolfenstein 3D (demo)"
-        ['wl6']="Wolfenstein 3D"
-        ['sod']="Wolfenstein 3D - Spear of Destiny"
-        ['sd1']="Wolfenstein 3D - Spear of Destiny"
-        ['sdm']="Wolfenstein 3D - Spear of Destiny (demo)"
-        ['n3d']="Wolfenstein 3D - Super Noah’s Ark 3D"
-        ['sd2']="Wolfenstein 3D - SoD MP2 - Return to Danger"
-        ['sd3']="Wolfenstein 3D - SoD MP3 - Ultimate Challenge"
+function add_games_ecwolf(){
+    declare -A games_wolf4sdl=(
+        ['vswap.wl1']="Wolfenstein 3D demo"
+        ['vswap.wl6']="Wolfenstein 3D"
+        ['vswap.sod']="Wolfenstein 3D - Spear of Destiny"
+        ['vswap.sd1']="Wolfenstein 3D - Spear of Destiny Ep 1"
+        ['vswap.sd2']="Wolfenstein 3D - Spear of Destiny Ep 2"
+        ['vswap.sd3']="Wolfenstein 3D - Spear of Destiny Ep 3"
+        ['vswap.sdm']="Wolfenstein 3D - Spear of Destiny Demo"
+        ['vswap.n3d']="Wolfenstein 3D - Super 3D Noah’s Ark"
     )
 
-    pushd "$romdir/ports/wolf3d"
-    for game in "${!games[@]}"; do
-        ecw=$(find . -iname "*.$game" -print -quit)
-        [[ -n "$ecw" ]] || continue
-        ext="${ecw##*.}"
-        path="${ecw%/*}"; path="${path#*/}"
-
-        addPort "$md_id" "ecwolf" "${games[$game]}" "pushd $romdir/ports/wolf3d; bash %ROM%; popd" "$romdir/ports/wolf3d/${games[$game]}.ecwolf"
-        _add_ecwolf_files_ecwolf "$romdir/ports/wolf3d/${games[$game]}.ecwolf" "$path" "$ext" "$ecw_bin"
-    done
-    popd
-}
-
-function _add_ecwolf_files_ecwolf() {
-cat >"$1" <<_EOF_
-cd "$2"
-"$4" --data $3
-wait \$!
-_EOF_
-}
-
-function add_games_ecwolf() {
-    _add_games_ecwolf "$md_inst/ecwolf"
+    add_ports_wolf4sdl "$md_inst/$md_id.sh %ROM%" "wolf3d"
 }
 
 function configure_ecwolf() {
+    local script="$md_inst/$md_id.sh"
+
     mkRomDir "ports/wolf3d"
 
-    moveConfigDir "$home/.local/share/ecwolf" "$md_conf_root/ecwolf"
-    moveConfigDir "$home/.config/ecwolf" "$md_conf_root/ecwolf"
+    if [[ "$md_mode" == "install" ]]; then
+        game_data_ecwolf
+        cat > "$script" << _EOF_
+#!/bin/bash
 
-    # Check if some wolfenstein files are present and upload shareware files
-    [[ "$md_mode" == "install" ]] && game_data_ecwolf
-    [[ "$md_mode" == "install" ]] && add_games_ecwolf
+rom="\$1"
+path="\${rom%/*}"
+ext="\${rom##*.}"
 
-    chown -R $user:$user "$romdir/ports/wolf3d"
+pushd "\$path"
+"$md_inst/ecwolf" --data "\$ext"
+popd
+_EOF_
+
+        chmod +x "$script"
+    fi
+
+    add_games_ecwolf
+
+    moveConfigDir "$home/.local/share/ecwolf" "$md_conf_root/wolf3d/ecwolf"
+    moveConfigDir "$home/.config/ecwolf" "$md_conf_root/wolf3d/ecwolf"
 }
