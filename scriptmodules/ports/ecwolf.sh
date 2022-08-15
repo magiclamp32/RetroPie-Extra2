@@ -59,7 +59,7 @@ function add_games_ecwolf(){
         ['vswap.n3d']="Wolfenstein 3D - Super 3D Noah’s Ark"
     )
 
-    add_ports_wolf4sdl "$md_inst/$md_id.sh %ROM%" "wolf3d"
+    add_ports_wolf4sdl "$md_inst/$md_id.sh %ROM% --fullscreen --res %XRES% %YRES%" "wolf3d"
 }
 
 function configure_ecwolf() {
@@ -75,9 +75,10 @@ function configure_ecwolf() {
 rom="\$1"
 path="\${rom%/*}"
 ext="\${rom##*.}"
+shift
 
 pushd "\$path"
-"$md_inst/ecwolf" --data "\$ext"
+"$md_inst/ecwolf" --data "\$ext" "\$@"
 popd
 _EOF_
 
