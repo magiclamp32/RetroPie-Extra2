@@ -14,7 +14,7 @@ rp_module_id="ecwolf"
 rp_module_desc="ECWolf - ECWolf is an advanced source port for Wolfenstein 3D, Spear of Destiny, and Super 3D Noah's Ark based off of the Wolf4SDL code base. It also supports mods from .pk3 files."
 rp_module_licence="GPL2 https://bitbucket.org/ecwolf/ecwolf/raw/5065aaefe055bff5a8bb8396f7f2ca5f2e2cab27/docs/license-gpl.txt"
 rp_module_help="For registered versions, replace the shareware files by adding your full Wolf3d, Spear3D 1.4 version game files to $romdir/ports/wolf3d/."
-rp_module_repo="git https://bitbucket.org/ecwolf/ecwolf"
+rp_module_repo="git https://bitbucket.org/ecwolf/ecwolf master c85dbd3"
 rp_module_section="exp"
 rp_module_flags=""
 
