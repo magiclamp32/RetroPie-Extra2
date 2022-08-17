@@ -52,7 +52,6 @@ function add_games_ecwolf(){
         ['vswap.wl1']="Wolfenstein 3D demo"
         ['vswap.wl6']="Wolfenstein 3D"
         ['vswap.sod']="Wolfenstein 3D - Spear of Destiny"
-        ['vswap.sd1']="Wolfenstein 3D - Spear of Destiny Ep 1"
         ['vswap.sd2']="Wolfenstein 3D - Spear of Destiny Ep 2"
         ['vswap.sd3']="Wolfenstein 3D - Spear of Destiny Ep 3"
         ['vswap.sdm']="Wolfenstein 3D - Spear of Destiny Demo"
