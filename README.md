@@ -7,17 +7,20 @@ I have found new scripts made by other people and added them to this Repo. I don
 
 Most of the scripts do work as is.
 
-**1 Find out what ones install as is and mark them as so / Done, all working ones are marked**
+**1 Find out what ones install as is and mark them as so / DONE, all working ones are marked**
 
-**2 See if the ones that dont Install can be fixed to install**
 
-**3 Clean up all the scripts to the new way RetroPie is writing the scripts**
+**2 See if the ones that dont Install can be fixed to install/ DONE, As far as I can at this time**
+
+**3 Clean up all the scripts to the new way RetroPie is writing the scripts/ DONE, they are cleaned up to my knowledge**
+
+**4. Make new scripts/rework old ones that I pulled out**
 
 I have changed the list below to show what has been tested to at least to install. I dont have all the games so I cant test them all 
 
 Pull requests and issue reports are accepted and encouraged as well as requests. Feel free to use the issue tracker to send me any personal requests for new scripts that you may have.
 
-## Installation with GUI menu
+## Installation with GUI menu, and soon to be the only install script, DONT like it, I DONT care
 
 The following commands will clone the repo to your system and then run the GUI installer where you may select which of the scriptmodules will be copied into the `RetroPie-Setup` folder.
 
