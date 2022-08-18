@@ -32,7 +32,7 @@ cd RetroPie-Extra/
 ./install-extras.sh
 ```
 
-## or old install way Soone to be removed, you DONT like, I DONT care
+## or old install way, Soon to be removed, you DONT like, I DONT care
 
 ```bash
 cd ~
