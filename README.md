@@ -20,7 +20,8 @@ I have changed the list below to show what has been tested to at least to instal
 
 Pull requests and issue reports are accepted and encouraged as well as requests. Feel free to use the issue tracker to send me any personal requests for new scripts that you may have.
 
-## Installation with GUI menu, and soon to be the only install script, DONT like it, I DONT care
+## Installation with GUI menu, 
+There is a command line way of using this script, instructions coming soon
 
 The following commands will clone the repo to your system and then run the GUI installer where you may select which of the scriptmodules will be copied into the `RetroPie-Setup` folder.
 
@@ -31,7 +32,7 @@ cd RetroPie-Extra/
 ./install-extras.sh
 ```
 
-## or old install way
+## or old install way Soone to be removed, you DONT like, I DONT care
 
 ```bash
 cd ~
