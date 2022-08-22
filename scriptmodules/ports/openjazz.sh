@@ -18,7 +18,7 @@ rp_module_repo="git https://github.com/AlisterT/openjazz.git"
 rp_module_section="exp"
 
 function depends_openjazz() {
-    getDepends cmake libsdl1.2-dev libsdl-net1.2-dev libsdl-sound1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev timidity freepats unzip libxmp-dev
+    getDepends libsdl1.2-dev libsdl-net1.2-dev libsdl-sound1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev timidity freepats libxmp-dev
 }
 
 function sources_openjazz() {
@@ -26,30 +26,28 @@ function sources_openjazz() {
 }
 
 function build_openjazz() {
-    cd "$md_build"
     make
-    md_ret_require="$md_build/"
+    md_ret_require="$md_build/OpenJazz"
 }
 
 function install_openjazz() {
     md_ret_files=(
-       'OpenJazz'
-       'openjazz.000'
+        'OpenJazz'
+        'openjazz.000'
     )
 }
 
 function game_data_openjazz() {
-      if [[ ! -f "$romdir/ports/jazz/JAZZ.EXE" ]]; then
-        downloadAndExtract "https://image.dosgamesarchive.com/games/jazz.zip" "$romdir/ports/openjazz"
-        chown -R $user:$user "$romdir/ports/openjazz"
+    if [[ ! -f "$romdir/ports/jazz/JAZZ.EXE" ]]; then
+        downloadAndExtract "https://image.dosgamesarchive.com/games/jazz.zip" "$romdir/ports/jazz"
+        chown -R $user:$user "$romdir/ports/jazz"
     fi
 }
 
 function configure_openjazz() {
-    mkRomDir "ports/openjazz"
-    moveConfigDir "$home/.openjazz" "$md_conf_root/openjazz"
-    moveConfigFile "$home/openjazz.cfg" "$md_conf_root/openjazz/openjazz.cfg"
-    addPort "$md_id" "openjazz" "OpenJazz - An enhanced Jazz Jackrabbit source port" "$md_inst/OpenJazz HOMEDIR $romdir/ports/openjazz"
+    mkRomDir "ports/jazz"
+    moveConfigDir "$home/.openjazz" "$md_conf_root/jazz"
+    addPort "$md_id" "jazz" "OpenJazz - An enhanced Jazz Jackrabbit source port" "pushd $md_conf_root/jazz; $md_inst/OpenJazz -f $romdir/ports/jazz; popd"
 
     [[ "$md_mode" == "install" ]] && game_data_openjazz
 }
