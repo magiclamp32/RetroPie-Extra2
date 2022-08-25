@@ -19,8 +19,7 @@ readonly SCRIPTDIR
 MODE="gui"
 case "${1,,}" in
     -u|--update)
-        shift
-        git pull origin && "./$(basename "$0")" "$@"
+        git pull origin
         exit
         ;;
     -a|--all)
