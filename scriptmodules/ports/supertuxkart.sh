@@ -29,14 +29,7 @@ function remove_supertuxkart() {
 }
 
 function configure_supertuxkart() {
-    addPort "$md_id" "supertuxkart" "SuperTuxKart" "XINIT:$md_inst/supertuxkart.sh"
-    [[ "$md_mode" == "remove" ]] && return
-
-    # create script for launch
-    # is this needed?
-    cat >"$md_inst/supertuxkart.sh" << _EOF_
-#!/bin/bash
-/usr/games/supertuxkart
-_EOF_
-    chmod +x "$md_inst/supertuxkart.sh"
+    addPort "$md_id" "supertuxkart" "SuperTuxKart" "XINIT:supertuxkart"
+    moveConfigDir "$home/.config/supertuxkart" "$md_conf_root/$md_id"
+    moveConfigDir "$home/.local/share/supertuxkart" "$md_conf_root/$md_id"
 }
