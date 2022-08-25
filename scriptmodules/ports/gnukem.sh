@@ -40,6 +40,7 @@ function install_gnukem() {
 
 function configure_gnukem() {
     addPort "$md_id" "gnukem" "Dave Gnukem - Duke Nukem 1 look-a-like" "XINIT:$md_inst/dave.sh"
+    moveConfigDir "$home/.gnukem" "$md_conf_root/gnukem"
 
     cat > "$md_inst/dave.sh" << _EOF_
 #!/bin/bash
