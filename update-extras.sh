@@ -1,3 +1,3 @@
 #!/bin/bash
 
-git pull origin && ./install-extras.sh "$@"
+./install-extras.sh --update
