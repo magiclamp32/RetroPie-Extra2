@@ -12,18 +12,42 @@
 # https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/LICENSE
 #
 
+function runHelp() {
+    cat >/dev/tty << _BREAK_
+Installation utility for RetroPie-Extra, a supplement to RetroPie
+
+Usage:
+
+    ./$(basename "$0") [option] [rp_setup_directory]
+
+Options (up to one):
+    -g, --gui       Run the installer in GUI mode. Choose which modules to include.
+                    This is the default mode if no other option is selected.
+
+    -a, --all,      Copy all RetroPie-Extra modules and exit (may severely impact the
+        --auto      loading time of RetroPie-Setup and retropiemenu configuration
+                    items, especially on slower hardware)
+
+    -r, --remove    Remove all RetroPie-Extra modules and exit (does not "uninstall"
+                    the modules in RP-Setup)
+
+    -u, --update    Update RetroPie-Extra to the latest version and exit
+
+    -h, --help      Display this help and exit
+_BREAK_
+exit
+}
+
 SCRIPTDIR="$(dirname "$0")"
 SCRIPTDIR="$(cd "$SCRIPTDIR" && pwd)"
 readonly SCRIPTDIR
 
 MODE="gui"
 case "${1,,}" in
-    -u|--update)
+    -g|--gui)
         shift
-        git pull origin && "./$(basename "$0")" "$@"
-        exit
         ;;
-    -a|--all)
+    -a|--all|--auto)
         MODE="auto"
         shift
         ;;
@@ -31,9 +55,13 @@ case "${1,,}" in
         MODE="remove"
         shift
         ;;
+    -u|--update)
+        git pull origin
+        exit
+        ;;
     -*)
-        MODE="help"
-        shift
+        runHelp
+        exit
         ;;
 esac
 readonly MODE
@@ -55,30 +83,10 @@ function startCmd() {
     fi
 
     case "$MODE" in
-        help) runHelp ;;
         auto) runAuto ;;
         remove) removeAll ;;
         *) runGui ;;
     esac
-}
-
-function runHelp() {
-    cat >/dev/tty << _BREAK_
-Installation utility for RetroPie-Extra, a supplement to RetroPie
-
-Usage:
-
-    ./$(basename "$0") [-u|--update] [option] [rp_setup_directory]
-
-Options:
-    -a  --all       Add all RetroPie-Extra modules (may severely impact the
-                    loading time of RetroPie-Setup and retropiemenu configuration
-                    items, especially on slower hardware)
-    -r  --remove    Remove all RetroPie-Extra modules (does not "uninstall" the modules
-                    in RP-Setup)
-    -h  --help      Display this help and exit
-_BREAK_
-exit
 }
 
 function runAuto() {
