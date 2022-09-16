@@ -42,10 +42,10 @@ function build_xash3d-fwgs() {
     md_ret_require=(
         "$md_build/$md_id/build/game_launch/xash3d"
         "$md_build/$md_id/build/engine/libxash.so"
-        "$md_build/$md_id/build/mainui/libmenu.so"
-        "$md_build/$md_id/build/ref_soft/libref_soft.so"
-        "$md_build/$md_id/build/ref_gl/libref_gl.so"
-	"$md_build/$md_id/build/filesystem/filesystem_stdio.so"
+        "$md_build/$md_id/build/3rdparty/mainui/libmenu.so"
+        "$md_build/$md_id/build/ref/soft/libref_soft.so"
+        "$md_build/$md_id/build/ref/gl/libref_gl.so"
+		"$md_build/$md_id/build/filesystem/filesystem_stdio.so"
     )
 }
 
@@ -53,10 +53,10 @@ function install_xash3d-fwgs() {
     md_ret_files=(
         "$md_id/build/game_launch/xash3d"
         "$md_id/build/engine/libxash.so"
-        "$md_id/build/mainui/libmenu.so"
-        "$md_id/build/ref_soft/libref_soft.so"
-        "$md_id/build/ref_gl/libref_gl.so"
-	"$md_id/build/filesystem/filesystem_stdio.so"
+        "$md_id/build/3rdparty/mainui/libmenu.so"
+        "$md_id/build/ref/soft/libref_soft.so"
+        "$md_id/build/ref/gl/libref_gl.so"
+		"$md_id/build/filesystem/filesystem_stdio.so"
     )
 
 }
@@ -78,7 +78,9 @@ function configure_xash3d-fwgs() {
     cp "$md_build/bshiftsdk/build/dlls/bshift_armv8_32hf.so" "$romdir/ports/$md_id/bshift/dlls/hl.so"
     cp "$md_build/opforsdk/build/cl_dll/client_armv8_32hf.so" "$romdir/ports/$md_id/gearbox/cl_dlls/client.so"
     cp "$md_build/opforsdk/build/dlls/opfor_armv8_32hf.so" "$romdir/ports/$md_id/gearbox/dlls/hl.so"
-    download "https://github.com/FWGS/xash-extras/releases/download/v0.19.2/extras.pak" "$romdir/ports/$md_id/valve"
+	cp "$md_build/$md_id/build/3rdparty/extras/extras.pk3" "$romdir/ports/$md_id/valve/"
+	cp "$md_build/$md_id/build/3rdparty/extras/extras.pk3" "$romdir/ports/$md_id/bshift/"
+	cp "$md_build/$md_id/build/3rdparty/extras/extras.pk3" "$romdir/ports/$md_id/gearbox/"
 	chown -R $user:$user "$romdir/ports/$md_id/"
 
     addPort "$md_id" "xash3d-fwgs" "Half-Life" "pushd $romdir/ports/$md_id/; LD_LIBRARY_PATH=$md_inst $md_inst/xash3d -game %ROM% -clientlib cl_dlls/client.so -dll dlls/hl.so; popd" "valve"

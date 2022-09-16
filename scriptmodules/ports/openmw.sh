@@ -30,7 +30,6 @@ function _arch_openmw() {
 
 function sources_openmw() {
     local revision=openmw-0.46.0
-
     gitPullOrClone "$md_build" https://gitlab.com/OpenMW/openmw.git "" "$revision"
 }
 
@@ -49,7 +48,6 @@ function build_openmw() {
     mkdir $md_build/build
     cd $md_build/build
     cmake ..
-
     make clean
     make
 
@@ -80,13 +78,16 @@ function install_openmw() {
 }
 
 function config_data_openmw() { 
-     #look for the data files to see what config to install
+    #look for the data files to see what config to install
+	
     #download config to for the data files for main and all exp
     if [[ -f "$romdir/ports/morrowind/Morrowind.bsa" && -f "$romdir/ports/morrowind/Tribunal.bsa" && -f "$romdir/ports/morrowind/Bloodmoon.bsa"  ]]; then
 	download "https://raw.githubusercontent.com/Exarkuniv/game-data/main/openmw/1/openmw.cfg" "$md_conf_root/openmw/$md_id"
+	
 	#download config to for the data files for main and tribunal exp
 	elif [[ -f "$romdir/ports/morrowind/Morrowind.bsa" && -f "$romdir/ports/morrowind/Tribunal.bsa" ]]; then
 	download "https://raw.githubusercontent.com/Exarkuniv/game-data/main/openmw/2/openmw.cfg" "$md_conf_root/openmw/$md_id"
+	
 	#download config to for the data files for main and bloodmoon exp
 	elif [[ -f "$romdir/ports/morrowind/Morrowind.bsa" && -f "$romdir/ports/morrowind/Bloodmoon.bsa" ]]; then
 	download "https://raw.githubusercontent.com/Exarkuniv/game-data/main/openmw/3/openmw.cfg" "$md_conf_root/openmw/$md_id"
@@ -94,16 +95,18 @@ function config_data_openmw() {
 }
 
 function configure_openmw() {
-    moveConfigDir "$md_inst/data" "$romdir/ports/morrowind"
-    moveConfigDir "$home/.config/openmw" "$md_conf_root/$md_id"
-	#updated conntroller DB file
-    download "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/master/gamecontrollerdb.txt" "$md_inst"
-	#config file for just the main game, will search for data files when ran again
-    download "https://raw.githubusercontent.com/Exarkuniv/game-data/main/openmw/4/openmw.cfg" "$md_conf_root/openmw"
     local launcher=("$md_inst/openmw")
     local script="$md_inst/$md_id.sh"
     mkRomDir "ports/morrowind"
-    [[ "$md_mode" == "install" ]] && config_data_openmw
+    moveConfigDir "$md_inst/data" "$romdir/ports/morrowind"
+    moveConfigDir "$home/.config/openmw" "$md_conf_root/$md_id"
+
+	#updated conntroller DB file
+    download "https://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/master/gamecontrollerdb.txt" "$md_inst"
+
+	#config file for just the main game, will search for data files when ran again
+    download "https://raw.githubusercontent.com/Exarkuniv/game-data/main/openmw/4/openmw.cfg" "$md_conf_root/openmw"
+
 	#create buffer script for launch
 	 cat > "$script" << _EOF_
 #!/bin/bash
@@ -114,4 +117,6 @@ _EOF_
 
     chmod +x "$script"
     addPort "$md_id" "openmw" "The Elder Scrolls III - Morrowind" "XINIT:$script"
+	
+	[[ "$md_mode" == "install" ]] && config_data_openmw
 }

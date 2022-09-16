@@ -25,7 +25,7 @@ function install_bin_pokerth() {
 }
 
 function configure_pokerth() {
-    mkRomDir "ports"
+    #mkRomDir "ports"
     mkdir -p "$md_inst"
     moveConfigDir "$home/.config" "$md_conf_root/$md_id"
     cat >"$md_inst/pokerth.sh" << _EOF_
