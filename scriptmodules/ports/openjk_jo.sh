@@ -63,12 +63,11 @@ function configure_openjk_jo() {
     local script="$md_inst/launch-$md_id.sh"
 
     addPort "$md_id" "jedioutcast" "Star Wars - Jedi Knight - Jedi Outcast (SP)" "$script %ROM% ${params[*]}" "sp"
-
-    mkRomDir "ports/jedioutcast"
-
     moveConfigDir "$home/.local/share/openjo" "$md_conf_root/jedioutcast/openjo"
 
     [[ "$md_mode" == "remove" ]] && return
+
+    mkRomDir "ports/jedioutcast"
 
     # link game data to install dir
     ln -snf "$romdir/ports/jedioutcast" "$md_inst/base"

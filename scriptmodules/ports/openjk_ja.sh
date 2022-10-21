@@ -68,11 +68,11 @@ function configure_openjk_ja() {
     addPort "$md_id" "jediacademy" "Star Wars - Jedi Knight - Jedi Academy (SP)" "$script %ROM% ${params[*]}" "sp"
     addPort "$md_id" "jediacademy" "Star Wars - Jedi Knight - Jedi Academy (MP)" "$script %ROM% ${params[*]}" "mp"
 
-    mkRomDir "ports/jediacademy"
-
     moveConfigDir "$home/.local/share/openjk" "$md_conf_root/jediacademy/openjk"
 
     [[ "$md_mode" == "remove" ]] && return
+
+    mkRomDir "ports/jediacademy"
 
     # link game data to install dir
     ln -snf "$romdir/ports/jediacademy" "$md_inst/base"
