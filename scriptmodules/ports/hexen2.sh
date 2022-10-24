@@ -1,25 +1,24 @@
 #!/usr/bin/env bash
 
-# This file is part of RetroPie-Extra, a supplement to RetroPie.
-# For more information, please visit:
+# This file is part of The RetroPie Project
 #
-# https://github.com/RetroPie/RetroPie-Setup
-# https://github.com/Exarkuniv/RetroPie-Extra
+# The RetroPie Project is the legal property of its developers, whose names are
+# too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
 #
-# See the LICENSE file distributed with this source and at
-# https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/LICENSE
+# See the LICENSE.md file at the top-level directory of this distribution and
+# at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
 
 rp_module_id="hexen2"
-rp_module_desc="Hexen II - Hammer of Thyrion source port"
+rp_module_desc="Hexen II - Hammer of Thyrion source port Non-OpenGL"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/svn2github/uhexen2/master/docs/COPYING"
 rp_module_help="For registered version, please add your full version PAK files to $romdir/ports/hexen2/data1/ to play. These files for the registered version are required: pak0.pak, pak1.pak and strings.txt. The registered pak files must be patched to 1.11 for Hammer of Thyrion."
 rp_module_repo="git https://github.com/jpernst/uhexen2-sdl2.git"
 rp_module_section="exp"
-rp_module_flags=""
+rp_module_flags="!mali"
 
 function depends_hexen2() {
-    getDepends cmake libsdl1.2-dev libsdl-net1.2-dev libsdl-sound1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev timidity freepats
+    getDepends cmake libsdl1.2-dev libsdl-net1.2-dev libsdl-sound1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev timidity freepats xorg
 }
 
 function sources_hexen2() {
@@ -29,12 +28,12 @@ function sources_hexen2() {
 function build_hexen2() {
     cd "$md_build/engine/hexen2"
     ./build_all.sh
-    md_ret_require="$md_build/engine/hexen2/glhexen2"
+    md_ret_require="$md_build/engine/hexen2/hexen2"
 }
 
 function install_hexen2() {
     md_ret_files=(
-       'engine/hexen2/glhexen2'
+       'engine/hexen2/hexen2'
     )
 }
 
@@ -46,13 +45,29 @@ function game_data_hexen2() {
 }
 
 function configure_hexen2() {
-    addPort "$md_id" "hexen2" "Hexen II" "$md_inst/glhexen2 -f -conwidth 800 "
-    addPort "$md_id" "hexen2p" "Hexen II -Portals of Praevus" "$md_inst/glhexen2 -f -conwidth 800 -portals"
-
     mkRomDir "ports/hexen2"
     mkRomDir "ports/hexen2/portals"
+    mkdir -p "$md_inst"
+    moveConfigDir "$home/.hexen2" "$romdir/ports/$md_id"
+    cat >"$md_inst/$md_id.sh" << _EOF_
+#!/bin/bash
+xset -dpms s off s noblank
+matchbox-window-manager -use_titlebar no &
+$md_inst/hexen2
+_EOF_
+    chmod +x "$md_inst/$md_id.sh"
 
-    moveConfigDir "$home/.hexen2" "$romdir/ports/hexen2"
+    cat >"$md_inst/hexen2p.sh" << _EOF_
+#!/bin/bash
+xset -dpms s off s noblank
+matchbox-window-manager -use_titlebar no &
+$md_inst/hexen2 -portals
+_EOF_
+    chmod +x "$md_inst/hexen2p.sh"
 
+    addPort "$md_id" "hexen2" "Hexen II" "XINIT: $md_inst/hexen2"
+    [[ -f "$romdir/ports/$md_id/portals/pak3.pak" ]] && 
+    addPort "$md_id" "hexen2p" "Hexen II -Portals of Praevus" "XINIT:$md_inst/hexen2p.sh"
+    
     [[ "$md_mode" == "install" ]] && game_data_hexen2
 }

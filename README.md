@@ -32,14 +32,21 @@ cd RetroPie-Extra/
 ./install-extras.sh
 ```
 
-## or old install way, Soon to be removed, you DONT like, I DONT care
+##Command line way of install
 
 ```bash
-cd ~
-git clone https://github.com/Exarkuniv/RetroPie-Extra.git
-cd RetroPie-Extra/
-./mass-install-extras.sh
+
+    ./install-extras.sh [-u|--update] [option] [rp_setup_directory]
+
+Options:
+    -a  --all       Add all RetroPie-Extra modules (may severely impact the
+                    loading time of RetroPie-Setup and retropiemenu configuration
+                    items, especially on slower hardware)
+    -r  --remove    Remove all RetroPie-Extra modules (does not "uninstall" the modules
+                    in RP-Setup)
+    -h  --help      Display this help and exit
 ```
+
 The installation script assumes that RetroPie-Setup is installed to `$HOME/RetroPie-Setup`. You may specify an alternate location on command-line, ex:
     ./install-extras.sh /games/rp-setup
     
@@ -93,6 +100,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-bk.sh` -  Elektronika БК-0010/0011/Terak 8510a emulator - BK port for libretro - **Installs Plays not sure well or not**
 - [ ] - `lr-blastem.sh` - Sega Genesis emu - BlastEm port for libretro - **x86 only**
 - [ ] - `lr-boom3.sh` -  Doom 3 port for libretro - **x86 only**
+- [X] - `lr-bsnes-hd.sh` - "Super Nintendo Emulator - bsnes-HD port for libretro (BETA)" - **Installs, Plays, Runs OK**
 - [ ] - `lr-canary.sh` - Citra Canary for libretro - **x86 only**
 - [X] - `lr-cannonball.sh` - An Enhanced OutRun engine for libretro - **Installs, Plays, Runs well**
 - [X] - `lr-chailove.sh` - 2D Game Framework with ChaiScript roughly inspired by the LÖVE API to libretro - **Installs Plays fine, the one game i could find for it**
@@ -118,6 +126,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `lr-race.sh` - Neo Geo Pocket (Color) emulator - RACE! port for libretro. - **Installs, Plays, Runs well**
 - [X] - `lr-reminiscence.sh` - Flashback engine - Gregory Montoir’s Flashback emulator port for libretro - **Installs, Plays, Runs fine**
 - [X] - `lr-sameboy.sh` - Game Boy and Game Boy Color, emulator - SameBoy Port for libretro - **Installs Plays, runs well**
+- [ ] - `lr-samecdi` - Philips CDI - same_cdi port for libretro - **Installs, Dont have games to test**
 - [X] - `lr-simcoupe.sh` - SAM Coupe emulator - SimCoupe port for libretro - **Installs, Might run games, cant get one to work**
 - [X] - `lr-swanstation.sh` - Playstation emulator - Duckstation fork for libretro - **Installs, Plays well**
 - [X] - `lr-thepowdertoy.sh` - Sandbox physics game for libretro - **Installs Plays fine**
@@ -127,12 +136,14 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 
 #### Ports
 - [X] - `abuse.sh` - Classic action game -   **Installs Plays fine, needs keyboard**
-- [X] - `augustus.sh` - Augustus - Enhanced Caesar III source port - **Installs plays fine, needs mouse**
+- [X] - `augustus.sh` - Enhanced Caesar III source port - **Installs plays fine, needs mouse**
 - [X] - `barrage.sh` - Shooting Gallery action game - **Installs, Plays fine, needs mouse**
 - [X] - `bermudasyndrome.sh` - Bermuda Syndrome engine - **Installs, plays fine, cant exit, but thats the desine of the engine not the script**
+- [X] - `berusky.sh` - Advanced sokoban clone with nice graphics - **Installs, Plays fine**
 - [X] - `bloboats.sh` - Fun physics game - **Installs play fine**
+- [X] - `boswars.sh` - Battle of Survival - is a futuristic real-time strategy game - **Installs, Plays fine, needs mouse**
 - [X] - `breaker.sh` - Arkanoid clone - **Installs, plays fine, need to drop the resolutions to 640-480**
-- [X] - `bstone.sh` - Blake Stone - BStone A source port of Blake Stone: Aliens of Gold and Blake Stone: Planet Strike **Installs, Plays great**
+- [X] - `bstone.sh` - BStone A source port of Blake Stone: Aliens of Gold and Blake Stone: Planet Strike **Installs, Plays great**
 - [X] - `burgerspace.sh` - BurgerTime clone - **Installs, plays fine, need to drop the resolutions to 640-480**
 - [X] - `chocolate-doom.sh`- DOOM source port - **Installs, plays great**
 - [X] - `chocolate-doom-system.sh`- For setting up DOOM as an emulated system, not port. - **Installs Plays great**
@@ -141,21 +152,27 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `crispy-doom.sh` - DOOM source port - **Installs, Plays great**
 - [X] - `crispy-doom-system.sh` - For setting up DOOM as an emulated system, not port. - **Installs, Plays great**
 - [X] - `devilutionx.sh` - Diablo source port - **Installs, Plays great w/ DEMO**
-- [X] - `dhewm3.sh` - dhewm3 - Doom 3 port - **Installs, Plays great w/ DEMO**
+- [X] - `dhewm3.sh` - Doom 3 port - **Installs, Plays great w/ DEMO**
+- [X] - `dunelegacy.sh` - Dune 2 Building of a Dynasty port - **Installs Play sgreat,/W game**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Installs and launches**
-- [X] - `ecwolf.sh` - ECWolf - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great**
+- [X] - `ecwolf.sh` - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great**
+- [X] - `extremetuxracer.sh` -  Linux verion of Mario cart - **Installs, Plays great**
 - [X] - `freeciv.sh` - Civilization online clone - **Tested and works well**
 - [X] - `freedink.sh` - Dink Smallwood engine - **Installs, Plays great**
 - [X] - `freesynd.sh` - Syndicate clone - **Installs, Plays great**
+- [X] - `fruity.sh` - inspired by the Kaiko classic Gem'X - **Installs, Plays great**
 - [X] - `gmloader.sh` - GMLoader - play GameMaker Studio games for Android on non-Android operating systems - **Installs, Plays great W/games**
 - [X] - `gnukem.sh` - Dave Gnukem - Duke Nukem 1 look-a-like - **Installs, Plays great**
 - [X] - `gtkboard.sh` - Board games system - **Installs Runs fine**
 - [X] - `hcl.sh` - Hydra Castle Labrinth - **Installs, Plays great**
 - [X] - `heboris.sh` - Tetris The Grand Master clone - **Installs, Plays great,**
-- [X] - `hexen2.sh` - Hexen II - Hammer of Thyrion source port - **Installs, Plays great w/demo**
+- [X] - `hexen2.sh` - Hexen II - Hammer of Thyrion source port Non-OpenGL - **Installs, Plays great w/demo**
+- [X] - `hexen2gl.sh` - Hexen II - Hammer of Thyrion source port using OpenGL - **Installs, Plays great w/demo**
+- [X] - `hheretic.sh` - Heretic GL port - **Installs, Plays great w/demo**
+- [X] - `hhexen.sh` - Hexen GL portt - **Installs, Plays great w/demo**
 - [X] - `hurrican.sh` - Turrican clone. - **Installs, Plays great**
 - [X] - `jfsw.sh` - Shadow warrior port - **Installs and runs on rpi4**
-- [X] - `julius.sh` - Julius - Caesar III source port - **Installs, Plays great**
+- [X] - `julius.sh` - Caesar III source port - **Installs, Plays great**
 - [X] - `kraptor.sh` - Shoot em up scroller game - **Installs Runs fine**
 - [X] - `lbreakout2.sh` - Open Source Breakout game - **Installs Runs fine**
 - [X] - `lgeneral.sh` - Open Source strategy game - **Installs Runs fine**
@@ -188,12 +205,20 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `rott-darkwar.sh` - Rise of the Triad source port with joystick support - **Installs**
 - [X] - `rott-huntbgin.sh` - Rise of the Triad (shareware version) source port with joystick support. - **Installs, Plays great**
 - [X] - `rtcw.sh`- IORTCW source port of Return to Castle Wolfenstein. - **Installs, and plays great**
+- [X] - `samtfe`- Serious Sam Classic The First Encounter. - **Installs, and plays great**
+- [X] - `samtse`- Serious Sam Classic The Second Encounter. - **Installs, and plays great**
 - [X] - `sdl-bomber.sh` - Simple Bomberman clone - **Installs, Plays great**
 - [X] - `seahorse.sh` - a side scrolling platform game **Installs Plays fine**
+- [X] - `septerra.sh` - Septerra Core: Legacy of the Creator port  **Installs Plays fine**
+- [X] - `shiromino.sh` - Tetris The Grand Master Clone  **Installs Plays fine**
+- [X] - `shockolate.sh` - Source port of System Shock  **Installs Plays fine**
+- [X] - `simutrans.sh` - freeware and open-source transportation simulator  **Installs Plays fine**
 - [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4. **Installs Plays great**
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Installs, Plays great**
+- [X] - `vanillacc.sh` - Vanilla-Command and Conquer - **Installs, Plays great**
 - [X] - `supertuxkart.sh` - a free kart-racing game - **Installs, Plays great at lower resolution**
 - [X] - `warmux.sh` - Worms Clone - **Installs**
+- [X] - `wesnoth.sh` - turn-based strategy game - **Installs**
 - [X] - `xash3d-fwgs.sh` - Half-Life engine source port. - **Installs**
 - [X] - `zeldansq.sh` - Zelda: Navi's Quest fangame - **Installs, Plays great, Needs correct script to remove xinit errors**
 
