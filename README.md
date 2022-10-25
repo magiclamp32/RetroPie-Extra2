@@ -68,7 +68,11 @@ cd ~
 cd RetroPie-Extra/
 ./update-extras.sh
 ```
-
+## OR
+```
+cd ~/RetroPie-Extra
+git pull origin
+```
 ## Remove
 
 The following commands will remove RetroPie-Extra from your system.
@@ -77,6 +81,20 @@ The following commands will remove RetroPie-Extra from your system.
 cd ~
 cd RetroPie-Extra/
 ./remove-extras.sh
+```
+
+## Change from the old ZeroJay's repo
+If you need to update from ZeroJay's repo - first, discard the most recent commit:
+```
+git reset --hard HEAD^
+```
+Switch to ExarKuniv's new repo:
+```
+git remote set-url origin https://github.com/Exarkuniv/RetroPie-Extra
+```
+Then pull again from the updated origin:
+```
+git pull origin
 ```
 
 Scripts that are unfinished/untested/unpolished/or broken will not be located in this repository and instead have been moved to [RetroPie-Extra-unstable](https://github.com/Exarkuniv/RetroPie-Extra-unstable).
@@ -96,6 +114,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 #### Libretrocores
 
 - [X] - `lr-2048.sh` - 2048 engine - 2048 port for libretro - **Installs, Plays, Runs well**
+- [X] - `lr-arduous` - ArduBoy emulator - arduous port for libretro- **Installs, Plays, Runs well**
 - [X] - `lr-beetle-pce.sh` - PCEngine emu - Mednafen PCE port for libretro**Installs, Plays, Runs well**
 - [X] - `lr-bk.sh` -  Elektronika БК-0010/0011/Terak 8510a emulator - BK port for libretro - **Installs Plays not sure well or not**
 - [ ] - `lr-blastem.sh` - Sega Genesis emu - BlastEm port for libretro - **x86 only**
