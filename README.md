@@ -114,7 +114,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 #### Libretrocores
 
 - [X] - `lr-2048.sh` - 2048 engine - 2048 port for libretro - **Installs, Plays, Runs well**
-- [X] - `lr-arduous` - ArduBoy emulator - arduous port for libretro- **Installs, Plays, Runs well**
+- [X] - `lr-arduous_lcd` - ArduBoy emulator - arduous port for libretro- **Installs, Plays, Runs well**
 - [X] - `lr-beetle-pce.sh` - PCEngine emu - Mednafen PCE port for libretro**Installs, Plays, Runs well**
 - [X] - `lr-bk.sh` -  Elektronika БК-0010/0011/Terak 8510a emulator - BK port for libretro - **Installs Plays not sure well or not**
 - [ ] - `lr-blastem.sh` - Sega Genesis emu - BlastEm port for libretro - **x86 only**
