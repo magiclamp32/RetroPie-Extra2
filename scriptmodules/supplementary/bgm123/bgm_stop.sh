@@ -4,7 +4,7 @@
 
 source #autoconf
 
-vcgencmd force_audio hdmi 0 >/dev/null && sleep 0.2
+vcgencmd force_audio hdmi 0 >/dev/null && sleep 0.1
 pkill "$music_player"
 
 # if killed while stopped (music paused), process will not terminate correctly.

@@ -301,7 +301,7 @@ function gui_bgm123() {
                     fi
                     ;;
                 N)
-                    su "$user" -c "(bash $killscript; sleep 1; bash $init) &"
+                    su "$user" -c "(bash $killscript; bash $init) &"
                     ;;
             esac
         else
