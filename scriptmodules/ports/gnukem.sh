@@ -23,6 +23,7 @@ function depends_gnukem() {
 
 function sources_gnukem() {
     gitPullOrClone
+    gitPullOrClone "$md_build/data" https://github.com/davidjoffe/gnukem_data.git
 }
 
 function build_gnukem() {
