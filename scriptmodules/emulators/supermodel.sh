@@ -18,7 +18,7 @@ rp_module_section="exp"
 rp_module_flags="sdl2"
 
 function depends_supermodel() {
-    getDepends subversion libglew-dev libsdl2-dev libsdl2-net-dev libzip-dev zlib1g-dev
+    getDepends subversion libglew-dev libsdl2-dev libsdl2-net-dev libzip-dev zlib1g-dev xorg
 }
 
 function sources_supermodel() {

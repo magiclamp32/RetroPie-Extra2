@@ -18,7 +18,7 @@ rp_module_section="exp"
 rp_module_flags="!mali"
 
 function depends_hheretic() {
-    getDepends libsndifsdl2-dev libsdl-mixer1.2-dev libgl1 libsdl-image1.2-dev xorg matchbox-window-manager x11-xserver-utils xorg
+    getDepends libsndifsdl2-dev libsdl-mixer1.2-dev libgl1 libsdl-image1.2-dev xorg 
 }
 
 function sources_hheretic() {
