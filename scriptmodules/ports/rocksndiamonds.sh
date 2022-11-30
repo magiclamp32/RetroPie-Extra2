@@ -13,7 +13,7 @@
 rp_module_id="rocksndiamonds"
 rp_module_desc="Rocks'n'Diamonds - Emerald Mine Clone"
 rp_module_licence=" GNU https://git.artsoft.org/?p=rocksndiamonds.git;a=blob;f=COPYING;hb=HEAD"
-rp_module_repo="file https://www.artsoft.org/RELEASES/unix/rocksndiamonds/rocksndiamonds-4.2.3.1.tar.gz"
+rp_module_repo="git https://git.artsoft.org/rocksndiamonds.git"
 rp_module_section="exp"
 rp_module_flags="!mali"
 
@@ -22,23 +22,26 @@ function depends_rocksndiamonds() {
 }
 
 function sources_rocksndiamonds() {
-    downloadAndExtract "$md_repo_url" "$md_build" "--strip-components=1"
+    git clone https://git.artsoft.org/rocksndiamonds.git
+    cd rocksndiamonds
+    git checkout master-next-patch-release
 }
 
 function build_rocksndiamonds() {
+    cd rocksndiamonds
     make
     md_ret_require="rocksndiamonds"
 }
 
 function install_rocksndiamonds() {
     md_ret_files=(
-        'graphics'
-        'levels'
-        'music'
-        'sounds'
-        'COPYING'
-        'CREDITS'
-        'rocksndiamonds'
+        'rocksndiamonds/graphics'
+        'rocksndiamonds/levels'
+        'rocksndiamonds/music'
+        'rocksndiamonds/sounds'
+        'rocksndiamonds/COPYING'
+        'rocksndiamonds/CREDITS'
+        'rocksndiamonds/rocksndiamonds'
 )
 }
 
