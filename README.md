@@ -175,11 +175,14 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `dunelegacy.sh` - Dune 2 Building of a Dynasty port - **Installs Play sgreat,/W game**
 - [X] - `easyrpgplayer.sh` - RPG Maker 2000/2003 interpreter - **Installs and launches**
 - [X] - `ecwolf.sh` - ECWolf is an advanced source port for Wolfenstein 3D - **Installs, Plays great**
+- [X] - `eternity.sh` - Enhanced port of the official DOOM source - **Installs, Plays great**
 - [X] - `extremetuxracer.sh` -  Linux verion of Mario cart - **Installs, Plays great**
 - [X] - `freeciv.sh` - Civilization online clone - **Tested and works well**
 - [X] - `freedink.sh` - Dink Smallwood engine - **Installs, Plays great**
 - [X] - `freesynd.sh` - Syndicate clone - **Installs, Plays great**
 - [X] - `fruity.sh` - inspired by the Kaiko classic Gem'X - **Installs, Plays great**
+- [X] - `fs2open.sh` - FreeSpace 2 Open - Origin Repository for FreeSpace 2 - **Installs, Plays great**
+- [X] - `galius.sh` - - Maze of Galius - **Installs, Plays great**
 - [X] - `gmloader.sh` - GMLoader - play GameMaker Studio games for Android on non-Android operating systems - **Installs, Plays great W/games**
 - [X] - `gnukem.sh` - Dave Gnukem - Duke Nukem 1 look-a-like - **Installs, Plays great**
 - [X] - `gtkboard.sh` - Board games system - **Installs Runs fine**
@@ -235,6 +238,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4. **Installs Plays great**
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Installs, Plays great**
 - [X] - `vanillacc.sh` - Vanilla-Command and Conquer - **Installs, Plays great**
+- [X] - `vcmi.sh` - Open-source engine for Heroes of Might and Magic III - **Installs, Plays great**
 - [X] - `supertuxkart.sh` - a free kart-racing game - **Installs, Plays great at lower resolution**
 - [X] - `warmux.sh` - Worms Clone - **Installs**
 - [X] - `wesnoth.sh` - turn-based strategy game - **Installs**
