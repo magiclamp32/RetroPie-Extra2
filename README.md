@@ -104,6 +104,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 
 #### Emulators
 
+- [x] - `duckstation.sh` -"PlayStation emulator - Duckstation standalone"
 - [X] - `gearboy.sh` - Gameboy emulator - **Installs Plays fine, Need to clean up the controls**
 - [ ] - `kat5200.sh` - Atari 8-bit/5200 emulator - **x86 only**
 - [X] - `openbor.sh` - Beat 'em Up Game Engine (newest version) - **Tested only on Pi4 so far, installs as a system instead of as a port, direct launching of games from emulationstation supported!**
@@ -126,6 +127,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [ ] - `lr-citra.sh` - Citra port for libretro - **x86 only**
 - [X] - `lr-crocods.sh` - CrocoDS port for libretro  - **Installs Starts but will not finish loading game**
 - [ ] - `lr-daphne.sh` - Daphne port to libretro - laserdisk arcade games. - **Installs dont have any games to test**
+- [x] - `lr-duckstation.sh` -"PlayStation emulator - Duckstation for libretro"
 - [X] - `lr-fceumm-mod.sh` - Modified fceumm core to specifically support the Super Mario Bros 1/3 hack. - **Installs, Plays, Runs well**
 - [X] - `lr-freej2me.sh` - A J2ME implementation for old JAVA phone games. - **Installs, Plays, Runs well**
 - [X] - `lr-gearboy.sh` - Game Boy (Color) emulator - Gearboy port for libretro. - **Installs, Plays, Runs well**
