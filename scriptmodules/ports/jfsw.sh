@@ -14,7 +14,7 @@ rp_module_id="jfsw"
 rp_module_desc="JFSW - Shadow Warrior source port by Jonathon Fowler"
 rp_module_help="Place your registered version game files in $romdir/ports/shadowwarrior"
 rp_module_licence="GPL https://github.com/jonof/jfsw/blob/master/GPL.TXT"
-rp_module_repo="git https://github.com/jonof/jfsw.git master"
+rp_module_repo="git https://github.com/jonof/jfsw.git master 2662ccd81fde1424f9149f8d07428ab494a8f528"
 rp_module_section="exp"
 rp_module_flags=""
 
