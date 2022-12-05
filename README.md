@@ -32,7 +32,7 @@ cd RetroPie-Extra/
 ./install-extras.sh
 ```
 
-##Command line way of install
+## Command line way of install
 
 ```bash
 
