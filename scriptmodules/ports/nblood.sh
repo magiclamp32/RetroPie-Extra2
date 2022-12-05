@@ -44,13 +44,6 @@ function install_nblood() {
     )
 }
 
-function game_data_nblood() {
-    if [[ ! -f "$romdir/ports/nblood/BLOOD.EXE" ]]; then
-        downloadAndExtract "https://archive.org/download/Blood_64/BLOOD.zip" "$romdir/ports/nblood/"
-    chown -R $user:$user "$romdir/ports/nblood"
-    fi
-}
-
 function configure_nblood() {
 	mkdir "$home/.config/nblood"
 
@@ -63,5 +56,4 @@ function configure_nblood() {
 	addPort "$md_id" "nblood" "Nblood - Blood source port" "XINIT: $md_inst/nblood  -j=/home/pi/RetroPie/roms/ports/nblood"
 	#addPort "$md_id" "nbloodcp" "Nblood - Cryptic Passage " "XINIT: $md_inst/nblood -ini CRYPTIC.INI -j=/home/pi/RetroPie/roms/ports/Nblood/CP"
 
-	[[ "$md_mode" == "install" ]] && game_data_nblood
 }
