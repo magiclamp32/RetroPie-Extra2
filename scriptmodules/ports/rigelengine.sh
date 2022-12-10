@@ -14,7 +14,7 @@ rp_module_id="rigelengine"
 rp_module_desc="RigelEngine - Duke Nukem 2 source port"
 rp_module_help="Copy your game to roms/ports/duke2 folder"
 rp_module_licence="GPL2 https://github.com/lethal-guitar/RigelEngine/blob/master/LICENSE.md"
-rp_module_repo="git https://github.com/lethal-guitar/RigelEngine.git v0.8.5"
+rp_module_repo="git https://github.com/lethal-guitar/RigelEngine.git v0.9.0"
 rp_module_section="exp"
 rp_module_flags="noinstclean"
 
