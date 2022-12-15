@@ -104,7 +104,8 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 
 #### Emulators
 
-- [x] - `duckstation.sh` -"PlayStation emulator - Duckstation standalone"
+- [x] - `box86.sh` -"Box86 emulator" **Installs Runs fine**
+- [x] - `duckstation.sh` -"PlayStation emulator - Duckstation standalone" **Installs Runs fine**
 - [X] - `gearboy.sh` - Gameboy emulator - **Installs Plays fine, Need to clean up the controls**
 - [ ] - `kat5200.sh` - Atari 8-bit/5200 emulator - **x86 only**
 - [X] - `openbor.sh` - Beat 'em Up Game Engine (newest version) - **Tested only on Pi4 so far, installs as a system instead of as a port, direct launching of games from emulationstation supported!**
@@ -195,7 +196,8 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `hheretic.sh` - Heretic GL port - **Installs, Plays great w/demo**
 - [X] - `hhexen.sh` - Hexen GL portt - **Installs, Plays great w/demo**
 - [X] - `hurrican.sh` - Turrican clone. - **Installs, Plays great**
-- [X] - `jfsw.sh` - Shadow warrior port - **Installs and runs on rpi4**
+- [X] - `ikemen-go.sh` - I.K.E.M.E.N GO - Clone of M.U.G.E.N. - **Installs, Plays great**
+- [X] - `jfsw.sh` - Shadow warrior port - **Installs and runs great**
 - [X] - `julius.sh` - Caesar III source port - **Installs, Plays great**
 - [X] - `kraptor.sh` - Shoot em up scroller game - **Installs Runs fine**
 - [X] - `lbreakout2.sh` - Open Source Breakout game - **Installs Runs fine**
@@ -206,6 +208,7 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `nblood.sh` - Blood source port - **Installs, Plays great**
 - [ ] - `nkaruga.sh` - Ikaruga demake. - **Blocked from installing on Pi4**
 - [X] - `nxengine-evo.sh` - The standalone version of the open-source clone/rewrite of Cave Story - **Installs Plays fine on Pi4. Need to bind controller in options**
+- [X] - `openclaw.sh` - Reimplementation of Captain Claw - **Installs, Plays great**
 - [X] - `opendune.sh` - Dune 2 source port - **Installs Play sgreat,/W game, need to need to drop resolutions to lower for full screen**
 - [X] - `openjazz.sh` - An enhanced Jazz Jackrabbit source port - **Installs, Plays great**
 - [X] - `openjk_ja.sh` - OpenJK: JediAcademy (SP + MP) - **Installs, Plays great, didnt test MP**
@@ -239,12 +242,19 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `simutrans.sh` - freeware and open-source transportation simulator  **Installs Plays fine**
 - [X] - `sm64ex.sh` - Super Mario 64 PC Port for Pi4 - Works extremely well on Pi 4. **Installs Plays great**
 - [X] - `sorr.sh` - Streets of Rage Remake port - **Installs, Plays great**
+- [X] - `sqrxz2.sh` - Sqrxz 2 - Two seconds until death - **Installs, Plays great**
+- [X] - `sqrxz3.sh` - Sqrxz 3 - Adventure For Love - **Installs, Plays great**
+- [X] - `sqrxz4.sh` - Sqrxz 4 - Cold Cash - **Installs, Plays great**
+- [X] - `supaplex.sh` - Reverse engineering Supaplex - **Installs, Plays great**
 - [X] - `vanillacc.sh` - Vanilla-Command and Conquer - **Installs, Plays great**
 - [X] - `vcmi.sh` - Open-source engine for Heroes of Might and Magic III - **Installs, Plays great**
 - [X] - `supertuxkart.sh` - a free kart-racing game - **Installs, Plays great at lower resolution**
+- [X] - `temptations.sh` - Enhanced version of the MXS game - **Installs**
 - [X] - `warmux.sh` - Worms Clone - **Installs**
-- [X] - `wesnoth.sh` - turn-based strategy game - **Installs**
+- [X] - `wesnoth.sh` - Turn-based strategy game - **Installs**
+- [X] - `wine.sh` - WINEHQ - Wine Is Not an Emulator - **Installs**
 - [X] - `xash3d-fwgs.sh` - Half-Life engine source port. - **Installs**
+- [X] - `xump.sh` - The Final Run - **Installs**
 - [X] - `zeldansq.sh` - Zelda: Navi's Quest fangame - **Installs, Plays great, Needs correct script to remove xinit errors**
 
 #### Supplementary
@@ -256,17 +266,20 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 - [X] - `filezilla.sh` - A cross platform FTP application - **Installs Runs fine**
 - [X] - `firefox-esr.sh` - FireFox-ESR - Formally known as IceWeasel, the Rebranded Firefox Web Browser - **Installs Runs fine**
 - [ ] - `fun-facts-splashscreens.sh` - Set up some loading splashscreens with fun facts. **Cant test dont have the right system x86**
+- [X] - `golang-1.17.sh` - Golang v1.17 binary install **Installs fine**
 - [X] - `gparted.sh` - partition editing application **Installs Runs fine**
 - [X] - `joystick-selection.sh` - Set controllers for RetroArch players 1-4. **Installs Does what it needs too**
 - [X] - `kodi-extra.sh` - Kodi Media Player 16 with controller support as a separate system - **Installs, works great**
 - [X] - `kweb.sh` - Minimal kiosk web browser - **Installs Runs fine**
 - [X] - `librecad.sh` - librecad open-source 2d cad - **Installs Runs fine**
 - [X] - `libreoffice.sh` - Open source office suite - **Installs Runs fine**
+- [X] - `mesa.sh` - Mesa3d OpenGL and Vulkan Drivers - **Installs fine**
 - [X] - `mpv.sh` - Video Player - Not an actual emulator but allows you to play movies and tv shows from new systems in RetroPie.   - **Installs Runs fine**
 - [X] - `mixx.sh` - Mixxx DJ Mixing Software App - **Installs Runs fine**
 - [X] - `mypaint.sh` - mypaint easy-to-use painting program - **Installs Runs fine**
 - [X] - `omxplayer.sh` - Video Player - **Installs Runs fine**
 - [X] - `putty.sh` - SSH and telnet client - **Installs Runs fine**
+- [X] - `retroscraper.sh` - Scraper for EmulationStation by kiro - **Installs Runs fine**
 - [X] - `screenshot.sh` - Take screenshots remotely through SSH - **Tested and works well.**
 - [X] - `thunderbird.sh` - Thunderbird — Software made to make email easier - **Installs Runs fine**
 - [X] - `videolan.sh` - VLC media player - **Installs Runs fine**
