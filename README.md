@@ -325,5 +325,5 @@ I'll have a note at the end with some Info about it. if there is NO note or [X] 
 
 ## Contact Info / Additional Information
 
-- **Twitter**: [@exarkuniv](https://twitter.com/8ab0c711e7c9447) 
+- Discord `Exarkuniv#1078`
 - I'm very active on the RetroPie [forum](https://retropie.org.uk/forum/)
