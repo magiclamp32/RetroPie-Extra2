@@ -45,14 +45,13 @@ function configure_shockolate() {
     local script="$md_inst/$md_id.sh"
     mkUserDir "$home/.local/share/Interrupt/SystemShock"
     moveConfigDir "$home/.local/share/Interrupt/SystemShock" "$md_conf_root/systemshock"
-    addPort "$md_id" "shockolate" "System Shock" "$script %ROM%"
+    addPort "$md_id" "shockolate" "System Shock" "XINIT: $script %ROM%"
 
     #create buffer script for launch
     cat > "$script" << _EOF_
 #!/bin/bash
 pushd "$md_inst/res"
-cd $md_inst
-sudo xinit ./systemshock
+cd $md_inst && ./systemshock
 _EOF_
 
     chmod +x "$script"
